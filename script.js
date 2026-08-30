@@ -110,4 +110,33 @@ function calculatePay() {
   result.innerHTML =
     "<strong>Estimated payoff time:</strong> " + timeText +
     "<br><strong>Estimated total paid:</strong> $" + totalPaid.toFixed(2);
+}function generatePrompt() {
+  const topic = document.getElementById("aiTopic").value.trim();
+  const style = document.getElementById("aiStyle").value;
+  const result = document.getElementById("aiResult");
+
+  if (!topic) {
+    result.textContent = "Please enter what you need help with.";
+    return;
+  }
+
+  const prompt =
+    "Act as an expert assistant. Help me with: " + topic +
+    ". Use a " + style +
+    " tone. Give me clear, practical, step-by-step information " +
+    "and include useful examples when appropriate.";
+
+  result.innerHTML =
+    "<strong>Your AI prompt:</strong><br><br>" +
+    prompt +
+    "<br><br><button class='button' onclick='copyPrompt()'>Copy Prompt</button>";
+
+  window.generatedPrompt = prompt;
+}
+
+function copyPrompt() {
+  if (window.generatedPrompt) {
+    navigator.clipboard.writeText(window.generatedPrompt);
+    alert("Prompt copied!");
+  }
 }
