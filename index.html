@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
+<header>
+  <div class="logo">FreeLifeTools</div>
+  <nav>
+    <a href="#money">💰 Money</a>
+    <a href="#jobs">💼 Jobs</a>
+    <a href="#ai">🤖 AI Tools</a>
+    <a href="#everyday">🏠 Everyday</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="tag">100% FREE RESOURCES</p>
+    <h1>Make life a little easier.</h1>
+    <p>Free tools and useful ideas to help you save money, find jobs, use AI and handle everyday tasks.</p>
+    <a class="button" href="#categories">Explore Free Tools</a>
+  </section>
+
+  <section id="categories">
+    <h2>What are you looking for?</h2>
+
+    <div class="cards">
+      <article id="money" class="card">
+        <div class="icon">💰</div>
+        <h3>Money</h3>
+        <p>Saving ideas, budgeting help and legitimate ways to explore extra income.</p>
+      </article>
+
+      <article id="jobs" class="card">
+        <div class="icon">💼</div>
+        <h3>Jobs</h3>
+        <p>Job-search tips, resume help and interview preparation.</p>
+      </article>
+
+      <article id="ai" class="card">
+        <div class="icon">🤖</div>
+        <h3>AI Tools</h3>
+        <p>Useful AI prompts and ideas for work, business and everyday life.</p>
+      </article>
+
+      <article id="everyday" class="card">
+        <div class="icon">🏠</div>
+        <h3>Everyday Tools</h3>
+        <p>Simple calculators, checklists and planning tools.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="calculator">
+    <h2>🧮 Tip Calculator</h2>
+    <p>Try one of our free everyday tools.</p>
+
+    <input id="bill" type="number" placeholder="Bill amount">
+    <input id="tip" type="number" value="20" placeholder="Tip %">
+
+    <button class="button" onclick="calculateTip()">Calculate</button>
+
+    <h3 id="result">Enter your bill amount.</h3>
+  </section>
+</main>
+
+<footer>
+  <strong>FreeLifeTools</strong>
+  <p>Free resources for money, jobs, AI and everyday life.</p>
+  <p>© 2026 FreeLifeTools</p>
+</footer>
