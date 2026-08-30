@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Affordability Calculator | FreeLifeTools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="index.html">FreeLifeTools</a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="paycheck.html">Paycheck</a>
+    <a href="budget.html">Budget</a>
+    <a href="money.html">Money</a>
+  </nav>
+</header>
+
+<main class="page">
+
+  <span>MONEY TOOL</span>
+
+  <h1>Rent Affordability Calculator</h1>
+
+  <p class="lead">
+    Estimate a monthly rent amount based on your monthly income.
+  </p>
+
+  <div class="calculator">
+
+    <label>
+      Monthly income
+      <input id="monthlyIncome" type="number" min="0" step="0.01" placeholder="3000">
+    </label>
+
+    <label>
+      Other monthly debt payments
+      <input id="monthlyDebt" type="number" min="0" step="0.01" placeholder="300">
+    </label>
+
+    <button class="button" onclick="calculateRent()">
+      Calculate Rent
+    </button>
+
+    <div id="rentResult">
+      Enter your income above.
+    </div>
+
+  </div>
+
+  <p>
+    <strong>Note:</strong> This is a general estimate, not a guarantee of
+    what a landlord or lender will approve. Actual affordability depends on
+    income, debts, utilities, credit, savings and other expenses.
+  </p>
+
+</main>
+
+<footer>
+  <strong>FreeLifeTools</strong>
+  <p>Free tools for money, jobs, AI and everyday life.</p>
+  <p>© 2026 FreeLifeTools</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
