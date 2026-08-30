@@ -1,174 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pen</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="./script.js"></script>
-  </body>
-</html>
-<header><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2K4SXMTRK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <title>FreeLifeTools | Free Tools for Everyday Life</title>
+  <meta name="description" content="Free tools for money, jobs, AI and everyday life. Simple tools that help make life easier.">
 
-  gtag('config', 'G-N2K4SXMTRK');
-</script>
-  <div class="logo">FreeLifeTools</div>
-  <nav>
-    <a href="#money">💰 Money</a>
-    <a href="#jobs">💼 Jobs</a>
-    <a href="#ai">🤖 AI Tools</a>
-    <a href="#everyday">🏠 Everyday</a>
-    <a href="pro.html">FreeLifeTools Pro</a>
-  </nav>
-</header>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<main>
-  <section class="hero">
-    <p class="tag">100% FREE RESOURCES</p>
-    <h1>Make life a little easier.</h1>
-    <p>Free tools and useful ideas to help you save money, find jobs, use AI and handle everyday tasks.</p>
-    <a class="button" href="#categories">Explore Free Tools</a>
-  </section>
+    html {
+      scroll-behavior: smooth;
+    }
 
-  <section id="categories">
-    <h2>What are you looking for?</h2>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f8fa;
+      color: #17191c;
+    }
 
-    <div class="cards">
-      <article id="money" class="card">
-        <div class="icon">💰</div>
-        <h3>Money</h3>
-        <p>Saving ideas, budgeting help and legitimate ways to explore extra income.</p>
-      </article>
+    a {
+      text-decoration: none;
+    }
 
-      <article id="jobs" class="card">
-        <div class="icon">💼</div>
-        <h3>Jobs</h3>
-        <p>Job-search tips, resume help and interview preparation.</p>
-      </article>
+    /* HEADER */
 
-      <article id="ai" class="card">
-        <div class="icon">🤖</div>
-        <h3>AI Tools</h3>
-        <p>Useful AI prompts and ideas for work, business and everyday life.</p>
-      </article>
+    header {
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e6e7e9;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-      <article id="everyday" class="card">
-        <div class="icon">🏠</div>
-        <h3>Everyday Tools</h3>
-        <p>Simple calculators, checklists and planning tools.</p>
-      </article><a class="card" href="debt.html">
-  <div class="icon">💳</div>
-  <h3>Debt Payoff Calculator</h3>
-  <p>Estimate how long it could take to pay off your debt.</p>
-</a><a class="card" href="grocery.html">
-  <div class="icon">🛒</div>
-  <h3>Grocery Budget Planner</h3>
-  <p>Plan your grocery spending and see how much of your budget remains.</p>
-</a>
-    </div>
-  </section>
-<section class="tool-links">
-  <h2>🧮 Free Calculators</h2>
-  <p>Quick tools you can use for free.</p>
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      min-height: 70px;
+      padding: 0 20px;
 
-  <div class="cards">
-    <a class="card" href="paycheck.html">
-      <div class="icon">💵</div>
-      <h3>Paycheck Calculator</h3>
-      <p>Estimate your gross paycheck and annual income.</p>
-    </a>
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
 
-    <a class="card" href="budget.html">
-      <div class="icon">📊</div>
-      <h3>Budget Calculator</h3>
-      <p>See how much money you may have left after expenses.</p>
-    </a>
-<section class="tool-links">
-  <h2>💼 Free Job Tools</h2>
-  <p>Tools to help you prepare for your next job.</p>
+    .logo {
+      color: #17191c;
+      font-size: 22px;
+      font-weight: 800;
+    }
 
-  <div class="cards">
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
 
-    <a class="card" href="resume.html">
-      <div class="icon">📄</div>
-      <h3>Resume Helper</h3>
-      <p>Create a professional summary and resume bullet points.</p>
-    </a>
+    nav a {
+      color: #5f646b;
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-    <a class="card" href="interview.html">
-      <div class="icon">🎤</div>
-      <h3>Interview Question Generator</h3>
-      <p>Practice questions for different types of job interviews.</p>
-    </a>
+    nav a:hover {
+      color: #17191c;
+    }
 
-  </div>
-</section>
-    <a class="card" href="rent.html">
-      <div class="icon">🏠</div>
-      <h3>Rent Calculator</h3>
-      <p>Estimate a rent amount based on your income.</p>
-    </a>
+    .nav-pro {
+      background: #17191c;
+      color: white !important;
+      padding: 10px 16px;
+      border-radius: 8px;
+    }
 
-    <a class="card" href="everyday.html">
-      <div class="icon">🧮</div>
-      <h3>Tip Calculator</h3>
-      <p>Quickly calculate a tip and your total bill.</p>
-    </a>
-  </div><section class="tool-links">
-  <h2>🤖 Free AI Tools</h2>
-  <p>Free AI-powered tools for everyday tasks.</p>
+    /* HERO */
 
-  <div class="cards">
-    <a class="card" href="ai-tools.html">
-      <div class="icon">🤖</div>
-      <h3>AI Prompt Generator</h3>
-      <p>Create useful prompts for work, business, school and everyday life.</p>
-    </a>
-  </div>
-</section>
-</section>
-  <section class="calculator">
-    <h2>🧮 Tip Calculator</h2>
-    <p>Try one of our free everyday tools.</p>
+    .hero {
+      max-width: 1150px;
+      margin: auto;
+      padding: 95px 20px 75px;
 
-    <input id="bill" type="number" placeholder="Bill amount">
-    <input id="tip" type="number" value="20" placeholder="Tip %">
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 70px;
+    }
 
-    <button class="button" onclick="calculateTip()">Calculate</button>
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #666b72;
+      margin-bottom: 18px;
+    }
 
-    <h3 id="result">Enter your bill amount.</h3>
-  </section>
-</main>
-  <footer style="padding: 30px 20px; text-align: center;"
-  ></main>
-  <footer style="padding: 30px 20px; text-align: center;"
-  >
-  <strong>FreeLifeTools</strong>
+    .hero h1 {
+      font-size: clamp(44px, 7vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin: 0 0 25px;
+      max-width: 700px;
+    }
 
-  <p>Free tools for money, jobs, AI and everyday life.</p>
-
-  <p>
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a> |
-    <a href="privacy.html">Privacy</a>
-  </p>
-
-  <p>
-    <a href="https://www.instagram.com/freelifetools/" target="_blank">Instagram</a> |
-    <a href="https://www.tiktok.com/@freelifetools" target="_blank">TikTok</a> |
-    <a href="https://youtube.com/@freelifetools" target="_blank">YouTube</a>
-  </p>
-
-  <p>© 2026 FreeLifeTools</p>
-</footer>
-
-</body>
-</html>
+    .hero-text {
+      font-size: 19px;
+      color: #666b72;
+     
