@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AI Tools | FreeLifeTools</title>
+  <meta name="description" content="Free AI tools and ideas for work, business and everyday life.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f4fa;
+      color: #19171f;
+    }
+
+    header {
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e4e1e9;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      min-height: 70px;
+      padding: 0 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: #19171f;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #68646f;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #19171f;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px 80px;
+    }
+
+    .back {
+      color: #706b77;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 780px;
+      margin: 45px auto 55px;
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      color: #77717f;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 52px;
+      letter-spacing: -2.5px;
+      margin: 0 0 18px;
+    }
+
+    .hero p {
+      color: #6d6874;
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .ai-box {
+      max-width: 850px;
+      margin: auto;
+      background: white;
+      border: 1px solid #e1dfe6;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 35px rgba(30,20,50,0.06);
+    }
+
+    .ai-box h2 {
+      margin-top: 0;
+      font-size: 23px;
+    }
+
+    .ai-box p {
+      color: #716c77;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 145px;
+      resize: vertical;
+      padding: 16px;
+      border: 1px solid #d8d5de;
+      border-radius: 12px;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+
+    textarea:focus {
+      outline: 2px solid #d5d1dc;
+    }
+
+    .button {
+      border: none;
+      border-radius: 10px;
+      background: #19171f;
+      color: white;
+      padding: 14px 22px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    .button:hover {
+      opacity: 0.88;
+    }
+
+    #aiResult {
+      display: none;
+      margin-top: 22px;
+      padding: 20px;
+      background: #f6f4f9;
+      border: 1px solid #e7e3eb;
+      border-radius: 12px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .section {
+      margin-top: 70px;
+    }
+
+    .section-heading {
+      margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+      font-size: 30px;
+      margin: 0 0 8px;
+    }
+
+    .section-heading p {
+      color: #716c77;
+      margin: 0;
+    }
+
+    .ai-tools {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .tool {
+      background: white;
+      border: 1px solid #e1dfe6;
+      border-radius: 16px;
+      padding: 25px;
+      min-height: 200px;
+    }
+
+    .tool-icon {
+      font-size: 30px;
+      margin-bottom: 16px;
+    }
+
+    .tool h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+    }
+
+    .tool p {
+      color: #706b76;
+      font-size: 14px;
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .tool a {
+      color: #19171f;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .pro {
+      margin-top: 70px;
+      background: #19171f;
+      color: white;
+      border-radius: 20px;
+      padding: 40px;
+
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .pro h2 {
+      font-size: 30px;
+      margin: 0 0 12px;
+    }
+
+    .pro p {
+      color: #d0ccd5;
+      line-height: 1.6;
+      max-width: 650px;
+    }
+
+    .pro .button {
+      background: white;
+      color: #19171f;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #e4e1e9;
+      text-align: center;
+      padding: 40px 20px;
+      color: #6b6670;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #55515
