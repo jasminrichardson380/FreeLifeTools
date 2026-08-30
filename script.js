@@ -138,5 +138,48 @@ function copyPrompt() {
   if (window.generatedPrompt) {
     navigator.clipboard.writeText(window.generatedPrompt);
     alert("Prompt copied!");
+  }function createResume() {
+  const jobTitle = document.getElementById("jobTitle").value.trim();
+  const skills = document.getElementById("skills").value.trim();
+  const experience = document.getElementById("experience").value.trim();
+
+  const result = document.getElementById("resumeResult");
+
+  if (!jobTitle || !skills || !experience) {
+    result.textContent = "Please complete all three fields.";
+    return;
   }
+
+  const skillList = skills
+    .split(",")
+    .map(skill => skill.trim())
+    .filter(Boolean);
+
+  const skillText = skillList.join(", ");
+
+  const summary =
+    "Reliable and motivated " + jobTitle +
+    " with experience in " + skillText +
+    ". Demonstrates strong communication, teamwork, organization, " +
+    "and problem-solving skills. Experienced in handling responsibilities " +
+    "efficiently while providing a positive experience for customers and coworkers.";
+
+  const bullets = [
+    "Performed daily responsibilities related to " + jobTitle + " while maintaining accuracy and professionalism.",
+    "Used skills in " + skillText + " to complete tasks efficiently and support team goals.",
+    "Demonstrated strong communication and problem-solving abilities when handling workplace situations.",
+    "Maintained a dependable and organized approach to daily duties and responsibilities."
+  ];
+
+  result.innerHTML =
+    "<h3>Professional Summary</h3>" +
+    "<p>" + summary + "</p>" +
+    "<h3>Resume Bullet Points</h3>" +
+    "<ul>" +
+    bullets.map(bullet => "<li>" + bullet + "</li>").join("") +
+    "</ul>" +
+    "<p><strong>Your experience:</strong> " +
+    experience.replace(/\n/g, "<br>") +
+    "</p>";
+}
 }
