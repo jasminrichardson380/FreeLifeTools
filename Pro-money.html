@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pro Money Planner | FreeLifeTools</title>
+  <meta name="description" content="Plan your monthly income, bills, debt, savings and spending with the FreeLifeTools Pro Money Planner.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #17191c;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e3e5e8;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: #17191c;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #666b72;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #17191c;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 50px 20px 80px;
+    }
+
+    .back {
+      color: #666b72;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 720px;
+      margin: 40px auto;
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #777c82;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 48px;
+      letter-spacing: -2px;
+      margin: 0 0 15px;
+    }
+
+    .hero p {
+      color: #686d73;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .planner {
+      background: white;
+      border: 1px solid #dfe2e5;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+    }
+
+    .planner h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px;
+      border: 1px solid #d3d7db;
+      border-radius: 9px;
+      font-size: 15px;
+    }
+
+    input:focus {
+      outline: 2px solid #d7dade;
+    }
+
+    .button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 24px;
+      background: #17191c;
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      opacity: 0.88;
+    }
+
+    #results {
+      display: none;
+      margin-top: 30px;
+      padding: 25px;
+      background: #f3f4f5;
+      border-radius: 15px;
+    }
+
+    .results-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e1e3e5;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .card span {
+      display: block;
+      color: #70757b;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .card strong {
+      font-size: 23px;
+    }
+
+    .summary {
+      margin-top: 20px;
+      background: white;
+      border: 1px solid #e1e3e5;
+      border-radius: 12px;
+      padding: 20px;
+      line-height: 1.6;
+      color: #5f646a;
+    }
+
+    .tip {
+      margin-top: 15px;
+      padding: 18px;
+      border-radius: 12px;
+      background: white;
+      border: 1px solid #e1e3e5;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-top: 65px;
+    }
+
+    .section h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .section > p {
+      color: #6d7278;
+      line-height: 1.6;
+    }
+
+    .tips {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .tip-card {
+      background: white;
+      border: 1px solid #e1e3e6;
+      border-radius: 15px;
+      padding: 23px;
+    }
+
+    .tip-card .icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .tip-card h3 {
+      margin: 0 0 9px;
+      font-size: 18px;
+    }
+
+    .tip-card p {
+      color: #6c7177;
+      font-size: 14px;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #e3e5e8;
+      text-align: center;
+      padding: 40px 20px;
+      color: #666b72;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+
+      .nav {
+        flex-direction: column;
+      }
+
+      .fields {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .tips {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 39px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="nav">
+
+    <a class="logo" href="index.html">
+      FreeLifeTools
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="pro.html">Pro</a>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <a class="back" href="pro.html">
+    ← Back to Pro
+  </a>
+
+
+  <section class="hero">
+
+    <div class="tag">
+      FREELIFETOOLS PRO
+    </div>
+
+    <h1>
+      Monthly Money Planner
+    </h1>
+
+    <p>
+      See where your money could go each month and
+      create a simple plan for bills, debt, savings and spending.
+    </p>
+
+  </section>
+
+
+  <section class="planner">
+
+    <h2>
+      Enter your monthly numbers
+    </h2>
+
+    <div class="fields">
+
+      <label>
+        Monthly income
+
+        <input
+          id="income"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="3000"
+        >
+      </label>
+
+
+      <label>
+        Housing
+
+        <input
+          id="housing"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="1000"
+        >
+      </label>
+
+
+      <label>
+        Utilities
+
+        <input
+          id="utilities"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="250"
+        >
+      </label>
+
+
+      <label>
+        Food
+
+        <input
+          id="food"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="400"
+        >
+      </label>
+
+
+      <label>
+        Transportation
+
+        <input
+          id="transportation"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="300"
+        >
+      </label>
+
+
+      <label>
+        Debt payments
+
+        <input
+          id="debt"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="250"
+        >
+      </label>
+
+
+      <label>
+        Savings goal
+
+        <input
+          id="savings"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="200"
+        >
+      </label>
+
+
+      <label>
+        Other expenses
+
+        <input
+          id="other"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="150"
+        >
+      </label>
+
+    </div>
+
+
+    <button class="button" onclick="calculateMoney()">
+      Build My Money Plan
+    </button>
+
+
+    <div id="results">
+
+      <div class="results-title">
+        Your monthly plan
+      </div>
+
+
+      <div class="cards">
+
+        <div class="card">
+          <span>Monthly income</span>
+          <strong id="resultIncome">$0.00</strong>
+        </div>
+
+        <div class="card">
+          <span>Total expenses</span>
+          <strong id="resultExpenses">$0.00</strong>
+        </div>
+
+        <div class="card">
+          <span>Savings goal</span>
+          <strong id="resultSavings">$0.00</strong>
+        </div>
+
+        <div class="card">
+          <span>Money remaining</span>
+          <strong id="resultRemaining">$0.00</strong>
+        </div>
+
+      </div>
+
+
+      <div class="summary" id="summary"></div>
+
+      <div class="tip" id="tip"></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <h2>
+      Simple money-planning ideas
+    </h2>
+
+    <p>
+      Use your results as a starting point for deciding
+      how you want to handle your money each month.
+    </p>
+
+
+    <div class="tips">
+
+      <div class="tip-card">
+
+        <div class="icon">🏠</div>
+
+        <h3>
+          Handle essentials first
+        </h3>
+
+        <p>
+          Start with housing, utilities, food and other
+          necessary expenses.
+        </p>
+
+      </div>
+
+
+      <div class="tip-card">
+
+        <div class="icon">💰</div>
+
+        <h3>
+          Give savings a goal
+        </h3>
+
+        <p>
+          Choose a specific amount you would like to
+          set aside each month.
+        </p>
+
+      </div>
+
+
+      <div class="tip-card">
+
+        <div class="icon">📉</div>
+
+        <h3>
+          Watch your debt
+        </h3>
+
+        <p>
+          Keep track of required debt payments and
+          consider making extra payments when possible.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>FreeLifeTools</strong>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>
+    © 2026 FreeLifeTools
+  </p>
+
+</footer>
+
+
+<script>
+
+function money(amount) {
+
+  return amount.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD"
+  });
+
+}
+
+
+function getValue(id) {
+
+  return parseFloat(
+    document.getElementById(id).value
+  ) || 0;
+
+}
+
+
+function calculateMoney() {
+
+  const income = getValue("income");
+
+  if (income <= 0) {
+
+    alert("Please enter your monthly income.");
+
+    return;
+
+  }
+
+
+  const housing = getValue("housing");
+
+  const utilities = getValue("utilities");
+
+  const food = getValue("food");
+
+  const transportation = getValue("transportation");
+
+  const debt = getValue("debt");
+
+  const savings = getValue("savings");
+
+  const other = getValue("other");
+
+
+  const expenses =
+    housing +
+    utilities +
+    food +
+    transportation +
+    debt +
+    other;
+
+
+  const remaining =
+    income - expenses - savings;
+
+
+  document.getElementById("resultIncome").textContent =
+    money(income);
+
+
+  document.getElementById("resultExpenses").textContent =
+    money(expenses);
+
+
+  document.getElementById("resultSavings").textContent =
+    money(savings);
+
+
+  document.getElementById("resultRemaining").textContent =
+    money(remaining);
+
+
+  const summary =
+    document.getElementById("summary");
+
+
+  if (remaining > 0) {
+
+    summary.textContent =
+      "After your listed expenses and savings goal, you have approximately " +
+      money(remaining) +
+      " remaining this month.";
+
+  } else if (remaining === 0) {
+
+    summary.textContent =
+      "Your income is approximately fully allocated between your listed expenses and savings goal.";
+
+  } else {
+
+    summary.textContent =
+      "Your listed expenses and savings goal are approximately " +
+      money(Math.abs(remaining)) +
+      " higher than your monthly income.";
+
+  }
+
+
+  const tip =
+    document.getElementById("tip");
+
+
+  const essential =
+    housing +
+    utilities +
+    food +
+    transportation;
+
+
+  const essentialPercent =
+    income > 0
+      ? (essential / income) * 100
+      : 0;
+
+
+  if (remaining < 0) {
+
+    tip.textContent =
+      "Tip: Your current plan is above your monthly income. Review your expenses and savings goal to see where you may be able to make adjustments.";
+
+  } else if (essentialPercent > 60) {
+
+    tip.textContent =
+      "Tip: Your listed essential expenses use more than 60% of your income. You may want to review your largest monthly expenses.";
+
+  } else if (savings > 0) {
+
+    tip.textContent =
+      "Tip: You included a savings goal of " +
+      money(savings) +
+      " per month. Keep that goal visible when planning your spending.";
+
+  } else {
+
+    tip.textContent =
+      "Tip: Consider adding a monthly savings goal so your plan includes money for future needs.";
+
+  }
+
+
+  document.getElementById("results").style.display =
+    "block";
+
+}
+
+</script>
+
+</body>
+</html>
