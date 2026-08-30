@@ -1,4 +1,4 @@
-```text
+text
 {
   "name": "functions",
   "version": "1.0.0",
@@ -6,4 +6,4 @@
     "stripe": "^18.5.0"
   }
 }
-```
+
