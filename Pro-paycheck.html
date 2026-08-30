@@ -26,12 +26,10 @@
     .nav {
       max-width: 1100px;
       margin: auto;
-      min-height: 70px;
-      padding: 0 20px;
-
+      padding: 18px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 20px;
     }
 
@@ -39,7 +37,7 @@
       color: #17191c;
       text-decoration: none;
       font-size: 22px;
-      font-weight: 800;
+      font-weight: bold;
     }
 
     nav {
@@ -49,46 +47,46 @@
     }
 
     nav a {
-      color: #646970;
+      color: #666b72;
       text-decoration: none;
       font-size: 14px;
       font-weight: 600;
     }
 
     main {
-      max-width: 950px;
+      max-width: 900px;
       margin: auto;
-      padding: 55px 20px 80px;
+      padding: 50px 20px 80px;
     }
 
     .back {
-      color: #686d73;
+      color: #666b72;
       text-decoration: none;
       font-size: 14px;
     }
 
     .hero {
       text-align: center;
-      max-width: 700px;
       margin: 40px auto;
+      max-width: 700px;
     }
 
     .tag {
       font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.6px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
       color: #777c82;
-      margin-bottom: 14px;
+      margin-bottom: 15px;
     }
 
     h1 {
-      font-size: 48px;
+      font-size: 46px;
       letter-spacing: -2px;
       margin: 0 0 15px;
     }
 
     .hero p {
-      color: #6b7076;
+      color: #666b72;
       font-size: 17px;
       line-height: 1.6;
     }
@@ -97,4 +95,494 @@
       background: white;
       border: 1px solid #e0e2e5;
       border-radius: 20px;
-      padding: 30px
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .planner h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      margin-top: 8px;
+      padding: 13px;
+      border: 1px solid #d5d8dc;
+      border-radius: 9px;
+      font-size: 15px;
+      background: white;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 22px;
+      background: #17191c;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      opacity: 0.88;
+    }
+
+    #result {
+      display: none;
+      margin-top: 25px;
+      padding: 25px;
+      background: #f3f4f5;
+      border-radius: 15px;
+    }
+
+    .result-title {
+      font-size: 21px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .result-card {
+      background: white;
+      border-radius: 10px;
+      padding: 18px;
+      border: 1px solid #e1e3e5;
+    }
+
+    .result-card span {
+      display: block;
+      color: #70757b;
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    .result-card strong {
+      font-size: 22px;
+    }
+
+    .tip {
+      margin-top: 20px;
+      padding: 17px;
+      background: white;
+      border-radius: 10px;
+      border: 1px solid #e1e3e5;
+      color: #5f646a;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #e3e5e8;
+      text-align: center;
+      padding: 40px 20px;
+      color: #666b72;
+      font-size: 14px;
+    }
+
+    @media (max-width: 650px) {
+
+      .nav {
+        flex-direction: column;
+      }
+
+      .fields {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="nav">
+
+    <a class="logo" href="index.html">
+      FreeLifeTools
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="pro.html">Pro</a>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <a class="back" href="pro.html">
+    ← Back to Pro
+  </a>
+
+
+  <section class="hero">
+
+    <div class="tag">
+      FREELIFETOOLS PRO
+    </div>
+
+    <h1>
+      Pro Paycheck Planner
+    </h1>
+
+    <p>
+      See your estimated paycheck, monthly income,
+      expenses and potential savings in one place.
+    </p>
+
+  </section>
+
+
+  <section class="planner">
+
+    <h2>
+      Enter your numbers
+    </h2>
+
+
+    <div class="fields">
+
+      <label>
+        Hourly wage
+
+        <input
+          id="wage"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="17.00"
+        >
+
+      </label>
+
+
+      <label>
+        Hours per week
+
+        <input
+          id="hours"
+          type="number"
+          min="0"
+          step="0.5"
+          value="40"
+        >
+
+      </label>
+
+
+      <label>
+        Pay frequency
+
+        <select id="frequency">
+
+          <option value="52">
+            Weekly
+          </option>
+
+          <option value="26" selected>
+            Every 2 weeks
+          </option>
+
+          <option value="24">
+            Twice a month
+          </option>
+
+          <option value="12">
+            Monthly
+          </option>
+
+        </select>
+
+      </label>
+
+
+      <label>
+        Monthly bills
+
+        <input
+          id="bills"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="1500"
+        >
+
+      </label>
+
+
+      <label>
+        Monthly debt payments
+
+        <input
+          id="debt"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="300"
+        >
+
+      </label>
+
+
+      <label>
+        Monthly savings goal
+
+        <input
+          id="savings"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="200"
+        >
+
+      </label>
+
+    </div>
+
+
+    <button class="button" onclick="calculatePlanner()">
+      Calculate My Plan
+    </button>
+
+
+    <div id="result">
+
+      <div class="result-title">
+        Your estimated plan
+      </div>
+
+
+      <div class="result-grid">
+
+        <div class="result-card">
+
+          <span>
+            Estimated paycheck
+          </span>
+
+          <strong id="paycheck">
+            $0.00
+          </strong>
+
+        </div>
+
+
+        <div class="result-card">
+
+          <span>
+            Estimated annual income
+          </span>
+
+          <strong id="annual">
+            $0.00
+          </strong>
+
+        </div>
+
+
+        <div class="result-card">
+
+          <span>
+            Estimated monthly income
+          </span>
+
+          <strong id="monthly">
+            $0.00
+          </strong>
+
+        </div>
+
+
+        <div class="result-card">
+
+          <span>
+            Money left after expenses
+          </span>
+
+          <strong id="left">
+            $0.00
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="tip" id="tip"></div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>FreeLifeTools</strong>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>
+    © 2026 FreeLifeTools
+  </p>
+
+</footer>
+
+
+<script>
+
+function money(amount) {
+
+  return amount.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD"
+  });
+
+}
+
+
+function calculatePlanner() {
+
+  const wage =
+    parseFloat(document.getElementById("wage").value);
+
+  const hours =
+    parseFloat(document.getElementById("hours").value);
+
+  const frequency =
+    parseInt(document.getElementById("frequency").value);
+
+  const bills =
+    parseFloat(document.getElementById("bills").value) || 0;
+
+  const debt =
+    parseFloat(document.getElementById("debt").value) || 0;
+
+  const savings =
+    parseFloat(document.getElementById("savings").value) || 0;
+
+
+  if (!wage || wage <= 0 || !hours || hours <= 0) {
+
+    alert("Please enter your hourly wage and hours per week.");
+
+    return;
+
+  }
+
+
+  const annual =
+    wage * hours * 52;
+
+
+  const paycheck =
+    annual / frequency;
+
+
+  const monthly =
+    annual / 12;
+
+
+  const left =
+    monthly - bills - debt - savings;
+
+
+  document.getElementById("paycheck").textContent =
+    money(paycheck);
+
+
+  document.getElementById("annual").textContent =
+    money(annual);
+
+
+  document.getElementById("monthly").textContent =
+    money(monthly);
+
+
+  document.getElementById("left").textContent =
+    money(left);
+
+
+  const tip =
+    document.getElementById("tip");
+
+
+  if (left > 0) {
+
+    tip.textContent =
+      "Based on the numbers you entered, you have approximately " +
+      money(left) +
+      " left each month after your listed bills, debt payments and savings goal. This is an estimate before taxes and other deductions.";
+
+  } else if (left === 0) {
+
+    tip.textContent =
+      "Your listed monthly income and expenses are approximately balanced. This estimate does not include taxes or other deductions.";
+
+  } else {
+
+    tip.textContent =
+      "Your listed expenses and savings goals are higher than your estimated monthly income. Consider reviewing the amounts. This is an estimate before taxes and other deductions.";
+
+  }
+
+
+  document.getElementById("result").style.display =
+    "block";
+
+}
+
+</script>
+
+</body>
+</html>
