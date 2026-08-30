@@ -1,38 +1,20 @@
 ```javascript
 const Stripe = require("stripe");
 
-exports.handler = async (event) => {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+exports.handler = async function () {
   try {
-    if (event.httpMethod !== "POST") {
-      return {
-        statusCode: 405,
-        body: JSON.stringify({
-          error: "Method not allowed"
-        })
-      };
-    }
-
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
-    const siteUrl =
-      process.env.URL ||
-      "https://elaborate-maamoul-1fad9f.netlify.app";
-
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
-
       line_items: [
         {
-          price: "price_1UAAu3B3mpO2cUXP47SAfb8z",
+          price: "price_1UAAu3B3mpO2cUXPIlcgjVCBj54tBUzNnIWP4g66Ao8AdjXJkNF3uOxl8UrTbEC3WpSx6NLs3jQ7cCY3hfdAieNA001IMmydat",
           quantity: 1
         }
       ],
-
-      success_url: `${siteUrl}/pro.html?payment=success`,
-      cancel_url: `${siteUrl}/pro.html?payment=cancelled`,
-
-      billing_address_collection: "auto",
-      allow_promotion_codes: true
+      success_url: "https://elaborate-maamoul-1fad9f.netlify.app/pro.html?payment=success",
+      cancel_url: "https://elaborate-maamoul-1fad9f.netlify.app/pro.html?payment=cancelled"
     });
 
     return {
@@ -44,12 +26,12 @@ exports.handler = async (event) => {
     };
 
   } catch (error) {
-    console.error(error);
+    console.error("Stripe checkout error:", error);
 
     return {
       statusCode: 500,
       body: JSON.stringify({
-        error: "Unable to create checkout session."
+        error: error.message
       })
     };
   }
