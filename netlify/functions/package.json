@@ -1,0 +1,7 @@
+```json
+{
+  "dependencies": {
+    "stripe": "^18.5.0"
+  }
+}
+```
