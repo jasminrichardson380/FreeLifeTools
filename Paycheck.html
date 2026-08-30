@@ -3,146 +3,266 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Paycheck Calculator | FreeLifeTools</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #222;
+      background: #f7f8fc;
+      color: #171717;
     }
 
     header {
-      background: #111827;
-      color: white;
-      padding: 20px;
-      text-align: center;
+      background: white;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 18px 20px;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
     }
 
     .logo {
-      color: white;
       text-decoration: none;
-      font-size: 24px;
-      font-weight: bold;
+      color: #171717;
+      font-size: 21px;
+      font-weight: 800;
     }
 
     nav {
-      margin-top: 12px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
     nav a {
-      color: white;
+      color: #555;
       text-decoration: none;
-      margin: 0 8px;
+      font-size: 14px;
     }
 
-    .page {
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 20px;
+    nav a:hover {
+      color: #000;
     }
 
-    .category {
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 1px;
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 55px 20px;
+    }
+
+    .back {
+      color: #666;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 650px;
+      margin: 25px auto 35px;
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #666;
+      margin-bottom: 12px;
     }
 
     h1 {
-      font-size: 38px;
-      margin-bottom: 10px;
+      font-size: 42px;
+      margin: 0 0 15px;
+      letter-spacing: -1px;
     }
 
-    .lead {
-      color: #555;
-      font-size: 18px;
-      line-height: 1.5;
+    .intro p {
+      color: #666;
+      font-size: 17px;
+      line-height: 1.6;
+      margin: 0;
     }
 
-    .calculator {
+    .calculator-card {
       background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 18px;
       padding: 30px;
-      margin-top: 30px;
-      border-radius: 16px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      max-width: 620px;
+      margin: auto;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    }
+
+    .calculator-card h2 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .field {
+      margin-bottom: 20px;
     }
 
     label {
       display: block;
-      font-weight: bold;
-      margin-top: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 14px;
     }
 
     input,
     select {
-      display: block;
       width: 100%;
-      box-sizing: border-box;
       padding: 14px;
-      margin-top: 8px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      border: 1px solid #d7d7d7;
+      border-radius: 9px;
       font-size: 16px;
+      background: white;
+    }
+
+    input:focus,
+    select:focus {
+      outline: 2px solid #d0d0d0;
     }
 
     .button {
       width: 100%;
-      margin-top: 25px;
+      border: 0;
+      border-radius: 9px;
       padding: 15px;
-      border: none;
-      border-radius: 8px;
-      font-size: 18px;
-      cursor: pointer;
-      background: #111827;
+      background: #171717;
       color: white;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 5px;
     }
 
     .button:hover {
-      opacity: 0.85;
+      opacity: 0.88;
     }
 
     #payResult {
       display: none;
       margin-top: 25px;
-      padding: 20px;
-      border-radius: 10px;
-      background: #f5f7fb;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+
+    .result-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 12px;
     }
 
     .result-row {
       display: flex;
       justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid #ddd;
+      gap: 20px;
+      padding: 13px 0;
+      border-bottom: 1px solid #eee;
     }
 
     .result-row:last-child {
-      border-bottom: none;
+      border-bottom: 0;
     }
 
-    .annual {
-      font-size: 22px;
-      font-weight: bold;
+    .result-row strong {
+      text-align: right;
+    }
+
+    .highlight {
+      font-size: 21px;
     }
 
     .note {
-      margin-top: 25px;
-      color: #666;
-      font-size: 14px;
-      line-height: 1.5;
+      max-width: 620px;
+      margin: 20px auto 0;
+      color: #777;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .more-tools {
+      margin-top: 55px;
+      text-align: center;
+    }
+
+    .more-tools h2 {
+      font-size: 25px;
+    }
+
+    .tool-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .tool-link {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 20px;
+      text-decoration: none;
+      color: #171717;
+      font-weight: 700;
+    }
+
+    .tool-link span {
+      display: block;
+      font-size: 13px;
+      color: #777;
+      font-weight: normal;
+      margin-top: 7px;
     }
 
     footer {
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 40px;
+      border-top: 1px solid #e8e8e8;
       background: white;
+      text-align: center;
+      padding: 35px 20px;
+      color: #666;
+      font-size: 14px;
     }
 
     footer a {
-      color: inherit;
+      color: #555;
+      text-decoration: none;
       margin: 0 5px;
+    }
+
+    @media (max-width: 650px) {
+      .header-inner {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .calculator-card {
+        padding: 22px;
+      }
+
+      .tool-links {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -150,84 +270,129 @@
 <body>
 
 <header>
-  <a class="logo" href="index.html">FreeLifeTools</a>
+  <div class="header-inner">
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="paycheck.html">Paycheck</a>
-    <a href="money.html">Money</a>
-    <a href="pro.html">Pro</a>
-  </nav>
+    <a class="logo" href="index.html">
+      FreeLifeTools
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="paycheck.html">Paycheck</a>
+      <a href="budget.html">Budget</a>
+      <a href="debt.html">Debt</a>
+      <a href="money.html">Money</a>
+      <a href="pro.html">Pro</a>
+    </nav>
+
+  </div>
 </header>
 
-<main class="page">
+<main>
 
-  <div class="category">MONEY TOOL</div>
+  <a class="back" href="index.html">← Back to FreeLifeTools</a>
 
-  <h1>Paycheck Calculator 💰</h1>
+  <section class="intro">
 
-  <p class="lead">
-    Estimate your gross paycheck, monthly income, and annual income based on your hourly wage and hours worked.
-  </p>
+    <div class="tag">MONEY TOOL</div>
 
-  <div class="calculator">
+    <h1>Paycheck Calculator</h1>
 
-    <label for="wage">
-      Hourly wage
-    </label>
+    <p>
+      Quickly estimate your paycheck and see how much you could earn
+      weekly, monthly, and annually.
+    </p>
 
-    <input
-      id="wage"
-      type="number"
-      min="0"
-      step="0.01"
-      placeholder="17.00"
-    >
+  </section>
 
-    <label for="hours">
-      Hours per week
-    </label>
+  <section class="calculator-card">
 
-    <input
-      id="hours"
-      type="number"
-      min="0"
-      max="168"
-      step="0.5"
-      value="40"
-    >
+    <h2>Enter your information</h2>
 
-    <label for="frequency">
-      Pay frequency
-    </label>
+    <div class="field">
+      <label for="wage">Hourly wage</label>
 
-    <select id="frequency">
-      <option value="52">Weekly</option>
-      <option value="26" selected>Every 2 weeks</option>
-      <option value="24">Twice a month</option>
-      <option value="12">Monthly</option>
-    </select>
+      <input
+        id="wage"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="17.00"
+      >
+    </div>
+
+    <div class="field">
+      <label for="hours">Hours worked per week</label>
+
+      <input
+        id="hours"
+        type="number"
+        min="0"
+        max="168"
+        step="0.5"
+        value="40"
+      >
+    </div>
+
+    <div class="field">
+      <label for="frequency">Pay frequency</label>
+
+      <select id="frequency">
+        <option value="52">Weekly</option>
+        <option value="26" selected>Every 2 weeks</option>
+        <option value="24">Twice a month</option>
+        <option value="12">Monthly</option>
+      </select>
+    </div>
 
     <button class="button" onclick="calculatePay()">
-      Calculate Pay
+      Calculate My Pay
     </button>
 
     <div id="payResult"></div>
 
-  </div>
+  </section>
 
   <p class="note">
-    <strong>Note:</strong> This calculator estimates gross pay before taxes,
-    insurance, retirement contributions, and other deductions. Actual take-home
+    This calculator estimates gross pay before taxes, insurance,
+    retirement contributions, and other deductions. Actual take-home
     pay may be different.
   </p>
+
+  <section class="more-tools">
+
+    <h2>More Free Money Tools</h2>
+
+    <div class="tool-links">
+
+      <a class="tool-link" href="budget.html">
+        📊 Budget Planner
+        <span>Plan your monthly spending.</span>
+      </a>
+
+      <a class="tool-link" href="debt.html">
+        💳 Debt Payoff
+        <span>Estimate your debt payoff time.</span>
+      </a>
+
+      <a class="tool-link" href="money.html">
+        💰 Money Tools
+        <span>Explore more free financial tools.</span>
+      </a>
+
+    </div>
+
+  </section>
 
 </main>
 
 <footer>
+
   <strong>FreeLifeTools</strong>
 
-  <p>Free tools for money, jobs, AI and everyday life.</p>
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
 
   <p>
     <a href="about.html">About</a> |
@@ -236,6 +401,7 @@
   </p>
 
   <p>© 2026 FreeLifeTools</p>
+
 </footer>
 
 <script>
@@ -272,24 +438,26 @@
     result.style.display = "block";
 
     result.innerHTML = `
+      <div class="result-title">Your estimated earnings</div>
+
+      <div class="result-row">
+        <span>Estimated paycheck</span>
+        <strong class="highlight">${money.format(paycheckPay)}</strong>
+      </div>
+
       <div class="result-row">
         <span>Weekly gross pay</span>
         <strong>${money.format(weeklyPay)}</strong>
       </div>
 
       <div class="result-row">
-        <span>Estimated paycheck</span>
-        <strong>${money.format(paycheckPay)}</strong>
-      </div>
-
-      <div class="result-row">
-        <span>Estimated monthly income</span>
+        <span>Monthly gross pay</span>
         <strong>${money.format(monthlyPay)}</strong>
       </div>
 
       <div class="result-row">
-        <span>Estimated annual income</span>
-        <strong class="annual">${money.format(annualPay)}</strong>
+        <span>Annual gross pay</span>
+        <strong>${money.format(annualPay)}</strong>
       </div>
     `;
   }
