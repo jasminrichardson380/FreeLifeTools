@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paycheck Calculator | FreeLifeTools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="index.html">FreeLifeTools</a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="paycheck.html">Paycheck</a>
+    <a href="money.html">Money</a>
+  </nav>
+</header>
+
+<main class="page">
+
+  <span>MONEY TOOL</span>
+
+  <h1>Paycheck Calculator</h1>
+
+  <p class="lead">
+    Estimate your gross and annual pay based on your hourly wage and hours worked.
+  </p>
+
+  <div class="calculator">
+
+    <label>
+      Hourly wage
+      <input id="wage" type="number" min="0" step="0.01" placeholder="17.00">
+    </label>
+
+    <label>
+      Hours per week
+      <input id="hours" type="number" min="0" step="0.5" value="40">
+    </label>
+
+    <label>
+      Pay frequency
+      <select id="frequency">
+        <option value="52">Weekly</option>
+        <option value="26" selected>Every 2 weeks</option>
+        <option value="24">Twice a month</option>
+        <option value="12">Monthly</option>
+      </select>
+    </label>
+
+    <button class="button" onclick="calculatePay()">
+      Calculate Pay
+    </button>
+
+    <div id="payResult">
+      Enter your information above.
+    </div>
+
+  </div>
+
+  <p>
+    <strong>Note:</strong> This calculator estimates gross pay before taxes,
+    insurance, retirement contributions, and other deductions.
+  </p>
+
+</main>
+
+<footer>
+  <strong>FreeLifeTools</strong>
+  <p>Free tools for money, jobs, AI and everyday life.</p>
+  <p>© 2026 FreeLifeTools</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
