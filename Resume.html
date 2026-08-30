@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Resume Helper | FreeLifeTools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="index.html">FreeLifeTools</a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="ai-tools.html">AI Tools</a>
+    <a href="resume.html">Resume</a>
+  </nav>
+</header>
+
+<main class="page">
+
+  <span>FREE JOB TOOL</span>
+
+  <h1>Resume Helper</h1>
+
+  <p class="lead">
+    Create a professional resume summary and job bullet points you can copy.
+  </p>
+
+  <div class="calculator">
+
+    <label>
+      Job title
+      <input id="jobTitle" type="text"
+        placeholder="Example: Customer Service Associate">
+    </label>
+
+    <label>
+      Your skills
+      <input id="skills" type="text"
+        placeholder="Example: customer service, cash handling, teamwork">
+    </label>
+
+    <label>
+      Your experience
+      <textarea id="experience" rows="5"
+        placeholder="Describe your work experience, responsibilities or accomplishments."></textarea>
+    </label>
+
+    <button class="button" onclick="createResume()">
+      Create Resume Content
+    </button>
+
+    <div id="resumeResult">
+      Enter your information above.
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <strong>FreeLifeTools</strong>
+  <p>Free tools for money, jobs, AI and everyday life.</p>
+  <p>© 2026 FreeLifeTools</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
