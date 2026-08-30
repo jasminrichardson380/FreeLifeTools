@@ -1,0 +1,746 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Savings Goal Tracker | FreeLifeTools Pro</title>
+
+  <meta
+    name="description"
+    content="Track your savings goal and estimate how long it may take to reach your target."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f6f8;
+      color: #17191c;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e2e4e7;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: #17191c;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #666b72;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #17191c;
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 50px 20px 80px;
+    }
+
+    .back {
+      color: #666b72;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      max-width: 720px;
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #777c82;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 48px;
+      letter-spacing: -2px;
+      margin: 0 0 15px;
+    }
+
+    .hero p {
+      color: #686d73;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .tracker {
+      background: white;
+      border: 1px solid #dfe2e5;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+    }
+
+    .tracker h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px;
+      border: 1px solid #d2d6da;
+      border-radius: 9px;
+      font-size: 15px;
+    }
+
+    .button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 24px;
+      background: #17191c;
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      opacity: 0.88;
+    }
+
+    #results {
+      display: none;
+      margin-top: 30px;
+      padding: 25px;
+      background: #f3f4f5;
+      border-radius: 15px;
+    }
+
+    .results-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .progress-area {
+      background: white;
+      border: 1px solid #e1e3e5;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 18px;
+      background: #e5e7e9;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #17191c;
+      border-radius: 20px;
+      transition: width 0.5s ease;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e1e3e5;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .card span {
+      display: block;
+      color: #70757b;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .card strong {
+      font-size: 22px;
+    }
+
+    .summary {
+      margin-top: 20px;
+      padding: 20px;
+      background: white;
+      border: 1px solid #e1e3e5;
+      border-radius: 12px;
+      color: #5f646a;
+      line-height: 1.6;
+    }
+
+    .note {
+      margin-top: 18px;
+      color: #777c82;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #e3e5e8;
+      text-align: center;
+      padding: 40px 20px;
+      color: #666b72;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+
+      .nav {
+        flex-direction: column;
+      }
+
+      .fields {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 39px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="nav">
+
+    <a class="logo" href="index.html">
+      FreeLifeTools
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="pro.html">Pro</a>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <a class="back" href="pro.html">
+    ← Back to Pro
+  </a>
+
+
+  <section class="hero">
+
+    <div class="tag">
+      FREELIFETOOLS PRO
+    </div>
+
+    <h1>
+      Savings Goal Tracker
+    </h1>
+
+    <p>
+      Set a savings target, track your progress and
+      estimate how much you need to save each month.
+    </p>
+
+  </section>
+
+
+  <section class="tracker">
+
+    <h2>
+      Set your savings goal
+    </h2>
+
+
+    <div class="fields">
+
+      <label>
+        Savings goal
+
+        <input
+          id="goal"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="5000"
+        >
+      </label>
+
+
+      <label>
+        Amount already saved
+
+        <input
+          id="saved"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="1000"
+        >
+      </label>
+
+
+      <label>
+        Amount you can save each month
+
+        <input
+          id="monthly"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="250"
+        >
+      </label>
+
+
+      <label>
+        Target date
+
+        <input
+          id="targetDate"
+          type="date"
+        >
+      </label>
+
+    </div>
+
+
+    <button
+      class="button"
+      onclick="calculateSavings()"
+    >
+      Track My Goal
+    </button>
+
+
+    <div id="results">
+
+      <div class="results-title">
+        Your savings plan
+      </div>
+
+
+      <div class="progress-area">
+
+        <div class="progress-info">
+
+          <span>
+            Progress
+          </span>
+
+          <span id="percent">
+            0%
+          </span>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+          <div
+            class="progress-fill"
+            id="progressFill"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <div class="cards">
+
+        <div class="card">
+
+          <span>
+            Still needed
+          </span>
+
+          <strong id="remaining">
+            $0.00
+          </strong>
+
+        </div>
+
+
+        <div class="card">
+
+          <span>
+            Estimated time
+          </span>
+
+          <strong id="time">
+            —
+          </strong>
+
+        </div>
+
+
+        <div class="card">
+
+          <span>
+            Current savings
+          </span>
+
+          <strong id="current">
+            $0.00
+          </strong>
+
+        </div>
+
+
+        <div class="card">
+
+          <span>
+            Monthly savings
+          </span>
+
+          <strong id="monthlyResult">
+            $0.00
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="summary"
+        id="summary"
+      ></div>
+
+    </div>
+
+
+    <div class="note">
+      This is a planning estimate. Actual results may vary
+      depending on when you make deposits and whether your
+      savings amount changes.
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>
+    FreeLifeTools
+  </strong>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>
+    © 2026 FreeLifeTools
+  </p>
+
+</footer>
+
+
+<script>
+
+function money(amount) {
+
+  return amount.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD"
+  });
+
+}
+
+
+function calculateSavings() {
+
+  const goal =
+    parseFloat(
+      document.getElementById("goal").value
+    );
+
+
+  const saved =
+    parseFloat(
+      document.getElementById("saved").value
+    ) || 0;
+
+
+  const monthly =
+    parseFloat(
+      document.getElementById("monthly").value
+    );
+
+
+  const targetDate =
+    document.getElementById("targetDate").value;
+
+
+  if (!goal || goal <= 0) {
+
+    alert("Please enter your savings goal.");
+
+    return;
+
+  }
+
+
+  if (saved < 0) {
+
+    alert("Your saved amount cannot be negative.");
+
+    return;
+
+  }
+
+
+  if (!monthly || monthly <= 0) {
+
+    alert("Please enter how much you can save each month.");
+
+    return;
+
+  }
+
+
+  const remaining =
+    Math.max(goal - saved, 0);
+
+
+  let percent =
+    (saved / goal) * 100;
+
+
+  percent =
+    Math.min(Math.max(percent, 0), 100);
+
+
+  const monthsNeeded =
+    Math.ceil(remaining / monthly);
+
+
+  const years =
+    Math.floor(monthsNeeded / 12);
+
+
+  const months =
+    monthsNeeded % 12;
+
+
+  let timeText = "";
+
+
+  if (years > 0) {
+
+    timeText +=
+      years +
+      (years === 1 ? " year" : " years");
+
+  }
+
+
+  if (months > 0) {
+
+    if (timeText !== "") {
+      timeText += " ";
+    }
+
+    timeText +=
+      months +
+      (months === 1 ? " month" : " months");
+
+  }
+
+
+  if (timeText === "") {
+
+    timeText =
+      "Goal reached";
+
+  }
+
+
+  document.getElementById("percent").textContent =
+    percent.toFixed(0) + "%";
+
+
+  document.getElementById("progressFill").style.width =
+    percent + "%";
+
+
+  document.getElementById("remaining").textContent =
+    money(remaining);
+
+
+  document.getElementById("time").textContent =
+    timeText;
+
+
+  document.getElementById("current").textContent =
+    money(saved);
+
+
+  document.getElementById("monthlyResult").textContent =
+    money(monthly);
+
+
+  const summary =
+    document.getElementById("summary");
+
+
+  if (remaining === 0) {
+
+    summary.textContent =
+      "Congratulations! You have already reached your savings goal of " +
+      money(goal) +
+      ".";
+
+  } else {
+
+    summary.textContent =
+      "You have saved " +
+      percent.toFixed(0) +
+      "% of your goal. At " +
+      money(monthly) +
+      " per month, you would need approximately " +
+      timeText +
+      " to save the remaining " +
+      money(remaining) +
+      ".";
+
+
+    if (targetDate) {
+
+      const today =
+        new Date();
+
+
+      const target =
+        new Date(targetDate);
+
+
+      const difference =
+        target - today;
+
+
+      const days =
+        Math.ceil(
+          difference /
+          (1000 * 60 * 60 * 24)
+        );
+
+
+      if (days > 0) {
+
+        const monthsAvailable =
+          days / 30.44;
+
+
+        const requiredMonthly =
+          remaining / monthsAvailable;
+
+
+        if (requiredMonthly > monthly) {
+
+          summary.textContent +=
+            " Based on your target date, you may need to save approximately " +
+            money(requiredMonthly) +
+            " per month to reach the goal on time.";
+
+        } else {
+
+          summary.textContent +=
+            " Based on your target date, your current monthly savings amount appears to be enough to reach the goal on time.";
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+  document.getElementById("results").style.display =
+    "block";
+
+}
+
+</script>
+
+</body>
+</html>
+```
