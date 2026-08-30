@@ -1,13 +1,19 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FreeLifeTools Pro</title>
-  <meta name="description" content="Upgrade to FreeLifeTools Pro for additional tools and features.">
+  <title>FreeLifeTools Pro | Smart Life & Money Tools</title>
+
+  <meta
+    name="description"
+    content="FreeLifeTools Pro gives you a growing collection of useful tools for money, planning and everyday life."
+  >
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -15,284 +21,469 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f6f7f9;
+      background: #f5f6f8;
       color: #17191c;
     }
 
     header {
       background: white;
-      border-bottom: 1px solid #e3e5e8;
+      border-bottom: 1px solid #e2e4e7;
     }
 
     .nav {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
-      min-height: 70px;
-      padding: 0 20px;
+      padding: 18px 20px;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 20px;
     }
 
     .logo {
       color: #17191c;
       text-decoration: none;
+
       font-size: 22px;
       font-weight: 800;
     }
 
     nav {
       display: flex;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
     nav a {
-      color: #62676d;
+      color: #666b72;
       text-decoration: none;
+
       font-size: 14px;
       font-weight: 600;
     }
 
-    main {
-      max-width: 1050px;
-      margin: auto;
-      padding: 70px 20px 90px;
+    nav a:hover {
+      color: #17191c;
     }
+
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+
+      padding: 60px 20px 90px;
+    }
+
 
     .hero {
       text-align: center;
-      max-width: 720px;
-      margin: auto;
+
+      max-width: 780px;
+      margin: 0 auto 55px;
     }
+
 
     .tag {
+      display: inline-block;
+
       font-size: 12px;
       font-weight: 800;
-      letter-spacing: 1.6px;
-      color: #70757b;
-      margin-bottom: 15px;
+
+      letter-spacing: 1.5px;
+
+      color: #666b72;
+
+      margin-bottom: 16px;
     }
+
 
     h1 {
-      font-size: 54px;
+      margin: 0;
+
+      font-size: 52px;
+      line-height: 1.05;
+
       letter-spacing: -2.5px;
-      margin: 0 0 18px;
     }
 
+
     .hero p {
-      color: #666b72;
+      max-width: 650px;
+      margin: 20px auto 0;
+
+      color: #686d73;
+
       font-size: 18px;
       line-height: 1.6;
     }
 
-    .pricing {
-      max-width: 480px;
-      margin: 45px auto 0;
-      background: white;
-      border: 2px solid #17191c;
-      border-radius: 20px;
-      padding: 35px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.07);
-    }
 
-    .pricing h2 {
-      margin: 0 0 10px;
-      font-size: 25px;
-    }
+    .hero-button {
+      display: inline-block;
 
-    .price {
-      font-size: 48px;
-      font-weight: 800;
-      margin: 20px 0;
-    }
+      margin-top: 25px;
 
-    .price span {
-      font-size: 16px;
-      font-weight: normal;
-      color: #6c7177;
-    }
+      padding: 15px 25px;
 
-    .features {
-      list-style: none;
-      padding: 0;
-      margin: 25px 0;
-    }
-
-    .features li {
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-      font-size: 15px;
-    }
-
-    .features li:last-child {
-      border-bottom: none;
-    }
-
-    .check {
-      font-weight: bold;
-      margin-right: 8px;
-    }
-
-    .button {
-      display: block;
-      width: 100%;
-      text-align: center;
-      padding: 16px;
       border-radius: 10px;
+
       background: #17191c;
       color: white;
+
       text-decoration: none;
+
       font-weight: 800;
-      font-size: 16px;
     }
 
-    .button:hover {
-      opacity: 0.88;
+
+    .hero-button:hover {
+      opacity: .88;
     }
 
-    .small {
-      text-align: center;
-      color: #777c82;
-      font-size: 12px;
-      margin-top: 14px;
-    }
 
-    .section {
-      margin-top: 80px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .section-title h2 {
-      font-size: 31px;
-      margin: 0 0 10px;
-    }
-
-    .section-title p {
-      color: #6d7278;
-    }
-
-    .benefits {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .benefit {
+    .featured {
       background: white;
-      border: 1px solid #e2e4e7;
-      border-radius: 15px;
-      padding: 25px;
+
+      border: 1px solid #dfe2e5;
+
+      border-radius: 22px;
+
+      padding: 35px;
+
+      margin-bottom: 45px;
+
+      box-shadow: 0 12px 40px rgba(0,0,0,.05);
     }
 
-    .benefit-icon {
-      font-size: 30px;
-      margin-bottom: 15px;
+
+    .featured-label {
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+
+      color: #777c82;
+
+      margin-bottom: 12px;
     }
 
-    .benefit h3 {
+
+    .featured h2 {
       margin: 0 0 10px;
-      font-size: 19px;
+
+      font-size: 30px;
     }
 
-    .benefit p {
-      color: #6d7278;
-      font-size: 14px;
+
+    .featured p {
+      max-width: 700px;
+
+      color: #686d73;
+
       line-height: 1.6;
     }
 
-    .compare {
-      background: white;
-      border: 1px solid #e2e4e7;
-      border-radius: 16px;
-      overflow: hidden;
-    }
 
-    .compare-row {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      border-bottom: 1px solid #e7e8ea;
-    }
-
-    .compare-row:last-child {
-      border-bottom: none;
-    }
-
-    .compare-row > div {
-      padding: 16px;
+    .tools-title {
       text-align: center;
+
+      margin-bottom: 25px;
+    }
+
+
+    .tools-title h2 {
+      margin: 0 0 8px;
+
+      font-size: 30px;
+    }
+
+
+    .tools-title p {
+      margin: 0;
+
+      color: #6d7278;
+    }
+
+
+    .tools {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 20px;
+    }
+
+
+    .tool {
+      background: white;
+
+      border: 1px solid #e0e3e6;
+
+      border-radius: 17px;
+
+      padding: 25px;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+
+    .tool:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.07);
+    }
+
+
+    .icon {
+      font-size: 32px;
+
+      margin-bottom: 15px;
+    }
+
+
+    .tool h3 {
+      margin: 0 0 9px;
+
+      font-size: 20px;
+    }
+
+
+    .tool p {
+      margin: 0 0 20px;
+
+      color: #6c7177;
+
+      line-height: 1.55;
+
       font-size: 14px;
     }
 
-    .compare-row > div:first-child {
-      text-align: left;
-      font-weight: 600;
+
+    .tool-button {
+      display: inline-block;
+
+      padding: 11px 16px;
+
+      border-radius: 8px;
+
+      background: #17191c;
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      font-weight: 700;
     }
 
-    .compare-header {
-      font-weight: 800;
-      background: #f4f5f6;
+
+    .why {
+      margin-top: 65px;
+
+      text-align: center;
     }
+
+
+    .why h2 {
+      font-size: 30px;
+
+      margin-bottom: 10px;
+    }
+
+
+    .why > p {
+      color: #6d7278;
+    }
+
+
+    .reasons {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+
+      margin-top: 25px;
+    }
+
+
+    .reason {
+      background: white;
+
+      border: 1px solid #e1e3e5;
+
+      border-radius: 15px;
+
+      padding: 24px;
+    }
+
+
+    .reason strong {
+      display: block;
+
+      margin-bottom: 8px;
+
+      font-size: 17px;
+    }
+
+
+    .reason p {
+      margin: 0;
+
+      color: #6c7177;
+
+      font-size: 14px;
+
+      line-height: 1.55;
+    }
+
+
+    .cta {
+      margin-top: 65px;
+
+      background: #17191c;
+
+      color: white;
+
+      border-radius: 20px;
+
+      padding: 40px 25px;
+
+      text-align: center;
+    }
+
+
+    .cta h2 {
+      margin: 0 0 10px;
+
+      font-size: 30px;
+    }
+
+
+    .cta p {
+      margin: 0 auto;
+
+      max-width: 600px;
+
+      color: #d5d7da;
+
+      line-height: 1.6;
+    }
+
+
+    .cta-button {
+      display: inline-block;
+
+      margin-top: 22px;
+
+      background: white;
+
+      color: #17191c;
+
+      padding: 14px 23px;
+
+      border-radius: 9px;
+
+      text-decoration: none;
+
+      font-weight: 800;
+    }
+
 
     footer {
       background: white;
+
       border-top: 1px solid #e3e5e8;
+
       text-align: center;
+
       padding: 40px 20px;
+
       color: #666b72;
+
       font-size: 14px;
     }
 
-    footer a {
-      color: #555a60;
-      margin: 0 5px;
-    }
 
     @media (max-width: 750px) {
 
       .nav {
         flex-direction: column;
-        padding: 18px 20px;
       }
 
       h1 {
         font-size: 40px;
       }
 
-      .benefits {
+      .tools {
         grid-template-columns: 1fr;
       }
 
-      .compare-row {
-        grid-template-columns: 1.5fr 1fr 1fr;
+      .reasons {
+        grid-template-columns: 1fr;
       }
+
+      main {
+        padding-top: 40px;
+      }
+
     }
+
   </style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
   <div class="nav">
 
-    <a class="logo" href="index.html">
+    <a
+      class="logo"
+      href="index.html"
+    >
       FreeLifeTools
     </a>
 
+
     <nav>
-      <a href="index.html">Home</a>
-      <a href="money.html">Money</a>
-      <a href="jobs.html">Jobs</a>
-      <a href="ai.html">AI</a>
-      <a href="life.html">Life</a>
-      <a href="pro.html">Pro</a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="money.html">
+        Money
+      </a>
+
+      <a href="jobs.html">
+        Jobs
+      </a>
+
+      <a href="ai.html">
+        AI
+      </a>
+
+      <a href="life.html">
+        Life
+      </a>
+
+      <a href="pro.html">
+        Pro
+      </a>
+
     </nav>
 
   </div>
@@ -300,7 +491,9 @@
 </header>
 
 
+
 <main>
+
 
   <section class="hero">
 
@@ -308,322 +501,278 @@
       FREELIFETOOLS PRO
     </div>
 
+
     <h1>
-      Get more done with Pro.
+      More tools. Less stress.
     </h1>
 
+
     <p>
-      Unlock additional tools and features designed to
-      help you manage money, work smarter and make
-      everyday life easier.
+      A growing collection of practical tools designed
+      to help you plan your money, track your goals and
+      make everyday decisions easier.
+    </p>
+
+
+    <a
+      class="hero-button"
+      href="#tools"
+    >
+      Explore Pro Tools
+    </a>
+
+  </section>
+
+
+
+  <section class="featured">
+
+    <div class="featured-label">
+      YOUR PRO TOOLKIT
+    </div>
+
+
+    <h2>
+      Everything in one place.
+    </h2>
+
+
+    <p>
+      Instead of using separate websites for different
+      calculations and planning tasks, FreeLifeTools Pro
+      brings useful tools together in one simple experience.
     </p>
 
   </section>
-<div style="max-width:900px;margin:40px auto;background:white;border:1px solid #e2e4e7;border-radius:16px;padding:25px;text-align:center;">
-  
-  <div style="font-size:32px;">💰</div>
-
-  <<div class="benefit">
-
-  <div class="benefit-icon">💰</div>
-
-  <h3>Pro Paycheck Planner</h3>
-
-  <p>
-    Plan your paycheck, bills, debt payments and
-    savings goals in one place.
-  </p>
-
-  <a class="button" href="pro-paycheck.html">
-    Open Planner
-  </a>
-<div class="benefit">
-
-  <div class="benefit-icon">📉</div>
-
-  <h3>Debt Payoff Calculator</h3>
-
-  <p>
-    See your estimated payoff time, interest costs,
-    and how extra payments could help you become debt-free sooner.
-  </p>
-
-  <a class="button" href="debt.html">
-    Open Calculator
-  </a>
-<div class="benefit">
-
-  <div class="benefit-icon">🎯</div>
-
-  <h3>Savings Goal Tracker</h3>
-
-  <p>
-    Set a savings goal, track your progress and see
-    how much you may need to save each month.
-  </p>
-
-  <a class="button" href="pro-savings.html">
-    Open Tracker
-  </a>
-
-</div>
-</div>
-</div>
 
 
-<div class="benefit">
 
-  <div class="benefit-icon">📊</div>
+  <section id="tools">
 
-  <h3>Monthly Money Planner</h3>
+    <div class="tools-title">
 
-  <p>
-    Organize your monthly income, expenses,
-    debt and savings goals.
-  </p>
+      <h2>
+        Your Pro Tools
+      </h2>
 
-  <a class="button" href="pro-money.html">
-    Open Planner
-  </a>
+      <p>
+        Choose a tool and start planning.
+      </p>
 
-</div>
+    </div>
 
-  <a
-    href="pro-paycheck.html"
-    style="display:inline-block;padding:14px 22px;background:#17191c;color:white;text-decoration:none;border-radius:9px;font-weight:bold;"
-  >
-    Try the Pro Planner
-  </a>
 
-</div>
 
-  <section class="pricing">
+    <div class="tools">
+
+
+      <div class="tool">
+
+        <div class="icon">
+          💰
+        </div>
+
+        <h3>
+          Paycheck Planner
+        </h3>
+
+        <p>
+          Estimate your pay and organize your
+          income around your schedule.
+        </p>
+
+        <a
+          class="tool-button"
+          href="pro-paycheck.html"
+        >
+          Open Tool
+        </a>
+
+      </div>
+
+
+
+      <div class="tool">
+
+        <div class="icon">
+          📊
+        </div>
+
+        <h3>
+          Monthly Money Planner
+        </h3>
+
+        <p>
+          Organize income, expenses, savings
+          and monthly spending.
+        </p>
+
+        <a
+          class="tool-button"
+          href="pro-money.html"
+        >
+          Open Tool
+        </a>
+
+      </div>
+
+
+
+      <div class="tool">
+
+        <div class="icon">
+          📉
+        </div>
+
+        <h3>
+          Debt Payoff Calculator
+        </h3>
+
+        <p>
+          Estimate your debt payoff timeline
+          and compare extra payments.
+        </p>
+
+        <a
+          class="tool-button"
+          href="debt.html"
+        >
+          Open Tool
+        </a>
+
+      </div>
+
+
+
+      <div class="tool">
+
+        <div class="icon">
+          🎯
+        </div>
+
+        <h3>
+          Savings Goal Tracker
+        </h3>
+
+        <p>
+          Set a target, track your progress
+          and estimate your savings timeline.
+        </p>
+
+        <a
+          class="tool-button"
+          href="pro-savings.html"
+        >
+          Open Tool
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <section class="why">
 
     <h2>
-      FreeLifeTools Pro
+      Why Pro?
     </h2>
 
-    <div class="price">
-      $9.99 <span>/ month</span>
+    <p>
+      Built to be useful, simple and easy to return to.
+    </p>
+
+
+    <div class="reasons">
+
+
+      <div class="reason">
+
+        <strong>
+          One place
+        </strong>
+
+        <p>
+          Keep your most useful planning tools
+          together instead of searching for them
+          every time you need them.
+        </p>
+
+      </div>
+
+
+
+      <div class="reason">
+
+        <strong>
+          Simple
+        </strong>
+
+        <p>
+          No complicated spreadsheets or confusing
+          financial formulas to figure out yourself.
+        </p>
+
+      </div>
+
+
+
+      <div class="reason">
+
+        <strong>
+          Always growing
+        </strong>
+
+        <p>
+          New tools can be added over time so
+          your Pro membership becomes more useful.
+        </p>
+
+      </div>
+
+
     </div>
 
-    <ul class="features">
+  </section>
 
-      <li>
-        <span class="check">✓</span>
-        Additional premium tools
-      </li>
 
-      <li>
-        <span class="check">✓</span>
-        Advanced calculators
-      </li>
 
-      <li>
-        <span class="check">✓</span>
-        Premium AI tools
-      </li>
+  <section class="cta">
 
-      <li>
-        <span class="check">✓</span>
-        More career resources
-      </li>
+    <h2>
+      Keep your life organized.
+    </h2>
 
-      <li>
-        <span class="check">✓</span>
-        New Pro features as they are added
-      </li>
-
-    </ul>
-
-    <!-- YOUR STRIPE CHECKOUT LINK -->
+    <p>
+      Explore the FreeLifeTools Pro toolkit and
+      find the tools that fit your everyday needs.
+    </p>
 
     <a
-      class="button"
-      href="https://buy.stripe.com/aFa00ibiRgGd98q2zP1VK00"
-      target="_blank"
-      rel="noopener"
+      class="cta-button"
+      href="#tools"
     >
-      Join FreeLifeTools Pro
+      View Pro Tools
     </a>
 
-    <div class="small">
-      Secure checkout powered by Stripe.
-    </div>
-
   </section>
 
-
-  <section class="section">
-
-    <div class="section-title">
-
-      <h2>
-        Why upgrade?
-      </h2>
-
-      <p>
-        Free tools are just the beginning.
-      </p>
-
-    </div>
-
-
-    <div class="benefits">
-
-      <div class="benefit">
-
-        <div class="benefit-icon">⚡</div>
-
-        <h3>
-          Save Time
-        </h3>
-
-        <p>
-          Get useful tools together in one place instead
-          of searching for them across the internet.
-        </p>
-
-      </div>
-
-
-      <div class="benefit">
-
-        <div class="benefit-icon">🧠</div>
-
-        <h3>
-          Work Smarter
-        </h3>
-
-        <p>
-          Use additional tools designed to help with
-          work, money and everyday decisions.
-        </p>
-
-      </div>
-
-
-      <div class="benefit">
-
-        <div class="benefit-icon">🚀</div>
-
-        <h3>
-          Keep Growing
-        </h3>
-
-        <p>
-          New tools and features can be added to your
-          Pro membership over time.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="section">
-
-    <div class="section-title">
-
-      <h2>
-        Free vs. Pro
-      </h2>
-
-      <p>
-        See what your membership can include.
-      </p>
-
-    </div>
-
-
-    <div class="compare">
-
-      <div class="compare-row compare-header">
-
-        <div>Feature</div>
-
-        <div>Free</div>
-
-        <div>Pro</div>
-
-      </div>
-
-
-      <div class="compare-row">
-
-        <div>Basic tools</div>
-
-        <div>✓</div>
-
-        <div>✓</div>
-
-      </div>
-
-
-      <div class="compare-row">
-
-        <div>Money calculators</div>
-
-        <div>✓</div>
-
-        <div>✓</div>
-
-      </div>
-
-
-      <div class="compare-row">
-
-        <div>Premium tools</div>
-
-        <div>—</div>
-
-        <div>✓</div>
-
-      </div>
-
-
-      <div class="compare-row">
-
-        <div>Advanced AI tools</div>
-
-        <div>—</div>
-
-        <div>✓</div>
-
-      </div>
-
-
-      <div class="compare-row">
-
-        <div>Premium career resources</div>
-
-        <div>—</div>
-
-        <div>✓</div>
-
-      </div>
-
-    </div>
-
-  </section>
 
 </main>
 
 
+
 <footer>
 
-  <strong>FreeLifeTools</strong>
+  <strong>
+    FreeLifeTools
+  </strong>
 
   <p>
     Free tools for money, jobs, AI and everyday life.
-  </p>
-
-  <p>
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a> |
-    <a href="privacy.html">Privacy</a>
   </p>
 
   <p>
@@ -632,5 +781,7 @@
 
 </footer>
 
+
 </body>
 </html>
+```
