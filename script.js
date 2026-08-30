@@ -244,5 +244,36 @@ function copyPrompt() {
     selectedQuestions.map(q => "<li>" + q + "</li>").join("") +
     "</ol>" +
     "<p><strong>Tip:</strong> Practice answering each question out loud and use specific examples from your experience.</p>";
+}function calculateGroceries() {
+  const budget = Number(document.getElementById("groceryBudget").value) || 0;
+  const meat = Number(document.getElementById("meat").value) || 0;
+  const produce = Number(document.getElementById("produce").value) || 0;
+  const dairy = Number(document.getElementById("dairy").value) || 0;
+  const pantry = Number(document.getElementById("pantry").value) || 0;
+  const other = Number(document.getElementById("groceryOther").value) || 0;
+
+  const spent = meat + produce + dairy + pantry + other;
+  const remaining = budget - spent;
+
+  const result = document.getElementById("groceryResult");
+
+  if (budget <= 0) {
+    result.textContent = "Please enter your grocery budget.";
+    return;
+  }
+
+  if (remaining >= 0) {
+    result.innerHTML =
+      "<strong>Total planned spending:</strong> $" +
+      spent.toFixed(2) +
+      "<br><strong>Budget remaining:</strong> $" +
+      remaining.toFixed(2);
+  } else {
+    result.innerHTML =
+      "<strong>Total planned spending:</strong> $" +
+      spent.toFixed(2) +
+      "<br><strong>Over budget by:</strong> $" +
+      Math.abs(remaining).toFixed(2);
+  }
 }
 }
