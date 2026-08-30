@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Calculator | FreeLifeTools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="index.html">FreeLifeTools</a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="paycheck.html">Paycheck</a>
+    <a href="budget.html">Budget</a>
+    <a href="money.html">Money</a>
+  </nav>
+</header>
+
+<main class="page">
+
+  <span>MONEY TOOL</span>
+
+  <h1>Budget Calculator</h1>
+
+  <p class="lead">
+    See how much money you have left after your monthly expenses.
+  </p>
+
+  <div class="calculator">
+
+    <label>
+      Monthly income
+      <input id="income" type="number" min="0" step="0.01" placeholder="3000">
+    </label>
+
+    <label>
+      Rent / mortgage
+      <input id="rent" type="number" min="0" step="0.01" placeholder="1200">
+    </label>
+
+    <label>
+      Utilities
+      <input id="utilities" type="number" min="0" step="0.01" placeholder="200">
+    </label>
+
+    <label>
+      Food
+      <input id="food" type="number" min="0" step="0.01" placeholder="400">
+    </label>
+
+    <label>
+      Transportation
+      <input id="transport" type="number" min="0" step="0.01" placeholder="300">
+    </label>
+
+    <label>
+      Other expenses
+      <input id="other" type="number" min="0" step="0.01" placeholder="200">
+    </label>
+
+    <button class="button" onclick="calculateBudget()">
+      Calculate Budget
+    </button>
+
+    <div id="budgetResult">
+      Enter your income and expenses above.
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <strong>FreeLifeTools</strong>
+  <p>Free tools for money, jobs, AI and everyday life.</p>
+  <p>© 2026 FreeLifeTools</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
