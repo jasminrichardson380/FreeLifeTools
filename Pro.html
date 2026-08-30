@@ -3,103 +3,275 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>FreeLifeTools Pro</title>
+  <meta name="description" content="Upgrade to FreeLifeTools Pro for additional tools and features.">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #222;
+      background: #f6f7f9;
+      color: #17191c;
     }
 
     header {
-      background: #111827;
-      color: white;
-      padding: 20px;
-      text-align: center;
+      background: white;
+      border-bottom: 1px solid #e3e5e8;
     }
 
-    header a {
-      color: white;
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      min-height: 70px;
+      padding: 0 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: #17191c;
       text-decoration: none;
-      margin: 0 10px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #62676d;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 70px 20px 90px;
     }
 
     .hero {
       text-align: center;
-      padding: 60px 20px 30px;
+      max-width: 720px;
+      margin: auto;
     }
 
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+    .tag {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      color: #70757b;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 54px;
+      letter-spacing: -2.5px;
+      margin: 0 0 18px;
     }
 
     .hero p {
-      font-size: 19px;
-      color: #555;
+      color: #666b72;
+      font-size: 18px;
+      line-height: 1.6;
     }
 
-    .price-card {
+    .pricing {
+      max-width: 480px;
+      margin: 45px auto 0;
       background: white;
-      max-width: 500px;
-      margin: 30px auto;
-      padding: 40px 25px;
-      border-radius: 18px;
-      text-align: center;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      border: 2px solid #17191c;
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.07);
+    }
+
+    .pricing h2 {
+      margin: 0 0 10px;
+      font-size: 25px;
     }
 
     .price {
-      font-size: 40px;
-      font-weight: bold;
+      font-size: 48px;
+      font-weight: 800;
       margin: 20px 0;
     }
 
+    .price span {
+      font-size: 16px;
+      font-weight: normal;
+      color: #6c7177;
+    }
+
     .features {
-      text-align: left;
-      max-width: 350px;
-      margin: 25px auto;
-      line-height: 2;
+      list-style: none;
+      padding: 0;
+      margin: 25px 0;
     }
 
-    .join-button {
-      display: inline-block;
-      background: #111827;
-      color: white;
-      padding: 16px 35px;
-      font-size: 18px;
-      text-decoration: none;
-      border-radius: 10px;
-      margin-top: 15px;
+    .features li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 15px;
     }
 
-    .join-button:hover {
-      opacity: 0.85;
+    .features li:last-child {
+      border-bottom: none;
     }
 
-    .faq {
-      max-width: 700px;
-      margin: 50px auto;
-      padding: 20px;
+    .check {
+      font-weight: bold;
+      margin-right: 8px;
     }
 
-    .faq h2 {
+    .button {
+      display: block;
+      width: 100%;
       text-align: center;
+      padding: 16px;
+      border-radius: 10px;
+      background: #17191c;
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 16px;
     }
 
-    .faq div {
+    .button:hover {
+      opacity: 0.88;
+    }
+
+    .small {
+      text-align: center;
+      color: #777c82;
+      font-size: 12px;
+      margin-top: 14px;
+    }
+
+    .section {
+      margin-top: 80px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 31px;
+      margin: 0 0 10px;
+    }
+
+    .section-title p {
+      color: #6d7278;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .benefit {
       background: white;
-      margin: 15px 0;
-      padding: 20px;
-      border-radius: 10px;
+      border: 1px solid #e2e4e7;
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    .benefit-icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .benefit h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+    }
+
+    .benefit p {
+      color: #6d7278;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .compare {
+      background: white;
+      border: 1px solid #e2e4e7;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      border-bottom: 1px solid #e7e8ea;
+    }
+
+    .compare-row:last-child {
+      border-bottom: none;
+    }
+
+    .compare-row > div {
+      padding: 16px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .compare-row > div:first-child {
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .compare-header {
+      font-weight: 800;
+      background: #f4f5f6;
     }
 
     footer {
+      background: white;
+      border-top: 1px solid #e3e5e8;
       text-align: center;
-      padding: 30px;
-      margin-top: 40px;
+      padding: 40px 20px;
+      color: #666b72;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #555a60;
+      margin: 0 5px;
+    }
+
+    @media (max-width: 750px) {
+
+      .nav {
+        flex-direction: column;
+        padding: 18px 20px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-row {
+        grid-template-columns: 1.5fr 1fr 1fr;
+      }
     }
   </style>
 </head>
@@ -107,65 +279,281 @@
 <body>
 
 <header>
-  <strong>FreeLifeTools</strong>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="index.html">Free Tools</a>
-  </nav>
+
+  <div class="nav">
+
+    <a class="logo" href="index.html">
+      FreeLifeTools
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="pro.html">Pro</a>
+    </nav>
+
+  </div>
+
 </header>
 
-<section class="hero">
-  <h1>FreeLifeTools Pro 🚀</h1>
-  <p>Get more powerful tools to help with money, jobs, AI and everyday life.</p>
-</section>
 
-<section class="price-card">
+<main>
 
-  <h2>Pro Membership</h2>
+  <section class="hero">
 
-  <div class="price">$5.99/month</div>
+    <div class="tag">
+      FREELIFETOOLS PRO
+    </div>
 
-  <p>Cancel anytime.</p>
+    <h1>
+      Get more done with Pro.
+    </h1>
 
-  <ul class="features">
-    <li>✅ Premium money tools</li>
-    <li>✅ Advanced AI tools</li>
-    <li>✅ Exclusive calculators</li>
-    <li>✅ Productivity tools</li>
-    <li>✅ New premium tools added regularly</li>
-  </ul>
+    <p>
+      Unlock additional tools and features designed to
+      help you manage money, work smarter and make
+      everyday life easier.
+    </p>
 
-  <a
-    href="https://buy.stripe.com/aFa00ibiRgGd98q2zP1VK00"
-    class="join-button">
-    Join FreeLifeTools Pro
-  </a>
+  </section>
 
-</section>
 
-<section class="faq">
+  <section class="pricing">
 
-  <h2>Frequently Asked Questions</h2>
+    <h2>
+      FreeLifeTools Pro
+    </h2>
 
-  <div>
-    <strong>What is FreeLifeTools Pro?</strong>
-    <p>Pro gives members access to additional premium tools and features.</p>
-  </div>
+    <div class="price">
+      $9.99 <span>/ month</span>
+    </div>
 
-  <div>
-    <strong>How much does it cost?</strong>
-    <p>FreeLifeTools Pro costs $5.99 per month.</p>
-  </div>
+    <ul class="features">
 
-  <div>
-    <strong>Can I cancel?</strong>
-    <p>Yes. Your subscription can be canceled through Stripe.</p>
-  </div>
+      <li>
+        <span class="check">✓</span>
+        Additional premium tools
+      </li>
 
-</section>
+      <li>
+        <span class="check">✓</span>
+        Advanced calculators
+      </li>
+
+      <li>
+        <span class="check">✓</span>
+        Premium AI tools
+      </li>
+
+      <li>
+        <span class="check">✓</span>
+        More career resources
+      </li>
+
+      <li>
+        <span class="check">✓</span>
+        New Pro features as they are added
+      </li>
+
+    </ul>
+
+    <!-- YOUR STRIPE CHECKOUT LINK -->
+
+    <a
+      class="button"
+      href="https://buy.stripe.com/aFa00ibiRgGd98q2zP1VK00"
+      target="_blank"
+      rel="noopener"
+    >
+      Join FreeLifeTools Pro
+    </a>
+
+    <div class="small">
+      Secure checkout powered by Stripe.
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="section-title">
+
+      <h2>
+        Why upgrade?
+      </h2>
+
+      <p>
+        Free tools are just the beginning.
+      </p>
+
+    </div>
+
+
+    <div class="benefits">
+
+      <div class="benefit">
+
+        <div class="benefit-icon">⚡</div>
+
+        <h3>
+          Save Time
+        </h3>
+
+        <p>
+          Get useful tools together in one place instead
+          of searching for them across the internet.
+        </p>
+
+      </div>
+
+
+      <div class="benefit">
+
+        <div class="benefit-icon">🧠</div>
+
+        <h3>
+          Work Smarter
+        </h3>
+
+        <p>
+          Use additional tools designed to help with
+          work, money and everyday decisions.
+        </p>
+
+      </div>
+
+
+      <div class="benefit">
+
+        <div class="benefit-icon">🚀</div>
+
+        <h3>
+          Keep Growing
+        </h3>
+
+        <p>
+          New tools and features can be added to your
+          Pro membership over time.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="section-title">
+
+      <h2>
+        Free vs. Pro
+      </h2>
+
+      <p>
+        See what your membership can include.
+      </p>
+
+    </div>
+
+
+    <div class="compare">
+
+      <div class="compare-row compare-header">
+
+        <div>Feature</div>
+
+        <div>Free</div>
+
+        <div>Pro</div>
+
+      </div>
+
+
+      <div class="compare-row">
+
+        <div>Basic tools</div>
+
+        <div>✓</div>
+
+        <div>✓</div>
+
+      </div>
+
+
+      <div class="compare-row">
+
+        <div>Money calculators</div>
+
+        <div>✓</div>
+
+        <div>✓</div>
+
+      </div>
+
+
+      <div class="compare-row">
+
+        <div>Premium tools</div>
+
+        <div>—</div>
+
+        <div>✓</div>
+
+      </div>
+
+
+      <div class="compare-row">
+
+        <div>Advanced AI tools</div>
+
+        <div>—</div>
+
+        <div>✓</div>
+
+      </div>
+
+
+      <div class="compare-row">
+
+        <div>Premium career resources</div>
+
+        <div>—</div>
+
+        <div>✓</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
 
 <footer>
-  <p>© 2026 FreeLifeTools</p>
+
+  <strong>FreeLifeTools</strong>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="privacy.html">Privacy</a>
+  </p>
+
+  <p>
+    © 2026 FreeLifeTools
+  </p>
+
 </footer>
 
 </body>
