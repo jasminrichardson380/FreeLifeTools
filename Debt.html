@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debt Payoff Calculator | FreeLifeTools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="index.html">FreeLifeTools</a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="paycheck.html">Paycheck</a>
+    <a href="budget.html">Budget</a>
+    <a href="rent.html">Rent</a>
+    <a href="money.html">Money</a>
+  </nav>
+</header>
+
+<main class="page">
+
+  <span>MONEY TOOL</span>
+
+  <h1>Debt Payoff Calculator</h1>
+
+  <p class="lead">
+    Estimate how long it could take to pay off a debt based on your balance,
+    interest rate and monthly payment.
+  </p>
+
+  <div class="calculator">
+
+    <label>
+      Current debt balance
+      <input id="debtBalance" type="number" min="0" step="0.01" placeholder="5000">
+    </label>
+
+    <label>
+      Annual interest rate (%)
+      <input id="interestRate" type="number" min="0" step="0.01" placeholder="20">
+    </label>
+
+    <label>
+      Monthly payment
+      <input id="monthlyPayment" type="number" min="0" step="0.01" placeholder="200">
+    </label>
+
+    <button class="button" onclick="calculateDebt()">
+      Calculate Payoff
+    </button>
+
+    <div id="debtResult">
+      Enter your information above.
+    </div>
+
+  </div>
+
+  <p>
+    <strong>Note:</strong> This is an estimate. Actual payoff time can vary
+    because of interest calculations, fees, payment timing and changes to
+    your balance or payment.
+  </p>
+
+</main>
+
+<footer>
+  <strong>FreeLifeTools</strong>
+  <p>Free tools for money, jobs, AI and everyday life.</p>
+  <p>© 2026 FreeLifeTools</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
