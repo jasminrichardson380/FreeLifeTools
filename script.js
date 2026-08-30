@@ -54,4 +54,60 @@ function calculatePay() {
     recommendedRent.toFixed(2) +
     "<br><strong>After debt estimate:</strong> $" +
     Math.max(0, debtAdjustedRent).toFixed(2);
+}function calculateDebt() {
+  const balance = Number(document.getElementById("debtBalance").value) || 0;
+  const annualRate = Number(document.getElementById("interestRate").value) || 0;
+  const payment = Number(document.getElementById("monthlyPayment").value) || 0;
+
+  const result = document.getElementById("debtResult");
+
+  if (balance <= 0 || payment <= 0) {
+    result.textContent = "Please enter your debt balance and monthly payment.";
+    return;
+  }
+
+  const monthlyRate = annualRate / 100 / 12;
+
+  if (monthlyRate > 0 && payment <= balance * monthlyRate) {
+    result.innerHTML =
+      "<strong>Your payment may not be enough to cover the monthly interest.</strong>" +
+      "<br>Try increasing your monthly payment.";
+    return;
+  }
+
+  let remaining = balance;
+  let months = 0;
+  let totalPaid = 0;
+
+  while (remaining > 0 && months < 1200) {
+    const interest = remaining * monthlyRate;
+    const principal = Math.min(payment - interest, remaining);
+
+    remaining -= principal;
+    totalPaid += interest + principal;
+    months++;
+  }
+
+  if (months >= 1200) {
+    result.textContent = "Please check your numbers and try again.";
+    return;
+  }
+
+  const years = Math.floor(months / 12);
+  const remainingMonths = months % 12;
+
+  let timeText = "";
+
+  if (years > 0) {
+    timeText += years + (years === 1 ? " year" : " years");
+  }
+
+  if (remainingMonths > 0) {
+    if (timeText) timeText += " and ";
+    timeText += remainingMonths + (remainingMonths === 1 ? " month" : " months");
+  }
+
+  result.innerHTML =
+    "<strong>Estimated payoff time:</strong> " + timeText +
+    "<br><strong>Estimated total paid:</strong> $" + totalPaid.toFixed(2);
 }
