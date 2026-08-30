@@ -1,153 +1,335 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Debt Payoff Calculator | FreeLifeTools</title>
 
+  <meta
+    name="description"
+    content="Estimate your debt payoff time, total interest and savings from making extra payments."
+  >
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #222;
+      background: #f5f6f8;
+      color: #17191c;
     }
 
     header {
-      background: #111827;
-      color: white;
-      padding: 20px;
-      text-align: center;
+      background: white;
+      border-bottom: 1px solid #e2e4e7;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .logo {
-      color: white;
+      color: #17191c;
       text-decoration: none;
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 22px;
+      font-weight: 800;
     }
 
     nav {
-      margin-top: 12px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
     nav a {
-      color: white;
+      color: #666b72;
       text-decoration: none;
-      margin: 0 8px;
+      font-size: 14px;
+      font-weight: 600;
     }
 
-    .page {
-      max-width: 750px;
+    nav a:hover {
+      color: #17191c;
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 50px 20px 80px;
+    }
+
+    .back {
+      color: #666b72;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 720px;
       margin: 40px auto;
-      padding: 20px;
     }
 
-    .category {
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 1px;
+    .tag {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #777c82;
+      margin-bottom: 14px;
     }
 
     h1 {
-      font-size: 38px;
-      margin-bottom: 10px;
+      font-size: 48px;
+      letter-spacing: -2px;
+      margin: 0 0 15px;
     }
 
-    .lead {
-      color: #555;
-      font-size: 18px;
-      line-height: 1.5;
+    .hero p {
+      color: #686d73;
+      font-size: 17px;
+      line-height: 1.6;
     }
 
     .calculator {
       background: white;
+      border: 1px solid #dfe2e5;
+      border-radius: 20px;
       padding: 30px;
-      margin-top: 30px;
-      border-radius: 16px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+
+      box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+    }
+
+    .calculator h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
 
     label {
       display: block;
-      font-weight: bold;
-      margin-top: 18px;
+      font-size: 14px;
+      font-weight: 700;
     }
 
     input {
-      display: block;
       width: 100%;
-      box-sizing: border-box;
-      padding: 14px;
       margin-top: 8px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
+      padding: 14px;
+
+      border: 1px solid #d2d6da;
+      border-radius: 9px;
+
+      font-size: 15px;
+    }
+
+    input:focus {
+      outline: 2px solid #d9dcdf;
     }
 
     .button {
       width: 100%;
-      margin-top: 30px;
-      padding: 15px;
       border: none;
-      border-radius: 8px;
-      font-size: 18px;
-      cursor: pointer;
-      background: #111827;
+      border-radius: 10px;
+
+      padding: 16px;
+      margin-top: 24px;
+
+      background: #17191c;
       color: white;
+
+      font-size: 16px;
+      font-weight: 800;
+
+      cursor: pointer;
     }
 
     .button:hover {
-      opacity: 0.85;
+      opacity: 0.88;
     }
 
-    #debtResult {
+    #results {
       display: none;
+
       margin-top: 30px;
+      padding: 25px;
+
+      background: #f3f4f5;
+      border-radius: 15px;
+    }
+
+    .results-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e1e3e5;
+      border-radius: 12px;
       padding: 20px;
-      border-radius: 10px;
-      background: #f5f7fb;
     }
 
-    .result-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 12px 0;
-      border-bottom: 1px solid #ddd;
-      gap: 20px;
+    .card span {
+      display: block;
+      color: #70757b;
+      font-size: 13px;
+      margin-bottom: 8px;
     }
 
-    .result-row:last-child {
-      border-bottom: none;
+    .card strong {
+      font-size: 23px;
     }
 
-    .big-result {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .warning {
+    .comparison {
       margin-top: 20px;
-      font-weight: bold;
+
+      background: white;
+      border: 1px solid #e1e3e5;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .comparison h3 {
+      margin: 0;
+      padding: 18px;
+      font-size: 18px;
+      border-bottom: 1px solid #e1e3e5;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    .comparison-row div {
+      padding: 15px;
+      font-size: 14px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+    }
+
+    .comparison-row div:first-child {
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .comparison-header {
+      font-weight: 800;
+      background: #f5f6f7;
+    }
+
+    .summary {
+      margin-top: 20px;
+
+      background: white;
+      border: 1px solid #e1e3e5;
+      border-radius: 12px;
+
+      padding: 20px;
+
+      color: #5f646a;
+      line-height: 1.6;
     }
 
     .note {
-      margin-top: 25px;
-      color: #666;
-      font-size: 14px;
+      margin-top: 18px;
+
+      color: #777c82;
+      font-size: 13px;
       line-height: 1.5;
     }
 
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 40px;
+    .pro-box {
+      margin-top: 35px;
+
       background: white;
+      border: 1px solid #dfe2e5;
+      border-radius: 16px;
+
+      padding: 25px;
+      text-align: center;
     }
 
-    footer a {
-      color: inherit;
-      margin: 0 5px;
+    .pro-box h2 {
+      margin-top: 0;
+    }
+
+    .pro-box p {
+      color: #686d73;
+      line-height: 1.6;
+    }
+
+    .pro-button {
+      display: inline-block;
+
+      padding: 13px 20px;
+
+      background: #17191c;
+      color: white;
+
+      border-radius: 9px;
+
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #e3e5e8;
+
+      text-align: center;
+
+      padding: 40px 20px;
+
+      color: #666b72;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+
+      .nav {
+        flex-direction: column;
+      }
+
+      .fields {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-row {
+        grid-template-columns: 1.5fr 1fr 1fr;
+      }
+
+      h1 {
+        font-size: 39px;
+      }
     }
   </style>
 </head>
@@ -155,226 +337,645 @@
 <body>
 
 <header>
-  <a class="logo" href="index.html">FreeLifeTools</a>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="paycheck.html">Paycheck</a>
-    <a href="budget.html">Budget</a>
-    <a href="debt.html">Debt</a>
-    <a href="money.html">Money</a>
-    <a href="pro.html">Pro</a>
-  </nav>
-</header>
+  <div class="nav">
 
-<main class="page">
+    <a class="logo" href="index.html">
+      FreeLifeTools
+    </a>
 
-  <div class="category">MONEY TOOL</div>
-
-  <h1>Debt Payoff Calculator 💳</h1>
-
-  <p class="lead">
-    Estimate how long it could take to pay off a debt based on your balance,
-    interest rate, and monthly payment.
-  </p>
-
-  <div class="calculator">
-
-    <label for="balance">
-      Current debt balance
-    </label>
-
-    <input
-      id="balance"
-      type="number"
-      min="0"
-      step="0.01"
-      placeholder="5000"
-    >
-
-    <label for="interest">
-      Annual interest rate (%)
-    </label>
-
-    <input
-      id="interest"
-      type="number"
-      min="0"
-      step="0.01"
-      placeholder="20"
-    >
-
-    <label for="payment">
-      Monthly payment
-    </label>
-
-    <input
-      id="payment"
-      type="number"
-      min="0"
-      step="0.01"
-      placeholder="200"
-    >
-
-    <button class="button" onclick="calculateDebt()">
-      Calculate Debt Payoff
-    </button>
-
-    <div id="debtResult"></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="pro.html">Pro</a>
+    </nav>
 
   </div>
 
-  <p class="note">
-    <strong>Note:</strong> This calculator provides an estimate and does not
-    account for fees, new charges, payment changes, or other factors that may
-    affect your actual payoff time.
-  </p>
+</header>
+
+
+<main>
+
+  <a class="back" href="money.html">
+    ← Back to Money Tools
+  </a>
+
+
+  <section class="hero">
+
+    <div class="tag">
+      MONEY TOOL
+    </div>
+
+    <h1>
+      Debt Payoff Calculator
+    </h1>
+
+    <p>
+      Estimate how long it could take to pay off your debt
+      and see how extra monthly payments could change your plan.
+    </p>
+
+  </section>
+
+
+  <section class="calculator">
+
+    <h2>
+      Enter your debt information
+    </h2>
+
+
+    <div class="fields">
+
+      <label>
+        Current debt balance
+
+        <input
+          id="balance"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="5000"
+        >
+      </label>
+
+
+      <label>
+        Annual interest rate (%)
+
+        <input
+          id="rate"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="18"
+        >
+      </label>
+
+
+      <label>
+        Monthly payment
+
+        <input
+          id="payment"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="200"
+        >
+      </label>
+
+
+      <label>
+        Extra monthly payment
+
+        <input
+          id="extra"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="50"
+        >
+      </label>
+
+    </div>
+
+
+    <button
+      class="button"
+      onclick="calculateDebt()"
+    >
+      Calculate My Debt Plan
+    </button>
+
+
+    <div id="results">
+
+      <div class="results-title">
+        Your estimated debt plan
+      </div>
+
+
+      <div class="cards">
+
+        <div class="card">
+
+          <span>
+            Regular payoff time
+          </span>
+
+          <strong id="regularTime">
+            —
+          </strong>
+
+        </div>
+
+
+        <div class="card">
+
+          <span>
+            Payoff with extra payment
+          </span>
+
+          <strong id="extraTime">
+            —
+          </strong>
+
+        </div>
+
+
+        <div class="card">
+
+          <span>
+            Interest with regular payment
+          </span>
+
+          <strong id="regularInterest">
+            $0.00
+          </strong>
+
+        </div>
+
+
+        <div class="card">
+
+          <span>
+            Interest with extra payment
+          </span>
+
+          <strong id="extraInterest">
+            $0.00
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="comparison">
+
+        <h3>
+          Extra-payment comparison
+        </h3>
+
+
+        <div class="comparison-row comparison-header">
+
+          <div>
+            Result
+          </div>
+
+          <div>
+            Regular
+          </div>
+
+          <div>
+            With Extra
+          </div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+          <div>
+            Monthly payment
+          </div>
+
+          <div id="regularPayment">
+            $0.00
+          </div>
+
+          <div id="extraPayment">
+            $0.00
+          </div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+          <div>
+            Total interest
+          </div>
+
+          <div id="interestRegular">
+            $0.00
+          </div>
+
+          <div id="interestExtra">
+            $0.00
+          </div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+          <div>
+            Time to payoff
+          </div>
+
+          <div id="timeRegular">
+            —
+          </div>
+
+          <div id="timeExtra">
+            —
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="summary"
+        id="summary"
+      ></div>
+
+    </div>
+
+
+    <div class="note">
+      This calculator provides an estimate. Actual payoff time
+      may differ because of changing interest rates, fees,
+      payment timing, new charges or other account activity.
+    </div>
+
+  </section>
+
+
+  <section class="pro-box">
+
+    <h2>
+      Want more money tools?
+    </h2>
+
+    <p>
+      FreeLifeTools Pro includes additional planning tools
+      designed to help you organize your money.
+    </p>
+
+    <a
+      class="pro-button"
+      href="pro.html"
+    >
+      Explore FreeLifeTools Pro
+    </a>
+
+  </section>
 
 </main>
 
-<footer>
-  <strong>FreeLifeTools</strong>
 
-  <p>Free tools for money, jobs, AI and everyday life.</p>
+<footer>
+
+  <strong>
+    FreeLifeTools
+  </strong>
 
   <p>
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a> |
-    <a href="privacy.html">Privacy</a>
+    Free tools for money, jobs, AI and everyday life.
   </p>
 
-  <p>© 2026 FreeLifeTools</p>
+  <p>
+    © 2026 FreeLifeTools
+  </p>
+
 </footer>
 
+
 <script>
-  function calculateDebt() {
 
-    const balance = parseFloat(document.getElementById("balance").value);
-    const annualRate = parseFloat(document.getElementById("interest").value);
-    const payment = parseFloat(document.getElementById("payment").value);
+function money(amount) {
 
-    const result = document.getElementById("debtResult");
+  return amount.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD"
+  });
 
-    if (!isFinite(balance) || balance <= 0) {
-      result.style.display = "block";
-      result.innerHTML = "Please enter a valid debt balance.";
-      return;
-    }
+}
 
-    if (!isFinite(annualRate) || annualRate < 0) {
-      result.style.display = "block";
-      result.innerHTML = "Please enter a valid interest rate.";
-      return;
-    }
 
-    if (!isFinite(payment) || payment <= 0) {
-      result.style.display = "block";
-      result.innerHTML = "Please enter a valid monthly payment.";
-      return;
-    }
+function calculatePayoff(balance, monthlyRate, payment) {
 
-    const monthlyRate = annualRate / 100 / 12;
-
-    let months;
-    let totalPaid;
-    let totalInterest;
-
-    if (monthlyRate === 0) {
-
-      months = Math.ceil(balance / payment);
-      totalPaid = balance + (months * payment - balance);
-      totalInterest = 0;
-
-    } else {
-
-      if (payment <= balance * monthlyRate) {
-        result.style.display = "block";
-        result.innerHTML =
-          "Your monthly payment is too low to pay off this debt at the entered interest rate. Try increasing your monthly payment.";
-        return;
-      }
-
-      months =
-        -Math.log(1 - (balance * monthlyRate) / payment) /
-        Math.log(1 + monthlyRate);
-
-      months = Math.ceil(months);
-
-      let remaining = balance;
-      totalPaid = 0;
-
-      for (let i = 0; i < months; i++) {
-
-        const interestCharge = remaining * monthlyRate;
-        let actualPayment = payment;
-
-        if (actualPayment > remaining + interestCharge) {
-          actualPayment = remaining + interestCharge;
-        }
-
-        remaining = remaining + interestCharge - actualPayment;
-        totalPaid += actualPayment;
-
-        if (remaining < 0.01) {
-          remaining = 0;
-          break;
-        }
-      }
-
-      totalInterest = totalPaid - balance;
-    }
-
-    const years = Math.floor(months / 12);
-    const remainingMonths = months % 12;
-
-    let payoffTime = "";
-
-    if (years > 0) {
-      payoffTime += years + (years === 1 ? " year" : " years");
-    }
-
-    if (remainingMonths > 0) {
-      if (payoffTime !== "") {
-        payoffTime += " and ";
-      }
-
-      payoffTime += remainingMonths +
-        (remainingMonths === 1 ? " month" : " months");
-    }
-
-    if (payoffTime === "") {
-      payoffTime = "Less than 1 month";
-    }
-
-    const money = new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD"
-    });
-
-    result.style.display = "block";
-
-    result.innerHTML = `
-      <div class="result-row">
-        <span>Estimated payoff time</span>
-        <strong class="big-result">${payoffTime}</strong>
-      </div>
-
-      <div class="result-row">
-        <span>Estimated total paid</span>
-        <strong>${money.format(totalPaid)}</strong>
-      </div>
-
-      <div class="result-row">
-        <span>Estimated interest paid</span>
-        <strong>${money.format(totalInterest)}</strong>
-      </div>
-
-      <p class="warning">
-        Paying more than the minimum may help you pay off debt faster and reduce interest costs.
-      </p>
-    `;
+  if (payment <= 0) {
+    return null;
   }
+
+
+  if (
+    monthlyRate > 0 &&
+    payment <= balance * monthlyRate
+  ) {
+
+    return null;
+
+  }
+
+
+  let remaining = balance;
+  let months = 0;
+  let interest = 0;
+
+
+  while (remaining > 0 && months < 1200) {
+
+    const monthlyInterest =
+      remaining * monthlyRate;
+
+
+    interest += monthlyInterest;
+
+
+    remaining =
+      remaining + monthlyInterest - payment;
+
+
+    months++;
+
+  }
+
+
+  if (months >= 1200) {
+    return null;
+  }
+
+
+  return {
+    months: months,
+    interest: interest
+  };
+
+}
+
+
+function formatTime(months) {
+
+  const years =
+    Math.floor(months / 12);
+
+
+  const remainingMonths =
+    months % 12;
+
+
+  let text = "";
+
+
+  if (years > 0) {
+
+    text +=
+      years +
+      (years === 1 ? " year" : " years");
+
+  }
+
+
+  if (remainingMonths > 0) {
+
+    if (text !== "") {
+      text += " ";
+    }
+
+    text +=
+      remainingMonths +
+      (remainingMonths === 1 ? " month" : " months");
+
+  }
+
+
+  return text || "Less than 1 month";
+
+}
+
+
+function calculateDebt() {
+
+  const balance =
+    parseFloat(
+      document.getElementById("balance").value
+    );
+
+
+  const rate =
+    parseFloat(
+      document.getElementById("rate").value
+    ) || 0;
+
+
+  const payment =
+    parseFloat(
+      document.getElementById("payment").value
+    );
+
+
+  const extra =
+    parseFloat(
+      document.getElementById("extra").value
+    ) || 0;
+
+
+  if (!balance || balance <= 0) {
+
+    alert(
+      "Please enter your current debt balance."
+    );
+
+    return;
+
+  }
+
+
+  if (!payment || payment <= 0) {
+
+    alert(
+      "Please enter your monthly payment."
+    );
+
+    return;
+
+  }
+
+
+  const monthlyRate =
+    rate / 100 / 12;
+
+
+  const regular =
+    calculatePayoff(
+      balance,
+      monthlyRate,
+      payment
+    );
+
+
+  if (!regular) {
+
+    alert(
+      "Your monthly payment may be too low to cover the estimated interest. Try increasing your payment."
+    );
+
+    return;
+
+  }
+
+
+  const totalPayment =
+    payment + extra;
+
+
+  const withExtra =
+    calculatePayoff(
+      balance,
+      monthlyRate,
+      totalPayment
+    );
+
+
+  if (!withExtra) {
+
+    alert(
+      "Please enter a valid extra payment amount."
+    );
+
+    return;
+
+  }
+
+
+  const regularTime =
+    formatTime(regular.months);
+
+
+  const extraTime =
+    formatTime(withExtra.months);
+
+
+  const interestSaved =
+    regular.interest -
+    withExtra.interest;
+
+
+  const monthsSaved =
+    regular.months -
+    withExtra.months;
+
+
+  document.getElementById(
+    "regularTime"
+  ).textContent =
+    regularTime;
+
+
+  document.getElementById(
+    "extraTime"
+  ).textContent =
+    extraTime;
+
+
+  document.getElementById(
+    "regularInterest"
+  ).textContent =
+    money(regular.interest);
+
+
+  document.getElementById(
+    "extraInterest"
+  ).textContent =
+    money(withExtra.interest);
+
+
+  document.getElementById(
+    "regularPayment"
+  ).textContent =
+    money(payment);
+
+
+  document.getElementById(
+    "extraPayment"
+  ).textContent =
+    money(totalPayment);
+
+
+  document.getElementById(
+    "interestRegular"
+  ).textContent =
+    money(regular.interest);
+
+
+  document.getElementById(
+    "interestExtra"
+  ).textContent =
+    money(withExtra.interest);
+
+
+  document.getElementById(
+    "timeRegular"
+  ).textContent =
+    regularTime;
+
+
+  document.getElementById(
+    "timeExtra"
+  ).textContent =
+    extraTime;
+
+
+  let summary =
+    "With your regular monthly payment of " +
+    money(payment) +
+    ", your estimated payoff time is " +
+    regularTime +
+    ".";
+
+
+  if (extra > 0) {
+
+    summary +=
+      " If you add " +
+      money(extra) +
+      " per month, your estimated payoff time could drop to " +
+      extraTime +
+      ".";
+
+
+    if (monthsSaved > 0) {
+
+      summary +=
+        " That is approximately " +
+        monthsSaved +
+        (monthsSaved === 1 ? " month" : " months") +
+        " sooner, with an estimated interest savings of " +
+        money(interestSaved) +
+        ".";
+
+    }
+
+  }
+
+
+  document.getElementById(
+    "summary"
+  ).textContent =
+    summary;
+
+
+  document.getElementById(
+    "results"
+  ).style.display =
+    "block";
+
+}
+
 </script>
 
 </body>
 </html>
+```
