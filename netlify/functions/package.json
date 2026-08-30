@@ -1,7 +1,0 @@
-{
-  "name": "functions",
-  "version": "1.0.0",
-  "dependencies": {
-    "stripe": "^18.5.0"
-  }
-}
