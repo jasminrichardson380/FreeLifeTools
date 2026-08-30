@@ -1,5 +1,3 @@
-```toml id="gq9h5s"
 [build]
   publish = "."
   functions = "netlify/functions"
-```
