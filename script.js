@@ -181,5 +181,68 @@ function copyPrompt() {
     "<p><strong>Your experience:</strong> " +
     experience.replace(/\n/g, "<br>") +
     "</p>";
+}function generateInterviewQuestions() {
+  const job = document.getElementById("interviewJob").value.trim();
+  const type = document.getElementById("interviewType").value;
+  const result = document.getElementById("interviewResult");
+
+  if (!job) {
+    result.textContent = "Please enter a job title.";
+    return;
+  }
+
+  const questions = {
+    general: [
+      "Tell me about yourself.",
+      "Why do you want this position?",
+      "What are your greatest strengths?",
+      "What is one area you are working to improve?",
+      "Tell me about a time you solved a difficult problem.",
+      "How do you handle stressful situations?",
+      "Why should we hire you?",
+      "Where do you see yourself in the next few years?"
+    ],
+
+    customer: [
+      "How would you handle an upset customer?",
+      "Tell me about a time you provided excellent customer service.",
+      "How would you handle several customers needing help at once?",
+      "What does good customer service mean to you?",
+      "How would you respond if you didn't know the answer to a customer's question?"
+    ],
+
+    retail: [
+      "How would you help a customer find a product?",
+      "How would you handle a long line of customers?",
+      "What would you do if you noticed a pricing error?",
+      "How would you handle an unhappy customer?",
+      "How do you stay organized during a busy shift?"
+    ],
+
+    office: [
+      "How do you prioritize multiple tasks?",
+      "How comfortable are you with computers and office software?",
+      "Tell me about a time you had to meet a deadline.",
+      "How do you stay organized?",
+      "How do you handle confidential information?"
+    ],
+
+    management: [
+      "How would you handle an employee who is struggling?",
+      "How do you motivate a team?",
+      "Tell me about a difficult leadership decision you made.",
+      "How do you handle workplace conflict?",
+      "How do you measure success for your team?"
+    ]
+  };
+
+  const selectedQuestions = questions[type] || questions.general;
+
+  result.innerHTML =
+    "<h3>Practice Questions for " + job + "</h3>" +
+    "<ol>" +
+    selectedQuestions.map(q => "<li>" + q + "</li>").join("") +
+    "</ol>" +
+    "<p><strong>Tip:</strong> Practice answering each question out loud and use specific examples from your experience.</p>";
 }
 }
