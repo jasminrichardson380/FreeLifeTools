@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Everyday Life Tools | FreeLifeTools</title>
+  <meta name="description" content="Simple free tools to help with everyday life, planning and common tasks.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #faf8f4;
+      color: #1c1a17;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e7e2da;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1100px;
+      min-height: 70px;
+      margin: auto;
+      padding: 0 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: #1c1a17;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #69645e;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #1c1a17;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px 80px;
+    }
+
+    .back {
+      color: #77716a;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      max-width: 760px;
+      margin: 45px auto 60px;
+      text-align: center;
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      color: #817a72;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 52px;
+      letter-spacing: -2.5px;
+      margin: 0 0 18px;
+    }
+
+    .hero p {
+      color: #706b65;
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .featured {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 20px;
+      padding: 35px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+      box-shadow: 0 8px 30px rgba(50,40,30,0.05);
+    }
+
+    .featured h2 {
+      font-size: 30px;
+      margin: 0 0 12px;
+    }
+
+    .featured p {
+      color: #706b65;
+      line-height: 1.6;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 14px 21px;
+      border-radius: 9px;
+      background: #1c1a17;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .quick-box {
+      background: #f2eee8;
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    .quick-box h3 {
+      margin-top: 0;
+    }
+
+    .quick-box p {
+      font-size: 14px;
+    }
+
+    .section {
+      margin-top: 70px;
+    }
+
+    .section-heading {
+      margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+      font-size: 30px;
+      margin: 0 0 8px;
+    }
+
+    .section-heading p {
+      color: #716b64;
+      margin: 0;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .tool {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 15px;
+      padding: 25px;
+      min-height: 190px;
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .tool h3 {
+      margin: 0 0 9px;
+      font-size: 19px;
+    }
+
+    .tool p {
+      color: #706b65;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .tool a {
+      color: #1c1a17;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .ideas {
+      margin-top: 70px;
+      background: #1c1a17;
+      color: white;
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .ideas h2 {
+      font-size: 30px;
+      margin-top: 0;
+    }
+
+    .ideas p {
+      color: #d5d1cb;
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    .idea-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .idea {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 17px;
+      font-size: 14px;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #e7e2da;
+      text-align: center;
+      padding: 40px 20px;
+      color: #6d6861;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #55514c;
+      margin: 0 5px;
+    }
+
+    @media (max-width: 800px) {
+
+      .nav {
+        flex-direction: column;
+        padding: 18px 20px;
+      }
+
+      .featured {
+        grid-template-columns: 1fr;
+      }
+
+      .tools {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .idea-list {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .tools {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="nav">
+
+    <a class="logo" href="index.html">
+      FreeLifeTools
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="pro.html">Pro</a>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <a class="back" href="index.html">
+    ← Back to FreeLifeTools
+  </a>
+
+
+  <section class="hero">
+
+    <div class="tag">
+      EVERYDAY LIFE
+    </div>
+
+    <h1>
+      Small tools for everyday things.
+    </h1>
+
+    <p>
+      Simple resources designed to help you plan,
+      organize and handle everyday tasks a little easier.
+    </p>
+
+  </section>
+
+
+  <section class="featured">
+
+    <div>
+
+      <div class="tag">
+        EVERYDAY PLANNING
+      </div>
+
+      <h2>
+        Get organized without making it complicated.
+      </h2>
+
+      <p>
+        FreeLifeTools brings useful everyday resources
+        together in one simple place.
+      </p>
+
+      <a class="button" href="#tools">
+        Explore Tools
+      </a>
+
+    </div>
+
+
+    <div class="quick-box">
+
+      <h3>✨ Quick Ideas</h3>
+
+      <p>
+        Planning a budget? Organizing your week?
+        Trying to get something done?
+      </p>
+
+      <p>
+        Start with one small task and work from there.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="section" id="tools">
+
+    <div class="section-heading">
+
+      <h2>Everyday tools</h2>
+
+      <p>
+        More useful tools are being added to FreeLifeTools.
+      </p>
+
+    </div>
+
+
+    <div class="tools">
+
+      <div class="tool">
+
+        <div class="icon">📅</div>
+
+        <h3>Planning</h3>
+
+        <p>
+          Simple ideas and tools to help organize your
+          days, weeks and upcoming tasks.
+        </p>
+
+        <a href="#">
+          Coming Soon →
+        </a>
+
+      </div>
+
+
+      <div class="tool">
+
+        <div class="icon">🧮</div>
+
+        <h3>Calculators</h3>
+
+        <p>
+          Helpful calculators for common everyday
+          questions and decisions.
+        </p>
+
+        <a href="#">
+          Coming Soon →
+        </a>
+
+      </div>
+
+
+      <div class="tool">
+
+        <div class="icon">📝</div>
+
+        <h3>Checklists</h3>
+
+        <p>
+          Simple checklists that can help you stay
+          organized and get things done.
+        </p>
+
+        <a href="#">
+          Coming Soon →
+        </a>
+
+      </div>
+
+
+      <div class="tool">
+
+        <div class="icon">🏠</div>
+
+        <h3>Home</h3>
+
+        <p>
+          Helpful resources and ideas for managing
+          everyday home tasks.
+        </p>
+
+        <a href="#">
+          Coming Soon →
+        </a>
+
+      </div>
+
+
+      <div class="tool">
+
+        <div class="icon">🛒</div>
+
+        <h3>Shopping</h3>
+
+        <p>
+          Tools and ideas to help you plan purchases
+          and manage everyday spending.
+        </p>
+
+        <a href="budget.html">
+          Budget Planner →
+        </a>
+
+      </div>
+
+
+      <div class="tool">
+
+        <div class="icon">💡</div>
+
+        <h3>Life Ideas</h3>
+
+        <p>
+          Useful ideas and simple resources for
+          everyday situations.
+        </p>
+
+        <a href="#">
+          Coming Soon →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="ideas">
+
+    <h2>
+      What can FreeLifeTools help with?
+    </h2>
+
+    <p>
+      We're building a collection of simple tools that
+      solve everyday problems without making things
+      unnecessarily complicated.
+    </p>
+
+
+    <div class="idea-list">
+
+      <div class="idea">
+        Organizing your finances
+      </div>
+
+      <div class="idea">
+        Planning your week
+      </div>
+
+      <div class="idea">
+        Finding a job
+      </div>
+
+      <div class="idea">
+        Using AI
+      </div>
+
+      <div class="idea">
+        Managing everyday tasks
+      </div>
+
+      <div class="idea">
+        Planning for the future
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>FreeLifeTools</strong>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="privacy.html">Privacy</a>
+  </p>
+
+  <p>
+    © 2026 FreeLifeTools
+  </p>
+
+</footer>
+
+</body>
+</html>
