@@ -72,7 +72,47 @@
 
 <header>
   <strong>FreeLifeTools Pro</strong>
+
   <nav>
     <a href="index.html">Free Tools</a>
-    <a href="pro
-      
+    <a href="pro.html">Pro Membership</a>
+  </nav>
+</header>
+
+<main>
+
+  <div class="card">
+
+    <h1>AI Life Assistant 🤖</h1>
+
+    <p>Tell the assistant what you need help with.</p>
+
+    <textarea id="question" placeholder="Example: Help me create a monthly budget..."></textarea>
+
+    <button onclick="askAI()">Ask AI</button>
+
+    <div id="response">
+      Your AI response will appear here.
+    </div>
+
+  </div>
+
+</main>
+
+<script>
+  function askAI() {
+    const question = document.getElementById("question").value.trim();
+    const response = document.getElementById("response");
+
+    if (!question) {
+      response.textContent = "Please enter a question first.";
+      return;
+    }
+
+    response.textContent =
+      "Your AI assistant will be connected here securely in the next step.";
+  }
+</script>
+
+</body>
+</html>
