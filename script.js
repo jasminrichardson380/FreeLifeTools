@@ -34,4 +34,24 @@ function calculatePay() {
   result.innerHTML =
     "<strong>Total expenses:</strong> $" + expenses.toFixed(2) +
     "<br><strong>Money left:</strong> $" + remaining.toFixed(2);
+}function calculateRent() {
+  const income = Number(document.getElementById("monthlyIncome").value) || 0;
+  const debt = Number(document.getElementById("monthlyDebt").value) || 0;
+
+  const result = document.getElementById("rentResult");
+
+  if (income <= 0) {
+    result.textContent = "Please enter your monthly income.";
+    return;
+  }
+
+  const recommendedRent = income * 0.30;
+  const incomeAfterDebt = income - debt;
+  const debtAdjustedRent = incomeAfterDebt * 0.30;
+
+  result.innerHTML =
+    "<strong>30% income estimate:</strong> $" +
+    recommendedRent.toFixed(2) +
+    "<br><strong>After debt estimate:</strong> $" +
+    Math.max(0, debtAdjustedRent).toFixed(2);
 }
