@@ -1,11 +1,26 @@
-```javascript
-const Stripe = require("stripe");
+Stripe = require("stripe");
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+exports.handler = async (event) => {
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        error: "Method not allowed"
+      })
+    };
+  }
 
-exports.handler = async function () {
   try {
-    const session = await stripe.checkout.sessions.create({
+    if (!process.env.STRIPE_SECRET_KEY) {
+      throw new Error("Stripe secret key is not configured.");
+    }
+
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+    const checkout = await stripe.checkout.sessions.create({
       mode: "subscription",
       line_items: [
         {
@@ -13,27 +28,33 @@ exports.handler = async function () {
           quantity: 1
         }
       ],
-      success_url: "https://elaborate-maamoul-1fad9f.netlify.app/pro.html?payment=success",
-      cancel_url: "https://elaborate-maamoul-1fad9f.netlify.app/pro.html?payment=cancelled"
+      success_url:
+        "https://elaborate-maamoul-1fad9f.netlify.app/pro.html?payment=success",
+      cancel_url:
+        "https://elaborate-maamoul-1fad9f.netlify.app/pro.html?payment=cancelled"
     });
 
     return {
       statusCode: 303,
       headers: {
-        Location: session.url
+        Location: checkout.url
       },
       body: ""
     };
 
   } catch (error) {
-    console.error("Stripe checkout error:", error);
+    console.error(error);
 
     return {
       statusCode: 500,
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         error: error.message
       })
     };
   }
 };
-```
+
+
