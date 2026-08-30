@@ -9,7 +9,7 @@ exports.handler = async function () {
       mode: "subscription",
       line_items: [
         {
-          price: "price_1UAAu3B3mpO2cUXPIlcgjVCBj54tBUzNnIWP4g66Ao8AdjXJkNF3uOxl8UrTbEC3WpSx6NLs3jQ7cCY3hfdAieNA001IMmydat",
+          price: "price_1UAAu3B3mpO2cUXP47SAfb8z",
           quantity: 1
         }
       ],
