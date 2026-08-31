@@ -33,7 +33,6 @@
       max-width: 600px;
 
       background: white;
-
       border-radius: 22px;
       padding: 45px 30px;
 
@@ -42,7 +41,7 @@
       box-shadow: 0 15px 45px rgba(0,0,0,.08);
     }
 
-    .check {
+    .status {
       width: 75px;
       height: 75px;
 
@@ -52,10 +51,10 @@
       align-items: center;
       justify-content: center;
 
-      background: #eaf8ef;
+      background: #eef0f2;
       border-radius: 50%;
 
-      font-size: 35px;
+      font-size: 34px;
     }
 
     h1 {
@@ -76,7 +75,7 @@
     }
 
     .button {
-      display: inline-block;
+      display: none;
 
       margin-top: 28px;
 
@@ -84,11 +83,19 @@
       color: white;
 
       padding: 14px 22px;
-
       border-radius: 10px;
 
       font-weight: 800;
       text-decoration: none;
+    }
+
+    .error-link {
+      display: none;
+
+      margin-top: 20px;
+
+      color: #17191c;
+      font-weight: 700;
     }
 
     .small {
@@ -106,31 +113,141 @@
 
     <div class="card">
 
-      <div class="check">
-        ✓
+      <div class="status" id="statusIcon">
+        …
       </div>
 
-      <h1>
-        Welcome to Life Pro!
+      <h1 id="title">
+        Verifying your payment
       </h1>
 
-      <p>
-        Your subscription was successful.
-        You now have access to FreeLifeTools Pro features
-        and premium planning tools.
+      <p id="message">
+        Please wait while we confirm your Life Pro subscription.
       </p>
 
-      <a class="button" href="pro.html">
+      <a
+        class="button"
+        id="proButton"
+        href="pro.html"
+      >
         Go to Pro Tools
       </a>
 
+      <a
+        class="error-link"
+        id="backLink"
+        href="pro.html"
+      >
+        Return to Pro
+      </a>
+
       <div class="small">
-        Thank you for supporting FreeLifeTools.
+        FreeLifeTools Pro
       </div>
 
     </div>
 
   </div>
+
+
+  <script>
+
+    async function verifyPayment() {
+
+      const params =
+        new URLSearchParams(window.location.search);
+
+      const sessionId =
+        params.get("session_id");
+
+      const icon =
+        document.getElementById("statusIcon");
+
+      const title =
+        document.getElementById("title");
+
+      const message =
+        document.getElementById("message");
+
+      const proButton =
+        document.getElementById("proButton");
+
+      const backLink =
+        document.getElementById("backLink");
+
+
+      if (!sessionId) {
+
+        icon.textContent = "!";
+        title.textContent = "Payment not verified";
+
+        message.textContent =
+          "We could not find a valid checkout session.";
+
+        backLink.style.display = "inline-block";
+
+        return;
+      }
+
+
+      try {
+
+        const response = await fetch(
+          "/.netlify/functions/verify-checkout?session_id=" +
+          encodeURIComponent(sessionId)
+        );
+
+        const data = await response.json();
+
+
+        if (data.verified === true) {
+
+          icon.textContent = "✓";
+
+          icon.style.background = "#eaf8ef";
+
+          title.textContent =
+            "Welcome to Life Pro!";
+
+          message.textContent =
+            "Your subscription was successfully verified. You now have access to your FreeLifeTools Pro tools.";
+
+          proButton.style.display =
+            "inline-block";
+
+        } else {
+
+          icon.textContent = "!";
+
+          title.textContent =
+            "Payment not verified";
+
+          message.textContent =
+            "We could not verify this subscription. Please return to the Pro page and try again.";
+
+          backLink.style.display =
+            "inline-block";
+        }
+
+      } catch (error) {
+
+        icon.textContent = "!";
+
+        title.textContent =
+          "Verification error";
+
+        message.textContent =
+          "We could not verify your payment right now. Please try again.";
+
+        backLink.style.display =
+          "inline-block";
+      }
+    }
+
+
+    verifyPayment();
+
+  </script>
 
 </body>
 </html>
