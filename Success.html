@@ -193,9 +193,12 @@
       try {
 
         const response = await fetch(
-          "/.netlify/functions/verify-checkout?session_id=" +
-          encodeURIComponent(sessionId)
-        );
+  "/.netlify/functions/activate-pro?session_id=" +
+  encodeURIComponent(sessionId),
+  {
+    credentials: "same-origin"
+  }
+);
 
         const data = await response.json();
 
