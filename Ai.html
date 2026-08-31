@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>AI Tools | FreeLifeTools</title>
-  <meta name="description" content="Free AI tools and ideas for work, business and everyday life.">
+
+  <meta
+    name="description"
+    content="Simple AI-inspired tools for writing, work, business and everyday tasks."
+  >
 
   <style>
     * {
@@ -18,253 +22,704 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f4fa;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f6fb;
       color: #19171f;
     }
 
+    a {
+      text-decoration: none;
+    }
+
     header {
-      background: rgba(255,255,255,0.96);
-      border-bottom: 1px solid #e4e1e9;
+      background: white;
+      border-bottom: 1px solid #e5e2ea;
       position: sticky;
       top: 0;
       z-index: 100;
     }
 
-    .nav {
-      max-width: 1100px;
+    .nav-wrap {
+      max-width: 1150px;
       margin: auto;
-      min-height: 70px;
-      padding: 0 20px;
+      padding: 18px 22px;
 
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      align-items: center;
+      gap: 22px;
     }
 
     .logo {
       color: #19171f;
-      text-decoration: none;
       font-size: 22px;
       font-weight: 800;
     }
 
     nav {
       display: flex;
-      gap: 20px;
+      align-items: center;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
     nav a {
-      color: #68646f;
-      text-decoration: none;
+      color: #67626f;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    nav a:hover {
-      color: #19171f;
+    nav a:hover,
+    nav a.active {
+      color: #6c3bd1;
     }
 
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 50px 20px 80px;
-    }
-
-    .back {
-      color: #706b77;
-      text-decoration: none;
-      font-size: 14px;
+    .pro-link {
+      background: #19171f;
+      color: white !important;
+      padding: 10px 15px;
+      border-radius: 9px;
     }
 
     .hero {
-      text-align: center;
-      max-width: 780px;
-      margin: 45px auto 55px;
+      background: linear-gradient(135deg, #1b1724, #4a3179);
+      color: white;
+      padding: 82px 22px;
     }
 
-    .tag {
+    .hero-inner {
+      max-width: 1150px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+
+      color: #d5c6f5;
       font-size: 12px;
       font-weight: 800;
-      letter-spacing: 1.7px;
-      color: #77717f;
-      margin-bottom: 15px;
+      letter-spacing: 1.6px;
     }
 
-    h1 {
-      font-size: 52px;
+    .hero h1 {
+      margin: 0;
+      font-size: 54px;
+      line-height: 1.03;
       letter-spacing: -2.5px;
-      margin: 0 0 18px;
+      max-width: 700px;
     }
 
     .hero p {
-      color: #6d6874;
+      max-width: 650px;
+      margin: 22px 0 0;
+
+      color: #ded6ed;
       font-size: 18px;
-      line-height: 1.6;
-      margin: 0;
+      line-height: 1.65;
     }
 
-    .ai-box {
-      max-width: 850px;
-      margin: auto;
+    .hero-button {
+      display: inline-block;
+      margin-top: 27px;
+      padding: 14px 22px;
+      border-radius: 10px;
+
       background: white;
-      border: 1px solid #e1dfe6;
+      color: #2b1f3b;
+
+      font-weight: 800;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.15);
       border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 10px 35px rgba(30,20,50,0.06);
+      padding: 28px;
     }
 
-    .ai-box h2 {
-      margin-top: 0;
-      font-size: 23px;
+    .hero-card h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
     }
 
-    .ai-box p {
-      color: #716c77;
+    .hero-card p {
+      margin: 0;
       font-size: 14px;
-      line-height: 1.5;
+      color: #ddd5eb;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 65px 22px 90px;
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+    }
+
+    .section-heading span {
+      color: #6c3bd1;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .section-heading h2 {
+      margin: 9px 0 8px;
+      font-size: 34px;
+      letter-spacing: -1px;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: #6c6872;
+      line-height: 1.6;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .tool-card {
+      background: white;
+      border: 1px solid #e3dfea;
+      border-radius: 18px;
+      padding: 28px;
+
+      box-shadow: 0 8px 28px rgba(30,20,45,.05);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #f0eafb;
+      border-radius: 14px;
+
+      font-size: 25px;
+      margin-bottom: 18px;
+    }
+
+    .tool-card h3 {
+      margin: 0 0 9px;
+      font-size: 21px;
+    }
+
+    .tool-card p {
+      color: #6c6872;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    textarea,
+    input {
+      width: 100%;
+      margin-top: 12px;
+      padding: 13px;
+      border: 1px solid #d8d3df;
+      border-radius: 9px;
+      font-size: 15px;
+      font-family: Arial, sans-serif;
     }
 
     textarea {
-      width: 100%;
-      min-height: 145px;
+      min-height: 110px;
       resize: vertical;
-      padding: 16px;
-      border: 1px solid #d8d5de;
-      border-radius: 12px;
-      font-family: Arial, sans-serif;
-      font-size: 15px;
-      line-height: 1.5;
-      margin-top: 10px;
-    }
-
-    textarea:focus {
-      outline: 2px solid #d5d1dc;
     }
 
     .button {
+      display: inline-block;
       border: none;
-      border-radius: 10px;
-      background: #19171f;
-      color: white;
-      padding: 14px 22px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
       margin-top: 12px;
+      padding: 12px 17px;
+      border-radius: 9px;
+
+      background: #6c3bd1;
+      color: white;
+
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 14px;
     }
 
     .button:hover {
-      opacity: 0.88;
+      opacity: .9;
     }
 
-    #aiResult {
+    .output {
       display: none;
-      margin-top: 22px;
-      padding: 20px;
-      background: #f6f4f9;
-      border: 1px solid #e7e3eb;
-      border-radius: 12px;
+      margin-top: 16px;
+      padding: 16px;
+
+      background: #f6f3fb;
+      border: 1px solid #e5dff0;
+      border-radius: 10px;
+
+      color: #4f4958;
       line-height: 1.6;
       white-space: pre-wrap;
     }
 
-    .section {
-      margin-top: 70px;
-    }
+    .copy-button {
+      display: none;
+      margin-top: 10px;
+      padding: 9px 13px;
 
-    .section-heading {
-      margin-bottom: 25px;
-    }
-
-    .section-heading h2 {
-      font-size: 30px;
-      margin: 0 0 8px;
-    }
-
-    .section-heading p {
-      color: #716c77;
-      margin: 0;
-    }
-
-    .ai-tools {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .tool {
+      border: 1px solid #d8d3df;
       background: white;
-      border: 1px solid #e1dfe6;
-      border-radius: 16px;
-      padding: 25px;
-      min-height: 200px;
-    }
+      border-radius: 8px;
 
-    .tool-icon {
-      font-size: 30px;
-      margin-bottom: 16px;
-    }
-
-    .tool h3 {
-      margin: 0 0 10px;
-      font-size: 19px;
-    }
-
-    .tool p {
-      color: #706b76;
-      font-size: 14px;
-      line-height: 1.55;
-      margin-bottom: 20px;
-    }
-
-    .tool a {
-      color: #19171f;
+      cursor: pointer;
       font-weight: 700;
-      font-size: 14px;
     }
 
-    .pro {
-      margin-top: 70px;
+    .info-box {
+      margin-top: 65px;
       background: #19171f;
       color: white;
+
       border-radius: 20px;
-      padding: 40px;
-
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 30px;
+      padding: 38px;
     }
 
-    .pro h2 {
-      font-size: 30px;
-      margin: 0 0 12px;
+    .info-box h2 {
+      margin: 0 0 10px;
+      font-size: 29px;
     }
 
-    .pro p {
-      color: #d0ccd5;
+    .info-box p {
+      margin: 0;
+      color: #d5d1da;
       line-height: 1.6;
-      max-width: 650px;
-    }
-
-    .pro .button {
-      background: white;
-      color: #19171f;
-      text-decoration: none;
-      white-space: nowrap;
+      max-width: 760px;
     }
 
     footer {
       background: white;
-      border-top: 1px solid #e4e1e9;
+      border-top: 1px solid #e4e1e8;
       text-align: center;
       padding: 40px 20px;
-      color: #6b6670;
+      color: #67636d;
       font-size: 14px;
     }
 
-    footer a {
-      color: #55515
+    @media (max-width: 760px) {
+
+      .nav-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 41px;
+      }
+
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding: 48px 18px 70px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-wrap">
+
+    <a class="logo" href="index.html">
+      FreeLifeTools
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a class="active" href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a class="pro-link" href="pro.html">Pro</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<section class="hero">
+
+  <div class="hero-inner">
+
+    <div>
+
+      <span class="eyebrow">
+        AI & PRODUCTIVITY TOOLS
+      </span>
+
+      <h1>
+        Work smarter with simple AI tools.
+      </h1>
+
+      <p>
+        Build better prompts, draft professional messages,
+        improve resume wording and create useful ideas for
+        work, business and everyday life.
+      </p>
+
+      <a class="hero-button" href="#tools">
+        Explore AI Tools
+      </a>
+
+    </div>
+
+
+    <div class="hero-card">
+
+      <h3>
+        🤖 No complicated setup
+      </h3>
+
+      <p>
+        These tools work directly in your browser and help you
+        create better wording and prompts without needing an API key.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<main>
+
+  <section id="tools">
+
+    <div class="section-heading">
+
+      <span>FREE AI TOOLS</span>
+
+      <h2>
+        Useful tools you can use right now
+      </h2>
+
+      <p>
+        Pick a tool, enter what you need, and generate a useful
+        starting point.
+      </p>
+
+    </div>
+
+
+    <div class="tool-grid">
+
+      <div class="tool-card">
+
+        <div class="icon">✨</div>
+
+        <h3>Prompt Builder</h3>
+
+        <p>
+          Turn a simple idea into a clearer prompt you can use
+          with an AI assistant.
+        </p>
+
+        <textarea
+          id="promptInput"
+          placeholder="Example: help me make a monthly budget"
+        ></textarea>
+
+        <button class="button" onclick="buildPrompt()">
+          Build Prompt
+        </button>
+
+        <div class="output" id="promptOutput"></div>
+
+        <button
+          class="copy-button"
+          id="promptCopy"
+          onclick="copyOutput('promptOutput')"
+        >
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="tool-card">
+
+        <div class="icon">💼</div>
+
+        <h3>Professional Message Helper</h3>
+
+        <p>
+          Turn a rough message into a more professional version.
+        </p>
+
+        <textarea
+          id="messageInput"
+          placeholder="Example: tell my manager I need Friday off"
+        ></textarea>
+
+        <button class="button" onclick="buildMessage()">
+          Improve Message
+        </button>
+
+        <div class="output" id="messageOutput"></div>
+
+        <button
+          class="copy-button"
+          id="messageCopy"
+          onclick="copyOutput('messageOutput')"
+        >
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="tool-card">
+
+        <div class="icon">📄</div>
+
+        <h3>Resume Bullet Helper</h3>
+
+        <p>
+          Turn a basic job duty into stronger resume wording.
+        </p>
+
+        <textarea
+          id="resumeInput"
+          placeholder="Example: helped customers and worked register"
+        ></textarea>
+
+        <button class="button" onclick="buildResume()">
+          Improve Resume Bullet
+        </button>
+
+        <div class="output" id="resumeOutput"></div>
+
+        <button
+          class="copy-button"
+          id="resumeCopy"
+          onclick="copyOutput('resumeOutput')"
+        >
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="tool-card">
+
+        <div class="icon">💡</div>
+
+        <h3>Business Idea Builder</h3>
+
+        <p>
+          Create a simple business concept from your interests
+          and strengths.
+        </p>
+
+        <input
+          id="businessInput"
+          type="text"
+          placeholder="Example: organizing, money tips, pets"
+        >
+
+        <button class="button" onclick="buildBusiness()">
+          Build Idea
+        </button>
+
+        <div class="output" id="businessOutput"></div>
+
+        <button
+          class="copy-button"
+          id="businessCopy"
+          onclick="copyOutput('businessOutput')"
+        >
+          Copy
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="info-box">
+
+    <h2>
+      More AI features are coming.
+    </h2>
+
+    <p>
+      FreeLifeTools can later connect these tools to a live AI model
+      for more personalized responses. For now, these browser-based
+      helpers give visitors useful tools without requiring a paid AI
+      service or API connection.
+    </p>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>FreeLifeTools</strong>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>© 2026 FreeLifeTools</p>
+
+</footer>
+
+
+<script>
+
+function showResult(outputId, copyId, text) {
+  const output = document.getElementById(outputId);
+  const copy = document.getElementById(copyId);
+
+  output.textContent = text;
+  output.style.display = "block";
+  copy.style.display = "inline-block";
+}
+
+
+function buildPrompt() {
+
+  const input =
+    document.getElementById("promptInput").value.trim();
+
+  if (!input) {
+    alert("Enter what you want help with.");
+    return;
+  }
+
+  const result =
+    "Act as a helpful expert. Help me with the following task:\n\n" +
+    input +
+    "\n\nGive me a clear, practical answer. Break it into simple steps and include examples when helpful.";
+
+  showResult(
+    "promptOutput",
+    "promptCopy",
+    result
+  );
+}
+
+
+function buildMessage() {
+
+  const input =
+    document.getElementById("messageInput").value.trim();
+
+  if (!input) {
+    alert("Enter your message first.");
+    return;
+  }
+
+  const result =
+    "Professional version:\n\n" +
+    "Hello,\n\n" +
+    "I wanted to reach out regarding the following: " +
+    input +
+    ". I appreciate your time and understanding. Please let me know if you need any additional information.\n\nThank you.";
+
+  showResult(
+    "messageOutput",
+    "messageCopy",
+    result
+  );
+}
+
+
+function buildResume() {
+
+  const input =
+    document.getElementById("resumeInput").value.trim();
+
+  if (!input) {
+    alert("Enter a job duty or experience.");
+    return;
+  }
+
+  const result =
+    "Resume-ready version:\n\n" +
+    "• Demonstrated reliability and strong customer service skills while handling responsibilities including " +
+    input +
+    ", supporting efficient daily operations and a positive customer experience.";
+
+  showResult(
+    "resumeOutput",
+    "resumeCopy",
+    result
+  );
+}
+
+
+function buildBusiness() {
+
+  const input =
+    document.getElementById("businessInput").value.trim();
+
+  if (!input) {
+    alert("Enter an interest or skill.");
+    return;
+  }
+
+  const result =
+    "Business idea:\n\n" +
+    "Create a simple online service or resource around " +
+    input +
+    ". Start with one useful free tool or guide, then offer a paid upgrade with more advanced features, saved results or premium resources.";
+
+  showResult(
+    "businessOutput",
+    "businessCopy",
+    result
+  );
+}
+
+
+function copyOutput(id) {
+
+  const text =
+    document.getElementById(id).textContent;
+
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      alert("Copied!");
+    })
+    .catch(() => {
+      alert("Copy failed. Press and hold the text to copy it manually.");
+    });
+}
+
+</script>
+
+</body>
+</html>
