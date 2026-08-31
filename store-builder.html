@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Store Builder | FreeLifeTools</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+}
+
+header{
+  background:#0b1739;
+  color:white;
+  padding:18px 20px;
+}
+
+nav{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:800;
+}
+
+.home-link{
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.hero{
+  background:linear-gradient(135deg,#0b1739,#5b38e8);
+  color:white;
+  padding:60px 20px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:42px;
+  margin:0 0 15px;
+}
+
+.hero p{
+  max-width:700px;
+  margin:auto;
+  font-size:18px;
+  line-height:1.6;
+}
+
+.container{
+  max-width:850px;
+  margin:35px auto;
+  padding:0 18px;
+}
+
+.builder{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+label{
+  display:block;
+  font-weight:700;
+  margin-top:20px;
+  margin-bottom:7px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid #ccd3df;
+  border-radius:10px;
+  font-size:16px;
+}
+
+textarea{
+  min-height:90px;
+}
+
+button{
+  width:100%;
+  margin-top:25px;
+  padding:16px;
+  border:0;
+  border-radius:12px;
+  background:#5b38e8;
+  color:white;
+  font-size:17px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:.92;
+}
+
+.results{
+  display:none;
+  margin-top:30px;
+  background:#eef1ff;
+  padding:25px;
+  border-radius:16px;
+}
+
+.result-card{
+  background:white;
+  padding:18px;
+  border-radius:12px;
+  margin-top:14px;
+}
+
+.result-card h3{
+  margin-top:0;
+  color:#4327bd;
+}
+
+.badge{
+  display:inline-block;
+  background:#dff8e8;
+  color:#137333;
+  padding:7px 12px;
+  border-radius:20px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+footer{
+  text-align:center;
+  padding:35px 20px;
+  color:#687086;
+}
+
+@media(max-width:600px){
+  .hero h1{
+    font-size:32px;
+  }
+
+  .builder{
+    padding:22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+  <div class="logo">FreeLifeTools</div>
+  <a class="home-link" href="index.html">Home</a>
+</nav>
+</header>
+
+<section class="hero">
+  <h1>AI Store Builder</h1>
+  <p>
+    Turn your business idea into a ready-to-build online store.
+    Create your brand, products, pricing and store content in seconds.
+  </p>
+</section>
+
+<main class="container">
+
+<div class="builder">
+
+<span class="badge">✨ Free Store Builder</span>
+
+<h2>Tell us about your store</h2>
+
+<label for="business">What do you want to sell?</label>
+<input
+  id="business"
+  placeholder="Example: candles, clothing, digital planners"
+>
+
+<label for="customer">Who is your ideal customer?</label>
+<input
+  id="customer"
+  placeholder="Example: busy moms, college students, pet owners"
+>
+
+<label for="style">Choose your brand style</label>
+<select id="style">
+  <option>Modern</option>
+  <option>Luxury</option>
+  <option>Minimal</option>
+  <option>Fun</option>
+  <option>Professional</option>
+  <option>Bold</option>
+</select>
+
+<label for="details">Anything else?</label>
+<textarea
+  id="details"
+  placeholder="Example: affordable products, calming colors, beginner friendly"
+></textarea>
+
+<button onclick="buildStore()">
+  Build My Store
+</button>
+
+<div class="results" id="results">
+
+<h2>Your Store Starter Kit</h2>
+
+<div class="result-card">
+<h3>Store Name</h3>
+<p id="storeName"></p>
+</div>
+
+<div class="result-card">
+<h3>Tagline</h3>
+<p id="tagline"></p>
+</div>
+
+<div class="result-card">
+<h3>Starter Products</h3>
+<p id="products"></p>
+</div>
+
+<div class="result-card">
+<h3>Homepage Headline</h3>
+<p id="headline"></p>
+</div>
+
+<div class="result-card">
+<h3>About Your Store</h3>
+<p id="about"></p>
+</div>
+
+<div class="result-card">
+<h3>Launch Plan</h3>
+<p>
+1. Choose your favorite products.<br>
+2. Add product photos.<br>
+3. Connect a payment provider.<br>
+4. Publish your storefront.<br>
+5. Start promoting your store.
+</p>
+</div>
+
+</div>
+</div>
+</main>
+
+<footer>
+FreeLifeTools — Free Tools. Better Life.
+</footer>
+
+<script>
+function buildStore(){
+
+  const business =
+    document.getElementById("business").value.trim();
+
+  const customer =
+    document.getElementById("customer").value.trim();
+
+  const style =
+    document.getElementById("style").value;
+
+  if(!business){
+    alert("Tell us what you want to sell first.");
+    return;
+  }
+
+  const cleanBusiness =
+    business.charAt(0).toUpperCase() + business.slice(1);
+
+  const customerText =
+    customer || "people looking for something useful and affordable";
+
+  const names = [
+    "Bright " + cleanBusiness + " Co.",
+    "The " + cleanBusiness + " Studio",
+    "Simply " + cleanBusiness,
+    cleanBusiness + " Market"
+  ];
+
+  const storeName =
+    names[Math.floor(Math.random() * names.length)];
+
+  document.getElementById("storeName").textContent =
+    storeName;
+
+  document.getElementById("tagline").textContent =
+    style + " products made for " + customerText + ".";
+
+  document.getElementById("products").innerHTML =
+    "• Signature " + cleanBusiness + " — $19.99<br>" +
+    "• Premium " + cleanBusiness + " — $29.99<br>" +
+    "• Starter " + cleanBusiness + " Bundle — $39.99";
+
+  document.getElementById("headline").textContent =
+    "Discover " + cleanBusiness +
+    " Designed for Your Everyday Life";
+
+  document.getElementById("about").textContent =
+    storeName +
+    " is a " +
+    style.toLowerCase() +
+    " brand created for " +
+    customerText +
+    ". Our goal is to offer useful, attractive and easy-to-shop " +
+    business +
+    " products at prices customers can feel good about.";
+
+  document.getElementById("results").style.display =
+    "block";
+
+  document.getElementById("results").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+</script>
+
+</body>
+</html>
