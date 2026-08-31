@@ -28,8 +28,8 @@ exports.handler = async (event) => {
           quantity: 1
         }
       ],
-      success_url:
-  "https://elaborate-maamoul-1fad9f.netlify.app/success.html",
+    success_url:
+  "https://elaborate-maamoul-1fad9f.netlify.app/success.html?session_id={CHECKOUT_SESSION_ID}",
       cancel_url:
         "https://elaborate-maamoul-1fad9f.netlify.app/pro.html?payment=cancelled"
     });
