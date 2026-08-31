@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Life Pro Member Area | FreeLifeTools</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f6f8;
+      color: #17191c;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e2e4e7;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 22px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: #17191c;
+      font-size: 21px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .home-link {
+      color: #60646b;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #17191c, #32363b);
+      color: white;
+      padding: 70px 22px;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 15px;
+
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+
+      color: #cfd3d8;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 48px;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin-top: 18px;
+
+      color: #d4d7db;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 55px 22px 80px;
+    }
+
+    .section-title {
+      margin-bottom: 26px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 8px;
+      font-size: 31px;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: #6d7278;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e2e4e7;
+      border-radius: 18px;
+      padding: 28px;
+
+      box-shadow: 0 8px 25px rgba(0,0,0,.05);
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #f0f1f3;
+      border-radius: 13px;
+
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 9px;
+      font-size: 21px;
+    }
+
+    .card p {
+      margin: 0 0 20px;
+      color: #6d7278;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .button {
+      display: inline-block;
+
+      background: #17191c;
+      color: white;
+
+      padding: 11px 16px;
+      border-radius: 9px;
+
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .member-note {
+      margin-top: 40px;
+      padding: 24px;
+
+      background: #ffffff;
+      border: 1px solid #e2e4e7;
+      border-radius: 16px;
+
+      color: #62676d;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #e2e4e7;
+
+      text-align: center;
+      padding: 35px 20px;
+
+      color: #777b81;
+      font-size: 14px;
+    }
+
+    @media (max-width: 720px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 39px;
+      }
+
+      .nav {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html">
+      FreeLifeTools
+    </a>
+
+    <a class="home-link" href="index.html">
+      Home
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+
+  <div class="hero-inner">
+
+    <span class="tag">
+      LIFE PRO MEMBER AREA
+    </span>
+
+    <h1>
+      Welcome to your Pro toolkit.
+    </h1>
+
+    <p>
+      Use your premium planning tools for paychecks,
+      monthly money, debt payoff and savings goals.
+    </p>
+
+  </div>
+
+</section>
+
+<main>
+
+  <div class="section-title">
+
+    <h2>Your Pro Tools</h2>
+
+    <p>
+      Choose a tool below to get started.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <div class="card">
+
+      <div class="icon">💵</div>
+
+      <h3>Pro Paycheck Planner</h3>
+
+      <p>
+        Plan your earnings and paycheck schedule with
+        more detailed calculations.
+      </p>
+
+      <a class="button" href="pro-paycheck.html">
+        Open Tool
+      </a>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="icon">📊</div>
+
+      <h3>Monthly Money Planner</h3>
+
+      <p>
+        Organize monthly income, expenses and available money
+        in one place.
+      </p>
+
+      <a class="button" href="pro-money.html">
+        Open Tool
+      </a>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="icon">📉</div>
+
+      <h3>Debt Payoff Calculator</h3>
+
+      <p>
+        Plan your debt payoff and see how your payment strategy
+        affects your timeline.
+      </p>
+
+      <a class="button" href="debt.html">
+        Open Tool
+      </a>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="icon">🎯</div>
+
+      <h3>Savings Goal Tracker</h3>
+
+      <p>
+        Set a savings goal and track the amount needed to reach
+        your target.
+      </p>
+
+      <a class="button" href="pro-savings.html">
+        Open Tool
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="member-note">
+    Life Pro access is for customers with an active subscription.
+    Keep using the same browser after checkout so FreeLifeTools
+    can recognize your Pro access.
+  </div>
+
+</main>
+
+<footer>
+  © 2026 FreeLifeTools · Life Pro
+</footer>
+
+</body>
+</html>
