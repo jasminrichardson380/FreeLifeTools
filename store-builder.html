@@ -4,16 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AI Store Builder | FreeLifeTools</title>
+<title>Ready-Made Store Builder | FreeLifeTools</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
   background:#f4f6fb;
   color:#172033;
 }
@@ -46,31 +44,31 @@ nav{
 .hero{
   background:linear-gradient(135deg,#0b1739,#5b38e8);
   color:white;
-  padding:60px 20px;
   text-align:center;
+  padding:60px 20px;
 }
 
 .hero h1{
-  font-size:42px;
   margin:0 0 15px;
+  font-size:42px;
 }
 
 .hero p{
   max-width:720px;
   margin:auto;
-  font-size:18px;
   line-height:1.6;
+  font-size:18px;
 }
 
 .container{
-  max-width:1000px;
+  max-width:1050px;
   margin:35px auto;
   padding:0 18px;
 }
 
-.builder{
+.card{
   background:white;
-  padding:30px;
+  padding:28px;
   border-radius:20px;
   box-shadow:0 10px 35px rgba(0,0,0,.08);
 }
@@ -78,13 +76,11 @@ nav{
 label{
   display:block;
   font-weight:700;
-  margin-top:20px;
+  margin-top:18px;
   margin-bottom:7px;
 }
 
-input,
-select,
-textarea{
+input,select,textarea{
   width:100%;
   padding:14px;
   border:1px solid #ccd3df;
@@ -97,29 +93,43 @@ textarea{
 }
 
 button{
-  width:100%;
-  margin-top:25px;
-  padding:16px;
   border:0;
   border-radius:12px;
-  background:#5b38e8;
-  color:white;
-  font-size:17px;
+  padding:15px 20px;
+  font-size:16px;
   font-weight:800;
   cursor:pointer;
 }
 
-.preview-area{
-  display:none;
-  margin-top:35px;
+.primary{
+  width:100%;
+  margin-top:24px;
+  background:#5b38e8;
+  color:white;
 }
 
-.preview-title{
-  text-align:center;
+.preview-area{
+  display:none;
+}
+
+.notice{
+  background:#eef1ff;
+  border-radius:14px;
+  padding:16px;
   margin-bottom:20px;
 }
 
-.store-preview{
+.editor{
+  margin-bottom:25px;
+}
+
+.editor-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.store{
   background:white;
   border-radius:20px;
   overflow:hidden;
@@ -130,52 +140,50 @@ button{
   padding:18px 22px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  background:white;
   border-bottom:1px solid #eee;
+  align-items:center;
 }
 
-.store-logo{
+.store-name{
   font-size:23px;
   font-weight:900;
 }
 
 .store-links{
-  font-size:14px;
   color:#555;
+  font-size:14px;
 }
 
 .store-hero{
-  padding:55px 25px;
+  padding:60px 25px;
   text-align:center;
 }
 
 .store-hero h2{
+  margin:0 0 15px;
   font-size:38px;
-  margin:0 0 12px;
 }
 
 .store-hero p{
   max-width:650px;
   margin:auto;
-  font-size:17px;
   line-height:1.6;
 }
 
-.shop-button{
+.shop-btn{
   display:inline-block;
   margin-top:22px;
-  padding:13px 24px;
+  padding:13px 25px;
   border-radius:30px;
   text-decoration:none;
   font-weight:800;
 }
 
 .section{
-  padding:40px 25px;
+  padding:42px 25px;
 }
 
-.section h2{
+.section-title{
   text-align:center;
   margin-bottom:25px;
 }
@@ -187,21 +195,20 @@ button{
 }
 
 .product{
-  border:1px solid #e2e6ef;
-  border-radius:14px;
+  border:1px solid #e1e5ee;
+  border-radius:15px;
   padding:18px;
   text-align:center;
-  background:white;
 }
 
 .product-image{
   height:150px;
   border-radius:12px;
-  margin-bottom:15px;
   display:flex;
-  align-items:center;
   justify-content:center;
-  font-size:45px;
+  align-items:center;
+  font-size:48px;
+  margin-bottom:15px;
 }
 
 .product h3{
@@ -209,47 +216,46 @@ button{
 }
 
 .price{
-  font-size:20px;
+  font-size:21px;
   font-weight:900;
-  margin:10px 0;
+  margin:12px 0;
 }
 
-.small-button{
+.buy-btn{
   display:inline-block;
   padding:10px 18px;
   border-radius:25px;
   text-decoration:none;
   font-weight:700;
-  margin-top:8px;
 }
 
 .about{
-  line-height:1.7;
-  max-width:760px;
+  max-width:750px;
   margin:auto;
   text-align:center;
+  line-height:1.7;
 }
 
 .benefits{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:16px;
+  gap:15px;
   margin-top:25px;
 }
 
 .benefit{
-  padding:20px;
   border-radius:14px;
+  padding:20px;
   text-align:center;
 }
 
 .faq{
-  max-width:760px;
+  max-width:750px;
   margin:auto;
 }
 
 .faq-item{
-  padding:18px 0;
+  padding:17px 0;
   border-bottom:1px solid #ddd;
 }
 
@@ -258,15 +264,49 @@ button{
   margin-bottom:7px;
 }
 
-.launch-box{
-  margin-top:30px;
-  background:#eef1ff;
+.actions{
+  margin-top:25px;
+  background:white;
   padding:25px;
-  border-radius:16px;
+  border-radius:20px;
+  box-shadow:0 10px 35px rgba(0,0,0,.08);
 }
 
-.reset-button{
+.actions h2{
+  margin-top:0;
+}
+
+.action-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.download{
+  background:#167a4a;
+  color:white;
+}
+
+.copy{
+  background:#194f7d;
+  color:white;
+}
+
+.another{
   background:#172033;
+  color:white;
+  width:100%;
+  margin-top:12px;
+}
+
+.status{
+  display:none;
+  margin-top:15px;
+  padding:13px;
+  border-radius:10px;
+  background:#e9f8ef;
+  color:#17633b;
+  font-weight:700;
 }
 
 footer{
@@ -276,8 +316,11 @@ footer{
 }
 
 @media(max-width:750px){
+
   .products,
-  .benefits{
+  .benefits,
+  .editor-grid,
+  .action-grid{
     grid-template-columns:1fr;
   }
 
@@ -297,375 +340,1000 @@ footer{
 
 <header>
 <nav>
-  <div class="logo">FreeLifeTools</div>
-  <a class="home-link" href="index.html">Home</a>
+<div class="logo">FreeLifeTools</div>
+<a href="index.html" class="home-link">Home</a>
 </nav>
 </header>
 
 <section class="hero">
-  <h1>AI Store Builder</h1>
-  <p>
-    Turn your idea into a ready-made storefront preview with branding,
-    products, prices, homepage copy, FAQ and a launch plan.
-  </p>
+<h1>Ready-Made Store Builder</h1>
+
+<p>
+Create your brand, products and storefront.
+Then generate your own standalone store website.
+</p>
 </section>
 
 <main class="container">
 
-<div class="builder" id="builder">
+<div class="card" id="builder">
 
-<h2>Build Your Store</h2>
+<h2>Tell Us About Your Store</h2>
 
-<label for="business">What do you want to sell?</label>
+<label>What do you want to sell?</label>
 <input
-  id="business"
-  placeholder="Example: candles, clothing, planners, skincare"
->
+id="business"
+placeholder="Example: candles, clothing, planners, skincare">
 
-<label for="customer">Who is your ideal customer?</label>
+<label>Who is your ideal customer?</label>
 <input
-  id="customer"
-  placeholder="Example: busy moms, students, pet owners"
->
+id="customer"
+placeholder="Example: busy moms, students, pet owners">
 
-<label for="style">Brand style</label>
+<label>Brand style</label>
+
 <select id="style">
-  <option>Modern</option>
-  <option>Luxury</option>
-  <option>Minimal</option>
-  <option>Fun</option>
-  <option>Professional</option>
-  <option>Bold</option>
+<option>Modern</option>
+<option>Luxury</option>
+<option>Minimal</option>
+<option>Fun</option>
+<option>Professional</option>
+<option>Bold</option>
 </select>
 
-<label for="details">Extra details</label>
-<textarea
-  id="details"
-  placeholder="Example: affordable, calming, beginner friendly, premium"
-></textarea>
+<label>Extra details</label>
 
-<button onclick="buildStore()">
-  Build My Ready-Made Store
+<textarea
+id="details"
+placeholder="Example: affordable, calming colors, premium products"></textarea>
+
+<button
+class="primary"
+onclick="buildStore()">
+Build My Store
 </button>
 
 </div>
 
+
 <div class="preview-area" id="previewArea">
 
-<div class="preview-title">
-  <h2>Your Store Preview</h2>
-  <p>This is a starter storefront generated from your answers.</p>
+<div class="notice">
+<strong>Store created!</strong><br>
+Customize anything below. Your preview updates automatically.
 </div>
 
-<div class="store-preview" id="storePreview">
+
+<div class="card editor">
+
+<h2>Customize Your Store</h2>
+
+<label>Store Name</label>
+<input id="editStoreName" oninput="updatePreview()">
+
+<div class="editor-grid">
+
+<div>
+<label>Product 1</label>
+<input id="editProduct1" oninput="updatePreview()">
+</div>
+
+<div>
+<label>Price 1</label>
+<input id="editPrice1" oninput="updatePreview()">
+</div>
+
+<div>
+<label>Product 2</label>
+<input id="editProduct2" oninput="updatePreview()">
+</div>
+
+<div>
+<label>Price 2</label>
+<input id="editPrice2" oninput="updatePreview()">
+</div>
+
+<div>
+<label>Product 3</label>
+<input id="editProduct3" oninput="updatePreview()">
+</div>
+
+<div>
+<label>Price 3</label>
+<input id="editPrice3" oninput="updatePreview()">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="store" id="storePreview">
 
 <div class="store-nav">
-  <div class="store-logo" id="storeLogo"></div>
-  <div class="store-links">Shop &nbsp;&nbsp; About &nbsp;&nbsp; FAQ</div>
+
+<div
+class="store-name"
+id="previewStoreName">
 </div>
 
-<section class="store-hero" id="storeHero">
+<div class="store-links">
+Shop &nbsp;&nbsp; About &nbsp;&nbsp; FAQ
+</div>
+
+</div>
+
+
+<section
+class="store-hero"
+id="storeHero">
 
 <h2 id="headline"></h2>
 
 <p id="subheadline"></p>
 
-<a href="#products" class="shop-button" id="heroButton">
+<a
+href="#products"
+class="shop-btn"
+id="shopButton">
 Shop Now
 </a>
 
 </section>
 
-<section class="section" id="products">
+
+<section
+class="section"
+id="products">
+
+<h2 class="section-title">
+Featured Products
+</h2>
+
+<div class="products">
+
+<div class="product">
+
+<div
+class="product-image">
+✨
+</div>
+
+<h3 id="previewProduct1"></h3>
+
+<p>
+An everyday customer favorite designed for quality and value.
+</p>
+
+<div
+class="price"
+id="previewPrice1">
+</div>
+
+<a
+href="#"
+class="buy-btn">
+Add to Cart
+</a>
+
+</div>
+
+
+<div class="product">
+
+<div
+class="product-image">
+⭐
+</div>
+
+<h3 id="previewProduct2"></h3>
+
+<p>
+A premium choice for customers who want something extra.
+</p>
+
+<div
+class="price"
+id="previewPrice2">
+</div>
+
+<a
+href="#"
+class="buy-btn">
+Add to Cart
+</a>
+
+</div>
+
+
+<div class="product">
+
+<div
+class="product-image">
+🎁
+</div>
+
+<h3 id="previewProduct3"></h3>
+
+<p>
+A value-packed bundle perfect for new customers.
+</p>
+
+<div
+class="price"
+id="previewPrice3">
+</div>
+
+<a
+href="#"
+class="buy-btn">
+Add to Cart
+</a>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="section">
+
+<h2 class="section-title">
+About Us
+</h2>
+
+<p
+class="about"
+id="aboutText">
+</p>
+
+<div class="benefits">
+
+<div class="benefit">
+<strong>Quality Products</strong>
+<p>Products selected with your customers in mind.</p>
+</div>
+
+<div class="benefit">
+<strong>Easy Shopping</strong>
+<p>A clean and simple storefront experience.</p>
+</div>
+
+<div class="benefit">
+<strong>Customer Focused</strong>
+<p>A brand designed around your target audience.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2 class="section-title">
+Frequently Asked Questions
+</h2>
+
+<div class="faq">
+
+<div class="faq-item">
+<strong>How long does shipping take?</strong>
+Most orders can be prepared and shipped within 3–7 business days.
+</div>
+
+<div class="faq-item">
+<strong>Do you accept returns?</strong>
+Add your final return and refund policy before launching.
+</div>
+
+<div class="faq-item">
+<strong>How can customers contact us?</strong>
+Add your business email or contact form before publishing your store.
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<div class="actions">
+
+<h2>Create Your Website</h2>
+
+<p>
+When you're happy with your store, create your standalone website.
+</p>
+
+<div class="action-grid">
+
+<button
+class="download"
+onclick="downloadWebsite()">
+Download My Website
+</button>
+
+<button
+class="copy"
+onclick="copyWebsite()">
+Copy Website Code
+</button>
+
+</div>
+
+<button
+class="another"
+onclick="resetBuilder()">
+Build Another Store
+</button>
+
+<div
+class="status"
+id="status">
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+FreeLifeTools — Free Tools. Better Life.
+</footer>
+
+
+<script>
+
+let currentStyle = "Modern";
+let currentBusiness = "";
+let currentCustomer = "";
+let currentDetails = "";
+
+let accent = "#5b38e8";
+let heroBackground = "#eef1ff";
+let cardBackground = "#f6f7ff";
+let heroText = "#172033";
+
+
+function escapeHTML(value){
+
+return String(value)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+function setTheme(style){
+
+accent = "#5b38e8";
+heroBackground = "#eef1ff";
+cardBackground = "#f6f7ff";
+heroText = "#172033";
+
+if(style === "Luxury"){
+accent = "#c8a96b";
+heroBackground = "#16131f";
+cardBackground = "#f5efe5";
+heroText = "#ffffff";
+}
+
+if(style === "Minimal"){
+accent = "#222222";
+heroBackground = "#f5f5f5";
+cardBackground = "#fafafa";
+}
+
+if(style === "Fun"){
+accent = "#e83e8c";
+heroBackground = "#fff1f6";
+cardBackground = "#fff7fb";
+}
+
+if(style === "Professional"){
+accent = "#194f7d";
+heroBackground = "#eaf1f8";
+cardBackground = "#f1f6fb";
+}
+
+if(style === "Bold"){
+accent = "#16a34a";
+heroBackground = "#111827";
+cardBackground = "#eefbf1";
+heroText = "#ffffff";
+}
+
+}
+
+
+function buildStore(){
+
+currentBusiness =
+document.getElementById("business").value.trim();
+
+currentCustomer =
+document.getElementById("customer").value.trim();
+
+currentStyle =
+document.getElementById("style").value;
+
+currentDetails =
+document.getElementById("details").value.trim();
+
+if(!currentBusiness){
+alert("Tell us what you want to sell first.");
+return;
+}
+
+const businessName =
+currentBusiness.charAt(0).toUpperCase() +
+currentBusiness.slice(1);
+
+const customer =
+currentCustomer ||
+"customers who appreciate useful products";
+
+const storeNames = [
+"Simply " + businessName,
+businessName + " Market",
+"The " + businessName + " Studio",
+businessName + " Collective",
+"Bright " + businessName + " Co."
+];
+
+const storeName =
+storeNames[
+Math.floor(Math.random() * storeNames.length)
+];
+
+document.getElementById("editStoreName").value =
+storeName;
+
+document.getElementById("editProduct1").value =
+"Signature " + businessName;
+
+document.getElementById("editPrice1").value =
+"$19.99";
+
+document.getElementById("editProduct2").value =
+"Premium " + businessName;
+
+document.getElementById("editPrice2").value =
+"$29.99";
+
+document.getElementById("editProduct3").value =
+businessName + " Starter Bundle";
+
+document.getElementById("editPrice3").value =
+"$39.99";
+
+setTheme(currentStyle);
+
+document.getElementById("headline").textContent =
+businessName + " Made for " + customer;
+
+document.getElementById("subheadline").textContent =
+"Discover our " +
+currentStyle.toLowerCase() +
+" collection of " +
+currentBusiness +
+" created with " +
+customer +
+" in mind." +
+(currentDetails ? " " + currentDetails + "." : "");
+
+document.getElementById("aboutText").textContent =
+storeName +
+" was created for " +
+customer +
+". Our mission is to make shopping for " +
+currentBusiness +
+" simple, enjoyable and convenient.";
+
+applyTheme();
+
+updatePreview();
+
+document.getElementById("builder").style.display =
+"none";
+
+document.getElementById("previewArea").style.display =
+"block";
+
+document.getElementById("previewArea").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+function updatePreview(){
+
+document.getElementById("previewStoreName").textContent =
+document.getElementById("editStoreName").value;
+
+document.getElementById("previewProduct1").textContent =
+document.getElementById("editProduct1").value;
+
+document.getElementById("previewPrice1").textContent =
+document.getElementById("editPrice1").value;
+
+document.getElementById("previewProduct2").textContent =
+document.getElementById("editProduct2").value;
+
+document.getElementById("previewPrice2").textContent =
+document.getElementById("editPrice2").value;
+
+document.getElementById("previewProduct3").textContent =
+document.getElementById("editProduct3").value;
+
+document.getElementById("previewPrice3").textContent =
+document.getElementById("editPrice3").value;
+
+}
+
+
+function applyTheme(){
+
+const hero =
+document.getElementById("storeHero");
+
+hero.style.background =
+heroBackground;
+
+hero.style.color =
+heroText;
+
+const shop =
+document.getElementById("shopButton");
+
+shop.style.background =
+accent;
+
+shop.style.color =
+"white";
+
+document.querySelectorAll(".buy-btn")
+.forEach(function(button){
+
+button.style.background =
+accent;
+
+button.style.color =
+"white";
+
+});
+
+document.querySelectorAll(".product-image")
+.forEach(function(box){
+
+box.style.background =
+cardBackground;
+
+});
+
+document.querySelectorAll(".benefit")
+.forEach(function(box){
+
+box.style.background =
+cardBackground;
+
+});
+
+}
+
+
+function createWebsiteHTML(){
+
+const storeName =
+escapeHTML(
+document.getElementById("editStoreName").value
+);
+
+const p1 =
+escapeHTML(
+document.getElementById("editProduct1").value
+);
+
+const price1 =
+escapeHTML(
+document.getElementById("editPrice1").value
+);
+
+const p2 =
+escapeHTML(
+document.getElementById("editProduct2").value
+);
+
+const price2 =
+escapeHTML(
+document.getElementById("editPrice2").value
+);
+
+const p3 =
+escapeHTML(
+document.getElementById("editProduct3").value
+);
+
+const price3 =
+escapeHTML(
+document.getElementById("editPrice3").value
+);
+
+const business =
+escapeHTML(currentBusiness);
+
+const customer =
+escapeHTML(
+currentCustomer ||
+"customers who appreciate useful products"
+);
+
+const details =
+escapeHTML(currentDetails);
+
+return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${storeName}</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+color:#172033;
+background:white;
+}
+
+nav{
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #eee;
+}
+
+.logo{
+font-size:24px;
+font-weight:900;
+}
+
+.links{
+font-size:14px;
+}
+
+.hero{
+background:${heroBackground};
+color:${heroText};
+text-align:center;
+padding:70px 20px;
+}
+
+.hero h1{
+font-size:42px;
+margin:0 0 15px;
+}
+
+.hero p{
+max-width:650px;
+margin:auto;
+line-height:1.6;
+}
+
+.button{
+display:inline-block;
+background:${accent};
+color:white;
+padding:13px 24px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+margin-top:20px;
+}
+
+section{
+max-width:1050px;
+margin:auto;
+padding:50px 20px;
+}
+
+h2{
+text-align:center;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:30px;
+}
+
+.product{
+border:1px solid #ddd;
+border-radius:15px;
+padding:20px;
+text-align:center;
+}
+
+.image{
+height:160px;
+background:${cardBackground};
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:50px;
+}
+
+.price{
+font-size:21px;
+font-weight:bold;
+}
+
+.about{
+max-width:750px;
+margin:auto;
+text-align:center;
+line-height:1.7;
+}
+
+.faq{
+max-width:750px;
+margin:auto;
+}
+
+.question{
+padding:18px 0;
+border-bottom:1px solid #ddd;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:30px;
+}
+
+@media(max-width:700px){
+
+.products{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.links{
+display:none;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">${storeName}</div>
+<div class="links">Shop &nbsp; About &nbsp; FAQ</div>
+</nav>
+
+<div class="hero">
+
+<h1>${business} Made for ${customer}</h1>
+
+<p>
+Discover our ${currentStyle.toLowerCase()} collection of
+${business} created with ${customer} in mind.
+${details}
+</p>
+
+<a class="button" href="#shop">
+Shop Now
+</a>
+
+</div>
+
+<section id="shop">
 
 <h2>Featured Products</h2>
 
 <div class="products">
 
 <div class="product">
-<div class="product-image" id="image1">✨</div>
-<h3 id="product1"></h3>
-<p id="description1"></p>
-<div class="price" id="price1"></div>
-<a href="#" class="small-button productButton">Add to Cart</a>
+<div class="image">✨</div>
+<h3>${p1}</h3>
+<p>An everyday customer favorite designed for quality and value.</p>
+<div class="price">${price1}</div>
+<a class="button" href="#">Add to Cart</a>
 </div>
 
 <div class="product">
-<div class="product-image" id="image2">⭐</div>
-<h3 id="product2"></h3>
-<p id="description2"></p>
-<div class="price" id="price2"></div>
-<a href="#" class="small-button productButton">Add to Cart</a>
+<div class="image">⭐</div>
+<h3>${p2}</h3>
+<p>A premium choice for customers who want something extra.</p>
+<div class="price">${price2}</div>
+<a class="button" href="#">Add to Cart</a>
 </div>
 
 <div class="product">
-<div class="product-image" id="image3">🎁</div>
-<h3 id="product3"></h3>
-<p id="description3"></p>
-<div class="price" id="price3"></div>
-<a href="#" class="small-button productButton">Add to Cart</a>
+<div class="image">🎁</div>
+<h3>${p3}</h3>
+<p>A value-packed bundle perfect for new customers.</p>
+<div class="price">${price3}</div>
+<a class="button" href="#">Add to Cart</a>
 </div>
 
 </div>
+
 </section>
 
-<section class="section">
+<section>
 
 <h2>About Us</h2>
 
-<p class="about" id="about"></p>
-
-<div class="benefits">
-
-<div class="benefit">
-<strong>Easy Shopping</strong>
-<p>Simple products and a clean shopping experience.</p>
-</div>
-
-<div class="benefit">
-<strong>Customer Focused</strong>
-<p>Designed around what your ideal customers actually need.</p>
-</div>
-
-<div class="benefit">
-<strong>Built to Grow</strong>
-<p>A strong starter concept you can expand into a real business.</p>
-</div>
-
-</div>
+<p class="about">
+${storeName} was created for ${customer}.
+Our mission is to make shopping for ${business}
+simple, enjoyable and convenient.
+</p>
 
 </section>
 
-<section class="section">
+<section>
 
 <h2>Frequently Asked Questions</h2>
 
 <div class="faq">
 
-<div class="faq-item">
+<div class="question">
 <strong>How long does shipping take?</strong>
-<span>Most orders can be prepared and shipped within 3–7 business days.</span>
+<p>Most orders can be prepared and shipped within 3–7 business days.</p>
 </div>
 
-<div class="faq-item">
+<div class="question">
 <strong>Do you accept returns?</strong>
-<span>Returns can be accepted according to your final store policy.</span>
+<p>Add your final return and refund policy before launching.</p>
 </div>
 
-<div class="faq-item">
+<div class="question">
 <strong>How can customers contact us?</strong>
-<span>Add your business email or contact form before launching.</span>
+<p>Add your business email or contact form before publishing.</p>
 </div>
 
 </div>
 
 </section>
 
-</div>
-
-<div class="launch-box">
-
-<h2>Your Launch Checklist</h2>
-
-<p>
-✅ Choose your favorite store name and design.<br><br>
-✅ Replace the sample products with your real products.<br><br>
-✅ Add your own product photos.<br><br>
-✅ Connect a payment provider such as Stripe.<br><br>
-✅ Add shipping, return and privacy policies.<br><br>
-✅ Publish your finished store.<br><br>
-✅ Start promoting it.
-</p>
-
-</div>
-
-<button class="reset-button" onclick="resetBuilder()">
-Build Another Store
-</button>
-
-</div>
-
-</main>
-
 <footer>
-FreeLifeTools — Free Tools. Better Life.
+© ${new Date().getFullYear()} ${storeName}
 </footer>
 
-<script>
+</body>
+</html>`;
 
-function buildStore(){
-
-  const business =
-    document.getElementById("business").value.trim();
-
-  const customer =
-    document.getElementById("customer").value.trim();
-
-  const style =
-    document.getElementById("style").value;
-
-  const details =
-    document.getElementById("details").value.trim();
-
-  if(!business){
-    alert("Tell us what you want to sell first.");
-    return;
-  }
-
-  const cleanBusiness =
-    business.charAt(0).toUpperCase() + business.slice(1);
-
-  const customerText =
-    customer || "customers who want useful, attractive products";
-
-  const nameOptions = [
-    "Bright " + cleanBusiness + " Co.",
-    "The " + cleanBusiness + " Studio",
-    "Simply " + cleanBusiness,
-    cleanBusiness + " Market",
-    cleanBusiness + " Collective"
-  ];
-
-  const storeName =
-    nameOptions[Math.floor(Math.random() * nameOptions.length)];
-
-  let heroBackground = "#eef1ff";
-  let accent = "#5b38e8";
-  let cardBackground = "#f6f7ff";
-
-  if(style === "Luxury"){
-    heroBackground = "#16131f";
-    accent = "#c8a96b";
-    cardBackground = "#f5efe5";
-  }
-
-  if(style === "Minimal"){
-    heroBackground = "#f5f5f5";
-    accent = "#222222";
-    cardBackground = "#fafafa";
-  }
-
-  if(style === "Fun"){
-    heroBackground = "#fff1f6";
-    accent = "#e83e8c";
-    cardBackground = "#fff7fb";
-  }
-
-  if(style === "Professional"){
-    heroBackground = "#eaf1f8";
-    accent = "#194f7d";
-    cardBackground = "#f1f6fb";
-  }
-
-  if(style === "Bold"){
-    heroBackground = "#111827";
-    accent = "#16a34a";
-    cardBackground = "#eefbf1";
-  }
-
-  document.getElementById("storeLogo").textContent =
-    storeName;
-
-  document.getElementById("headline").textContent =
-    cleanBusiness + " Made for " + customerText;
-
-  document.getElementById("subheadline").textContent =
-    "Discover a " +
-    style.toLowerCase() +
-    " collection of " +
-    business +
-    " created to make everyday life better." +
-    (details ? " " + details + "." : "");
-
-  document.getElementById("product1").textContent =
-    "Signature " + cleanBusiness;
-
-  document.getElementById("product2").textContent =
-    "Premium " + cleanBusiness;
-
-  document.getElementById("product3").textContent =
-    cleanBusiness + " Starter Bundle";
-
-  document.getElementById("description1").textContent =
-    "A customer-friendly everyday option designed for quality and value.";
-
-  document.getElementById("description2").textContent =
-    "A premium option for shoppers who want an upgraded experience.";
-
-  document.getElementById("description3").textContent =
-    "A bundled starter package designed to give customers more value.";
-
-  document.getElementById("price1").textContent =
-    "$19.99";
-
-  document.getElementById("price2").textContent =
-    "$29.99";
-
-  document.getElementById("price3").textContent =
-    "$39.99";
-
-  document.getElementById("about").textContent =
-    storeName +
-    " is a " +
-    style.toLowerCase() +
-    " brand created for " +
-    customerText +
-    ". Our mission is to make shopping for " +
-    business +
-    " simple, useful and enjoyable.";
-
-  document.getElementById("storeHero").style.background =
-    heroBackground;
-
-  document.getElementById("heroButton").style.background =
-    accent;
-
-  document.getElementById("heroButton").style.color =
-    "white";
-
-  document.querySelectorAll(".productButton").forEach(function(button){
-    button.style.background = accent;
-    button.style.color = "white";
-  });
-
-  document.querySelectorAll(".product-image").forEach(function(box){
-    box.style.background = cardBackground;
-  });
-
-  document.querySelectorAll(".benefit").forEach(function(box){
-    box.style.background = cardBackground;
-  });
-
-  if(style === "Luxury" || style === "Bold"){
-    document.getElementById("storeHero").style.color =
-      "white";
-  } else {
-    document.getElementById("storeHero").style.color =
-      "#172033";
-  }
-
-  document.getElementById("builder").style.display =
-    "none";
-
-  document.getElementById("previewArea").style.display =
-    "block";
-
-  document.getElementById("previewArea").scrollIntoView({
-    behavior:"smooth"
-  });
 }
+
+
+function downloadWebsite(){
+
+const html =
+createWebsiteHTML();
+
+const blob =
+new Blob(
+[html],
+{type:"text/html;charset=utf-8"}
+);
+
+const url =
+URL.createObjectURL(blob);
+
+const link =
+document.createElement("a");
+
+link.href =
+url;
+
+link.download =
+"index.html";
+
+document.body.appendChild(link);
+
+link.click();
+
+link.remove();
+
+setTimeout(function(){
+URL.revokeObjectURL(url);
+},1000);
+
+showStatus(
+"Your store website was created. Look for index.html in your downloads/files."
+);
+
+}
+
+
+async function copyWebsite(){
+
+const html =
+createWebsiteHTML();
+
+try{
+
+await navigator.clipboard.writeText(html);
+
+showStatus(
+"Website code copied! You can paste it into an index.html file."
+);
+
+}catch(error){
+
+const box =
+document.createElement("textarea");
+
+box.value =
+html;
+
+document.body.appendChild(box);
+
+box.select();
+
+document.execCommand("copy");
+
+box.remove();
+
+showStatus(
+"Website code copied!"
+);
+
+}
+
+}
+
+
+function showStatus(message){
+
+const status =
+document.getElementById("status");
+
+status.textContent =
+message;
+
+status.style.display =
+"block";
+
+}
+
 
 function resetBuilder(){
 
-  document.getElementById("previewArea").style.display =
-    "none";
+document.getElementById("previewArea").style.display =
+"none";
 
-  document.getElementById("builder").style.display =
-    "block";
+document.getElementById("builder").style.display =
+"block";
 
-  document.getElementById("builder").scrollIntoView({
-    behavior:"smooth"
-  });
+document.getElementById("status").style.display =
+"none";
+
+document.getElementById("builder").scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
