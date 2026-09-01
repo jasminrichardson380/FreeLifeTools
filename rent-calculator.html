@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rent Affordability Calculator | FreeLifeTools</title>
+
+  <meta
+    name="description"
+    content="Use the free FreeLifeTools Rent Affordability Calculator to estimate how much rent you can comfortably afford based on your monthly income and expenses."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(120,70,255,.18), transparent 28%),
+        linear-gradient(180deg,#eef4ff 0%,#f8faff 45%,#ffffff 100%);
+      color: #10182c;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    header {
+      background: #07172f;
+      color: white;
+      box-shadow: 0 4px 18px rgba(0,0,0,.15);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 16px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #4d91ff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 85% 20%, rgba(173,53,255,.55), transparent 30%),
+        linear-gradient(120deg,#062864,#17105f 55%,#58187c);
+      color: white;
+      padding: 58px 22px;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      padding: 7px 13px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 17px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 7vw, 54px);
+      line-height: 1.05;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #e8efff;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: -28px auto 60px;
+      padding: 0 20px;
+    }
+
+    .calculator {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 16px 45px rgba(22,38,75,.12);
+      padding: 30px;
+    }
+
+    .calculator h2 {
+      margin-bottom: 7px;
+      font-size: 26px;
+    }
+
+    .intro {
+      color: #6a748a;
+      margin-bottom: 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .field {
+      margin-bottom: 5px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #d9dfeb;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #3478ff;
+      box-shadow: 0 0 0 3px rgba(52,120,255,.10);
+    }
+
+    .button {
+      width: 100%;
+      margin-top: 22px;
+      border: 0;
+      border-radius: 11px;
+      padding: 15px;
+      background: linear-gradient(90deg,#176fff,#6538e8);
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .results {
+      display: none;
+      margin-top: 27px;
+      background: #f2f6ff;
+      border: 1px solid #dce7ff;
+      border-radius: 15px;
+      padding: 22px;
+    }
+
+    .results h3 {
+      margin-bottom: 17px;
+      font-size: 20px;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 12px;
+    }
+
+    .result-card {
+      background: white;
+      border-radius: 11px;
+      padding: 16px;
+      border: 1px solid #e1e7f3;
+    }
+
+    .result-label {
+      color: #6b7488;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .result-value {
+      font-size: 23px;
+      font-weight: 800;
+      color: #13264b;
+    }
+
+    .note {
+      margin-top: 17px;
+      color: #59667d;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .back {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .back a {
+      color: #316ff5;
+      font-weight: 800;
+    }
+
+    footer {
+      background: #07172f;
+      color: #aab7cb;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .grid,
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .calculator {
+        padding: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html">
+      💼 FreeLife<span>Tools</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="Jobs.html">Jobs</a>
+      <a href="Ai.html">AI</a>
+      <a href="pro.html">Pro</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="tag">FREE RENT TOOL</div>
+
+    <h1>How Much Rent Can You Afford?</h1>
+
+    <p>
+      Enter your monthly income and expenses to get a simple rent estimate.
+      This calculator is for planning purposes and does not replace landlord
+      approval requirements.
+    </p>
+  </div>
+</section>
+
+<main class="page">
+
+  <section class="calculator">
+
+    <h2>Rent Affordability Calculator</h2>
+
+    <p class="intro">
+      Use your monthly take-home income for the most realistic estimate.
+    </p>
+
+    <div class="grid">
+
+      <div class="field">
+        <label for="income">Monthly take-home income</label>
+        <input
+          id="income"
+          type="number"
+          inputmode="decimal"
+          placeholder="Example: 3000"
+        >
+      </div>
+
+      <div class="field">
+        <label for="debt">Monthly debt payments</label>
+        <input
+          id="debt"
+          type="number"
+          inputmode="decimal"
+          placeholder="Example: 300"
+        >
+      </div>
+
+      <div class="field">
+        <label for="utilities">Estimated monthly utilities</label>
+        <input
+          id="utilities"
+          type="number"
+          inputmode="decimal"
+          placeholder="Example: 200"
+        >
+      </div>
+
+      <div class="field">
+        <label for="other">Other monthly expenses</label>
+        <input
+          id="other"
+          type="number"
+          inputmode="decimal"
+          placeholder="Example: 500"
+        >
+      </div>
+
+    </div>
+
+    <button
+      class="button"
+      type="button"
+      onclick="calculateRent()"
+    >
+      Calculate Affordable Rent
+    </button>
+
+
+    <div
+      class="results"
+      id="results"
+    >
+
+      <h3>Your Rent Estimate</h3>
+
+      <div class="result-grid">
+
+        <div class="result-card">
+          <div class="result-label">
+            Conservative Rent
+          </div>
+
+          <div
+            class="result-value"
+            id="safeRent"
+          >
+            $0
+          </div>
+        </div>
+
+
+        <div class="result-card">
+          <div class="result-label">
+            30% Income Guideline
+          </div>
+
+          <div
+            class="result-value"
+            id="standardRent"
+          >
+            $0
+          </div>
+        </div>
+
+
+        <div class="result-card">
+          <div class="result-label">
+            Money Left After Expenses
+          </div>
+
+          <div
+            class="result-value"
+            id="leftover"
+          >
+            $0
+          </div>
+        </div>
+
+      </div>
+
+      <p
+        class="note"
+        id="rentNote"
+      ></p>
+
+    </div>
+
+
+    <div class="back">
+      <a href="money.html">
+        ← Back to Money Tools
+      </a>
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  © 2026 FreeLifeTools. Free tools for real life.
+</footer>
+
+
+<script>
+  function money(value) {
+    return new Intl.NumberFormat(
+      "en-US",
+      {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0
+      }
+    ).format(value);
+  }
+
+  function calculateRent() {
+
+    const income =
+      Number(document.getElementById("income").value) || 0;
+
+    const debt =
+      Number(document.getElementById("debt").value) || 0;
+
+    const utilities =
+      Number(document.getElementById("utilities").value) || 0;
+
+    const other =
+      Number(document.getElementById("other").value) || 0;
+
+
+    if (income <= 0) {
+      alert("Please enter your monthly income.");
+      return;
+    }
+
+
+    const standardRent =
+      income * 0.30;
+
+    const expensesBeforeRent =
+      debt + utilities + other;
+
+    const leftover =
+      Math.max(
+        0,
+        income - expensesBeforeRent
+      );
+
+    const safeFromExpenses =
+      Math.max(
+        0,
+        leftover * 0.35
+      );
+
+    const safeRent =
+      Math.min(
+        standardRent,
+        safeFromExpenses
+      );
+
+
+    document.getElementById("safeRent").textContent =
+      money(safeRent);
+
+    document.getElementById("standardRent").textContent =
+      money(standardRent);
+
+    document.getElementById("leftover").textContent =
+      money(leftover);
+
+
+    let note =
+      "A common guideline is to keep housing near 30% of income, but your actual affordable amount depends on debt, utilities, savings goals, and other expenses.";
+
+    if (expensesBeforeRent >= income) {
+      note =
+        "Your entered monthly expenses are equal to or greater than your income. Consider reviewing expenses before taking on additional rent.";
+    }
+
+    document.getElementById("rentNote").textContent =
+      note;
+
+    document.getElementById("results").style.display =
+      "block";
+
+    document.getElementById("results").scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
+  }
+</script>
+
+</body>
+</html>
