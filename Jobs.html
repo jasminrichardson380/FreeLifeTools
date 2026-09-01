@@ -580,52 +580,27 @@
 
 <script>
   function searchJobs() {
+  const keyword = document.getElementById("jobKeyword").value.trim();
+  const location = document.getElementById("jobLocation").value.trim();
+  const message = document.getElementById("searchMessage");
 
-    const keyword =
-      document.getElementById("jobKeyword").value.trim();
-
-    const location =
-      document.getElementById("jobLocation").value.trim();
-
-    const message =
-      document.getElementById("searchMessage");
-
-    if (!keyword && !location) {
-
-      message.style.display = "block";
-
-      message.textContent =
-        "Enter a job title, keyword, location, or both to begin.";
-
-      return;
-    }
-
+  if (!keyword && !location) {
     message.style.display = "block";
-
-    if (keyword && location) {
-
-      message.textContent =
-        "Job search for \"" +
-        keyword +
-        "\" near \"" +
-        location +
-        "\" will be available soon.";
-
-    } else if (keyword) {
-
-      message.textContent =
-        "Job search for \"" +
-        keyword +
-        "\" will be available soon.";
-
-    } else {
-
-      message.textContent =
-        "Job search near \"" +
-        location +
-        "\" will be available soon.";
-    }
+    message.textContent = "Enter a job title, keyword, location, or remote.";
+    return;
   }
+
+  message.style.display = "block";
+  message.textContent = "Opening current job listings...";
+
+  const jobSearchUrl =
+    "https://www.indeed.com/jobs?q=" +
+    encodeURIComponent(keyword) +
+    "&l=" +
+    encodeURIComponent(location);
+
+  window.open(jobSearchUrl, "_blank");
+}
 </script>
 
 </body>
