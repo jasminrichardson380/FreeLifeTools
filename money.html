@@ -1,425 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Money Tools & Calculators | FreeLifeTools</title>
-
-  <meta
-    name="description"
-    content="Free calculators and practical money tools for paychecks, budgeting, rent, debt and everyday financial planning."
-  >
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f7f6;
-      color: #14201c;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    /* HEADER */
-
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #e1e7e4;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-wrap {
-      max-width: 1150px;
-      margin: auto;
-      padding: 18px 22px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      color: #14201c;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: #59635f;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #087f5b;
-    }
-
-    .pro-link {
-      background: #14201c;
-      color: #ffffff !important;
-      padding: 10px 15px;
-      border-radius: 9px;
-    }
-
-    /* HERO */
-
-    .hero {
-      background:
-        linear-gradient(135deg, #10231d, #164b3b);
-
-      color: white;
-      padding: 80px 22px;
-    }
-
-    .hero-inner {
-      max-width: 1150px;
-      margin: auto;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 17px;
-
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.7px;
-
-      color: #9ce6c9;
-    }
-
-    .hero h1 {
-      max-width: 720px;
-      margin: 0;
-
-      font-size: 54px;
-      line-height: 1.05;
-      letter-spacing: -2.5px;
-    }
-
-    .hero p {
-      max-width: 650px;
-      margin: 22px 0 0;
-
-      color: #d3e4de;
-      font-size: 18px;
-      line-height: 1.65;
-    }
-
-    .hero-button {
-      display: inline-block;
-      margin-top: 28px;
-
-      padding: 14px 22px;
-      border-radius: 10px;
-
-      background: #ffffff;
-      color: #123c30;
-
-      font-weight: 800;
-    }
-
-    /* MAIN */
-
-    main {
-      max-width: 1150px;
-      margin: auto;
-      padding: 65px 22px 90px;
-    }
-
-    .section-heading {
-      max-width: 650px;
-      margin-bottom: 30px;
-    }
-
-    .section-heading span {
-      color: #087f5b;
-
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-    }
-
-    .section-heading h2 {
-      margin: 9px 0 8px;
-
-      font-size: 34px;
-      letter-spacing: -1px;
-    }
-
-    .section-heading p {
-      margin: 0;
-      color: #68736e;
-      line-height: 1.6;
-    }
-
-    /* TOOL CARDS */
-
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .tool-card {
-      background: #ffffff;
-      border: 1px solid #dfe7e3;
-      border-radius: 18px;
-
-      padding: 28px;
-
-      box-shadow: 0 8px 28px rgba(16, 35, 29, 0.05);
-
-      transition: transform .2s ease,
-                  box-shadow .2s ease;
-    }
-
-    .tool-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 34px rgba(16, 35, 29, 0.09);
-    }
-
-    .tool-icon {
-      width: 52px;
-      height: 52px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: #e9f7f1;
-      border-radius: 14px;
-
-      font-size: 25px;
-      margin-bottom: 20px;
-    }
-
-    .tool-card h3 {
-      margin: 0 0 9px;
-      font-size: 21px;
-    }
-
-    .tool-card p {
-      margin: 0 0 22px;
-
-      color: #68736e;
-      line-height: 1.6;
-      font-size: 15px;
-    }
-
-    .tool-button {
-      display: inline-block;
-
-      background: #087f5b;
-      color: #ffffff;
-
-      padding: 11px 16px;
-      border-radius: 9px;
-
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .tool-button:hover {
-      background: #066b4d;
-    }
-
-    /* MONEY GUIDE */
-
-    .guide {
-      margin-top: 70px;
-
-      background: #ffffff;
-      border: 1px solid #dfe7e3;
-      border-radius: 22px;
-
-      padding: 38px;
-    }
-
-    .guide h2 {
-      margin: 0 0 12px;
-      font-size: 30px;
-    }
-
-    .guide > p {
-      margin: 0;
-      max-width: 700px;
-
-      color: #68736e;
-      line-height: 1.65;
-    }
-
-    .guide-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .guide-item {
-      background: #f4f7f6;
-      border-radius: 14px;
-      padding: 22px;
-    }
-
-    .guide-number {
-      display: block;
-      margin-bottom: 10px;
-
-      color: #087f5b;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .guide-item strong {
-      display: block;
-      margin-bottom: 7px;
-      font-size: 17px;
-    }
-
-    .guide-item p {
-      margin: 0;
-
-      color: #68736e;
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    /* PRO CTA */
-
-    .pro-box {
-      margin-top: 65px;
-
-      background: #14201c;
-      color: #ffffff;
-
-      border-radius: 22px;
-      padding: 42px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 30px;
-    }
-
-    .pro-box h2 {
-      margin: 0 0 9px;
-      font-size: 29px;
-    }
-
-    .pro-box p {
-      margin: 0;
-
-      max-width: 600px;
-      color: #cbd6d1;
-      line-height: 1.6;
-    }
-
-    .pro-button {
-      flex-shrink: 0;
-
-      background: #ffffff;
-      color: #14201c;
-
-      padding: 14px 20px;
-      border-radius: 9px;
-
-      font-weight: 800;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #ffffff;
-      border-top: 1px solid #e0e6e3;
-
-      text-align: center;
-      padding: 42px 20px;
-
-      color: #68736e;
-      font-size: 14px;
-    }
-
-    footer strong {
-      color: #14201c;
-      font-size: 17px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 760px) {
-
-      .nav-wrap {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav {
-        gap: 13px;
-      }
-
-      .hero {
-        padding: 58px 20px;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      main {
-        padding: 48px 18px 70px;
-      }
-
-      .tool-grid,
-      .guide-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .pro-box {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 30px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Money Tools | FreeLifeTools</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:#f4f8f6;
+  color:#12241d;
+  line-height:1.5;
+}
+
+header{
+  background:#ffffff;
+  border-bottom:1px solid #dfe9e4;
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.header-wrap{
+  max-width:1100px;
+  margin:auto;
+  padding:18px 20px;
+}
+
+.logo{
+  font-size:29px;
+  font-weight:900;
+  margin-bottom:14px;
+}
+
+nav{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  overflow-x:auto;
+  white-space:nowrap;
+}
+
+nav a{
+  text-decoration:none;
+  color:#5d6963;
+  font-weight:700;
+}
+
+nav a.active{
+  color:#07895f;
+}
+
+nav .pro{
+  background:#12241d;
+  color:white;
+  padding:10px 18px;
+  border-radius:13px;
+}
+
+.page{
+  max-width:1100px;
+  margin:34px auto 70px;
+  padding:0 20px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#0a8d63,#0b5c47);
+  color:white;
+  border-radius:28px;
+  padding:32px;
+  margin-bottom:30px;
+  box-shadow:0 14px 34px rgba(10,90,67,.14);
+}
+
+.hero-top{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.hero-icon{
+  width:68px;
+  height:68px;
+  min-width:68px;
+  border-radius:20px;
+  background:rgba(255,255,255,.16);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+}
+
+.hero h1{
+  font-size:39px;
+  line-height:1.05;
+  margin-bottom:8px;
+}
+
+.hero p{
+  font-size:17px;
+  opacity:.95;
+  max-width:700px;
+}
+
+.section-title{
+  margin:0 0 20px;
+}
+
+.section-title h2{
+  font-size:28px;
+  margin-bottom:5px;
+}
+
+.section-title p{
+  color:#68746e;
+}
+
+.tools{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+
+.card{
+  background:#ffffff;
+  border:1px solid #dce8e2;
+  border-radius:26px;
+  padding:28px;
+  box-shadow:0 10px 30px rgba(20,50,40,.06);
+}
+
+.card-icon{
+  width:64px;
+  height:64px;
+  border-radius:20px;
+  background:#e6f8f1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:31px;
+  margin-bottom:18px;
+}
+
+.tag{
+  display:inline-block;
+  background:#eef8f4;
+  color:#087b59;
+  font-size:12px;
+  font-weight:900;
+  padding:6px 10px;
+  border-radius:20px;
+  margin-bottom:12px;
+  letter-spacing:.3px;
+}
+
+.card h3{
+  font-size:25px;
+  margin-bottom:9px;
+}
+
+.card p{
+  color:#66736d;
+  font-size:16px;
+  margin-bottom:22px;
+}
+
+.button{
+  display:inline-block;
+  text-decoration:none;
+  background:#07895f;
+  color:white;
+  font-weight:850;
+  padding:14px 20px;
+  border-radius:13px;
+}
+
+.button.secondary{
+  background:#12241d;
+}
+
+.tip-box{
+  margin-top:28px;
+  background:#e9f8f2;
+  border:1px solid #d5eee4;
+  border-radius:22px;
+  padding:22px;
+}
+
+.tip-box strong{
+  display:block;
+  margin-bottom:6px;
+}
+
+.tip-box p{
+  color:#4f6259;
+}
+
+footer{
+  background:#12241d;
+  color:white;
+  text-align:center;
+  padding:28px 20px;
+}
+
+@media(max-width:760px){
+
+  .tools{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:25px 21px;
+  }
+
+  .hero-top{
+    align-items:flex-start;
+  }
+
+  .hero h1{
+    font-size:31px;
+  }
+
+  .card{
+    padding:23px 19px;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="nav-wrap">
+  <div class="header-wrap">
 
-    <a class="logo" href="index.html">
-      FreeLifeTools
-    </a>
+    <div class="logo">FreeLifeTools</div>
 
     <nav>
       <a href="index.html">Home</a>
@@ -427,229 +248,135 @@
       <a href="jobs.html">Jobs</a>
       <a href="ai.html">AI</a>
       <a href="life.html">Life</a>
-      <a class="pro-link" href="pro.html">Pro</a>
+      <a class="pro" href="pro.html">Pro</a>
     </nav>
 
   </div>
 </header>
 
+<main class="page">
 
-<section class="hero">
+  <section class="hero">
 
-  <div class="hero-inner">
+    <div class="hero-top">
 
-    <span class="eyebrow">
-      MONEY & FINANCIAL TOOLS
-    </span>
+      <div class="hero-icon">💵</div>
 
-    <h1>
-      Take control of your money.
-    </h1>
+      <div>
+        <h1>Money Tools</h1>
 
-    <p>
-      Simple calculators and practical tools to help you
-      understand your paycheck, plan a budget, manage debt
-      and make smarter everyday money decisions.
-    </p>
+        <p>
+          Free calculators to help you budget better, estimate rent,
+          understand your paycheck and work toward paying off debt.
+        </p>
+      </div>
 
-    <a class="hero-button" href="#tools">
-      Explore Money Tools
-    </a>
+    </div>
 
+  </section>
+
+  <div class="section-title">
+    <h2>Choose a money tool</h2>
+    <p>Pick a calculator below to get started.</p>
   </div>
 
-</section>
+  <section class="tools">
 
+    <div class="card">
 
-<main>
+      <div class="card-icon">📊</div>
 
-  <section id="tools">
+      <span class="tag">BUDGET TOOL</span>
 
-    <div class="section-heading">
-
-      <span>FREE TOOLS</span>
-
-      <h2>
-        Money calculators for everyday life
-      </h2>
+      <h3>Budget Calculator</h3>
 
       <p>
-        Start with one of our free calculators. No complicated
-        spreadsheets or financial formulas required.
+        Add your monthly income and expenses to see how much money
+        you have left and how much of your income you're spending.
       </p>
+
+      <a class="button" href="budget.html">
+        Build My Budget →
+      </a>
 
     </div>
 
 
-    <div class="tool-grid">
+    <div class="card">
 
-      <article class="tool-card">
+      <div class="card-icon">🏠</div>
 
-        <div class="tool-icon">💵</div>
+      <span class="tag">RENT TOOL</span>
 
-        <h3>Paycheck Calculator</h3>
+      <h3>Rent Calculator</h3>
 
-        <p>
-          Estimate your gross paycheck and annual income
-          using your hourly wage and work schedule.
-        </p>
+      <p>
+        Estimate a comfortable rent range based on your income,
+        debts, other bills and monthly savings goal.
+      </p>
 
-        <a class="tool-button" href="paycheck.html">
-          Calculate Pay
-        </a>
+      <a class="button" href="rent.html">
+        Estimate My Rent →
+      </a>
 
-      </article>
-
-
-      <article class="tool-card">
-
-        <div class="tool-icon">📊</div>
-
-        <h3>Budget Calculator</h3>
-
-        <p>
-          Add your monthly income and expenses to see how
-          much money you have remaining.
-        </p>
-
-        <a class="tool-button" href="budget.html">
-          Build a Budget
-        </a>
-
-      </article>
+    </div>
 
 
-      <article class="tool-card">
+    <div class="card">
 
-        <div class="tool-icon">🏠</div>
+      <div class="card-icon">💳</div>
 
-        <h3>Rent Calculator</h3>
+      <span class="tag">DEBT TOOL</span>
 
-        <p>
-          Estimate a comfortable rent range based on your
-          income and monthly finances.
-        </p>
+      <h3>Debt Payoff Calculator</h3>
 
-        <a class="tool-button" href="rent.html">
-          Estimate Rent
-        </a>
+      <p>
+        Estimate how long it may take to pay off your balance and
+        see how extra payments can change your payoff timeline.
+      </p>
 
-      </article>
+      <a class="button secondary" href="debt.html">
+        Calculate Debt →
+      </a>
+
+    </div>
 
 
-      <article class="tool-card">
+    <div class="card">
 
-        <div class="tool-icon">📉</div>
+      <div class="card-icon">💰</div>
 
-        <h3>Debt Payoff Calculator</h3>
+      <span class="tag">PAYCHECK TOOL</span>
 
-        <p>
-          Estimate how long it could take to pay down debt
-          and see how additional payments can help.
-        </p>
+      <h3>Paycheck Calculator</h3>
 
-        <a class="tool-button" href="debt.html">
-          Plan Debt Payoff
-        </a>
+      <p>
+        Estimate your weekly, biweekly and monthly pay from your
+        hourly wage and hours worked.
+      </p>
 
-      </article>
+      <a class="button secondary" href="paycheck.html">
+        Calculate Paycheck →
+      </a>
 
     </div>
 
   </section>
 
 
-  <section class="guide">
-
-    <h2>A simpler way to plan your money</h2>
-
+  <div class="tip-box">
+    <strong>💡 Money tip</strong>
     <p>
-      You don't have to tackle everything at once.
-      Start with the numbers that matter most and build
-      your financial plan from there.
+      Start with your budget first. Once you know what is coming in
+      and going out each month, the rent and debt calculators become
+      much more useful.
     </p>
-
-    <div class="guide-grid">
-
-      <div class="guide-item">
-
-        <span class="guide-number">STEP 01</span>
-
-        <strong>Know your income</strong>
-
-        <p>
-          Start by understanding what you earn and how
-          often you're paid.
-        </p>
-
-      </div>
-
-
-      <div class="guide-item">
-
-        <span class="guide-number">STEP 02</span>
-
-        <strong>Plan your expenses</strong>
-
-        <p>
-          Compare your income with rent, bills, food and
-          other monthly costs.
-        </p>
-
-      </div>
-
-
-      <div class="guide-item">
-
-        <span class="guide-number">STEP 03</span>
-
-        <strong>Work toward your goals</strong>
-
-        <p>
-          Use what's left to build savings or make progress
-          toward paying off debt.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="pro-box">
-
-    <div>
-
-      <h2>Want more planning tools?</h2>
-
-      <p>
-        FreeLifeTools Pro includes additional tools for
-        paycheck planning, monthly money management,
-        savings goals and more.
-      </p>
-
-    </div>
-
-    <a class="pro-button" href="pro.html">
-      Explore Pro
-    </a>
-
-  </section>
+  </div>
 
 </main>
 
-
 <footer>
-
-  <strong>FreeLifeTools</strong>
-
-  <p>
-    Free tools for money, jobs, AI and everyday life.
-  </p>
-
-  <p>© 2026 FreeLifeTools</p>
-
+  © 2026 FreeLifeTools
 </footer>
 
 </body>
