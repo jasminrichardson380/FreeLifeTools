@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Budget Calculator | FreeLifeTools</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:#f4f8f6;
+    color:#10221b;
+    line-height:1.5;
+}
+
+header{
+    background:#fff;
+    border-bottom:1px solid #dce8e2;
+}
+
+.header-wrap{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+.logo{
+    font-size:29px;
+    font-weight:900;
+    margin-bottom:17px;
+}
+
+nav{
+    display:flex;
+    gap:18px;
+    overflow-x:auto;
+    white-space:nowrap;
+    align-items:center;
+}
+
+nav a{
+    color:#5a6660;
+    text-decoration:none;
+    font-weight:700;
+}
+
+nav a.active{
+    color:#07895f;
+}
+
+nav .pro{
+    background:#10221b;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:13px;
+}
+
+.page{
+    max-width:1100px;
+    margin:35px auto 70px;
+    padding:0 20px;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:20px;
+    color:#087e5b;
+    font-weight:800;
+    text-decoration:none;
+}
+
+.title-wrap{
+    display:flex;
+    gap:16px;
+    align-items:center;
+    margin-bottom:28px;
+}
+
+.title-icon{
+    width:65px;
+    height:65px;
+    min-width:65px;
+    border-radius:20px;
+    background:#e4f7ef;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:31px;
+}
+
+h1{
+    font-size:37px;
+    line-height:1.1;
+}
+
+.subtitle{
+    color:#66736d;
+    margin-top:7px;
+    font-size:17px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.panel{
+    background:white;
+    border-radius:25px;
+    border:1px solid #dbe7e1;
+    padding:28px;
+    box-shadow:0 10px 30px rgba(20,50,40,.06);
+}
+
+.panel h2{
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    font-weight:750;
+    margin-bottom:7px;
+}
+
+input{
+    width:100%;
+    height:51px;
+    border:1px solid #cfdcd6;
+    border-radius:11px;
+    padding:0 15px;
+    font-size:17px;
+    margin-bottom:18px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#07895f;
+    box-shadow:0 0 0 3px rgba(7,137,95,.09);
+}
+
+button{
+    width:100%;
+    border:0;
+    background:#07895f;
+    color:white;
+    border-radius:13px;
+    padding:16px;
+    font-size:17px;
+    font-weight:850;
+    cursor:pointer;
+}
+
+.result-box{
+    background:linear-gradient(145deg,#effbf6,#ffffff);
+}
+
+.stat{
+    border-bottom:1px solid #e2ebe7;
+    padding:14px 0;
+}
+
+.stat:last-of-type{
+    border:0;
+}
+
+.stat-label{
+    color:#66736d;
+    font-size:14px;
+    font-weight:700;
+}
+
+.stat-number{
+    font-size:27px;
+    font-weight:900;
+    margin-top:3px;
+}
+
+.green{
+    color:#07895f;
+}
+
+.red{
+    color:#d94343;
+}
+
+.progress-shell{
+    width:100%;
+    height:18px;
+    border-radius:30px;
+    background:#e6ece9;
+    overflow:hidden;
+    margin-top:12px;
+}
+
+.progress{
+    height:100%;
+    width:0%;
+    background:#07895f;
+    transition:.4s;
+}
+
+.message{
+    margin-top:22px;
+    border-radius:15px;
+    background:#e9f8f2;
+    padding:16px;
+    color:#245848;
+    font-weight:650;
+}
+
+.expense-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+footer{
+    background:#10221b;
+    color:white;
+    text-align:center;
+    padding:28px;
+}
+
+@media(max-width:750px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .expense-grid{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    h1{
+        font-size:31px;
+    }
+
+    .panel{
+        padding:23px 19px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="header-wrap">
+
+<div class="logo">FreeLifeTools</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a class="active" href="money.html">Money</a>
+<a href="jobs.html">Jobs</a>
+<a href="ai.html">AI</a>
+<a href="life.html">Life</a>
+<a class="pro" href="pro.html">Pro</a>
+</nav>
+
+</div>
+</header>
+
+<main class="page">
+
+<a class="back" href="money.html">← Back to Money Tools</a>
+
+<div class="title-wrap">
+<div class="title-icon">📊</div>
+
+<div>
+<h1>Budget Calculator</h1>
+<div class="subtitle">
+Plan your monthly money and see exactly how much you have left.
+</div>
+</div>
+</div>
+
+<div class="grid">
+
+<section class="panel">
+
+<h2>💵 Monthly Income</h2>
+
+<label for="income">Take-home income</label>
+<input
+    id="income"
+    type="number"
+    inputmode="decimal"
+    placeholder="Example: 3000"
+>
+
+<h2>🧾 Monthly Expenses</h2>
+
+<div class="expense-grid">
+
+<div>
+<label>Rent / Mortgage</label>
+<input class="expense" type="number" inputmode="decimal" placeholder="1000">
+</div>
+
+<div>
+<label>Utilities</label>
+<input class="expense" type="number" inputmode="decimal" placeholder="150">
+</div>
+
+<div>
+<label>Groceries</label>
+<input class="expense" type="number" inputmode="decimal" placeholder="400">
+</div>
+
+<div>
+<label>Transportation</label>
+<input class="expense" type="number" inputmode="decimal" placeholder="250">
+</div>
+
+<div>
+<label>Debt Payments</label>
+<input class="expense" type="number" inputmode="decimal" placeholder="200">
+</div>
+
+<div>
+<label>Insurance</label>
+<input class="expense" type="number" inputmode="decimal" placeholder="150">
+</div>
+
+<div>
+<label>Phone / Internet</label>
+<input class="expense" type="number" inputmode="decimal" placeholder="120">
+</div>
+
+<div>
+<label>Other Expenses</label>
+<input class="expense" type="number" inputmode="decimal" placeholder="200">
+</div>
+
+</div>
+
+<button type="button" onclick="calculateBudget()">
+Calculate My Budget
+</button>
+
+</section>
+
+<section class="panel result-box">
+
+<h2>✨ Your Budget Results</h2>
+
+<div class="stat">
+<div class="stat-label">MONTHLY INCOME</div>
+<div class="stat-number green" id="incomeResult">$0.00</div>
+</div>
+
+<div class="stat">
+<div class="stat-label">TOTAL EXPENSES</div>
+<div class="stat-number red" id="expenseResult">$0.00</div>
+</div>
+
+<div class="stat">
+<div class="stat-label">MONEY REMAINING</div>
+<div class="stat-number green" id="remainingResult">$0.00</div>
+</div>
+
+<div class="stat">
+<div class="stat-label">PERCENT OF INCOME SPENT</div>
+<div class="stat-number" id="percentResult">0%</div>
+
+<div class="progress-shell">
+<div id="progress" class="progress"></div>
+</div>
+</div>
+
+<div class="message" id="message">
+Enter your income and expenses, then tap
+<strong>Calculate My Budget</strong>.
+</div>
+
+</section>
+
+</div>
+</main>
+
+<footer>
+© 2026 FreeLifeTools
+</footer>
+
+<script>
+function money(number){
+    return new Intl.NumberFormat("en-US", {
+        style:"currency",
+        currency:"USD"
+    }).format(number);
+}
+
+function calculateBudget(){
+
+    const income =
+        parseFloat(document.getElementById("income").value) || 0;
+
+    const expenseInputs =
+        document.querySelectorAll(".expense");
+
+    let expenses = 0;
+
+    expenseInputs.forEach(function(input){
+        expenses += parseFloat(input.value) || 0;
+    });
+
+    const remaining = income - expenses;
+
+    let percent = 0;
+
+    if(income > 0){
+        percent = (expenses / income) * 100;
+    }
+
+    document.getElementById("incomeResult").textContent =
+        money(income);
+
+    document.getElementById("expenseResult").textContent =
+        money(expenses);
+
+    document.getElementById("remainingResult").textContent =
+        money(remaining);
+
+    document.getElementById("percentResult").textContent =
+        percent.toFixed(1) + "%";
+
+    document.getElementById("progress").style.width =
+        Math.min(percent,100) + "%";
+
+    const remainingElement =
+        document.getElementById("remainingResult");
+
+    const message =
+        document.getElementById("message");
+
+    if(income <= 0){
+        message.innerHTML =
+            "Please enter your monthly take-home income.";
+        return;
+    }
+
+    if(remaining > 0){
+
+        remainingElement.className =
+            "stat-number green";
+
+        message.innerHTML =
+            "✅ You have <strong>" +
+            money(remaining) +
+            "</strong> left after your listed expenses. Consider putting some of it toward savings or paying down debt.";
+
+    } else if(remaining === 0){
+
+        remainingElement.className =
+            "stat-number";
+
+        message.innerHTML =
+            "⚠️ Your income and expenses are equal. Reducing even one expense could create room for savings.";
+
+    } else {
+
+        remainingElement.className =
+            "stat-number red";
+
+        message.innerHTML =
+            "⚠️ Your expenses are <strong>" +
+            money(Math.abs(remaining)) +
+            "</strong> higher than your income. Review your expenses for areas you may be able to reduce.";
+    }
+}
+</script>
+
+</body>
+</html>
