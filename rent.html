@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rent Calculator | FreeLifeTools</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:#f4f8f6;
+  color:#12241d;
+  line-height:1.5;
+}
+
+header{
+  background:#ffffff;
+  border-bottom:1px solid #dfe9e4;
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.header-wrap{
+  max-width:1100px;
+  margin:auto;
+  padding:18px 20px;
+}
+
+.logo{
+  font-size:29px;
+  font-weight:900;
+  margin-bottom:14px;
+}
+
+nav{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  overflow-x:auto;
+  white-space:nowrap;
+}
+
+nav a{
+  text-decoration:none;
+  color:#5d6963;
+  font-weight:700;
+}
+
+nav a.active{
+  color:#07895f;
+}
+
+nav .pro{
+  background:#12241d;
+  color:white;
+  padding:10px 18px;
+  border-radius:13px;
+}
+
+.page{
+  max-width:1100px;
+  margin:34px auto 70px;
+  padding:0 20px;
+}
+
+.back{
+  display:inline-block;
+  text-decoration:none;
+  color:#07895f;
+  font-weight:800;
+  margin-bottom:22px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#0a8d63,#0b5c47);
+  color:white;
+  border-radius:28px;
+  padding:30px;
+  margin-bottom:28px;
+  box-shadow:0 14px 34px rgba(10,90,67,.14);
+}
+
+.hero-top{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.hero-icon{
+  width:66px;
+  height:66px;
+  min-width:66px;
+  border-radius:20px;
+  background:rgba(255,255,255,.16);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+}
+
+.hero h1{
+  font-size:38px;
+  line-height:1.05;
+  margin-bottom:8px;
+}
+
+.hero p{
+  font-size:17px;
+  opacity:.95;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+.panel{
+  background:white;
+  border:1px solid #dce8e2;
+  border-radius:26px;
+  padding:28px;
+  box-shadow:0 10px 30px rgba(20,50,40,.06);
+}
+
+.panel h2{
+  font-size:23px;
+  margin-bottom:20px;
+}
+
+.field{
+  margin-bottom:18px;
+}
+
+label{
+  display:block;
+  font-weight:800;
+  margin-bottom:7px;
+}
+
+.input-wrap{
+  position:relative;
+}
+
+.dollar{
+  position:absolute;
+  left:15px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#69766f;
+  font-weight:800;
+}
+
+input{
+  width:100%;
+  height:53px;
+  border:1px solid #cfdcd6;
+  border-radius:12px;
+  padding:0 14px 0 31px;
+  font-size:17px;
+  background:#fff;
+}
+
+input:focus{
+  outline:none;
+  border-color:#07895f;
+  box-shadow:0 0 0 3px rgba(7,137,95,.09);
+}
+
+button{
+  width:100%;
+  border:none;
+  background:#07895f;
+  color:white;
+  padding:16px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:900;
+  cursor:pointer;
+  margin-top:4px;
+}
+
+.results{
+  background:linear-gradient(145deg,#effbf6,#ffffff);
+}
+
+.main-result{
+  background:white;
+  border:1px solid #dce8e2;
+  border-radius:20px;
+  padding:24px 18px;
+  text-align:center;
+  margin-bottom:18px;
+}
+
+.main-result small{
+  color:#64716b;
+  font-weight:800;
+  font-size:13px;
+}
+
+.main-result strong{
+  display:block;
+  font-size:36px;
+  color:#07895f;
+  margin-top:8px;
+}
+
+.main-result span{
+  color:#69766f;
+}
+
+.result-row{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  align-items:center;
+  padding:15px 0;
+  border-bottom:1px solid #dfe8e4;
+}
+
+.result-row span{
+  color:#5f6b65;
+}
+
+.result-row strong{
+  color:#12241d;
+}
+
+.bar-label{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:18px;
+  font-size:14px;
+  color:#65716b;
+  font-weight:700;
+}
+
+.bar-shell{
+  height:16px;
+  background:#e4ebe8;
+  border-radius:30px;
+  overflow:hidden;
+  margin-top:8px;
+}
+
+.bar{
+  height:100%;
+  width:0%;
+  background:#07895f;
+  transition:.35s;
+}
+
+.tip{
+  margin-top:22px;
+  border-radius:16px;
+  padding:17px;
+  background:#e8f7f1;
+  color:#245849;
+  font-weight:650;
+}
+
+.disclaimer{
+  font-size:12px;
+  color:#7a8580;
+  margin-top:15px;
+}
+
+footer{
+  background:#12241d;
+  color:white;
+  text-align:center;
+  padding:28px 20px;
+}
+
+@media(max-width:760px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:25px 21px;
+  }
+
+  .hero-top{
+    align-items:flex-start;
+  }
+
+  .hero h1{
+    font-size:31px;
+  }
+
+  .panel{
+    padding:23px 19px;
+  }
+
+  .main-result strong{
+    font-size:31px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-wrap">
+
+    <div class="logo">FreeLifeTools</div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a class="active" href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a class="pro" href="pro.html">Pro</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main class="page">
+
+  <a class="back" href="money.html">← Back to Money Tools</a>
+
+
+  <section class="hero">
+
+    <div class="hero-top">
+
+      <div class="hero-icon">🏠</div>
+
+      <div>
+        <h1>Rent Calculator</h1>
+        <p>
+          Estimate a comfortable monthly rent range based on your
+          income, bills, debt and savings goals.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="grid">
+
+    <div class="panel">
+
+      <h2>💵 Your Monthly Finances</h2>
+
+
+      <div class="field">
+        <label for="income">Take-home income</label>
+
+        <div class="input-wrap">
+          <span class="dollar">$</span>
+          <input
+            id="income"
+            type="number"
+            inputmode="decimal"
+            placeholder="3000"
+          >
+        </div>
+      </div>
+
+
+      <div class="field">
+        <label for="debt">Debt payments</label>
+
+        <div class="input-wrap">
+          <span class="dollar">$</span>
+          <input
+            id="debt"
+            type="number"
+            inputmode="decimal"
+            placeholder="300"
+          >
+        </div>
+      </div>
+
+
+      <div class="field">
+        <label for="expenses">Other monthly expenses</label>
+
+        <div class="input-wrap">
+          <span class="dollar">$</span>
+          <input
+            id="expenses"
+            type="number"
+            inputmode="decimal"
+            placeholder="800"
+          >
+        </div>
+      </div>
+
+
+      <div class="field">
+        <label for="savings">Savings goal</label>
+
+        <div class="input-wrap">
+          <span class="dollar">$</span>
+          <input
+            id="savings"
+            type="number"
+            inputmode="decimal"
+            placeholder="300"
+          >
+        </div>
+      </div>
+
+
+      <button type="button" onclick="calculateRent()">
+        Estimate My Rent
+      </button>
+
+    </div>
+
+
+    <div class="panel results">
+
+      <h2>✨ Your Rent Estimate</h2>
+
+
+      <div class="main-result">
+
+        <small>COMFORTABLE RENT RANGE</small>
+
+        <strong id="rentRange">$0 – $0</strong>
+
+        <span>per month</span>
+
+      </div>
+
+
+      <div class="result-row">
+        <span>25% of income</span>
+        <strong id="rent25">$0</strong>
+      </div>
+
+
+      <div class="result-row">
+        <span>30% of income</span>
+        <strong id="rent30">$0</strong>
+      </div>
+
+
+      <div class="result-row">
+        <span>Money after bills & savings</span>
+        <strong id="available">$0</strong>
+      </div>
+
+
+      <div class="result-row">
+        <span>Money left after suggested rent</span>
+        <strong id="afterRent">$0</strong>
+      </div>
+
+
+      <div class="bar-label">
+        <span>Suggested rent share</span>
+        <span id="rentPercent">0%</span>
+      </div>
+
+      <div class="bar-shell">
+        <div class="bar" id="rentBar"></div>
+      </div>
+
+
+      <div class="tip" id="tip">
+        Enter your information and tap
+        <strong>Estimate My Rent</strong>.
+      </div>
+
+
+      <div class="disclaimer">
+        This calculator gives a general budgeting estimate.
+        It does not guarantee landlord approval or financial eligibility.
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  © 2026 FreeLifeTools
+</footer>
+
+
+<script>
+
+function formatMoney(number){
+
+  return new Intl.NumberFormat(
+    "en-US",
+    {
+      style:"currency",
+      currency:"USD",
+      maximumFractionDigits:0
+    }
+  ).format(number);
+
+}
+
+
+function calculateRent(){
+
+  const income =
+    parseFloat(document.getElementById("income").value) || 0;
+
+  const debt =
+    parseFloat(document.getElementById("debt").value) || 0;
+
+  const expenses =
+    parseFloat(document.getElementById("expenses").value) || 0;
+
+  const savings =
+    parseFloat(document.getElementById("savings").value) || 0;
+
+
+  const tip =
+    document.getElementById("tip");
+
+
+  if(income <= 0){
+
+    tip.innerHTML =
+      "Please enter your monthly take-home income.";
+
+    return;
+
+  }
+
+
+  const rent25 =
+    income * 0.25;
+
+  const rent30 =
+    income * 0.30;
+
+  const available =
+    income - debt - expenses - savings;
+
+
+  let recommendedMax =
+    Math.min(rent30, Math.max(available,0));
+
+  let recommendedMin =
+    Math.min(rent25, recommendedMax);
+
+
+  if(recommendedMin < 0){
+    recommendedMin = 0;
+  }
+
+  if(recommendedMax < 0){
+    recommendedMax = 0;
+  }
+
+
+  const suggestedRent =
+    recommendedMin;
+
+  const afterRent =
+    available - suggestedRent;
+
+
+  const rentPercent =
+    income > 0
+      ? (suggestedRent / income) * 100
+      : 0;
+
+
+  document.getElementById("rent25").textContent =
+    formatMoney(rent25);
+
+  document.getElementById("rent30").textContent =
+    formatMoney(rent30);
+
+  document.getElementById("available").textContent =
+    formatMoney(available);
+
+  document.getElementById("afterRent").textContent =
+    formatMoney(afterRent);
+
+  document.getElementById("rentRange").textContent =
+    formatMoney(recommendedMin) +
+    " – " +
+    formatMoney(recommendedMax);
+
+  document.getElementById("rentPercent").textContent =
+    rentPercent.toFixed(0) + "%";
+
+  document.getElementById("rentBar").style.width =
+    Math.min(rentPercent,100) + "%";
+
+
+  if(available <= 0){
+
+    tip.innerHTML =
+      "⚠️ Your listed bills, debt and savings goal already use your monthly income. A lower housing cost or reduced expenses may give you more breathing room.";
+
+  }
+
+  else if(available < rent25){
+
+    tip.innerHTML =
+      "💡 Based on your expenses, staying below the usual 25% rent guideline may be more comfortable.";
+
+  }
+
+  else{
+
+    tip.innerHTML =
+      "✅ Based on the numbers you entered, a rent range around <strong>" +
+      formatMoney(recommendedMin) +
+      " to " +
+      formatMoney(recommendedMax) +
+      "</strong> may fit your monthly budget.";
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
