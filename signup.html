@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Create your account | FreeLifeTools</title>
+
+<meta name="description" content="Create a free FreeLifeTools account.">
+<meta name="robots" content="noindex">
+
+<link rel="stylesheet" href="/auth.css">
+</head>
+
+<body>
+
+<header>
+  <div class="header-wrap">
+
+    <div class="logo"><a href="index.html">FreeLifeTools</a></div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a class="pro" href="pro.html">Pro</a>
+      <a data-auth-link href="login.html">Log in</a>
+    </nav>
+
+  </div>
+</header>
+
+<main class="page">
+
+  <div class="card">
+
+    <h1>Create your account</h1>
+
+    <p class="sub">
+      A free account keeps your Pro access attached to you, so it works
+      on any device you sign in from.
+    </p>
+
+    <div class="message info" id="notice" hidden></div>
+    <div class="message error" id="error" hidden></div>
+
+    <form id="signupForm" novalidate>
+
+      <label for="name">Your name <span style="font-weight:600;color:#8b958f">(optional)</span></label>
+      <input id="name" name="name" type="text" autocomplete="name">
+
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email" autocomplete="email" required>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+
+      <button type="submit" id="submit">Create account</button>
+
+    </form>
+
+    <p class="alt">
+      Already have an account? <a href="login.html" id="loginLink">Log in</a>
+    </p>
+
+  </div>
+
+  <div class="card" id="doneCard" hidden>
+
+    <h2>Check your email</h2>
+
+    <p class="sub" id="doneMessage">
+      We sent a confirmation link to your email address. Click it to
+      finish setting up your account.
+    </p>
+
+    <a class="button secondary" href="index.html">Back to home</a>
+
+  </div>
+
+</main>
+
+<footer>
+  © 2026 FreeLifeTools
+</footer>
+
+<script src="/auth.js" defer></script>
+
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+
+    var form = document.getElementById('signupForm');
+    var submit = document.getElementById('submit');
+    var errorBox = document.getElementById('error');
+    var noticeBox = document.getElementById('notice');
+    var loginLink = document.getElementById('loginLink');
+    var doneCard = document.getElementById('doneCard');
+    var doneMessage = document.getElementById('doneMessage');
+
+    function safeRedirect(value) {
+      if (!value) return '/account.html';
+      if (/^https?:|^\/\//i.test(value)) return '/account.html';
+      return value.charAt(0) === '/' ? value : '/' + value;
+    }
+
+    var destination = safeRedirect(params.get('redirect'));
+
+    if (destination !== '/account.html') {
+      loginLink.setAttribute(
+        'href',
+        'login.html?redirect=' + encodeURIComponent(destination)
+      );
+    }
+
+    if (params.get('notice') === 'pro') {
+      noticeBox.textContent =
+        'Create an account first, then join Pro so your access is saved to it.';
+      noticeBox.hidden = false;
+    }
+
+    function showError(message) {
+      errorBox.textContent = message;
+      errorBox.hidden = false;
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      errorBox.hidden = true;
+
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var password = document.getElementById('password').value;
+
+      if (!email || !password) {
+        showError('Enter an email address and a password.');
+        return;
+      }
+
+      if (password.length < 8) {
+        showError('Use a password of at least 8 characters.');
+        return;
+      }
+
+      submit.disabled = true;
+      submit.textContent = 'Creating account…';
+
+      fetch('/.netlify/functions/auth-signup', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, password: password, name: name })
+      })
+        .then(function (response) {
+          return response.json().then(function (data) {
+            return { ok: response.ok, data: data };
+          });
+        })
+        .then(function (result) {
+          if (!result.ok || !result.data.ok) {
+            showError(result.data.error || 'Could not create your account.');
+            submit.disabled = false;
+            submit.textContent = 'Create account';
+            return;
+          }
+
+          if (result.data.confirmed) {
+            // Email confirmation is switched off, so the account is ready now.
+            window.location.href =
+              '/login.html?notice=signed-up&redirect=' + encodeURIComponent(destination);
+            return;
+          }
+
+          form.hidden = true;
+          document.querySelector('.alt').hidden = true;
+          doneMessage.textContent =
+            'We sent a confirmation link to ' + email + '. Click it to finish setting up your account.';
+          doneCard.hidden = false;
+        })
+        .catch(function () {
+          showError('Could not reach the server. Please try again.');
+          submit.disabled = false;
+          submit.textContent = 'Create account';
+        });
+    });
+  })();
+</script>
+
+</body>
+</html>

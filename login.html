@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Log in | FreeLifeTools</title>
+
+<meta name="description" content="Log in to your FreeLifeTools account.">
+<meta name="robots" content="noindex">
+
+<link rel="stylesheet" href="/auth.css">
+</head>
+
+<body>
+
+<header>
+  <div class="header-wrap">
+
+    <div class="logo">FreeLifeTools</div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a class="pro" href="pro.html">Pro</a>
+      <a data-auth-link href="login.html">Log in</a>
+    </nav>
+
+  </div>
+</header>
+
+<main class="page">
+
+  <div class="card">
+
+    <h1>Log in</h1>
+
+    <p class="sub">
+      Sign in to reach your FreeLifeTools Pro tools.
+    </p>
+
+    <div class="message info" id="notice" hidden></div>
+    <div class="message error" id="error" hidden></div>
+
+    <form id="loginForm" novalidate>
+
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email" autocomplete="email" required>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required>
+
+      <button type="submit" id="submit">Log in</button>
+
+    </form>
+
+    <p class="alt">
+      No account yet? <a href="signup.html" id="signupLink">Create one free</a>
+    </p>
+
+  </div>
+
+</main>
+
+<footer>
+  © 2026 FreeLifeTools
+</footer>
+
+<script src="/auth.js" defer></script>
+
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+
+    var form = document.getElementById('loginForm');
+    var submit = document.getElementById('submit');
+    var errorBox = document.getElementById('error');
+    var noticeBox = document.getElementById('notice');
+    var signupLink = document.getElementById('signupLink');
+
+    // Only ever bounce back to a path on this site.
+    function safeRedirect(value) {
+      if (!value) return '/account.html';
+      if (/^https?:|^\/\//i.test(value)) return '/account.html';
+      return value.charAt(0) === '/' ? value : '/' + value;
+    }
+
+    var destination = safeRedirect(params.get('redirect'));
+
+    if (destination !== '/account.html') {
+      signupLink.setAttribute(
+        'href',
+        'signup.html?redirect=' + encodeURIComponent(destination)
+      );
+    }
+
+    var notices = {
+      confirmed: 'Your email is confirmed. Log in to continue.',
+      'signed-up': 'Account created. Log in to continue.',
+      'session-expired': 'Your session expired. Please log in again.'
+    };
+
+    var notice = notices[params.get('notice')];
+
+    if (notice) {
+      noticeBox.textContent = notice;
+      noticeBox.hidden = false;
+    }
+
+    function showError(message) {
+      errorBox.textContent = message;
+      errorBox.hidden = false;
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      errorBox.hidden = true;
+
+      var email = document.getElementById('email').value.trim();
+      var password = document.getElementById('password').value;
+
+      if (!email || !password) {
+        showError('Enter both your email address and password.');
+        return;
+      }
+
+      submit.disabled = true;
+      submit.textContent = 'Logging in…';
+
+      fetch('/.netlify/functions/auth-login', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, password: password })
+      })
+        .then(function (response) {
+          return response.json().then(function (data) {
+            return { ok: response.ok, data: data };
+          });
+        })
+        .then(function (result) {
+          if (result.ok && result.data.ok) {
+            // Full navigation so the browser sends the new session cookie.
+            window.location.href = destination;
+            return;
+          }
+
+          showError(result.data.error || 'Invalid email or password.');
+          submit.disabled = false;
+          submit.textContent = 'Log in';
+        })
+        .catch(function () {
+          showError('Could not reach the server. Please try again.');
+          submit.disabled = false;
+          submit.textContent = 'Log in';
+        });
+    });
+  })();
+</script>
+
+</body>
+</html>

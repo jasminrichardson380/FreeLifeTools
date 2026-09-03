@@ -225,6 +225,40 @@ nav .pro{
   color:#59665f;
 }
 
+button.join{
+  font-family:inherit;
+  font-size:16px;
+  border:0;
+  cursor:pointer;
+}
+
+.join-note{
+  margin-top:12px;
+  font-size:14px;
+  opacity:.92;
+}
+
+.join-note a{
+  color:#ffffff;
+  font-weight:900;
+  text-decoration:underline;
+}
+
+.locked-banner{
+  background:#fff6e6;
+  border:1px solid #f3ddb4;
+  border-radius:20px;
+  padding:20px 22px;
+  margin-bottom:26px;
+  color:#6b4f19;
+}
+
+.locked-banner strong{
+  display:block;
+  margin-bottom:5px;
+  font-size:17px;
+}
+
 footer{
   background:#12241d;
   color:white;
@@ -266,12 +300,20 @@ footer{
       <a href="ai.html">AI</a>
       <a href="life.html">Life</a>
       <a class="pro active" href="pro.html">Pro</a>
+      <a data-auth-link href="login.html">Log in</a>
     </nav>
 
   </div>
 </header>
 
 <main class="page">
+
+  <div class="locked-banner" id="lockedBanner" hidden>
+    <strong>That tool is for Pro members.</strong>
+    <span id="lockedDetail">
+      Pro tools are only available to logged-in members with Pro access.
+    </span>
+  </div>
 
   <section class="hero">
 
@@ -288,10 +330,48 @@ footer{
       $5.99 <span>/ month</span>
     </div>
 
-    <!-- Replace the # below with your Stripe payment link -->
-    <a class="join" href="#">
-      Join FreeLifeTools Pro
-    </a>
+    <!-- Pro access is attached to a FreeLifeTools account, so signed-out
+         visitors log in first and checkout can be linked to their account. -->
+    <div data-auth-when="out" hidden>
+
+      <a class="join" href="login.html?redirect=pro.html">
+        Log in to join Pro
+      </a>
+
+      <p class="join-note">
+        New here? <a href="signup.html?notice=pro">Create a free account</a> first.
+      </p>
+
+    </div>
+
+    <form
+      method="POST"
+      action="/.netlify/functions/create-checkout"
+      data-auth-when="free"
+      hidden
+    >
+      <button class="join" type="submit">
+        Join FreeLifeTools Pro
+      </button>
+    </form>
+
+    <div data-auth-when="pro" hidden>
+
+      <a class="join" href="pro-access.html">
+        Open your Pro tools
+      </a>
+
+      <p class="join-note">
+        Your account already has Pro access.
+      </p>
+
+    </div>
+
+    <noscript>
+      <a class="join" href="login.html?redirect=pro.html">
+        Log in to join Pro
+      </a>
+    </noscript>
 
   </section>
 
@@ -421,6 +501,51 @@ footer{
 <footer>
   © 2026 FreeLifeTools
 </footer>
+
+<script src="/auth.js" defer></script>
+
+<script>
+  (function () {
+    var locked = new URLSearchParams(window.location.search).get('locked');
+
+    if (!locked) {
+      return;
+    }
+
+    var banner = document.getElementById('lockedBanner');
+    var detail = document.getElementById('lockedDetail');
+
+    // Names the tool the visitor was turned away from, when we know it.
+    var TOOL_NAMES = {
+      'ai-store-builder': 'the AI Store Builder',
+      'pro-tools': 'the Pro tools'
+    };
+
+    var tool = TOOL_NAMES[locked] || 'that Pro tool';
+
+    banner.hidden = false;
+
+    window.addEventListener('load', function () {
+      if (!window.FreeLifeAuth || !window.FreeLifeAuth.ready) {
+        return;
+      }
+
+      window.FreeLifeAuth.ready.then(function (auth) {
+        if (!auth.loggedIn) {
+          detail.textContent =
+            'Log in to your FreeLifeTools account, then join Pro to unlock ' + tool + '.';
+        } else if (!auth.isPro) {
+          detail.textContent =
+            'You are logged in, but this account does not have Pro access yet. ' +
+            'Join Pro below to unlock ' + tool + '.';
+        } else {
+          detail.textContent =
+            'Your Pro access was added recently. Log out and back in to refresh it, then try again.';
+        }
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
