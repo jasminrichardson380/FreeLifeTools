@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AI Store Builder | FreeLifeTools Pro</title>
+
+  <meta
+    name="description"
+    content="Build a simple ready-made online store with FreeLifeTools Pro."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f6fb;
+      color: #19171f;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e5e2ea;
+    }
+
+    .nav-wrap {
+      max-width: 1150px;
+      margin: auto;
+      padding: 18px 22px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .logo {
+      color: #19171f;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #67626f;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .pro-link {
+      background: #19171f;
+      color: white !important;
+      padding: 10px 15px;
+      border-radius: 9px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1b1724, #4a3179);
+      color: white;
+      padding: 70px 22px;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      padding: 8px 13px;
+      border-radius: 999px;
+
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      margin: 20px 0 14px;
+      font-size: 48px;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      color: #ddd5eb;
+      font-size: 18px;
+      line-height: 1.6;
+      margin: auto;
+      max-width: 650px;
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 55px 22px 90px;
+    }
+
+    .builder {
+      background: white;
+      border: 1px solid #e3dfea;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 28px rgba(30,20,45,.06);
+    }
+
+    .builder h2 {
+      margin-top: 0;
+      font-size: 30px;
+    }
+
+    .builder p {
+      color: #6c6872;
+      line-height: 1.6;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      margin-top: 8px;
+      padding: 13px;
+      border: 1px solid #d8d3df;
+      border-radius: 9px;
+      font-size: 15px;
+      font-family: Arial, sans-serif;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 13px 19px;
+
+      border: none;
+      border-radius: 9px;
+
+      background: #6c3bd1;
+      color: white;
+
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .preview {
+      display: none;
+      margin-top: 35px;
+      padding: 28px;
+
+      background: #faf9fc;
+      border: 1px solid #e5dff0;
+      border-radius: 16px;
+    }
+
+    .preview h3 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .preview p {
+      color: #5e5965;
+      line-height: 1.6;
+    }
+
+    .product-card {
+      margin-top: 20px;
+      background: white;
+      border: 1px solid #e4e1e8;
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .product-card h4 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .download-row {
+      display: none;
+      margin-top: 25px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .secondary-button {
+      display: inline-block;
+      padding: 12px 17px;
+      border-radius: 9px;
+
+      border: 1px solid #d8d3df;
+      background: white;
+      color: #19171f;
+
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .notice {
+      margin-top: 30px;
+      padding: 18px;
+      border-radius: 12px;
+      background: #f1ecfb;
+      color: #544866;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #e4e1e8;
+      text-align: center;
+      padding: 40px 20px;
+      color: #67636d;
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .nav-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      main {
+        padding: 40px 18px 70px;
+      }
+
+      .builder {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-wrap">
+
+    <a class="logo" href="index.html">
+      FreeLifeTools
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a class="pro-link" href="pro.html">Pro</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<section class="hero">
+
+  <div class="hero-inner">
+
+    <span class="badge">
+      PRO TOOL
+    </span>
+
+    <h1>
+      AI Store Builder
+    </h1>
+
+    <p>
+      Build a simple online storefront in minutes.
+      Enter your business details, customize your store,
+      preview it and download your finished website.
+    </p>
+
+  </div>
+
+</section>
+
+
+<main>
+
+  <section class="builder">
+
+    <h2>Create your store</h2>
+
+    <p>
+      Fill out the information below and FreeLifeTools will create
+      a ready-made storefront preview for you.
+    </p>
+
+
+    <label for="storeName">
+      Store name
+    </label>
+
+    <input
+      id="storeName"
+      type="text"
+      placeholder="Example: Jasmin's Boutique"
+    >
+
+
+    <label for="storeType">
+      Store type
+    </label>
+
+    <select id="storeType">
+      <option value="Online Store">Online Store</option>
+      <option value="Boutique">Boutique</option>
+      <option value="Beauty Store">Beauty Store</option>
+      <option value="Digital Products">Digital Products</option>
+      <option value="Home Business">Home Business</option>
+      <option value="Service Business">Service Business</option>
+    </select>
+
+
+    <label for="tagline">
+      Store tagline
+    </label>
+
+    <input
+      id="tagline"
+      type="text"
+      placeholder="Example: Affordable style for everyday life"
+    >
+
+
+    <label for="description">
+      Business description
+    </label>
+
+    <textarea
+      id="description"
+      placeholder="Tell customers what your store sells and why they should shop with you."
+    ></textarea>
+
+
+    <label for="productName">
+      Featured product or service
+    </label>
+
+    <input
+      id="productName"
+      type="text"
+      placeholder="Example: Everyday Tote Bag"
+    >
+
+
+    <label for="productPrice">
+      Price
+    </label>
+
+    <input
+      id="productPrice"
+      type="text"
+      placeholder="Example: $24.99"
+    >
+
+
+    <label for="productDescription">
+      Product description
+    </label>
+
+    <textarea
+      id="productDescription"
+      placeholder="Describe your product or service."
+    ></textarea>
+
+
+    <button
+      class="button"
+      onclick="buildStore()"
+    >
+      Build My Store
+    </button>
+
+
+    <div
+      class="preview"
+      id="storePreview"
+    >
+
+      <h3 id="previewName"></h3>
+
+      <p id="previewTagline"></p>
+
+      <p id="previewDescription"></p>
+
+      <div class="product-card">
+
+        <h4 id="previewProduct"></h4>
+
+        <strong id="previewPrice"></strong>
+
+        <p id="previewProductDescription"></p>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="download-row"
+      id="downloadRow"
+    >
+
+      <button
+        class="secondary-button"
+        onclick="downloadStore()"
+      >
+        Download My Website
+      </button>
+
+      <button
+        class="secondary-button"
+        onclick="copyStoreCode()"
+      >
+        Copy Website Code
+      </button>
+
+    </div>
+
+
+    <div class="notice">
+      Your downloaded storefront is a starter website.
+      You can upload it to a hosting service and later add
+      checkout, payments, products and your own branding.
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>FreeLifeTools Pro</strong>
+
+  <p>
+    More tools. Less stress.
+  </p>
+
+  <p>© 2026 FreeLifeTools</p>
+
+</footer>
+
+
+<script>
+
+let generatedStoreCode = "";
+
+
+function buildStore() {
+
+  const storeName =
+    document.getElementById("storeName").value.trim();
+
+  const storeType =
+    document.getElementById("storeType").value;
+
+  const tagline =
+    document.getElementById("tagline").value.trim();
+
+  const description =
+    document.getElementById("description").value.trim();
+
+  const productName =
+    document.getElementById("productName").value.trim();
+
+  const productPrice =
+    document.getElementById("productPrice").value.trim();
+
+  const productDescription =
+    document.getElementById("productDescription").value.trim();
+
+
+  if (!storeName) {
+    alert("Enter your store name.");
+    return;
+  }
+
+
+  document.getElementById("previewName").textContent =
+    storeName;
+
+  document.getElementById("previewTagline").textContent =
+    tagline || storeType;
+
+  document.getElementById("previewDescription").textContent =
+    description || "Welcome to our store.";
+
+  document.getElementById("previewProduct").textContent =
+    productName || "Featured Product";
+
+  document.getElementById("previewPrice").textContent =
+    productPrice || "$0.00";
+
+  document.getElementById("previewProductDescription").textContent =
+    productDescription || "Add your product description here.";
+
+
+  document.getElementById("storePreview").style.display =
+    "block";
+
+  document.getElementById("downloadRow").style.display =
+    "flex";
+
+
+  generatedStoreCode = createWebsiteCode(
+    storeName,
+    tagline || storeType,
+    description || "Welcome to our store.",
+    productName || "Featured Product",
+    productPrice || "$0.00",
+    productDescription || "Add your product description here."
+  );
+}
+
+
+function escapeHtml(text) {
+
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+
+function createWebsiteCode(
+  storeName,
+  tagline,
+  description,
+  productName,
+  price,
+  productDescription
+) {
+
+  const safeStoreName = escapeHtml(storeName);
+  const safeTagline = escapeHtml(tagline);
+  const safeDescription = escapeHtml(description);
+  const safeProductName = escapeHtml(productName);
+  const safePrice = escapeHtml(price);
+  const safeProductDescription =
+    escapeHtml(productDescription);
+
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>${safeStoreName}</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8f8f8;
+  color: #1d1d1d;
+}
+
+header {
+  background: #171717;
+  color: white;
+  padding: 70px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 48px;
+  margin: 0 0 12px;
+}
+
+header p {
+  margin: 0;
+  font-size: 18px;
+  color: #dddddd;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+.about {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.product {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+.product h2 {
+  margin-top: 0;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.shop-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 13px 20px;
+  border-radius: 8px;
+  background: #171717;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 35px 20px;
+  color: #777;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>${safeStoreName}</h1>
+
+<p>${safeTagline}</p>
+
+</header>
+
+
+<main>
+
+<section class="about">
+
+<p>${safeDescription}</p>
+
+</section>
+
+
+<section class="product">
+
+<h2>${safeProductName}</h2>
+
+<p>${safeProductDescription}</p>
+
+<div class="price">
+${safePrice}
+</div>
+
+<a class="shop-button" href="#">
+Buy Now
+</a>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<p>
+© 2026 ${safeStoreName}
+</p>
+
+</footer>
+
+</body>
+</html>`;
+}
+
+
+function downloadStore() {
+
+  if (!generatedStoreCode) {
+    alert("Build your store first.");
+    return;
+  }
+
+
+  const blob =
+    new Blob(
+      [generatedStoreCode],
+      { type: "text/html" }
+    );
+
+
+  const url =
+    URL.createObjectURL(blob);
+
+
+  const link =
+    document.createElement("a");
+
+
+  link.href = url;
+
+  link.download =
+    "my-online-store.html";
+
+
+  document.body.appendChild(link);
+
+  link.click();
+
+  document.body.removeChild(link);
+
+  URL.revokeObjectURL(url);
+}
+
+
+function copyStoreCode() {
+
+  if (!generatedStoreCode) {
+    alert("Build your store first.");
+    return;
+  }
+
+
+  navigator.clipboard
+    .writeText(generatedStoreCode)
+
+    .then(() => {
+      alert("Website code copied!");
+    })
+
+    .catch(() => {
+      alert(
+        "Copy failed. Try downloading your website instead."
+      );
+    });
+}
+
+</script>
+
+</body>
+</html>
