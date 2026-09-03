@@ -673,6 +673,14 @@
 
 <body>
 
+<script>
+  // Netlify Identity confirmation emails land on the home page with the token
+  // in the URL fragment. Hand those off to the page that processes them.
+  if (/(confirmation_token|invite_token|recovery_token|email_change_token|error_description)=/.test(window.location.hash)) {
+    window.location.replace('/auth-callback.html' + window.location.hash);
+  }
+</script>
+
 <header>
   <div class="nav">
 
@@ -688,6 +696,7 @@
 <a href="rent-calculator.html">Rent</a>
       <a href="debt.html">Debt</a>
       <a href="pro.html">Pro</a>
+      <a data-auth-link href="login.html">Log in</a>
     </nav>
 
   </div>
@@ -1138,6 +1147,8 @@
   </div>
 
 </footer>
+
+<script src="/auth.js" defer></script>
 
 </body>
 </html>

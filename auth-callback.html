@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Confirming your account | FreeLifeTools</title>
+
+<meta name="robots" content="noindex">
+
+<link rel="stylesheet" href="/auth.css">
+</head>
+
+<body>
+
+<header>
+  <div class="header-wrap">
+
+    <div class="logo"><a href="index.html">FreeLifeTools</a></div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a class="pro" href="pro.html">Pro</a>
+      <a data-auth-link href="login.html">Log in</a>
+    </nav>
+
+  </div>
+</header>
+
+<main class="page">
+
+  <div class="card">
+
+    <h1 id="title">Confirming your account</h1>
+
+    <p class="sub" id="message">
+      One moment while we finish setting things up.
+    </p>
+
+    <div class="stack" id="actions" hidden>
+      <a class="button" href="login.html">Log in</a>
+      <a class="button secondary" href="index.html">Back to home</a>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  © 2026 FreeLifeTools
+</footer>
+
+<script src="/auth.js" defer></script>
+
+<script>
+  (function () {
+    var title = document.getElementById('title');
+    var message = document.getElementById('message');
+    var actions = document.getElementById('actions');
+
+    // Identity emails come back with the token in the URL fragment, which the
+    // browser never sends to the server. Read it here and hand it to the
+    // auth-confirm function.
+    var hash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+
+    function finish(headline, detail) {
+      title.textContent = headline;
+      message.textContent = detail;
+      actions.hidden = false;
+    }
+
+    var errorDescription = hash.get('error_description') || hash.get('error');
+
+    if (errorDescription) {
+      finish('That link did not work', errorDescription);
+      return;
+    }
+
+    var recoveryToken = hash.get('recovery_token');
+
+    if (recoveryToken) {
+      finish(
+        'Password reset links are not set up yet',
+        'Password reset is not available on this site yet. Log in with your existing password, or contact us if you are stuck.'
+      );
+      return;
+    }
+
+    var inviteToken = hash.get('invite_token');
+
+    if (inviteToken) {
+      finish(
+        'Invite links are not set up yet',
+        'This site uses open signup. Create your account from the sign up page instead.'
+      );
+      return;
+    }
+
+    var confirmationToken = hash.get('confirmation_token');
+
+    if (!confirmationToken) {
+      finish(
+        'Nothing to confirm',
+        'This page finishes account confirmation. Open it from the link in your confirmation email.'
+      );
+      return;
+    }
+
+    fetch('/.netlify/functions/auth-confirm', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: confirmationToken })
+    })
+      .then(function (response) {
+        return response.json().then(function (data) {
+          return { ok: response.ok, data: data };
+        });
+      })
+      .then(function (result) {
+        if (result.ok && result.data.ok) {
+          window.location.replace('/login.html?notice=confirmed');
+          return;
+        }
+
+        finish(
+          'We could not confirm your account',
+          result.data.error || 'This confirmation link has expired or was already used.'
+        );
+      })
+      .catch(function () {
+        finish(
+          'We could not confirm your account',
+          'Could not reach the server. Please open the link from your email again.'
+        );
+      });
+  })();
+</script>
+
+</body>
+</html>

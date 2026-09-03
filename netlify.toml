@@ -1,0 +1,89 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# ---------------------------------------------------------------------------
+# Netlify Identity role-based access control
+#
+# The AI Store Builder is a paid Pro tool. These rules are enforced at the CDN
+# edge using the Identity JWT in the `nf_jwt` cookie, so the page is never sent
+# to a visitor who is not signed in with the Pro role.
+#
+# Each gated path needs two rules, evaluated top to bottom:
+#   1. a forced rewrite that serves the page to Pro members
+#   2. a forced fallback that sends everyone else to Pro.html
+#
+# `force` is required because a real file exists at the gated path; without it
+# the static file would be served to everybody and the fallback would never run.
+# Both `pro` and `Pro` are accepted so a role typed either way in the Netlify
+# Identity dashboard still works.
+# ---------------------------------------------------------------------------
+
+[[redirects]]
+  from = "/ai-store-builder.html"
+  to = "/ai-store-builder.html"
+  status = 200
+  force = true
+  conditions = {Role = ["pro", "Pro"]}
+
+[[redirects]]
+  from = "/ai-store-builder.html"
+  to = "/pro.html?locked=ai-store-builder"
+  status = 302
+  force = true
+
+# Netlify also serves the page at its extension-less path, so gate that too.
+[[redirects]]
+  from = "/ai-store-builder"
+  to = "/ai-store-builder.html"
+  status = 200
+  force = true
+  conditions = {Role = ["pro", "Pro"]}
+
+[[redirects]]
+  from = "/ai-store-builder"
+  to = "/pro.html?locked=ai-store-builder"
+  status = 302
+  force = true
+
+# ---------------------------------------------------------------------------
+# The rest of the Pro-only pages
+#
+# Every members-only page is named `pro-<something>`: pro-access, pro-paycheck,
+# pro-money, pro-savings and pro-tools. One splat rule covers them all, in both
+# their `.html` and extension-less forms.
+#
+# The pattern requires the hyphen, so `/pro.html` — the sales page visitors are
+# sent to when they are turned away — is deliberately not matched and stays
+# public. Any future page named `pro-*` is gated by default.
+# ---------------------------------------------------------------------------
+
+[[redirects]]
+  from = "/pro-*"
+  to = "/pro-:splat"
+  status = 200
+  force = true
+  conditions = {Role = ["pro", "Pro"]}
+
+[[redirects]]
+  from = "/pro-*"
+  to = "/pro.html?locked=pro-tools"
+  status = 302
+  force = true
+
+# Netlify's CDN redirects capitalized asset paths to their lowercase form, so a
+# request for `/Pro-money.html` normally arrives at the rules above as
+# `/pro-money.html`. These two rules gate the capitalized spelling directly as
+# well, so the files' on-disk casing can never be used to sidestep the check.
+[[redirects]]
+  from = "/Pro-*"
+  to = "/Pro-:splat"
+  status = 200
+  force = true
+  conditions = {Role = ["pro", "Pro"]}
+
+[[redirects]]
+  from = "/Pro-*"
+  to = "/pro.html?locked=pro-tools"
+  status = 302
+  force = true

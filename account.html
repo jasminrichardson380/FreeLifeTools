@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Your account | FreeLifeTools</title>
+
+<meta name="description" content="Your FreeLifeTools account and Pro membership.">
+<meta name="robots" content="noindex">
+
+<link rel="stylesheet" href="/auth.css">
+</head>
+
+<body>
+
+<header>
+  <div class="header-wrap">
+
+    <div class="logo"><a href="index.html">FreeLifeTools</a></div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a class="pro" href="pro.html">Pro</a>
+      <a data-auth-link href="login.html">Log in</a>
+    </nav>
+
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- Signed out -->
+  <div class="card" data-auth-when="out" hidden>
+
+    <h1>You are logged out</h1>
+
+    <p class="sub">
+      Log in to see your account and your Pro membership.
+    </p>
+
+    <div class="stack">
+      <a class="button" href="login.html">Log in</a>
+      <a class="button secondary" href="signup.html">Create a free account</a>
+    </div>
+
+  </div>
+
+  <!-- Signed in -->
+  <div class="card" data-auth-when="in" hidden>
+
+    <h1>Your account</h1>
+
+    <p class="sub">
+      Your FreeLifeTools sign-in details and membership status.
+    </p>
+
+    <div class="detail-row">
+      <span>Email</span>
+      <span data-auth-email></span>
+    </div>
+
+    <div class="detail-row">
+      <span>Membership</span>
+      <span>
+        <span class="badge" data-auth-when="pro" hidden>PRO MEMBER</span>
+        <span class="badge muted" data-auth-when="free" hidden>FREE ACCOUNT</span>
+      </span>
+    </div>
+
+  </div>
+
+  <div class="card" data-auth-when="pro" hidden>
+
+    <h2>Your Pro tools</h2>
+
+    <p class="sub">
+      Your account has Pro access, so the members-only tools are unlocked.
+    </p>
+
+    <div class="stack">
+      <a class="button" href="ai-store-builder.html">Open the AI Store Builder</a>
+      <a class="button secondary" href="pro-access.html">See all Pro tools</a>
+    </div>
+
+  </div>
+
+  <div class="card" data-auth-when="free" hidden>
+
+    <h2>Pro is not active yet</h2>
+
+    <p class="sub">
+      Pro tools such as the AI Store Builder need an active Pro membership.
+      Join while logged in and your access is added to this account
+      automatically.
+    </p>
+
+    <a class="button" href="pro.html">See what Pro includes</a>
+
+  </div>
+
+  <div class="card" data-auth-when="in" hidden>
+
+    <h2>Sign out</h2>
+
+    <p class="sub">
+      Sign out of FreeLifeTools on this device.
+    </p>
+
+    <a class="button secondary" href="/index.html" data-auth-logout>Log out</a>
+
+  </div>
+
+</main>
+
+<footer>
+  © 2026 FreeLifeTools
+</footer>
+
+<script src="/auth.js" defer></script>
+
+</body>
+</html>

@@ -104,6 +104,22 @@
       font-size: 13px;
       color: #90949a;
     }
+
+    .account-note {
+      display: none;
+
+      margin: 22px auto 0;
+      max-width: 470px;
+
+      color: #4a4f56;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .account-note a {
+      color: #17191c;
+      font-weight: 800;
+    }
   </style>
 </head>
 
@@ -126,12 +142,10 @@
       </p>
 
       <a
-  class="button"
-  id="proButton"
-  href="/.netlify/functions/check-pro"
->
-  Go to Pro Tools
-</a>
+        class="button"
+        id="proButton"
+        href="/.netlify/functions/check-pro"
+      >
         Go to Pro Tools
       </a>
 
@@ -142,6 +156,8 @@
       >
         Return to Pro
       </a>
+
+      <p class="account-note" id="accountNote"></p>
 
       <div class="small">
         FreeLifeTools Pro
@@ -176,6 +192,9 @@
 
       const backLink =
         document.getElementById("backLink");
+
+      const accountNote =
+        document.getElementById("accountNote");
 
 
       if (!sessionId) {
@@ -220,6 +239,10 @@
           proButton.style.display =
             "inline-block";
 
+          // Also give the visitor's Identity account the Pro role, which is
+          // what unlocks the role-protected Pro tools.
+          await attachProToAccount(sessionId, accountNote);
+
         } else {
 
           icon.textContent = "!";
@@ -250,9 +273,80 @@
     }
 
 
+    async function attachProToAccount(sessionId, note) {
+
+      function show(html) {
+        note.innerHTML = html;
+        note.style.display = "block";
+      }
+
+      try {
+
+        const response = await fetch(
+          "/.netlify/functions/grant-pro?session_id=" +
+            encodeURIComponent(sessionId),
+          {
+            method: "POST",
+            credentials: "same-origin",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: "{}"
+          }
+        );
+
+        const result = await response.json();
+
+        if (result.granted === true) {
+          show(
+            "Pro access has been added to your FreeLifeTools account. " +
+              "It works on any device you log in from."
+          );
+          return;
+        }
+
+        if (result.reason === "not-logged-in") {
+
+          const back = encodeURIComponent(
+            "/success.html?session_id=" + sessionId
+          );
+
+          show(
+            "One more step: log in so this Pro access is saved to your " +
+              "account. <a href=\"/login.html?redirect=" + back + "\">Log in</a>" +
+              " or <a href=\"/signup.html?redirect=" + back + "\">create a free account</a>."
+          );
+          return;
+        }
+
+        if (result.reason === "other-account") {
+          show(
+            "This payment is already linked to a different FreeLifeTools " +
+              "account. Log in with that account to use your Pro tools."
+          );
+          return;
+        }
+
+        show(
+          "We could not add Pro access to your account automatically. " +
+            "Please <a href=\"contact.html\">contact us</a> and we will fix it."
+        );
+
+      } catch (error) {
+
+        show(
+          "We could not add Pro access to your account automatically. " +
+            "Please <a href=\"contact.html\">contact us</a> and we will fix it."
+        );
+      }
+    }
+
+
     verifyPayment();
 
   </script>
+
+<script src="/auth.js" defer></script>
 
 </body>
 </html>
