@@ -1,141 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirm Account | FreeLifeTools</title>
 
-<title>Confirming your account | FreeLifeTools</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f8f5;
+      color: #0d2b21;
+    }
 
-<meta name="robots" content="noindex">
+    .wrap {
+      max-width: 520px;
+      margin: 60px auto;
+      padding: 24px;
+    }
 
-<link rel="stylesheet" href="/auth.css">
+    .card {
+      background: white;
+      border: 1px solid #d7e5dd;
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-top: 0;
+    }
+
+    p {
+      color: #6c7771;
+      line-height: 1.5;
+      font-size: 18px;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 24px;
+      padding: 17px;
+      border-radius: 16px;
+      background: #07935f;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #message {
+      font-weight: bold;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-wrap">
-
-    <div class="logo"><a href="index.html">FreeLifeTools</a></div>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="money.html">Money</a>
-      <a class="pro" href="pro.html">Pro</a>
-      <a data-auth-link href="login.html">Log in</a>
-    </nav>
-
-  </div>
-</header>
-
-<main class="page">
-
+<div class="wrap">
   <div class="card">
 
-    <h1 id="title">Confirming your account</h1>
+    <h1 id="title">Confirming your account...</h1>
 
-    <p class="sub" id="message">
-      One moment while we finish setting things up.
+    <p id="message">
+      Please wait while we verify your FreeLifeTools account.
     </p>
 
-    <div class="stack" id="actions" hidden>
-      <a class="button" href="login.html">Log in</a>
-      <a class="button secondary" href="index.html">Back to home</a>
-    </div>
+    <a id="loginButton" href="/login.html" style="display:none;">
+      Log in
+    </a>
 
   </div>
+</div>
 
-</main>
+<script type="module">
 
-<footer>
-  © 2026 FreeLifeTools
-</footer>
+  import {
+    handleAuthCallback
+  } from "https://esm.sh/@netlify/identity";
 
-<script src="/auth.js" defer></script>
+  const title =
+    document.getElementById("title");
 
-<script>
-  (function () {
-    var title = document.getElementById('title');
-    var message = document.getElementById('message');
-    var actions = document.getElementById('actions');
+  const message =
+    document.getElementById("message");
 
-    // Identity emails come back with the token in the URL fragment, which the
-    // browser never sends to the server. Read it here and hand it to the
-    // auth-confirm function.
-    var hash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+  const loginButton =
+    document.getElementById("loginButton");
 
-    function finish(headline, detail) {
-      title.textContent = headline;
-      message.textContent = detail;
-      actions.hidden = false;
-    }
+  async function finishAuth() {
 
-    var errorDescription = hash.get('error_description') || hash.get('error');
+    try {
 
-    if (errorDescription) {
-      finish('That link did not work', errorDescription);
-      return;
-    }
+      const result = await handleAuthCallback();
 
-    var recoveryToken = hash.get('recovery_token');
+      if (!result) {
+        title.textContent =
+          "This link is no longer valid";
 
-    if (recoveryToken) {
-      finish(
-        'Password reset links are not set up yet',
-        'Password reset is not available on this site yet. Log in with your existing password, or contact us if you are stuck.'
-      );
-      return;
-    }
+        message.textContent =
+          "The confirmation link may have expired or already been used.";
 
-    var inviteToken = hash.get('invite_token');
+        loginButton.style.display = "block";
+        return;
+      }
 
-    if (inviteToken) {
-      finish(
-        'Invite links are not set up yet',
-        'This site uses open signup. Create your account from the sign up page instead.'
-      );
-      return;
-    }
+      if (result.type === "confirmation") {
 
-    var confirmationToken = hash.get('confirmation_token');
+        title.textContent =
+          "Your account is confirmed!";
 
-    if (!confirmationToken) {
-      finish(
-        'Nothing to confirm',
-        'This page finishes account confirmation. Open it from the link in your confirmation email.'
-      );
-      return;
-    }
+        message.textContent =
+          "Your FreeLifeTools account is ready. You can now log in.";
 
-    fetch('/.netlify/functions/auth-confirm', {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token: confirmationToken })
-    })
-      .then(function (response) {
-        return response.json().then(function (data) {
-          return { ok: response.ok, data: data };
-        });
-      })
-      .then(function (result) {
-        if (result.ok && result.data.ok) {
-          window.location.replace('/login.html?notice=confirmed');
-          return;
-        }
+        loginButton.style.display = "block";
+        return;
+      }
 
-        finish(
-          'We could not confirm your account',
-          result.data.error || 'This confirmation link has expired or was already used.'
+      if (result.type === "invite") {
+
+        title.textContent =
+          "Your account is ready!";
+
+        message.textContent =
+          "Your invitation was accepted. You can now log in.";
+
+        loginButton.style.display = "block";
+        return;
+      }
+
+      if (result.type === "recovery") {
+
+        window.location.replace(
+          "/reset-password.html" + window.location.hash
         );
-      })
-      .catch(function () {
-        finish(
-          'We could not confirm your account',
-          'Could not reach the server. Please open the link from your email again.'
-        );
-      });
-  })();
+
+        return;
+      }
+
+      title.textContent =
+        "Account verified";
+
+      message.textContent =
+        "Your account has been verified successfully.";
+
+      loginButton.style.display = "block";
+
+    } catch (error) {
+
+      console.error(error);
+
+      title.textContent =
+        "We could not confirm your account";
+
+      message.textContent =
+        "This confirmation link may have expired or already been used. Please try signing up again or request a new confirmation email.";
+
+      loginButton.style.display = "block";
+    }
+  }
+
+  finishAuth();
+
 </script>
 
 </body>
