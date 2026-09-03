@@ -1,165 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In | FreeLifeTools</title>
 
-<title>Log in | FreeLifeTools</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f8f5;
+      color: #0d2b21;
+    }
 
-<meta name="description" content="Log in to your FreeLifeTools account.">
-<meta name="robots" content="noindex">
+    .wrap {
+      max-width: 520px;
+      margin: 50px auto;
+      padding: 22px;
+    }
 
-<link rel="stylesheet" href="/auth.css">
+    .card {
+      background: white;
+      border: 1px solid #d7e5dd;
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin: 0 0 15px;
+    }
+
+    p {
+      color: #6c7771;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    label {
+      display: block;
+      margin-top: 22px;
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 16px;
+      border: 2px solid #d7e5dd;
+      border-radius: 16px;
+      font-size: 18px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 17px;
+      border: none;
+      border-radius: 16px;
+      background: #07935f;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+    }
+
+    #message {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 14px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+
+    .error {
+      display: block !important;
+      background: #fdeaea;
+      color: #9b2c2c;
+    }
+
+    .success {
+      display: block !important;
+      background: #e6f7ef;
+      color: #07633f;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 24px;
+      line-height: 2;
+    }
+
+    a {
+      color: #07935f;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-wrap">
-
-    <div class="logo">FreeLifeTools</div>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="money.html">Money</a>
-      <a href="jobs.html">Jobs</a>
-      <a href="ai.html">AI</a>
-      <a href="life.html">Life</a>
-      <a class="pro" href="pro.html">Pro</a>
-      <a data-auth-link href="login.html">Log in</a>
-    </nav>
-
-  </div>
-</header>
-
-<main class="page">
-
+<div class="wrap">
   <div class="card">
 
     <h1>Log in</h1>
 
-    <p class="sub">
-      Sign in to reach your FreeLifeTools Pro tools.
+    <p>
+      Sign in to your FreeLifeTools account.
     </p>
 
-    <div class="message info" id="notice" hidden></div>
-    <div class="message error" id="error" hidden></div>
+    <div id="message"></div>
 
-    <form id="loginForm" novalidate>
+    <form id="loginForm">
 
       <label for="email">Email address</label>
-      <input id="email" name="email" type="email" autocomplete="email" required>
+
+      <input
+        id="email"
+        type="email"
+        autocomplete="email"
+        required
+      >
 
       <label for="password">Password</label>
-      <input id="password" name="password" type="password" autocomplete="current-password" required>
 
-      <button type="submit" id="submit">Log in</button>
+      <input
+        id="password"
+        type="password"
+        autocomplete="current-password"
+        required
+      >
+
+      <button id="loginButton" type="submit">
+        Log in
+      </button>
 
     </form>
 
-    <p class="alt">
-      No account yet? <a href="signup.html" id="signupLink">Create one free</a>
-    </p>
+    <div class="links">
+      <a href="/signup.html">Create account</a><br>
+      <a href="/">Back to home</a>
+    </div>
 
   </div>
+</div>
 
-</main>
+<script type="module">
 
-<footer>
-  © 2026 FreeLifeTools
-</footer>
+  import {
+    login
+  } from "https://esm.sh/@netlify/identity";
 
-<script src="/auth.js" defer></script>
+  const form =
+    document.getElementById("loginForm");
 
-<script>
-  (function () {
-    var params = new URLSearchParams(window.location.search);
+  const button =
+    document.getElementById("loginButton");
 
-    var form = document.getElementById('loginForm');
-    var submit = document.getElementById('submit');
-    var errorBox = document.getElementById('error');
-    var noticeBox = document.getElementById('notice');
-    var signupLink = document.getElementById('signupLink');
+  const message =
+    document.getElementById("message");
 
-    // Only ever bounce back to a path on this site.
-    function safeRedirect(value) {
-      if (!value) return '/account.html';
-      if (/^https?:|^\/\//i.test(value)) return '/account.html';
-      return value.charAt(0) === '/' ? value : '/' + value;
-    }
+  function showMessage(text, type) {
+    message.textContent = text;
+    message.className = type;
+  }
 
-    var destination = safeRedirect(params.get('redirect'));
+  form.addEventListener("submit", async function(event) {
 
-    if (destination !== '/account.html') {
-      signupLink.setAttribute(
-        'href',
-        'signup.html?redirect=' + encodeURIComponent(destination)
+    event.preventDefault();
+
+    const email =
+      document.getElementById("email").value.trim();
+
+    const password =
+      document.getElementById("password").value;
+
+    button.disabled = true;
+    button.textContent = "Logging in...";
+
+    try {
+
+      const user = await login(email, password);
+
+      console.log("Logged in:", user);
+
+      showMessage(
+        "Login successful! Taking you to your account...",
+        "success"
       );
-    }
 
-    var notices = {
-      confirmed: 'Your email is confirmed. Log in to continue.',
-      'signed-up': 'Account created. Log in to continue.',
-      'session-expired': 'Your session expired. Please log in again.'
-    };
+      setTimeout(() => {
+        window.location.href = "/account.html";
+      }, 1000);
 
-    var notice = notices[params.get('notice')];
+    } catch (error) {
 
-    if (notice) {
-      noticeBox.textContent = notice;
-      noticeBox.hidden = false;
-    }
+      console.error("Login error:", error);
 
-    function showError(message) {
-      errorBox.textContent = message;
-      errorBox.hidden = false;
-    }
+      let text =
+        "Could not log in.";
 
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      errorBox.hidden = true;
-
-      var email = document.getElementById('email').value.trim();
-      var password = document.getElementById('password').value;
-
-      if (!email || !password) {
-        showError('Enter both your email address and password.');
-        return;
+      if (error && error.message) {
+        text = error.message;
       }
 
-      submit.disabled = true;
-      submit.textContent = 'Logging in…';
+      showMessage(text, "error");
 
-      fetch('/.netlify/functions/auth-login', {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, password: password })
-      })
-        .then(function (response) {
-          return response.json().then(function (data) {
-            return { ok: response.ok, data: data };
-          });
-        })
-        .then(function (result) {
-          if (result.ok && result.data.ok) {
-            // Full navigation so the browser sends the new session cookie.
-            window.location.href = destination;
-            return;
-          }
+      button.disabled = false;
+      button.textContent = "Log in";
+    }
 
-          showError(result.data.error || 'Invalid email or password.');
-          submit.disabled = false;
-          submit.textContent = 'Log in';
-        })
-        .catch(function () {
-          showError('Could not reach the server. Please try again.');
-          submit.disabled = false;
-          submit.textContent = 'Log in';
-        });
-    });
-  })();
+  });
+
 </script>
 
 </body>
