@@ -1,117 +1,215 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Your account | FreeLifeTools</title>
+  <title>My Account | FreeLifeTools</title>
 
-<meta name="description" content="Your FreeLifeTools account and Pro membership.">
-<meta name="robots" content="noindex">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<link rel="stylesheet" href="/auth.css">
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f8f6;
+      color: #0b2b22;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #dce8e3;
+      padding: 22px 5%;
+    }
+
+    .brand {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: #59645f;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    nav a.pro {
+      background: #0b2b22;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 14px;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #d5e4de;
+      border-radius: 28px;
+      padding: 38px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.03);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 42px;
+    }
+
+    p {
+      color: #68736e;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    .email {
+      margin: 22px 0;
+      padding: 18px;
+      background: #f3f8f6;
+      border-radius: 14px;
+      font-size: 17px;
+      word-break: break-word;
+    }
+
+    .status {
+      margin: 18px 0;
+      padding: 16px;
+      border-radius: 14px;
+      background: #eef8f4;
+      font-weight: 700;
+    }
+
+    button,
+    .button {
+      width: 100%;
+      display: block;
+      border: none;
+      border-radius: 15px;
+      padding: 18px;
+      margin-top: 14px;
+      font-size: 18px;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: #07966c;
+      color: white;
+    }
+
+    .secondary {
+      background: white;
+      color: #0b2b22;
+      border: 2px solid #cbded6;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      margin-top: 70px;
+      padding: 28px;
+      background: #0b2b22;
+      color: white;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-  <div class="header-wrap">
+  <div class="brand">FreeLifeTools</div>
 
-    <div class="logo"><a href="index.html">FreeLifeTools</a></div>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="money.html">Money</a>
-      <a href="jobs.html">Jobs</a>
-      <a href="ai.html">AI</a>
-      <a href="life.html">Life</a>
-      <a class="pro" href="pro.html">Pro</a>
-      <a data-auth-link href="login.html">Log in</a>
-    </nav>
-
-  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/money.html">Money</a>
+    <a href="/jobs.html">Jobs</a>
+    <a href="/ai.html">AI</a>
+    <a href="/life.html">Life</a>
+    <a href="/pro.html" class="pro">Pro</a>
+    <a href="/account.html">Account</a>
+  </nav>
 </header>
 
-<main class="page">
+<main>
 
-  <!-- Signed out -->
-  <div class="card" data-auth-when="out" hidden>
+  <div id="loadingCard" class="card">
+    <h1>Checking account...</h1>
+    <p>Please wait while we check your login.</p>
+  </div>
+
+
+  <div id="loggedOutCard" class="card hidden">
 
     <h1>You are logged out</h1>
 
-    <p class="sub">
+    <p>
       Log in to see your account and your Pro membership.
     </p>
 
-    <div class="stack">
-      <a class="button" href="login.html">Log in</a>
-      <a class="button secondary" href="signup.html">Create a free account</a>
-    </div>
+    <a class="button primary" href="/login.html">
+      Log in
+    </a>
+
+    <a class="button secondary" href="/signup.html">
+      Create a free account
+    </a>
 
   </div>
 
-  <!-- Signed in -->
-  <div class="card" data-auth-when="in" hidden>
 
-    <h1>Your account</h1>
+  <div id="loggedInCard" class="card hidden">
 
-    <p class="sub">
-      Your FreeLifeTools sign-in details and membership status.
-    </p>
+    <h1>My Account</h1>
 
-    <div class="detail-row">
-      <span>Email</span>
-      <span data-auth-email></span>
+    <p>You are logged in to FreeLifeTools.</p>
+
+    <div class="email">
+      <strong>Email:</strong>
+      <span id="userEmail"></span>
     </div>
 
-    <div class="detail-row">
-      <span>Membership</span>
-      <span>
-        <span class="badge" data-auth-when="pro" hidden>PRO MEMBER</span>
-        <span class="badge muted" data-auth-when="free" hidden>FREE ACCOUNT</span>
-      </span>
+    <div id="membershipStatus" class="status">
+      Checking membership...
     </div>
 
-  </div>
+    <a
+      id="proToolsButton"
+      class="button primary hidden"
+      href="/pro.html"
+    >
+      Open Pro Tools
+    </a>
 
-  <div class="card" data-auth-when="pro" hidden>
+    <a
+      id="upgradeButton"
+      class="button primary hidden"
+      href="/pro.html"
+    >
+      View FreeLifeTools Pro
+    </a>
 
-    <h2>Your Pro tools</h2>
-
-    <p class="sub">
-      Your account has Pro access, so the members-only tools are unlocked.
-    </p>
-
-    <div class="stack">
-      <a class="button" href="ai-store-builder.html">Open the AI Store Builder</a>
-      <a class="button secondary" href="pro-access.html">See all Pro tools</a>
-    </div>
-
-  </div>
-
-  <div class="card" data-auth-when="free" hidden>
-
-    <h2>Pro is not active yet</h2>
-
-    <p class="sub">
-      Pro tools such as the AI Store Builder need an active Pro membership.
-      Join while logged in and your access is added to this account
-      automatically.
-    </p>
-
-    <a class="button" href="pro.html">See what Pro includes</a>
-
-  </div>
-
-  <div class="card" data-auth-when="in" hidden>
-
-    <h2>Sign out</h2>
-
-    <p class="sub">
-      Sign out of FreeLifeTools on this device.
-    </p>
-
-    <a class="button secondary" href="/index.html" data-auth-logout>Log out</a>
+    <button id="logoutButton" class="secondary">
+      Log out
+    </button>
 
   </div>
 
@@ -121,7 +219,133 @@
   © 2026 FreeLifeTools
 </footer>
 
-<script src="/auth.js" defer></script>
+
+<script type="module">
+
+  import {
+    getUser,
+    logout
+  } from "https://esm.sh/@netlify/identity";
+
+
+  const loadingCard =
+    document.getElementById("loadingCard");
+
+  const loggedOutCard =
+    document.getElementById("loggedOutCard");
+
+  const loggedInCard =
+    document.getElementById("loggedInCard");
+
+  const userEmail =
+    document.getElementById("userEmail");
+
+  const membershipStatus =
+    document.getElementById("membershipStatus");
+
+  const proToolsButton =
+    document.getElementById("proToolsButton");
+
+  const upgradeButton =
+    document.getElementById("upgradeButton");
+
+  const logoutButton =
+    document.getElementById("logoutButton");
+
+
+  async function loadAccount() {
+
+    try {
+
+      const user = await getUser();
+
+      loadingCard.classList.add("hidden");
+
+
+      if (!user) {
+
+        loggedOutCard.classList.remove("hidden");
+        return;
+
+      }
+
+
+      loggedInCard.classList.remove("hidden");
+
+      userEmail.textContent =
+        user.email || "Signed in";
+
+
+      const roles =
+        user.roles ||
+        user.app_metadata?.roles ||
+        [];
+
+
+      if (roles.includes("pro")) {
+
+        membershipStatus.textContent =
+          "FreeLifeTools Pro membership: Active";
+
+        proToolsButton.classList.remove("hidden");
+
+      } else {
+
+        membershipStatus.textContent =
+          "Free account";
+
+        upgradeButton.classList.remove("hidden");
+
+      }
+
+    } catch (error) {
+
+      console.error("Account error:", error);
+
+      loadingCard.classList.add("hidden");
+
+      loggedOutCard.classList.remove("hidden");
+
+    }
+
+  }
+
+
+  logoutButton.addEventListener(
+    "click",
+    async () => {
+
+      try {
+
+        logoutButton.disabled = true;
+        logoutButton.textContent =
+          "Logging out...";
+
+        await logout();
+
+        window.location.href =
+          "/login.html";
+
+      } catch (error) {
+
+        console.error(
+          "Logout error:",
+          error
+        );
+
+        logoutButton.disabled = false;
+        logoutButton.textContent =
+          "Log out";
+
+      }
+
+    }
+  );
+
+
+  loadAccount();
+
+</script>
 
 </body>
 </html>
