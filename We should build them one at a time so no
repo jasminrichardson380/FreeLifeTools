@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Hourly to Salary Calculator | FreeLifeTools</title>
+
+  <meta
+    name="description"
+    content="Use this free hourly to salary calculator to convert your hourly wage into weekly, biweekly, monthly, and yearly income."
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 18px 20px;
+    }
+
+    .nav {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 35px auto;
+      padding: 0 18px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    .calculator {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    label {
+      display: block;
+      margin-top: 16px;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 13px;
+      background: #111827;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .results {
+      margin-top: 24px;
+      display: none;
+    }
+
+    .result-card {
+      background: #f3f4f6;
+      padding: 14px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .info {
+      background: white;
+      margin-top: 28px;
+      padding: 22px;
+      border-radius: 14px;
+    }
+
+    .info p {
+      line-height: 1.7;
+      color: #4b5563;
+    }
+
+    .related {
+      margin-top: 28px;
+    }
+
+    .related a {
+      display: block;
+      background: white;
+      padding: 14px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #111827;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">FreeLifeTools</div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="paycheck.html">Paycheck</a>
+      <a href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="pro.html">Pro</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>Hourly to Salary Calculator</h1>
+    <p>
+      Convert your hourly wage into estimated weekly, biweekly,
+      monthly, and yearly gross income.
+    </p>
+  </section>
+
+  <section class="calculator">
+
+    <label for="hourlyRate">Hourly wage</label>
+    <input
+      type="number"
+      id="hourlyRate"
+      placeholder="Example: 17"
+      step="0.01"
+      min="0"
+    />
+
+    <label for="hoursPerWeek">Hours worked per week</label>
+    <input
+      type="number"
+      id="hoursPerWeek"
+      placeholder="Example: 40"
+      step="0.5"
+      min="0"
+      value="40"
+    />
+
+    <label for="weeksPerYear">Weeks worked per year</label>
+    <input
+      type="number"
+      id="weeksPerYear"
+      placeholder="Example: 52"
+      min="1"
+      max="52"
+      value="52"
+    />
+
+    <button onclick="calculateSalary()">Calculate Salary</button>
+
+    <div class="results" id="results">
+
+      <div class="result-card">
+        <span>Weekly income</span>
+        <strong id="weekly">$0.00</strong>
+      </div>
+
+      <div class="result-card">
+        <span>Biweekly income</span>
+        <strong id="biweekly">$0.00</strong>
+      </div>
+
+      <div class="result-card">
+        <span>Average monthly income</span>
+        <strong id="monthly">$0.00</strong>
+      </div>
+
+      <div class="result-card">
+        <span>Yearly salary</span>
+        <strong id="yearly">$0.00</strong>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="info">
+    <h2>How do you convert hourly pay to salary?</h2>
+
+    <p>
+      Multiply your hourly wage by the number of hours you work each week.
+      Then multiply that amount by the number of weeks you work each year.
+    </p>
+
+    <p>
+      For example, someone earning $17 an hour and working 40 hours per week
+      for 52 weeks would earn an estimated $35,360 per year before taxes
+      and deductions.
+    </p>
+  </section>
+
+  <section class="info">
+    <h2>Hourly pay examples</h2>
+
+    <p>
+      At 40 hours per week, $15 an hour is about $31,200 per year,
+      $17 an hour is about $35,360 per year, and $20 an hour is about
+      $41,600 per year before taxes.
+    </p>
+  </section>
+
+  <section class="related">
+    <h2>More Free Money Tools</h2>
+
+    <a href="biweekly-paycheck-calculator.html">
+      Biweekly Paycheck Calculator
+    </a>
+
+    <a href="paycheck.html">
+      Paycheck Calculator
+    </a>
+
+    <a href="money.html">
+      Monthly Money Tools
+    </a>
+
+    <a href="pro.html">
+      Explore FreeLifeTools Pro
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 FreeLifeTools
+</footer>
+
+<script>
+  function calculateSalary() {
+    const hourlyRate = parseFloat(
+      document.getElementById("hourlyRate").value
+    );
+
+    const hoursPerWeek = parseFloat(
+      document.getElementById("hoursPerWeek").value
+    );
+
+    const weeksPerYear = parseFloat(
+      document.getElementById("weeksPerYear").value
+    );
+
+    if (
+      isNaN(hourlyRate) ||
+      isNaN(hoursPerWeek) ||
+      isNaN(weeksPerYear) ||
+      hourlyRate < 0 ||
+      hoursPerWeek < 0 ||
+      weeksPerYear <= 0
+    ) {
+      alert("Please enter valid numbers.");
+      return;
+    }
+
+    const weekly = hourlyRate * hoursPerWeek;
+    const yearly = weekly * weeksPerYear;
+    const biweekly = weekly * 2;
+    const monthly = yearly / 12;
+
+    document.getElementById("weekly").textContent =
+      formatMoney(weekly);
+
+    document.getElementById("biweekly").textContent =
+      formatMoney(biweekly);
+
+    document.getElementById("monthly").textContent =
+      formatMoney(monthly);
+
+    document.getElementById("yearly").textContent =
+      formatMoney(yearly);
+
+    document.getElementById("results").style.display = "block";
+  }
+
+  function formatMoney(amount) {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD"
+    }).format(amount);
+  }
+</script>
+
+</body>
+</html>
