@@ -16,4 +16,79 @@
   <priority>0.9</priority>
 </url>
 
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/About.html</loc>
+  <priority>0.7</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/Contact.html</loc>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/Debt.html</loc>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/Grocery.html</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/Interview.html</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/Jobs.html</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/Life.html</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/Resume.html</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/store-builder.html</loc>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/ai-tools.html</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/ai-store-builder.html</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/budget.html</loc>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/money.html</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/rent-calculator.html</loc>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://elaborate-maamoul-1fad9f.netlify.app/rent.html</loc>
+  <priority>0.8</priority>
+</url>
+
 </urlset>
