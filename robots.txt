@@ -1,0 +1,7 @@
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://elaborate-maamoul-1fad9f.netlify.app/sitemap.xml
