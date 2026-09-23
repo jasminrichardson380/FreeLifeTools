@@ -2,26 +2,38 @@
 <html lang="en">
 
 <head>
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5107984733515289"
-     crossorigin="anonymous"></script>
-<meta name="msvalidate.01" content="3061B6F9A486CEFF233B16724C2F5A04" /> 
- <script>
-  if (window.location.hash.includes("recovery_token=")) {
-    window.location.replace("/reset-password.html" + window.location.hash);
-  }
-</script> 
-  <!-- Google tag (gtag.js) -->
+
+  <!-- Google AdSense -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5107984733515289"
+    crossorigin="anonymous">
+  </script>
+
+  <!-- Microsoft/Bing verification -->
+  <meta name="msvalidate.01" content="3061B6F9A486CEFF233B16724C2F5A04">
+
+  <!-- Password recovery redirect -->
+  <script>
+    if (window.location.hash.includes("recovery_token=")) {
+      window.location.replace("/reset-password.html" + window.location.hash);
+    }
+  </script>
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GKPG4JT7FV"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
-    gtag('config', 'G-GKPG4JT7FV');
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "G-GKPG4JT7FV");
   </script>
 
   <meta charset="UTF-8">
-  
 
   <meta
     name="viewport"
@@ -30,9 +42,33 @@
 
   <title>FreeLifeTools | Free Money, Job & Everyday Calculators</title>
 
-  <meta name="description" content="Free calculators and practical tools for paychecks, budgeting, debt, rent, jobs, credit and everyday life.">
+  <meta
+    name="description"
+    content="FreeLifeTools offers free calculators and practical guides for paychecks, budgeting, rent, debt, credit, jobs, AI tools and everyday life."
+  >
+
+  <link
+    rel="canonical"
+    href="https://elaborate-maamoul-1fad9f.netlify.app/"
+  >
+
+  <meta
+    property="og:title"
+    content="FreeLifeTools | Free Money, Job & Everyday Calculators"
+  >
+
+  <meta
+    property="og:description"
+    content="Free calculators and practical tools for paychecks, budgeting, rent, debt, credit, jobs, AI and everyday life."
+  >
+
+  <meta
+    property="og:url"
+    content="https://elaborate-maamoul-1fad9f.netlify.app/"
+  >
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -90,13 +126,13 @@
     nav {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 22px;
       flex-wrap: wrap;
     }
 
     nav a {
       color: #ffffff;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       opacity: .9;
     }
@@ -112,9 +148,23 @@
       overflow: hidden;
 
       background:
-        radial-gradient(circle at 90% 25%, rgba(210,36,255,.6), transparent 34%),
-        radial-gradient(circle at 5% 90%, rgba(0,169,255,.35), transparent 35%),
-        linear-gradient(120deg,#062864 0%,#10105b 48%,#2b0d71 75%,#701b89 100%);
+        radial-gradient(
+          circle at 90% 25%,
+          rgba(210,36,255,.6),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 5% 90%,
+          rgba(0,169,255,.35),
+          transparent 35%
+        ),
+        linear-gradient(
+          120deg,
+          #062864 0%,
+          #10105b 48%,
+          #2b0d71 75%,
+          #701b89 100%
+        );
 
       color: white;
     }
@@ -132,8 +182,10 @@
 
     .hero-tag {
       display: inline-block;
+
       background: rgba(48,126,255,.75);
       border: 1px solid rgba(255,255,255,.15);
+
       padding: 8px 15px;
       border-radius: 999px;
 
@@ -156,7 +208,7 @@
     }
 
     .hero-text {
-      max-width: 550px;
+      max-width: 560px;
       font-size: 19px;
       line-height: 1.7;
       color: #edf4ff;
@@ -170,1017 +222,4 @@
       margin-bottom: 23px;
     }
 
-    .primary-btn,
-    .secondary-btn {
-      display: inline-block;
-
-      padding: 15px 22px;
-      border-radius: 10px;
-
-      font-size: 15px;
-      font-weight: 800;
-
-      transition: .2s ease;
-    }
-
-    .primary-btn {
-      background: #1570ff;
-      color: white;
-      box-shadow: 0 7px 24px rgba(0,112,255,.4);
-    }
-
-    .secondary-btn {
-      background: white;
-      color: #5522b9;
-    }
-
-    .primary-btn:hover,
-    .secondary-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .no-signup {
-      font-size: 14px;
-      color: #dceaff;
-    }
-
-    /* DASHBOARD MOCKUP */
-
-    .dashboard {
-      background: rgba(7,20,49,.93);
-      border: 1px solid rgba(115,79,255,.8);
-      border-radius: 18px;
-      padding: 24px;
-
-      box-shadow: 0 28px 55px rgba(0,0,0,.3);
-    }
-
-    .dashboard h3 {
-      font-size: 19px;
-      margin-bottom: 18px;
-    }
-
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 13px;
-    }
-
-    .dash-card {
-      background: linear-gradient(145deg,#182743,#111d35);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 13px;
-      padding: 18px;
-    }
-
-    .dash-label {
-      color: #a9b7cd;
-      font-size: 12px;
-      margin-bottom: 6px;
-    }
-
-    .dash-card strong {
-      display: block;
-      font-size: 25px;
-      color: white;
-      margin-bottom: 15px;
-    }
-
-    .fake-chart {
-      height: 50px;
-      display: flex;
-      align-items: flex-end;
-      gap: 5px;
-    }
-
-    .fake-chart span {
-      width: 15%;
-      border-radius: 5px 5px 0 0;
-      background: linear-gradient(#248dff,#6437ff);
-    }
-
-    .fake-chart span:nth-child(1) { height: 25%; }
-    .fake-chart span:nth-child(2) { height: 38%; }
-    .fake-chart span:nth-child(3) { height: 34%; }
-    .fake-chart span:nth-child(4) { height: 53%; }
-    .fake-chart span:nth-child(5) { height: 68%; }
-    .fake-chart span:nth-child(6) { height: 88%; }
-
-    .quick-links {
-      margin-top: 13px;
-
-      background: #111d35;
-      border: 1px solid rgba(255,255,255,.06);
-      border-radius: 13px;
-      padding: 16px;
-    }
-
-    .quick-links p {
-      margin-bottom: 11px;
-      font-weight: 700;
-      font-size: 13px;
-    }
-
-    .quick-grid {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 7px;
-    }
-
-    .quick-grid a {
-      background: #182743;
-      color: #e7eeff;
-      font-size: 11px;
-      text-align: center;
-      padding: 9px 5px;
-      border-radius: 7px;
-    }
-
-    /* TOOL SECTION */
-
-    .tools {
-      max-width: 1180px;
-      margin: auto;
-      padding: 68px 22px;
-    }
-
-    .section-label {
-      text-align: center;
-      color: #2d63ff;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 34px;
-      margin-bottom: 7px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: #677089;
-      margin-bottom: 36px;
-    }
-
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 17px;
-    }
-
-    .tool-card {
-      background: white;
-      border: 1px solid #e5eaf4;
-      border-radius: 15px;
-      padding: 23px;
-
-      display: flex;
-      gap: 16px;
-
-      box-shadow: 0 8px 25px rgba(29,45,77,.06);
-
-      transition: .2s ease;
-    }
-
-    .tool-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 13px 32px rgba(29,45,77,.11);
-    }
-
-    .icon {
-      width: 50px;
-      height: 50px;
-      min-width: 50px;
-
-      border-radius: 12px;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      font-size: 25px;
-    }
-
-    .blue { background:#e4efff; }
-    .green { background:#ddf8ea; }
-    .purple { background:#eee4ff; }
-    .pink { background:#ffe6ef; }
-    .orange { background:#fff0d7; }
-    .sky { background:#e3efff; }
-
-    .tool-card h3 {
-      font-size: 17px;
-      margin-bottom: 5px;
-    }
-
-    .tool-card p {
-      color: #68728a;
-      font-size: 14px;
-      margin-bottom: 9px;
-    }
-
-    .tool-card a {
-      font-weight: 800;
-      font-size: 14px;
-      color: #246cff;
-    }
-
-    .store-link {
-      color: #ff3174 !important;
-    }
-
-    .job-link {
-      color: #ef9800 !important;
-    }
-
-    /* WHY SECTION */
-
-    .why {
-      max-width: 1180px;
-      margin: 0 auto 55px;
-      padding: 35px 22px;
-    }
-
-    .why-box {
-      background: white;
-      border: 1px solid #e9edf4;
-      border-radius: 18px;
-      padding: 32px;
-
-      box-shadow: 0 10px 30px rgba(25,40,70,.05);
-    }
-
-    .why-box h2 {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      text-align: center;
-      gap: 20px;
-    }
-
-    .why-icon {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 10px;
-      border-radius: 50%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: #ecf2ff;
-      font-size: 22px;
-    }
-
-    .why-grid h3 {
-      font-size: 15px;
-      margin-bottom: 5px;
-    }
-
-    .why-grid p {
-      color: #69738a;
-      font-size: 13px;
-    }
-
-    /* PRO */
-
-    .pro-wrap {
-      max-width: 1180px;
-      margin: 0 auto 55px;
-      padding: 0 22px;
-    }
-
-    .pro-box {
-      background:
-        radial-gradient(circle at 80%,rgba(111,48,255,.65),transparent 30%),
-        linear-gradient(120deg,#07172f,#131051,#251179);
-
-      color: white;
-
-      padding: 35px;
-      border-radius: 18px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .pro-info {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .crown {
-      width: 65px;
-      height: 65px;
-
-      border-radius: 50%;
-      background: rgba(106,60,255,.35);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-size: 30px;
-    }
-
-    .pro-box h2 {
-      font-size: 22px;
-      margin-bottom: 4px;
-    }
-
-    .pro-box p {
-      color: #dbe4ff;
-      font-size: 14px;
-    }
-
-    .pro-button {
-      background: linear-gradient(90deg,#713dff,#973aff);
-      color: white;
-      padding: 14px 23px;
-      border-radius: 9px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #07172f;
-      color: white;
-      padding: 42px 22px 25px;
-    }
-
-    .footer-grid {
-      max-width: 1180px;
-      margin: auto;
-
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 45px;
-    }
-
-    .footer-logo {
-      font-size: 24px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .footer-logo span {
-      color: #3887ff;
-    }
-
-    footer p {
-      color: #aab7cb;
-      font-size: 13px;
-    }
-
-    footer h4 {
-      margin-bottom: 12px;
-    }
-
-    footer a {
-      display: block;
-      color: #cdd6e7;
-      font-size: 13px;
-      margin-bottom: 8px;
-    }
-
-    .copyright {
-      max-width: 1180px;
-      margin: 30px auto 0;
-      border-top: 1px solid rgba(255,255,255,.1);
-      padding-top: 20px;
-      text-align: center;
-      color: #7f8ca4;
-      font-size: 12px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 850px) {
-
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav {
-        gap: 14px;
-      }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-        padding-top: 52px;
-      }
-
-      .hero h1 {
-        font-size: 49px;
-      }
-
-      .dashboard {
-        margin-top: 10px;
-      }
-
-      .tool-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .why-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .pro-box {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 560px) {
-
-      .nav {
-        min-height: auto;
-      }
-
-      .logo {
-        font-size: 23px;
-      }
-
-      nav {
-        font-size: 13px;
-      }
-
-      .hero-inner {
-        padding: 44px 20px 55px;
-      }
-
-      .hero h1 {
-        font-size: 43px;
-        letter-spacing: -1px;
-      }
-
-      .hero-text {
-        font-size: 17px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-      }
-
-      .primary-btn,
-      .secondary-btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      .dashboard-grid,
-      .tool-grid,
-      .why-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .quick-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .tools {
-        padding-top: 48px;
-      }
-
-      .section-title {
-        font-size: 29px;
-      }
-
-      .pro-info {
-        align-items: flex-start;
-      }
-
-      .pro-button {
-        width: 100%;
-        text-align: center;
-      }
-    }
-  </style>
-
-    <link rel="canonical" href="https://elaborate-maamoul-1fad9f.netlify.app/">
-    <meta property="og:title" content="FreeLifeTools | Free Money, Job & Everyday Calculators">
-    <meta property="og:description" content="Free calculators and practical tools for paychecks, budgeting, debt, rent, jobs, credit and everyday life.">
-    <meta property="og:url" content="https://elaborate-maamoul-1fad9f.netlify.app/"></head>
-
-<body>
-<div style="display:none;">Impact-Site-Verification: 8a2e4c1d-7f0c-4d0a-a1b5-657b6e491440</div>
-</div>
-<script>
-  // Netlify Identity confirmation emails land on the home page with the token
-  // in the URL fragment. Hand those off to the page that processes them.
-  if (/(confirmation_token|invite_token|recovery_token|email_change_token|error_description)=/.test(window.location.hash)) {
-    window.location.replace('/auth-callback.html' + window.location.hash);
-  }
-</script>
-
-<header>
-  <div class="nav">
-
-    <a class="logo" href="index.html">
-      💼 FreeLife<span>Tools</span>
-    </a>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="money.html">Money</a>
-      <a href="paycheck.html">Paycheck</a>
-      <a href="budget-calculator.html">Budget</a>
-<a href="rent-calculator.html">Rent</a>
-      <a href="debt.html">Debt</a>
-      <a href="pro.html">Pro</a>
-      <a data-auth-link href="login.html">Log in</a>
-    </nav>
-
-  </div>
-</header>
-
-
-<section class="hero">
-
-  <div class="hero-inner">
-
-    <div>
-
-      <div class="hero-tag">
-        100% FREE • EASY TO USE • NO SIGNUP
-      </div>
-
-      <h1>
-        Simple Tools.<br>
-        <span>Real Life.</span>
-      </h1>
-
-      <p class="hero-text">
-        Free tools to help you manage money, find jobs,
-        build your store, and make everyday life a little easier —
-        all in one place.
-      </p>
-
-      <div class="hero-buttons">
-
-        <a
-          class="primary-btn"
-          href="paycheck.html"
-        >
-          🧮 Calculate Paycheck
-        </a>
-
-        <a
-          class="secondary-btn"
-          href="store-builder.html"
-        >
-          🛍️ Build My Store
-        </a>
-
-      </div>
-
-      <div class="no-signup">
-        🛡️ No signup required for free tools.
-      </div>
-
-    </div>
-
-
-    <div class="dashboard">
-
-      <h3>My Dashboard</h3>
-
-      <div class="dashboard-grid">
-
-        <div class="dash-card">
-          <div class="dash-label">
-            Paycheck Calculator
-          </div>
-
-          <strong>$1,360</strong>
-
-          <div class="fake-chart">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-
-
-        <div class="dash-card">
-          <div class="dash-label">
-            Monthly Budget
-          </div>
-
-          <strong>$2,500</strong>
-
-          <div class="fake-chart">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-
-      </div>
-
-
-      <div class="quick-links">
-
-        <p>Quick Links</p>
-
-        <div class="quick-grid">
-
-          <a href="Jobs.html">
-            💼 Jobs
-          </a>
-
-          <a href="Ai.html">
-            🤖 AI Tools
-          </a>
-
-          <a href="store-builder.html">
-            🛍️ Store
-          </a>
-
-          <a href="Life.html">
-            ❤️ Life
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="tools">
-
-  <div class="section-label">
-    EXPLORE
-  </div>
-
-  <h2 class="section-title">
-    Popular Free Tools
-  </h2>
-
-  <p class="section-subtitle">
-    Powerful tools to help you save money,
-    find opportunities, and simplify your life.
-  </p>
-
-
-  <div class="tool-grid">
-
-
-    <div class="tool-card">
-
-      <div class="icon blue">
-        🧮
-      </div>
-
-      <div>
-        <h3>Paycheck Calculator</h3>
-
-        <p>
-          See what your paycheck could look like before payday.
-        </p>
-
-        <a href="paycheck.html">
-          Calculate Now →
-        </a>
-      </div>
-
-    </div>
-
-
-    <div class="tool-card">
-
-      <div class="icon green">
-        💵
-      </div>
-
-      <div>
-        <h3>Budget Planner</h3>
-
-        <p>
-          Plan your monthly budget and organize your money.
-        </p>
-
-       <a href="budget-calculator.html">
-  Plan Budget →
-</a>
-
-<a href="rent-calculator.html">
-  Rent Calculator →
-</a> 
-      
-
-    </div>
-
-    <div class="tool-card">
-  <div class="icon green">
-    💳
-  </div>
-
-  <div>
-    <h3>Credit Builder</h3>
-
-    <p>
-      Check your credit utilization, see how much to pay down,
-      and build your 30, 60 and 90-day credit plan.
-    </p>
-
-    <a href="credit-builder.html">
-      Build My Credit Plan →
-    </a>
-  </div>
-</div>
-
-
-
-
-    <div class="tool-card">
-
-      <div class="icon purple">
-        💳
-      </div>
-
-      <div>
-        <h3>Debt Payoff Calculator</h3>
-
-        <p>
-          Create a plan to become debt free faster.
-        </p>
-
-        <a href="debt.html">
-          Check Debt →
-        </a>
-      </div>
-
-    </div>
-
-
-    <div class="tool-card">
-
-      <div class="icon pink">
-        🛒
-      </div>
-
-      <div>
-        <h3>Ready-Made Store Builder</h3>
-
-        <p>
-          Turn your idea into a downloadable online storefront.
-        </p>
-
-        <a
-          class="store-link"
-          href="store-builder.html"
-        >
-          Build Your Store →
-        </a>
-      </div>
-
-    </div>
-
-
-    <div class="tool-card">
-
-      <div class="icon orange">
-        💼
-      </div>
-
-      <div>
-        <h3>Job Search</h3>
-
-        <p>
-          Search current jobs and find new opportunities.
-        </p>
-
-        <a
-          class="job-link"
-          href="Jobs.html"
-        >
-          Find Jobs →
-        </a>
-      </div>
-
-    </div>
-
-
-    <div class="tool-card">
-
-      <div class="icon sky">
-        🤖
-      </div>
-
-      <div>
-        <h3>AI Tools</h3>
-
-        <p>
-          Helpful tools for writing, business ideas and more.
-        </p>
-
-        <a href="Ai.html">
-          Explore AI →
-        </a>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="why">
-
-  <div class="why-box">
-
-    <h2>
-      Why FreeLifeTools?
-    </h2>
-
-    <div class="why-grid">
-
-      <div>
-
-        <div class="why-icon">
-          💲
-        </div>
-
-        <h3>100% Free Tools</h3>
-
-        <p>
-          Useful tools without the price tag.
-        </p>
-
-      </div>
-
-
-      <div>
-
-        <div class="why-icon">
-          🛡️
-        </div>
-
-        <h3>No Signup</h3>
-
-        <p>
-          Start using free tools instantly.
-        </p>
-
-      </div>
-
-
-      <div>
-
-        <div class="why-icon">
-          ⚡
-        </div>
-
-        <h3>Fast & Easy</h3>
-
-        <p>
-          Get useful results in seconds.
-        </p>
-
-      </div>
-
-
-      <div>
-
-        <div class="why-icon">
-          🔒
-        </div>
-
-        <h3>Simple & Private</h3>
-
-        <p>
-          Straightforward tools built for everyday life.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="pro-wrap">
-
-  <div class="pro-box">
-
-    <div class="pro-info">
-
-      <div class="crown">
-        👑
-      </div>
-
-      <div>
-
-        <h2>
-          Unlock More with FreeLifeTools Pro
-        </h2>
-
-        <p>
-          Get access to advanced tools and your growing Pro toolkit.
-        </p>
-
-      </div>
-
-    </div>
-
-    <a
-      class="pro-button"
-      href="pro.html"
-    >
-      Go Pro — $5.99/month
-    </a>
-
-  </div>
-
-</section>
-
-
-<footer>
-
-  <div class="footer-grid">
-
-
-    <div>
-
-      <div class="footer-logo">
-        💼 FreeLife<span>Tools</span>
-      </div>
-
-      <p>
-        Simple tools to help make everyday life easier.
-      </p>
-
-    </div>
-
-
-    <div>
-
-      <h4>Quick Links</h4>
-
-      <a href="index.html">Home</a>
-      <a href="money.html">Money</a>
-      <a href="paycheck.html">Paycheck</a>
-      <a href="budget.html">Budget</a>
-      <a href="Jobs.html">Jobs</a>
-      <a href="store-builder.html">Store Builder</a>
-
-    </div>
-
-
-    <div>
-
-      <h4>Company</h4>
-
-      <a href="About.html">About</a>
-      <a href="pro.html">Pro</a>
-      <a href="Privacy.html">Privacy</a>
-
-    </div>
-
-  </div>
-
-
-  <div class="copyright">
-    © 2026 FreeLifeTools. All rights reserved.
-  </div>
-
-</footer>
-
-<script src="/auth.js" defer></script>
-
-</body>
-</html>
+    .
