@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free Paycheck Calculator | Hourly, Weekly & Biweekly Pay | FreeLifeTools</title>
+
+  <meta name="description" content="Use the free FreeLifeTools paycheck calculator to estimate weekly, biweekly, twice-monthly and monthly gross pay from your hourly wage and work hours.">
+
+  <link rel="canonical" href="https://elaborate-maamoul-1fad9f.netlify.app/Paycheck.html">
+
+  <meta property="og:title" content="Free Paycheck Calculator | FreeLifeTools">
+  <meta property="og:description" content="Estimate your paycheck from your hourly wage, weekly hours and pay schedule.">
+  <meta property="og:url" content="https://elaborate-maamoul-1fad9f.netlify.app/Paycheck.html">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #07172f;
+      color: white;
+    }
+
+    .nav {
+      max-width: 1050px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    nav {
+      display: flex;
+      gap: 17px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #e7eeff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 48px 20px 70px;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 38px;
+    }
+
+    .tag {
+      display: inline-block;
+      color: #3159d5;
+      background: #eaf0ff;
+      border-radius: 999px;
+      padding: 7px 13px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 46px;
+      line-height: 1.08;
+      margin: 0 0 16px;
+    }
+
+    .hero p {
+      color: #647087;
+      font-size: 17px;
+    }
+
+    .calculator,
+    .content-box {
+      background: white;
+      border: 1px solid #e0e5ef;
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 28px rgba(25,38,70,.06);
+    }
+
+    .calculator h2,
+    .content-box h2 {
+      margin-top: 0;
+      color: #172033;
+    }
+
+    .fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    input,
+    select {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px;
+      border: 1px solid #cfd6e5;
+      border-radius: 10px;
+      font-size: 15px;
+      background: white;
+    }
+
+    input:focus,
+    select:focus {
+      outline: 3px solid rgba(49,89,213,.12);
+      border-color: #3159d5;
+    }
+
+    .button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 24px;
+      background: #3159d5;
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      opacity: .92;
+    }
+
+    #results {
+      display: none;
+      margin-top: 28px;
+      padding: 24px;
+      background: #f4
