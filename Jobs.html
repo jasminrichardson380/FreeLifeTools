@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Free Job Search & Career Tools | FreeLifeTools</title>
-  <meta name="description" content="Use free job and career tools for resumes, interviews, job searches and practical career planning.">
+
+  <meta
+    name="description"
+    content="Free job search and career resources for resumes, interviews, remote jobs, job applications and paycheck planning."
+  >
+
+  <link
+    rel="canonical"
+    href="https://elaborate-maamoul-1fad9f.netlify.app/jobs.html"
+  >
+
+  <meta
+    property="og:title"
+    content="Free Job Search & Career Tools | FreeLifeTools"
+  >
+
+  <meta
+    property="og:description"
+    content="Explore free job-search guidance, resume resources, interview preparation and practical career tools."
+  >
+
+  <meta
+    property="og:url"
+    content="https://elaborate-maamoul-1fad9f.netlify.app/jobs.html"
+  >
 
   <style>
+
     * {
       box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background: #f4f6f8;
       color: #17191c;
+      line-height: 1.65;
     }
 
     header {
@@ -28,6 +60,7 @@
       max-width: 1100px;
       margin: auto;
       padding: 18px 20px;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -39,6 +72,10 @@
       text-decoration: none;
       font-size: 22px;
       font-weight: 800;
+    }
+
+    .logo span {
+      color: #3b70e8;
     }
 
     nav {
@@ -72,7 +109,7 @@
 
     .hero {
       text-align: center;
-      max-width: 760px;
+      max-width: 780px;
       margin: 35px auto 50px;
     }
 
@@ -87,29 +124,37 @@
     h1 {
       font-size: 48px;
       letter-spacing: -2px;
+      line-height: 1.1;
       margin: 0 0 18px;
     }
 
     .hero p {
       color: #666b72;
       font-size: 18px;
-      line-height: 1.6;
+      line-height: 1.7;
       margin: 0;
     }
 
     .search-card {
       max-width: 900px;
       margin: auto;
+
       background: white;
       border: 1px solid #e1e3e6;
       border-radius: 18px;
       padding: 25px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+
+      box-shadow: 0 8px 30px rgba(0,0,0,.05);
     }
 
     .search-card h2 {
       margin-top: 0;
       font-size: 21px;
+    }
+
+    .search-card p {
+      color: #6c7177;
+      font-size: 14px;
     }
 
     .search-row {
@@ -121,8 +166,10 @@
     input {
       width: 100%;
       padding: 14px;
+
       border: 1px solid #d4d7da;
       border-radius: 9px;
+
       font-size: 15px;
     }
 
@@ -133,18 +180,22 @@
     .button {
       border: none;
       border-radius: 9px;
+
       padding: 14px 22px;
+
       background: #17191c;
       color: white;
+
       font-weight: 700;
       cursor: pointer;
+
       text-decoration: none;
       display: inline-block;
       font-size: 15px;
     }
 
     .button:hover {
-      opacity: 0.88;
+      opacity: .88;
     }
 
     #searchMessage {
@@ -152,6 +203,12 @@
       margin-top: 15px;
       color: #666b72;
       font-size: 14px;
+    }
+
+    .external-note {
+      margin-top: 13px;
+      font-size: 12px !important;
+      color: #7b8087 !important;
     }
 
     .section {
@@ -170,11 +227,12 @@
     .section-heading p {
       color: #70757b;
       margin: 0;
+      max-width: 760px;
     }
 
     .job-categories {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4,1fr);
       gap: 15px;
     }
 
@@ -183,7 +241,7 @@
       border: 1px solid #e1e3e6;
       border-radius: 14px;
       padding: 22px;
-      min-height: 160px;
+      min-height: 185px;
     }
 
     .category-icon {
@@ -199,13 +257,13 @@
     .category p {
       color: #70757b;
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.6;
       margin: 0;
     }
 
     .resources {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 18px;
     }
 
@@ -231,14 +289,118 @@
       color: #17191c;
       font-weight: 700;
       font-size: 14px;
+      text-decoration: none;
+    }
+
+    .guide {
+      background: white;
+      border: 1px solid #e1e3e6;
+      border-radius: 18px;
+      padding: 32px;
+    }
+
+    .guide h2 {
+      margin-top: 0;
+    }
+
+    .guide h3 {
+      margin-top: 27px;
+      margin-bottom: 7px;
+    }
+
+    .guide p {
+      color: #686e75;
+      margin-top: 0;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 16px;
+      margin-top: 25px;
+    }
+
+    .step {
+      background: #f5f7fa;
+      border-radius: 13px;
+      padding: 21px;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+
+      background: #17191c;
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .step h3 {
+      margin: 0 0 7px;
+    }
+
+    .step p {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .warning {
+      background: #fff8e7;
+      border: 1px solid #ead9a8;
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    .warning h2 {
+      margin-top: 0;
+    }
+
+    .warning p,
+    .warning li {
+      color: #675b3c;
+    }
+
+    .warning li {
+      margin-bottom: 9px;
+    }
+
+    .faq {
+      background: white;
+      border: 1px solid #e1e3e6;
+      border-radius: 18px;
+      padding: 32px;
+    }
+
+    .faq h2 {
+      margin-top: 0;
+    }
+
+    .faq h3 {
+      margin-top: 24px;
+      margin-bottom: 6px;
+    }
+
+    .faq p {
+      color: #686e75;
+      margin-top: 0;
     }
 
     .pro {
       margin-top: 70px;
+
       background: #17191c;
       color: white;
+
       border-radius: 20px;
       padding: 40px;
+
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
@@ -264,351 +426,4 @@
 
     footer {
       background: white;
-      border-top: 1px solid #e3e5e8;
-      text-align: center;
-      padding: 40px 20px;
-      color: #666b72;
-      font-size: 14px;
-    }
-
-    footer a {
-      color: #555;
-      margin: 0 5px;
-    }
-
-    @media (max-width: 800px) {
-
-      .nav {
-        flex-direction: column;
-      }
-
-      .search-row {
-        grid-template-columns: 1fr;
-      }
-
-      .job-categories {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .resources {
-        grid-template-columns: 1fr;
-      }
-
-      .pro {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 39px;
-      }
-    }
-
-    @media (max-width: 500px) {
-
-      .job-categories {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-
-    <link rel="canonical" href="https://elaborate-maamoul-1fad9f.netlify.app/Jobs.html">
-    <meta property="og:title" content="Free Job Search & Career Tools | FreeLifeTools">
-    <meta property="og:description" content="Use free job and career tools for resumes, interviews, job searches and practical career planning.">
-    <meta property="og:url" content="https://elaborate-maamoul-1fad9f.netlify.app/Jobs.html"></head>
-
-<body>
-
-<header>
-  <div class="nav">
-
-    <a class="logo" href="index.html">
-      FreeLifeTools
-    </a>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="money.html">Money</a>
-      <a href="jobs.html">Jobs</a>
-      <a href="ai.html">AI</a>
-      <a href="life.html">Life</a>
-      <a href="pro.html">Pro</a>
-      <a data-auth-link href="login.html">Log in</a>
-    </nav>
-
-  </div>
-</header>
-
-
-<main>
-
-  <a class="back" href="index.html">← Back to FreeLifeTools</a>
-
-
-  <section class="hero">
-
-    <div class="tag">
-      JOBS & CAREER
-    </div>
-
-    <h1>
-      Find your next opportunity.
-    </h1>
-
-    <p>
-      Explore job resources, career tools and helpful ideas
-      designed to make your job search easier.
-    </p>
-
-  </section>
-
-
-  <section class="search-card">
-
-    <h2>What kind of job are you looking for?</h2>
-
-    <div class="search-row">
-
-      <input
-        id="jobKeyword"
-        type="text"
-        placeholder="Job title or keyword"
-      >
-
-      <input
-        id="jobLocation"
-        type="text"
-        placeholder="City, state or remote"
-      >
-
-      <button class="button" onclick="searchJobs()">
-        Search Jobs
-      </button>
-
-    </div>
-
-    <div id="searchMessage"></div>
-
-  </section>
-
-
-  <section class="section">
-
-    <div class="section-heading">
-
-      <h2>Explore job categories</h2>
-
-      <p>
-        Start with an area that matches what you're looking for.
-      </p>
-
-    </div>
-
-
-    <div class="job-categories">
-
-      <div class="category">
-
-        <div class="category-icon">💻</div>
-
-        <h3>Remote Jobs</h3>
-
-        <p>
-          Explore ideas and resources for finding work you can
-          do from home.
-        </p>
-
-      </div>
-
-
-      <div class="category">
-
-        <div class="category-icon">🛍️</div>
-
-        <h3>Retail</h3>
-
-        <p>
-          Find resources for retail, customer service and
-          store-based opportunities.
-        </p>
-
-      </div>
-
-
-      <div class="category">
-
-        <div class="category-icon">🏥</div>
-
-        <h3>Healthcare</h3>
-
-        <p>
-          Explore career resources for healthcare and
-          support positions.
-        </p>
-
-      </div>
-
-
-      <div class="category">
-
-        <div class="category-icon">💼</div>
-
-        <h3>Office & Business</h3>
-
-        <p>
-          Explore administrative, business and professional
-          career resources.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="section">
-
-    <div class="section-heading">
-
-      <h2>Career tools</h2>
-
-      <p>
-        More ways FreeLifeTools can help with your career.
-      </p>
-
-    </div>
-
-
-    <div class="resources">
-
-      <div class="resource">
-
-        <h3>📄 Resume Help</h3>
-
-        <p>
-          Learn how to improve your resume and make your
-          experience easier for employers to understand.
-        </p>
-
-        <a href="ai.html">
-          Explore AI Help →
-        </a>
-
-      </div>
-
-
-      <div class="resource">
-
-        <h3>💵 Salary Tools</h3>
-
-        <p>
-          Use money tools to understand your income and
-          plan around your paycheck.
-        </p>
-
-        <a href="paycheck.html">
-          Paycheck Calculator →
-        </a>
-
-      </div>
-
-
-      <div class="resource">
-
-        <h3>🤖 AI Career Tools</h3>
-
-        <p>
-          Use AI to brainstorm resumes, cover letters,
-          interview questions and career ideas.
-        </p>
-
-        <a href="ai.html">
-          Explore AI Tools →
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="pro">
-
-    <div>
-
-      <div class="tag">
-        FREELIFETOOLS PRO
-      </div>
-
-      <h2>
-        Take your job search further.
-      </h2>
-
-      <p>
-        FreeLifeTools Pro can eventually include additional
-        career tools, advanced resources and other features
-        designed to save you time.
-      </p>
-
-    </div>
-
-    <a class="button" href="pro.html">
-      Explore Pro
-    </a>
-
-  </section>
-
-</main>
-
-
-<footer>
-
-  <strong>FreeLifeTools</strong>
-
-  <p>
-    Free tools for money, jobs, AI and everyday life.
-  </p>
-
-  <p>
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a> |
-    <a href="privacy.html">Privacy</a>
-  </p>
-
-  <p>
-    © 2026 FreeLifeTools
-  </p>
-
-</footer>
-
-
-<script>
-  function searchJobs() {
-  const keyword = document.getElementById("jobKeyword").value.trim();
-  const location = document.getElementById("jobLocation").value.trim();
-  const message = document.getElementById("searchMessage");
-
-  if (!keyword && !location) {
-    message.style.display = "block";
-    message.textContent = "Enter a job title, keyword, location, or remote.";
-    return;
-  }
-
-  message.style.display = "block";
-  message.textContent = "Opening current job listings...";
-
-  const jobSearchUrl =
-    "https://www.indeed.com/jobs?q=" +
-    encodeURIComponent(keyword) +
-    "&l=" +
-    encodeURIComponent(location);
-
-  window.open(jobSearchUrl, "_blank");
-}
-</script>
-
-<script src="/auth.js" defer></script>
-
-</body>
-</html>
+      border-top: 1px solid #e
