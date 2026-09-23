@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free Everyday Life Tools & Planning Resources | FreeLifeTools</title>
+
+  <meta
+    name="description"
+    content="Free everyday tools for budgeting, grocery planning, rent affordability, job searching, AI productivity and practical life planning."
+  >
+
+  <link
+    rel="canonical"
+    href="https://elaborate-maamoul-1fad9f.netlify.app/life.html"
+  >
+
+  <meta
+    property="og:title"
+    content="Free Everyday Life Tools & Planning Resources | FreeLifeTools"
+  >
+
+  <meta
+    property="og:description"
+    content="Use practical free tools for budgeting, groceries, housing, jobs, AI and everyday planning."
+  >
+
+  <meta
+    property="og:url"
+    content="https://elaborate-maamoul-1fad9f.netlify.app/life.html"
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #faf8f4;
+      color: #1c1a17;
+      line-height: 1.65;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e7e2da;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1100px;
+      min-height: 70px;
+      margin: auto;
+      padding: 0 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: #1c1a17;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #9a6c35;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #69645e;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #1c1a17;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px 80px;
+    }
+
+    .back {
+      color: #77716a;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      max-width: 780px;
+      margin: 45px auto 60px;
+      text-align: center;
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      color: #817a72;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 52px;
+      line-height: 1.08;
+      letter-spacing: -2.5px;
+      margin: 0 0 18px;
+    }
+
+    .hero p {
+      color: #706b65;
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .featured {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 20px;
+      padding: 35px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+
+      box-shadow: 0 8px 30px rgba(50,40,30,.05);
+    }
+
+    .featured h2 {
+      font-size: 30px;
+      margin: 0 0 12px;
+    }
+
+    .featured p {
+      color: #706b65;
+      line-height: 1.7;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 14px 21px;
+      border-radius: 9px;
+
+      background: #1c1a17;
+      color: white;
+
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .quick-box {
+      background: #f2eee8;
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    .quick-box h3 {
+      margin-top: 0;
+    }
+
+    .quick-box p {
+      font-size: 14px;
+      color: #68625b;
+    }
+
+    .section {
+      margin-top: 70px;
+    }
+
+    .section-heading {
+      margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+      font-size: 30px;
+      margin: 0 0 8px;
+    }
+
+    .section-heading p {
+      color: #716b64;
+      margin: 0;
+      max-width: 760px;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .tool {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 15px;
+      padding: 25px;
+      min-height: 210px;
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .tool h3 {
+      margin: 0 0 9px;
+      font-size: 19px;
+    }
+
+    .tool p {
+      color: #706b65;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .tool a {
+      color: #1c1a17;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .guide {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 20px;
+      padding: 35px;
+    }
+
+    .guide h2 {
+      margin-top: 0;
+      font-size: 30px;
+    }
+
+    .guide h3 {
+      margin-top: 28px;
+      margin-bottom: 6px;
+    }
+
+    .guide p {
+      color: #706b65;
+      margin-top: 0;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 17px;
+      margin-top: 25px;
+    }
+
+    .step {
+      background: #f4f0ea;
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .step-number {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+
+      background: #1c1a17;
+      color: white;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+    }
+
+    .step p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .ideas {
+      background: #1c1a17;
+      color: white;
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .ideas h2 {
+      font-size: 30px;
+      margin-top: 0;
+    }
+
+    .ideas p {
+      color: #d5d1cb;
+      max-width: 760px;
+      line-height: 1.7;
+    }
+
+    .idea-list {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .idea {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      padding: 17px;
+      font-size: 14px;
+    }
+
+    .faq {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 20px;
+      padding: 35px;
+    }
+
+    .faq h2 {
+      margin-top: 0;
+    }
+
+    .faq h3 {
+      margin-top: 25px;
+      margin-bottom: 6px;
+    }
+
+    .faq
