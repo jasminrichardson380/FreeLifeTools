@@ -2,174 +2,1306 @@
 <html lang="en">
 
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
+<title>Free Grocery Budget Calculator & Planner | FreeLifeTools</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta
+  name="description"
+  content="Use the free Grocery Budget Calculator to plan food spending by category, track your grocery total and see how much of your budget remains."
+>
 
-  <title>Free Grocery Budget Calculator & Planner | FreeLifeTools</title>
+<meta name="robots" content="index,follow">
 
-  <meta
-    name="description"
-    content="Use the free Grocery Budget Calculator to plan food spending by category, track your grocery total and see how much of your budget remains."
-  >
+<link
+  rel="canonical"
+  href="https://elaborate-maamoul-1fad9f.netlify.app/grocery.html"
+>
 
-  <link
-    rel="canonical"
-    href="https://elaborate-maamoul-1fad9f.netlify.app/grocery.html"
-  >
+<meta
+  property="og:title"
+  content="Free Grocery Budget Calculator & Planner | FreeLifeTools"
+>
 
-  <meta
-    property="og:title"
-    content="Free Grocery Budget Calculator & Planner | FreeLifeTools"
-  >
+<meta
+  property="og:description"
+  content="Plan grocery spending by category and see how much of your grocery budget remains."
+>
 
-  <meta
-    property="og:description"
-    content="Plan grocery spending by category and see how much of your grocery budget remains."
-  >
+<meta
+  property="og:url"
+  content="https://elaborate-maamoul-1fad9f.netlify.app/grocery.html"
+>
 
-  <meta
-    property="og:url"
-    content="https://elaborate-maamoul-1fad9f.netlify.app/grocery.html"
-  >
+<meta property="og:type" content="website">
 
-  <style>
+<style>
 
-    * {
-      box-sizing: border-box;
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#faf8f4;
+  color:#1c1a17;
+  line-height:1.65;
+}
+
+header{
+  background:white;
+  border-bottom:1px solid #e7e2da;
+}
+
+.nav{
+  max-width:1100px;
+  margin:auto;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.logo{
+  color:#1c1a17;
+  text-decoration:none;
+  font-size:22px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#9a6c35;
+}
+
+nav{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  color:#69645e;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+}
+
+nav a:hover{
+  color:#1c1a17;
+}
+
+main{
+  max-width:1050px;
+  margin:auto;
+  padding:55px 20px 80px;
+}
+
+.hero{
+  max-width:760px;
+  margin:0 auto 45px;
+  text-align:center;
+}
+
+.tag{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1.6px;
+  color:#817a72;
+  margin-bottom:13px;
+}
+
+h1{
+  margin:0 0 15px;
+  font-size:46px;
+  line-height:1.1;
+  letter-spacing:-2px;
+}
+
+.hero p{
+  color:#706b65;
+  font-size:18px;
+  margin:0;
+}
+
+.calculator{
+  max-width:760px;
+  margin:auto;
+  background:white;
+  border:1px solid #e5dfd7;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 8px 30px rgba(50,40,30,.05);
+}
+
+.calculator h2{
+  margin-top:0;
+}
+
+.calculator-intro{
+  color:#706b65;
+  margin-bottom:25px;
+}
+
+.input-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:17px;
+}
+
+label{
+  display:block;
+  font-weight:700;
+  font-size:14px;
+}
+
+input{
+  width:100%;
+  margin-top:7px;
+  padding:13px;
+  border:1px solid #d9d2c8;
+  border-radius:9px;
+  font-size:16px;
+  background:white;
+}
+
+input:focus{
+  outline:3px solid rgba(154,108,53,.12);
+  border-color:#9a6c35;
+}
+
+.full{
+  grid-column:1 / -1;
+}
+
+button{
+  width:100%;
+  margin-top:24px;
+  border:none;
+  border-radius:10px;
+  padding:15px;
+  background:#8b5f2c;
+  color:white;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:.92;
+}
+
+.results{
+  display:none;
+  margin-top:25px;
+  background:#f8f4ee;
+  border-radius:15px;
+  padding:22px;
+}
+
+.result-row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:10px 0;
+  border-bottom:1px solid #e5dfd7;
+}
+
+.result-row:last-child{
+  border-bottom:none;
+}
+
+.result-row strong:last-child{
+  text-align:right;
+}
+
+.status{
+  margin-top:18px;
+  padding:15px;
+  border-radius:10px;
+  font-weight:700;
+}
+
+.good{
+  background:#eaf7ef;
+  color:#21663d;
+}
+
+.warning{
+  background:#fff4d9;
+  color:#735819;
+}
+
+.over{
+  background:#fdeaea;
+  color:#8c2929;
+}
+
+.section{
+  margin-top:60px;
+}
+
+.section-heading{
+  max-width:800px;
+  margin-bottom:25px;
+}
+
+.section-heading h2{
+  margin-bottom:8px;
+  font-size:30px;
+}
+
+.section-heading p{
+  margin:0;
+  color:#706b65;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  background:white;
+  border:1px solid #e5dfd7;
+  border-radius:15px;
+  padding:23px;
+}
+
+.card h3{
+  margin-top:0;
+}
+
+.card p{
+  margin-bottom:0;
+  color:#706b65;
+  font-size:14px;
+}
+
+.guide{
+  background:white;
+  border:1px solid #e5dfd7;
+  border-radius:18px;
+  padding:32px;
+}
+
+.guide h2{
+  margin-top:0;
+}
+
+.guide h3{
+  margin-top:27px;
+  margin-bottom:7px;
+}
+
+.guide p{
+  color:#706b65;
+  margin-top:0;
+}
+
+.example{
+  margin:20px 0;
+  background:#f8f4ee;
+  border-left:4px solid #9a6c35;
+  padding:18px;
+  border-radius:8px;
+}
+
+.faq{
+  background:white;
+  border:1px solid #e5dfd7;
+  border-radius:18px;
+  padding:32px;
+}
+
+.faq h2{
+  margin-top:0;
+}
+
+.faq-item{
+  padding:18px 0;
+  border-bottom:1px solid #e5dfd7;
+}
+
+.faq-item:last-child{
+  border-bottom:none;
+}
+
+.faq-item strong{
+  display:block;
+  margin-bottom:6px;
+}
+
+.faq-item p{
+  margin:0;
+  color:#706b65;
+}
+
+.related{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.related-card{
+  background:white;
+  border:1px solid #e5dfd7;
+  border-radius:15px;
+  padding:22px;
+}
+
+.related-card h3{
+  margin-top:0;
+}
+
+.related-card p{
+  color:#706b65;
+  font-size:14px;
+}
+
+.related-card a{
+  color:#8b5f2c;
+  text-decoration:none;
+  font-weight:800;
+}
+
+.disclaimer{
+  max-width:760px;
+  margin:30px auto 0;
+  padding:18px;
+  background:#fff9e9;
+  border:1px solid #ebddb5;
+  border-radius:12px;
+  color:#685c3d;
+  font-size:14px;
+}
+
+footer{
+  background:white;
+  border-top:1px solid #e5dfd7;
+  text-align:center;
+  padding:40px 20px;
+  color:#706b65;
+  font-size:14px;
+}
+
+footer a{
+  color:#1c1a17;
+  text-decoration:none;
+  margin:0 7px;
+  font-weight:700;
+}
+
+footer p{
+  margin:8px 0;
+}
+
+@media(max-width:800px){
+
+  .cards,
+  .related{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .nav{
+    flex-direction:column;
+  }
+
+  nav{
+    justify-content:center;
+    gap:12px;
+  }
+
+  h1{
+    font-size:36px;
+  }
+
+  .input-grid{
+    grid-template-columns:1fr;
+  }
+
+  .full{
+    grid-column:auto;
+  }
+
+  .calculator,
+  .guide,
+  .faq{
+    padding:23px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<a class="logo" href="index.html">
+FreeLife<span>Tools</span>
+</a>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="money.html">Money</a>
+<a href="paycheck.html">Paycheck</a>
+<a href="budget.html">Budget</a>
+<a href="rent-calculator.html">Rent</a>
+<a href="debt.html">Debt</a>
+<a href="credit-builder.html">Credit</a>
+<a href="jobs.html">Jobs</a>
+<a href="ai.html">AI</a>
+<a href="life.html">Life</a>
+<a href="pro.html">Pro</a>
+<a href="login.html">Log in</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<main>
+
+<section class="hero">
+
+<div class="tag">
+FREE GROCERY PLANNING TOOL
+</div>
+
+<h1>
+Grocery Budget Calculator
+</h1>
+
+<p>
+Set your grocery budget, estimate spending by category and see
+how much money you have left before you shop.
+</p>
+
+</section>
+
+
+<section class="calculator">
+
+<h2>
+Plan Your Grocery Budget
+</h2>
+
+<p class="calculator-intro">
+Enter your grocery budget and estimated spending below.
+Leave any category you do not need at $0.
+</p>
+
+
+<div class="input-grid">
+
+<div class="full">
+
+<label for="budget">
+Total Grocery Budget ($)
+</label>
+
+<input
+  id="budget"
+  type="number"
+  min="0"
+  step="0.01"
+  inputmode="decimal"
+  placeholder="Example: 500"
+>
+
+</div>
+
+
+<div>
+
+<label for="meat">
+Meat & Protein ($)
+</label>
+
+<input
+  id="meat"
+  type="number"
+  min="0"
+  step="0.01"
+  inputmode="decimal"
+  placeholder="0"
+>
+
+</div>
+
+
+<div>
+
+<label for="produce">
+Fruits & Vegetables ($)
+</label>
+
+<input
+  id="produce"
+  type="number"
+  min="0"
+  step="0.01"
+  inputmode="decimal"
+  placeholder="0"
+>
+
+</div>
+
+
+<div>
+
+<label for="dairy">
+Dairy & Eggs ($)
+</label>
+
+<input
+  id="dairy"
+  type="number"
+  min="0"
+  step="0.01"
+  inputmode="decimal"
+  placeholder="0"
+>
+
+</div>
+
+
+<div>
+
+<label for="pantry">
+Pantry & Dry Goods ($)
+</label>
+
+<input
+  id="pantry"
+  type="number"
+  min="0"
+  step="0.01"
+  inputmode="decimal"
+  placeholder="0"
+>
+
+</div>
+
+
+<div>
+
+<label for="frozen">
+Frozen Foods ($)
+</label>
+
+<input
+  id="frozen"
+  type="number"
+  min="0"
+  step="0.01"
+  inputmode="decimal"
+  placeholder="0"
+>
+
+</div>
+
+
+<div>
+
+<label for="drinks">
+Drinks ($)
+</label>
+
+<input
+  id="drinks"
+  type="number"
+  min="0"
+  step="0.01"
+  inputmode="decimal"
+  placeholder="0"
+>
+
+</div>
+
+
+<div>
+
+<label for="snacks">
+Snacks ($)
+</label>
+
+<input
+  id="snacks"
+  type="number"
+  min="0"
+  step="0.01"
+  inputmode="decimal"
+  placeholder="0"
+>
+
+</div>
+
+
+<div>
+
+<label for="household">
+Household Items ($)
+</label>
+
+<input
+  id="household"
+  type="number"
+  min="0"
+  step="0.01"
+  inputmode="decimal"
+  placeholder="0"
+>
+
+</div>
+
+
+<div class="full">
+
+<label for="other">
+Other Grocery Spending ($)
+</label>
+
+<input
+  id="other"
+  type="number"
+  min="0"
+  step="0.01"
+  inputmode="decimal"
+  placeholder="0"
+>
+
+</div>
+
+</div>
+
+
+<button
+  type="button"
+  onclick="calculateGroceries()"
+>
+Calculate Grocery Budget
+</button>
+
+
+<div
+  class="results"
+  id="results"
+>
+
+<div class="result-row">
+
+<strong>
+Grocery Budget
+</strong>
+
+<strong id="budgetResult">
+$0.00
+</strong>
+
+</div>
+
+
+<div class="result-row">
+
+<strong>
+Planned Spending
+</strong>
+
+<strong id="spendingResult">
+$0.00
+</strong>
+
+</div>
+
+
+<div class="result-row">
+
+<strong>
+Money Remaining
+</strong>
+
+<strong id="remainingResult">
+$0.00
+</strong>
+
+</div>
+
+
+<div class="result-row">
+
+<strong>
+Budget Used
+</strong>
+
+<strong id="percentResult">
+0%
+</strong>
+
+</div>
+
+
+<div
+  class="status"
+  id="statusResult"
+>
+</div>
+
+</div>
+
+</section>
+
+
+<div class="disclaimer">
+
+<strong>Planning note:</strong>
+This calculator is for personal budgeting and educational
+purposes. Grocery prices vary by store, location, household,
+diet and product choices. Your actual spending may be different.
+
+</div>
+
+
+<section class="section">
+
+<div class="section-heading">
+
+<h2>
+Ways to Plan Grocery Spending
+</h2>
+
+<p>
+A grocery budget can help you decide how much you want to spend
+before you enter the store or place an online order.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+Check What You Already Have
+</h3>
+
+<p>
+Review your refrigerator, freezer and pantry before shopping.
+This can help reduce duplicate purchases and food waste.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Plan Around Meals
+</h3>
+
+<p>
+Choosing several meals before shopping can make it easier to
+build a focused grocery list instead of buying unrelated items.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Leave Some Flexibility
+</h3>
+
+<p>
+Prices can change. Keeping part of your grocery budget unassigned
+can give you room for substitutions or unexpected needs.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section guide">
+
+<h2>
+How to Make a Grocery Budget
+</h2>
+
+
+<h3>
+1. Decide how much you can spend
+</h3>
+
+<p>
+Start with your overall household budget and decide how much is
+available for groceries during the period you are planning.
+</p>
+
+
+<h3>
+2. Choose your shopping period
+</h3>
+
+<p>
+You might plan groceries weekly, every two weeks or monthly.
+Using the same planning period can make it easier to compare
+your spending over time.
+</p>
+
+
+<h3>
+3. Estimate spending by category
+</h3>
+
+<p>
+Divide your planned grocery spending into categories such as
+protein, produce, dairy, pantry foods and household items.
+</p>
+
+
+<div class="example">
+
+<strong>Example:</strong>
+
+<p>
+If your grocery budget is $400 and your planned categories total
+$350, you have $50 remaining for price changes, additional meals
+or other grocery needs.
+</p>
+
+</div>
+
+
+<h3>
+4. Build a shopping list
+</h3>
+
+<p>
+Write down the items you actually need. If possible, compare your
+list with what you already have before purchasing.
+</p>
+
+
+<h3>
+5. Compare planned and actual spending
+</h3>
+
+<p>
+After shopping, compare your receipt with your plan. Over time,
+this can help you create estimates that better match your normal
+shopping habits.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-heading">
+
+<h2>
+Simple Grocery Budget Tips
+</h2>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+Compare Unit Prices
+</h3>
+
+<p>
+When available, unit pricing can help compare different package
+sizes rather than looking only at the total package price.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Plan for Leftovers
+</h3>
+
+<p>
+Meals that can be reused for lunch or another dinner may help
+stretch ingredients across more than one meal.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Track Frequent Purchases
+</h3>
+
+<p>
+Knowing which items you buy regularly can make future grocery
+plans faster and more realistic.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section faq">
+
+<h2>
+Grocery Budget FAQ
+</h2>
+
+
+<div class="faq-item">
+
+<strong>
+Is the Grocery Budget Calculator free?
+</strong>
+
+<p>
+Yes. The calculator on this page is free to use.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<strong>
+Does the calculator connect to my bank account?
+</strong>
+
+<p>
+No. The calculator uses only the numbers you enter into the page
+and does not connect to your bank account.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<strong>
+How much should I spend on groceries?
+</strong>
+
+<p>
+There is no single amount that fits every household. Grocery
+needs vary based on household size, income, dietary needs,
+location, shopping habits and other factors.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<strong>
+Should household supplies be included in my grocery budget?
+</strong>
+
+<p>
+That depends on how you organize your budget. This calculator
+includes a household-items category so you can include those
+purchases if you normally buy them with groceries.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<strong>
+Can I use this calculator for a weekly budget?
+</strong>
+
+<p>
+Yes. Enter your weekly grocery budget and only the spending you
+expect during that same week. You can also use it for a
+biweekly or monthly plan as long as all numbers use the same
+time period.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-heading">
+
+<h2>
+Related FreeLifeTools
+</h2>
+
+</div>
+
+
+<div class="related">
+
+<div class="related-card">
+
+<h3>
+Monthly Budget Planner
+</h3>
+
+<p>
+Compare monthly income with regular expenses and see how much
+money may be left.
+</p>
+
+<a href="budget.html">
+Plan Your Budget →
+</a>
+
+</div>
+
+
+<div class="related-card">
+
+<h3>
+Paycheck Calculator
+</h3>
+
+<p>
+Estimate gross weekly, biweekly, monthly and annual earnings.
+</p>
+
+<a href="paycheck.html">
+Calculate Pay →
+</a>
+
+</div>
+
+
+<div class="related-card">
+
+<h3>
+Rent Affordability Calculator
+</h3>
+
+<p>
+Compare income and non-housing expenses with a planning estimate
+for rent.
+</p>
+
+<a href="rent-calculator.html">
+Estimate Rent →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<p>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy</a>
+<a href="terms.html">Terms</a>
+</p>
+
+<p>
+Free tools for money, jobs, AI and everyday life.
+</p>
+
+<p>
+© 2026 FreeLifeTools
+</p>
+
+</footer>
+
+
+<script>
+
+function getAmount(id){
+
+  const value =
+    parseFloat(
+      document.getElementById(id).value
+    );
+
+  if(
+    !Number.isFinite(value) ||
+    value < 0
+  ){
+
+    return 0;
+
+  }
+
+  return value;
+
+}
+
+
+function money(value){
+
+  return value.toLocaleString(
+    "en-US",
+    {
+      style:"currency",
+      currency:"USD"
     }
+  );
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #faf8f4;
-      color: #1c1a17;
-      line-height: 1.65;
-    }
+}
 
-    header {
-      background: white;
-      border-bottom: 1px solid #e7e2da;
-    }
 
-    .nav {
-      max-width: 1100px;
-      margin: auto;
-      padding: 18px 20px;
+function calculateGroceries(){
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
+  const budget =
+    getAmount("budget");
 
-    .logo {
-      color: #1c1a17;
-      text-decoration: none;
-      font-size: 22px;
-      font-weight: 800;
-    }
+  if(budget <= 0){
 
-    .logo span {
-      color: #9a6c35;
-    }
+    alert(
+      "Please enter your total grocery budget."
+    );
 
-    nav {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
+    return;
 
-    nav a {
-      color: #69645e;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-    }
+  }
 
-    nav a:hover {
-      color: #1c1a17;
-    }
 
-    main {
-      max-width: 1050px;
-      margin: auto;
-      padding: 55px 20px 80px;
-    }
+  const categories = [
 
-    .back {
-      color: #77716a;
-      text-decoration: none;
-      font-size: 14px;
-    }
+    "meat",
+    "produce",
+    "dairy",
+    "pantry",
+    "frozen",
+    "drinks",
+    "snacks",
+    "household",
+    "other"
 
-    .hero {
-      max-width: 760px;
-      margin: 35px auto 45px;
-      text-align: center;
-    }
+  ];
 
-    .tag {
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.6px;
-      color: #817a72;
-      margin-bottom: 13px;
-    }
 
-    h1 {
-      margin: 0 0 15px;
-      font-size: 46px;
-      line-height: 1.1;
-      letter-spacing: -2px;
-    }
+  let spending = 0;
 
-    .hero p {
-      color: #706b65;
-      font-size: 18px;
-      margin: 0;
-    }
 
-    .calculator {
-      max-width: 760px;
-      margin: auto;
+  categories.forEach(function(id){
 
-      background: white;
-      border: 1px solid #e5dfd7;
-      border-radius: 20px;
-      padding: 30px;
+    spending +=
+      getAmount(id);
 
-      box-shadow: 0 8px 30px rgba(50,40,30,.05);
-    }
+  });
 
-    .calculator h2 {
-      margin-top: 0;
-    }
 
-    .calculator-intro {
-      color: #706b65;
-      margin-bottom: 25px;
-    }
+  const remaining =
+    budget - spending;
 
-    .input-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 17px;
-    }
 
-    label {
-      display: block;
-      font-weight: 700;
-      font-size: 14px;
-    }
+  const percent =
+    budget > 0
+      ? (spending / budget) * 100
+      : 0;
 
-    input {
-      width: 100%;
-      margin-top: 7px;
-      padding: 13px;
 
-      border: 1px solid
+  document.getElementById("budgetResult").textContent =
+    money(budget);
+
+  document.getElementById("spendingResult").textContent =
+    money(spending);
+
+  document.getElementById("remainingResult").textContent =
+    money(remaining);
+
+  document.getElementById("percentResult").textContent =
+    percent.toFixed(1) + "%";
+
+
+  const status =
+    document.getElementById("statusResult");
+
+
+  status.className =
+    "status";
+
+
+  if(spending > budget){
+
+    status.classList.add("over");
+
+    status.textContent =
+      "Your planned spending is " +
+      money(spending - budget) +
+      " over your grocery budget.";
+
+  }else if(percent >= 90){
+
+    status.classList.add("warning");
+
+    status.textContent =
+      "You are close to your grocery budget limit. You have " +
+      money(remaining) +
+      " remaining.";
+
+  }else{
+
+    status.classList.add("good");
+
+    status.textContent =
+      "Your current grocery plan is within your budget. You have " +
+      money(remaining) +
+      " remaining.";
+
+  }
+
+
+  document.getElementById("results").style.display =
+    "block";
+
+
+  document.getElementById("results")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"nearest"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
