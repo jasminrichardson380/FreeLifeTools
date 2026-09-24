@@ -1,36 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Free Everyday Life Tools & Planning Resources | FreeLifeTools</title>
 
-  <meta
-    name="description"
-    content="Free everyday tools for budgeting, grocery planning, rent affordability, job searching, AI productivity and practical life planning."
-  >
+  <meta name="description"
+    content="Free everyday life tools and practical planning resources for budgeting, groceries, housing, saving money, work and household organization.">
 
-  <link
-    rel="canonical"
-    href="https://elaborate-maamoul-1fad9f.netlify.app/life.html"
-  >
+  <link rel="canonical"
+    href="https://elaborate-maamoul-1fad9f.netlify.app/life.html">
 
-  <meta
-    property="og:title"
-    content="Free Everyday Life Tools & Planning Resources | FreeLifeTools"
-  >
+  <meta property="og:title"
+    content="Free Everyday Life Tools & Planning Resources | FreeLifeTools">
 
-  <meta
-    property="og:description"
-    content="Use practical free tools for budgeting, groceries, housing, jobs, AI and everyday planning."
-  >
+  <meta property="og:description"
+    content="Simple free tools and practical ideas to help you organize money, home, work and everyday life.">
 
-  <meta
-    property="og:url"
-    content="https://elaborate-maamoul-1fad9f.netlify.app/life.html"
-  >
+  <meta property="og:url"
+    content="https://elaborate-maamoul-1fad9f.netlify.app/life.html">
 
   <style>
     * {
@@ -61,8 +50,7 @@
       max-width: 1100px;
       min-height: 70px;
       margin: auto;
-      padding: 0 20px;
-
+      padding: 15px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -74,6 +62,7 @@
       text-decoration: none;
       font-size: 22px;
       font-weight: 800;
+      white-space: nowrap;
     }
 
     .logo span {
@@ -82,7 +71,7 @@
 
     nav {
       display: flex;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
@@ -103,15 +92,9 @@
       padding: 50px 20px 80px;
     }
 
-    .back {
-      color: #77716a;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
     .hero {
-      max-width: 780px;
-      margin: 45px auto 60px;
+      max-width: 800px;
+      margin: 25px auto 60px;
       text-align: center;
     }
 
@@ -126,14 +109,13 @@
     h1 {
       font-size: 52px;
       line-height: 1.08;
-      letter-spacing: -2.5px;
+      letter-spacing: -2px;
       margin: 0 0 18px;
     }
 
     .hero p {
       color: #706b65;
       font-size: 18px;
-      line-height: 1.7;
       margin: 0;
     }
 
@@ -142,12 +124,10 @@
       border: 1px solid #e5dfd7;
       border-radius: 20px;
       padding: 35px;
-
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 30px;
       align-items: center;
-
       box-shadow: 0 8px 30px rgba(50,40,30,.05);
     }
 
@@ -158,21 +138,6 @@
 
     .featured p {
       color: #706b65;
-      line-height: 1.7;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 14px 21px;
-      border-radius: 9px;
-
-      background: #1c1a17;
-      color: white;
-
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
     }
 
     .quick-box {
@@ -185,9 +150,21 @@
       margin-top: 0;
     }
 
-    .quick-box p {
+    .quick-box ul {
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 14px 21px;
+      border-radius: 9px;
+      background: #1c1a17;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
       font-size: 14px;
-      color: #68625b;
     }
 
     .section {
@@ -206,12 +183,12 @@
     .section-heading p {
       color: #716b64;
       margin: 0;
-      max-width: 760px;
+      max-width: 780px;
     }
 
     .tools {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
@@ -220,7 +197,7 @@
       border: 1px solid #e5dfd7;
       border-radius: 15px;
       padding: 25px;
-      min-height: 210px;
+      min-height: 220px;
     }
 
     .icon {
@@ -236,7 +213,6 @@
     .tool p {
       color: #706b65;
       font-size: 14px;
-      line-height: 1.6;
     }
 
     .tool a {
@@ -270,7 +246,7 @@
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 17px;
       margin-top: 25px;
     }
@@ -285,14 +261,11 @@
       width: 35px;
       height: 35px;
       border-radius: 50%;
-
       background: #1c1a17;
       color: white;
-
       display: flex;
       justify-content: center;
       align-items: center;
-
       font-weight: 800;
       margin-bottom: 12px;
     }
@@ -304,6 +277,7 @@
     .step p {
       margin: 0;
       font-size: 14px;
+      color: #706b65;
     }
 
     .ideas {
@@ -318,15 +292,14 @@
       margin-top: 0;
     }
 
-    .ideas p {
+    .ideas > p {
       color: #d5d1cb;
-      max-width: 760px;
-      line-height: 1.7;
+      max-width: 800px;
     }
 
     .idea-list {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       margin-top: 25px;
     }
@@ -335,7 +308,16 @@
       background: rgba(255,255,255,.08);
       border: 1px solid rgba(255,255,255,.12);
       border-radius: 10px;
-      padding: 17px;
+      padding: 18px;
+    }
+
+    .idea strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .idea span {
+      color: #d5d1cb;
       font-size: 14px;
     }
 
@@ -348,6 +330,7 @@
 
     .faq h2 {
       margin-top: 0;
+      font-size: 30px;
     }
 
     .faq h3 {
@@ -355,4 +338,434 @@
       margin-bottom: 6px;
     }
 
-    .faq
+    .faq p {
+      color: #706b65;
+      margin-top: 0;
+    }
+
+    .notice {
+      margin-top: 30px;
+      background: #f2eee8;
+      border-radius: 12px;
+      padding: 18px;
+      color: #68625b;
+      font-size: 13px;
+    }
+
+    footer {
+      border-top: 1px solid #e5dfd7;
+      background: white;
+      padding: 35px 20px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: #69645e;
+      text-decoration: none;
+      margin-right: 15px;
+      font-size: 14px;
+    }
+
+    footer p {
+      color: #817a72;
+      font-size: 13px;
+      margin: 8px 0 0;
+    }
+
+    @media (max-width: 800px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .featured,
+      .tools,
+      .steps,
+      .idea-list {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding-top: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html">FreeLife<span>Tools</span></a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="paycheck.html">Paycheck</a>
+      <a href="money.html">Money</a>
+      <a href="debt.html">Debt</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="credit-builder.html">Credit Builder</a>
+      <a href="pro.html">Pro</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="tag">EVERYDAY LIFE MADE SIMPLER</div>
+
+    <h1>Practical tools and ideas for everyday life.</h1>
+
+    <p>
+      FreeLifeTools brings money, household and planning resources together
+      in one place. Use these ideas to organize your week, understand your
+      expenses and make everyday decisions with more information.
+    </p>
+  </section>
+
+  <section class="featured">
+
+    <div>
+      <h2>Start with your monthly money plan</h2>
+
+      <p>
+        Knowing where your money needs to go can make the rest of your
+        planning easier. List your monthly income and regular expenses,
+        then see what may be available for savings, debt payments and
+        everyday spending.
+      </p>
+
+      <a class="button" href="money.html">Open Money Planner</a>
+    </div>
+
+    <div class="quick-box">
+      <h3>Simple monthly check-in</h3>
+      <ul>
+        <li>Write down expected take-home income.</li>
+        <li>List housing, utilities and transportation.</li>
+        <li>Estimate groceries and household expenses.</li>
+        <li>Review debt payments and savings goals.</li>
+        <li>Leave room for irregular expenses.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="section-heading">
+      <h2>Useful tools for everyday decisions</h2>
+      <p>
+        These free calculators can help you estimate common expenses and
+        organize your finances. Results are estimates, so use your actual
+        bills and income whenever possible.
+      </p>
+    </div>
+
+    <div class="tools">
+
+      <div class="tool">
+        <div class="icon">💵</div>
+        <h3>Paycheck Calculator</h3>
+        <p>
+          Estimate earnings from your hourly pay and work hours so you can
+          plan upcoming expenses around your expected income.
+        </p>
+        <a href="paycheck.html">Calculate paycheck →</a>
+      </div>
+
+      <div class="tool">
+        <div class="icon">📋</div>
+        <h3>Monthly Money Planner</h3>
+        <p>
+          Organize income and expenses in one place and get a clearer picture
+          of how much money may remain after your regular monthly costs.
+        </p>
+        <a href="money.html">Plan your money →</a>
+      </div>
+
+      <div class="tool">
+        <div class="icon">💳</div>
+        <h3>Debt Payoff Calculator</h3>
+        <p>
+          Explore how different payment amounts may affect the time needed
+          to pay down a balance.
+        </p>
+        <a href="debt.html">Plan debt payoff →</a>
+      </div>
+
+      <div class="tool">
+        <div class="icon">🏠</div>
+        <h3>Rent Planning</h3>
+        <p>
+          Compare housing costs with your income and other monthly expenses
+          before deciding how much rent may fit into your budget.
+        </p>
+        <a href="money.html">Start planning →</a>
+      </div>
+
+      <div class="tool">
+        <div class="icon">💼</div>
+        <h3>Job Resources</h3>
+        <p>
+          Explore practical job-search resources and ideas designed to help
+          with employment planning and career preparation.
+        </p>
+        <a href="jobs.html">Explore job resources →</a>
+      </div>
+
+      <div class="tool">
+        <div class="icon">⭐</div>
+        <h3>Credit Planning</h3>
+        <p>
+          Learn how credit utilization works and create a simple plan for
+          managing card balances and payment goals.
+        </p>
+        <a href="credit-builder.html">Open Credit Builder →</a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section guide">
+
+    <h2>A simple weekly planning routine</h2>
+
+    <p>
+      You do not need a complicated system to organize your week. A short
+      weekly check-in can help you spot upcoming expenses and responsibilities
+      before they become last-minute surprises.
+    </p>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Check your schedule</h3>
+        <p>
+          Look at work, school, appointments and important deadlines for
+          the next seven days.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Check your money</h3>
+        <p>
+          Review upcoming paydays and bills. Identify expenses that need
+          to be covered before your next paycheck.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Make a short priority list</h3>
+        <p>
+          Choose a few important tasks for the week instead of trying to
+          complete everything at once.
+        </p>
+      </div>
+
+    </div>
+
+    <h3>Plan groceries before shopping</h3>
+    <p>
+      Check what you already have at home before making your grocery list.
+      Planning several meals around ingredients you already own can reduce
+      duplicate purchases and help you estimate your grocery spending.
+    </p>
+
+    <h3>Keep irregular expenses in mind</h3>
+    <p>
+      Monthly bills are only part of a household budget. Car maintenance,
+      school expenses, birthdays, clothing and other occasional costs can
+      appear throughout the year. Setting aside even a small amount for
+      irregular expenses can make them easier to handle when they occur.
+    </p>
+
+    <h3>Review subscriptions</h3>
+    <p>
+      Check recurring charges periodically. If you are paying for a service
+      you rarely use, consider whether that money would be more useful for
+      another expense or savings goal.
+    </p>
+
+  </section>
+
+  <section class="section ideas">
+
+    <h2>Everyday life ideas you can use now</h2>
+
+    <p>
+      Instead of waiting for more tools to be released, start with these
+      simple ideas. Pick the ones that fit your situation and adjust them
+      to your household.
+    </p>
+
+    <div class="idea-list">
+
+      <div class="idea">
+        <strong>24-hour purchase rule</strong>
+        <span>
+          For nonessential purchases, wait a day before buying to give
+          yourself time to decide whether you still want the item.
+        </span>
+      </div>
+
+      <div class="idea">
+        <strong>One grocery list</strong>
+        <span>
+          Keep a running list during the week so you are less likely to
+          forget necessities or make extra shopping trips.
+        </span>
+      </div>
+
+      <div class="idea">
+        <strong>Bill calendar</strong>
+        <span>
+          Put due dates and expected paydays on one calendar to make cash-flow
+          planning easier.
+        </span>
+      </div>
+
+      <div class="idea">
+        <strong>Weekly home reset</strong>
+        <span>
+          Choose one day to review laundry, groceries, appointments and
+          household supplies for the coming week.
+        </span>
+      </div>
+
+      <div class="idea">
+        <strong>Small savings target</strong>
+        <span>
+          Start with a manageable amount and increase it when your budget
+          allows instead of waiting for the perfect time to save.
+        </span>
+      </div>
+
+      <div class="idea">
+        <strong>Compare before renewing</strong>
+        <span>
+          Before renewing recurring services, review the current cost and
+          alternatives that may fit your needs.
+        </span>
+      </div>
+
+      <div class="idea">
+        <strong>Use leftovers intentionally</strong>
+        <span>
+          Plan one meal each week around leftovers or ingredients that need
+          to be used soon.
+        </span>
+      </div>
+
+      <div class="idea">
+        <strong>Prepare for payday</strong>
+        <span>
+          Before your paycheck arrives, list the bills and necessities that
+          need to be covered first.
+        </span>
+      </div>
+
+      <div class="idea">
+        <strong>Keep important information together</strong>
+        <span>
+          Store important household dates, account contacts and document
+          locations somewhere secure and easy for you to reference.
+        </span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section faq">
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>Are the FreeLifeTools life resources free?</h3>
+    <p>
+      Yes. The resources linked from this page can be used without paying
+      for access unless a feature is specifically identified as a Pro feature.
+    </p>
+
+    <h3>Where should I start if I am trying to organize my finances?</h3>
+    <p>
+      A useful first step is understanding your income and regular expenses.
+      You can use the Paycheck Calculator to estimate earnings and the
+      Monthly Money Planner to organize your monthly expenses.
+    </p>
+
+    <h3>How often should I review my budget?</h3>
+    <p>
+      There is no single schedule that works for everyone. Many people find
+      it useful to review their plan around payday and whenever income,
+      bills or major expenses change.
+    </p>
+
+    <h3>Can these tools tell me exactly what I should spend?</h3>
+    <p>
+      No. The calculators and guides provide estimates and general educational
+      information. Your actual costs, taxes, income and financial obligations
+      may be different.
+    </p>
+
+    <h3>How can I make planning easier?</h3>
+    <p>
+      Keep the process simple. Focus first on important dates, expected
+      income, required bills and essential household needs. Once those are
+      organized, you can add savings goals and other priorities.
+    </p>
+
+    <div class="notice">
+      <strong>Important:</strong> FreeLifeTools provides calculators,
+      estimates and general educational information. It does not provide
+      financial, legal, tax or credit-repair advice. Calculator results may
+      differ from actual amounts.
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+
+    <div>
+      <strong>FreeLifeTools</strong>
+      <p>Free tools for money, jobs, AI and everyday life.</p>
+      <p>© 2026 FreeLifeTools</p>
+    </div>
+
+    <div>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
