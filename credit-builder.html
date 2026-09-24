@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Credit Utilization Calculator & Credit Builder | FreeLifeTools</title>
 
-  <meta name="description" content="Use the free FreeLifeTools credit utilization calculator to estimate your card utilization, explore payment scenarios and learn practical credit-building basics.">
+  <meta
+    name="description"
+    content="Use the free FreeLifeTools credit utilization calculator to estimate your card utilization, explore payment scenarios and learn practical credit-building basics."
+  >
 
-  <link rel="canonical" href="https://elaborate-maamoul-1fad9f.netlify.app/credit-builder.html">
+  <meta name="robots" content="index,follow">
 
-  <meta property="og:title" content="Credit Utilization Calculator & Credit Builder | FreeLifeTools">
-  <meta property="og:description" content="Calculate credit utilization, explore payment scenarios and learn credit-building basics.">
-  <meta property="og:url" content="https://elaborate-maamoul-1fad9f.netlify.app/credit-builder.html">
+  <link
+    rel="canonical"
+    href="https://elaborate-maamoul-1fad9f.netlify.app/credit-builder.html"
+  >
+
+  <meta
+    property="og:title"
+    content="Credit Utilization Calculator & Credit Builder | FreeLifeTools"
+  >
+
+  <meta
+    property="og:description"
+    content="Calculate credit utilization, explore payment scenarios and learn practical credit-building basics."
+  >
+
+  <meta
+    property="og:url"
+    content="https://elaborate-maamoul-1fad9f.netlify.app/credit-builder.html"
+  >
+
+  <meta property="og:type" content="website">
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -33,13 +56,14 @@
     }
 
     .nav {
-      max-width: 1000px;
+      max-width: 1050px;
       margin: auto;
       padding: 18px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .logo {
@@ -115,6 +139,10 @@
       margin-top: 0;
     }
 
+    .content-box h3 {
+      margin-bottom: 7px;
+    }
+
     .intro,
     .content-box p,
     .content-box li {
@@ -164,6 +192,10 @@
       cursor: pointer;
     }
 
+    button:hover {
+      opacity: .93;
+    }
+
     #results {
       display: none;
       margin-top: 28px;
@@ -211,3 +243,840 @@
 
     .plan h3 {
       margin-top: 0;
+    }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 16px;
+    }
+
+    .plan-card {
+      background: white;
+      border: 1px solid #dbe7ff;
+      border-radius: 12px;
+      padding: 17px;
+    }
+
+    .plan-card strong {
+      color: #1d4ed8;
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: 10px;
+      background: #fff8e8;
+      border: 1px solid #f0dfb5;
+      color: #69572e;
+      font-size: 14px;
+    }
+
+    .example {
+      background: #eef4ff;
+      border-left: 4px solid #2563eb;
+      padding: 18px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .related-card {
+      border: 1px solid #e2e6ef;
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .related-card h3 {
+      margin-top: 0;
+    }
+
+    .related-card p {
+      font-size: 14px;
+    }
+
+    .related-card a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .faq-item {
+      padding: 17px 0;
+      border-bottom: 1px solid #e2e6ef;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    footer {
+      background: #172033;
+      color: #dce2ed;
+      text-align: center;
+      padding: 38px 20px;
+      font-size: 14px;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 7px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width:700px) {
+
+      .nav {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      h1 {
+        font-size: 35px;
+      }
+
+      .grid,
+      .result-grid,
+      .plan-grid,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .calculator,
+      .content-box {
+        padding: 22px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="nav">
+
+    <a class="logo" href="index.html">
+      FreeLifeTools
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="paycheck.html">Paycheck</a>
+      <a href="budget.html">Budget</a>
+      <a href="rent-calculator.html">Rent</a>
+      <a href="debt.html">Debt</a>
+      <a href="credit-builder.html">Credit</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="pro.html">Pro</a>
+      <a href="login.html">Log in</a>
+    </nav>
+
+  </div>
+
+</header>
+
+<main>
+
+  <section class="hero">
+
+    <span class="tag">
+      FREE CREDIT TOOL
+    </span>
+
+    <h1>
+      Credit Utilization Calculator
+    </h1>
+
+    <p>
+      Calculate your credit card utilization, see how a payment
+      could change it and create a simple credit-building plan.
+    </p>
+
+  </section>
+
+  <section class="calculator">
+
+    <h2>
+      Check Your Credit Utilization
+    </h2>
+
+    <p class="intro">
+      Enter the balance and credit limit for one credit card.
+      Then enter a payment amount to see how your utilization
+      percentage could change.
+    </p>
+
+    <div class="grid">
+
+      <label>
+        Current card balance ($)
+
+        <input
+          type="number"
+          id="balance"
+          placeholder="Example: 800"
+          min="0"
+          step="0.01"
+          inputmode="decimal"
+        >
+      </label>
+
+      <label>
+        Credit limit ($)
+
+        <input
+          type="number"
+          id="limit"
+          placeholder="Example: 2000"
+          min="0"
+          step="0.01"
+          inputmode="decimal"
+        >
+      </label>
+
+      <label>
+        Planned payment ($)
+
+        <input
+          type="number"
+          id="payment"
+          placeholder="Example: 300"
+          min="0"
+          step="0.01"
+          value="0"
+          inputmode="decimal"
+        >
+      </label>
+
+      <label>
+        Current credit score range
+
+        <select id="scoreRange">
+          <option value="unknown">Not sure</option>
+          <option value="300-579">300–579</option>
+          <option value="580-669">580–669</option>
+          <option value="670-739">670–739</option>
+          <option value="740-799">740–799</option>
+          <option value="800-850">800–850</option>
+        </select>
+      </label>
+
+    </div>
+
+    <button type="button" onclick="calculateCredit()">
+      Calculate Utilization
+    </button>
+
+    <div id="results">
+
+      <div class="result-grid">
+
+        <div class="result-card">
+          <span>Current utilization</span>
+          <strong id="currentUtilization">0%</strong>
+        </div>
+
+        <div class="result-card">
+          <span>After payment</span>
+          <strong id="newUtilization">0%</strong>
+        </div>
+
+        <div class="result-card">
+          <span>Balance after payment</span>
+          <strong id="newBalance">$0.00</strong>
+        </div>
+
+        <div class="result-card">
+          <span>Pay to reach 30%</span>
+          <strong id="pay30">$0.00</strong>
+        </div>
+
+        <div class="result-card">
+          <span>Pay to reach 10%</span>
+          <strong id="pay10">$0.00</strong>
+        </div>
+
+        <div class="result-card">
+          <span>Selected score range</span>
+          <strong id="scoreResult">Not sure</strong>
+        </div>
+
+      </div>
+
+      <div class="status" id="statusMessage"></div>
+
+      <div class="plan">
+
+        <h3>
+          Your 30 / 60 / 90 Day Credit Plan
+        </h3>
+
+        <div class="plan-grid">
+
+          <div class="plan-card">
+
+            <strong>First 30 Days</strong>
+
+            <span>
+              Review your credit card balances and due dates.
+              Make every required payment on time and avoid
+              adding unnecessary balances.
+            </span>
+
+          </div>
+
+          <div class="plan-card">
+
+            <strong>By 60 Days</strong>
+
+            <span>
+              Continue paying on time and work on reducing
+              revolving balances where your budget allows.
+              Review your statements for errors or unexpected fees.
+            </span>
+
+          </div>
+
+          <div class="plan-card">
+
+            <strong>By 90 Days</strong>
+
+            <span>
+              Recalculate your utilization and compare it with
+              where you started. Continue building consistent
+              payment habits instead of relying on quick fixes.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="note">
+        Credit scores are calculated using multiple factors.
+        Lower utilization does not guarantee a specific score
+        increase, and lenders may use different scoring models.
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="content-box">
+
+    <h2>
+      What Is Credit Utilization?
+    </h2>
+
+    <p>
+      Credit utilization compares the balance reported on revolving
+      credit accounts, such as credit cards, with the amount of
+      revolving credit available.
+    </p>
+
+    <p>
+      For a single card, you can estimate utilization by dividing
+      the card balance by its credit limit and multiplying the
+      result by 100.
+    </p>
+
+    <div class="example">
+
+      <strong>Example</strong>
+
+      <p>
+        If a credit card has a $500 balance and a $2,000 credit
+        limit, the estimated utilization on that card is 25%.
+      </p>
+
+    </div>
+
+    <p>
+      Credit scoring models may consider utilization along with
+      payment history, account age, credit mix, new credit activity
+      and other information in a credit report.
+    </p>
+
+  </section>
+
+  <section class="content-box">
+
+    <h2>
+      How the Payment Calculator Works
+    </h2>
+
+    <p>
+      The calculator first estimates your current utilization using
+      the balance and credit limit you enter.
+    </p>
+
+    <p>
+      It then subtracts your planned payment from the balance and
+      calculates the estimated utilization after that payment.
+    </p>
+
+    <p>
+      The 30% and 10% amounts are planning reference points only.
+      They are not guarantees that your credit score will increase
+      or that a lender will approve an application.
+    </p>
+
+  </section>
+
+  <section class="content-box">
+
+    <h2>
+      Practical Credit-Building Basics
+    </h2>
+
+    <h3>Pay bills by their due dates</h3>
+
+    <p>
+      Keeping track of due dates can help you avoid missed payments
+      and late fees. Automatic payments or reminders may be useful
+      when available.
+    </p>
+
+    <h3>Review your credit reports</h3>
+
+    <p>
+      Reviewing your credit reports can help you identify accounts
+      you do not recognize or information you believe is inaccurate.
+      Follow the credit bureau's dispute process when appropriate.
+    </p>
+
+    <h3>Be careful with new debt</h3>
+
+    <p>
+      Opening new accounts simply to try to increase a score can
+      create additional costs or debt. Consider the fees, interest
+      rates and terms before applying.
+    </p>
+
+    <h3>Reduce balances when your budget allows</h3>
+
+    <p>
+      Paying down revolving balances may lower utilization, but
+      avoid using money needed for essential expenses just to reach
+      a particular utilization percentage.
+    </p>
+
+  </section>
+
+  <section class="content-box">
+
+    <h2>
+      Credit Utilization FAQ
+    </h2>
+
+    <div class="faq-item">
+
+      <strong>
+        Does 30% utilization guarantee a good credit score?
+      </strong>
+
+      <p>
+        No. Credit scores use multiple factors. A utilization
+        percentage by itself does not determine your entire score.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <strong>
+        Is 10% utilization required?
+      </strong>
+
+      <p>
+        No. The calculator includes 10% as a planning reference,
+        not as a requirement or guarantee.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <strong>
+        Will paying my credit card immediately raise my score?
+      </strong>
+
+      <p>
+        Not necessarily. The timing of balance reporting varies,
+        and a score can be affected by other information in your
+        credit report.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <strong>
+        Does FreeLifeTools report payments to credit bureaus?
+      </strong>
+
+      <p>
+        No. This calculator is an educational planning tool.
+        FreeLifeTools does not report your calculator entries or
+        payments to credit bureaus.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <strong>
+        Does this calculator store my card information?
+      </strong>
+
+      <p>
+        This calculator does not ask for your credit card number,
+        bank login or Social Security number. Only enter the
+        numerical amounts needed for the calculation.
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="content-box">
+
+    <h2>
+      More Free Money Tools
+    </h2>
+
+    <div class="related-grid">
+
+      <div class="related-card">
+
+        <h3>Debt Payoff</h3>
+
+        <p>
+          Estimate how long it could take to pay off a debt.
+        </p>
+
+        <a href="debt.html">
+          Calculate debt payoff →
+        </a>
+
+      </div>
+
+      <div class="related-card">
+
+        <h3>Monthly Budget</h3>
+
+        <p>
+          Compare monthly income with bills and other expenses.
+        </p>
+
+        <a href="budget.html">
+          Build a budget →
+        </a>
+
+      </div>
+
+      <div class="related-card">
+
+        <h3>Paycheck Calculator</h3>
+
+        <p>
+          Estimate weekly, biweekly and monthly gross income.
+        </p>
+
+        <a href="paycheck.html">
+          Calculate pay →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="content-box">
+
+    <h2>
+      Important Information
+    </h2>
+
+    <p>
+      FreeLifeTools provides educational calculators and general
+      information for planning purposes. It does not provide credit
+      repair, financial, legal or tax advice and does not guarantee
+      changes to a credit score or approval for credit.
+    </p>
+
+  </section>
+
+</main>
+
+<footer>
+
+  <p>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+  </p>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>
+    © 2026 FreeLifeTools
+  </p>
+
+</footer>
+
+<script>
+
+  function money(value) {
+
+    return value.toLocaleString(
+      "en-US",
+      {
+        style: "currency",
+        currency: "USD"
+      }
+    );
+
+  }
+
+
+  function calculateCredit() {
+
+    const balance =
+      parseFloat(
+        document.getElementById("balance").value
+      );
+
+
+    const limit =
+      parseFloat(
+        document.getElementById("limit").value
+      );
+
+
+    let payment =
+      parseFloat(
+        document.getElementById("payment").value
+      );
+
+
+    const scoreRange =
+      document.getElementById("scoreRange").value;
+
+
+    if (isNaN(payment)) {
+      payment = 0;
+    }
+
+
+    if (
+      isNaN(balance) ||
+      isNaN(limit) ||
+      balance < 0 ||
+      limit <= 0 ||
+      payment < 0
+    ) {
+
+      alert(
+        "Please enter a valid balance, credit limit and payment amount."
+      );
+
+      return;
+
+    }
+
+
+    const currentUtilization =
+      (balance / limit) * 100;
+
+
+    const balanceAfterPayment =
+      Math.max(
+        balance - payment,
+        0
+      );
+
+
+    const newUtilization =
+      (balanceAfterPayment / limit) * 100;
+
+
+    const target30 =
+      limit * 0.30;
+
+
+    const target10 =
+      limit * 0.10;
+
+
+    const payTo30 =
+      Math.max(
+        balance - target30,
+        0
+      );
+
+
+    const payTo10 =
+      Math.max(
+        balance - target10,
+        0
+      );
+
+
+    document.getElementById(
+      "currentUtilization"
+    ).textContent =
+      currentUtilization.toFixed(1) + "%";
+
+
+    document.getElementById(
+      "newUtilization"
+    ).textContent =
+      newUtilization.toFixed(1) + "%";
+
+
+    document.getElementById(
+      "newBalance"
+    ).textContent =
+      money(balanceAfterPayment);
+
+
+    document.getElementById(
+      "pay30"
+    ).textContent =
+      money(payTo30);
+
+
+    document.getElementById(
+      "pay10"
+    ).textContent =
+      money(payTo10);
+
+
+    document.getElementById(
+      "scoreResult"
+    ).textContent =
+      scoreRange === "unknown"
+        ? "Not sure"
+        : scoreRange;
+
+
+    let message = "";
+
+
+    if (currentUtilization > 100) {
+
+      message =
+        "Your entered balance is higher than the credit limit. This may happen if an account is over its limit or if fees or interest have increased the balance.";
+
+    } else if (currentUtilization > 50) {
+
+      message =
+        "Your current utilization is above 50%. The payment scenario above shows how reducing the balance could change the percentage.";
+
+    } else if (currentUtilization > 30) {
+
+      message =
+        "Your current utilization is above 30%. Use the payment estimates as planning references while keeping essential expenses and required payments in mind.";
+
+    } else if (currentUtilization > 10) {
+
+      message =
+        "Your current utilization is 30% or below. Remember that utilization is only one part of credit scoring.";
+
+    } else {
+
+      message =
+        "Your current utilization is 10% or below. A low percentage does not guarantee a particular credit score because scoring models consider additional factors.";
+
+    }
+
+
+    document.getElementById(
+      "statusMessage"
+    ).textContent =
+      message;
+
+
+    document.getElementById(
+      "results"
+    ).style.display =
+      "block";
+
+  }
+
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+      const inputs =
+        document.querySelectorAll(
+          "input, select"
+        );
+
+
+      inputs.forEach(
+        function(input) {
+
+          input.addEventListener(
+            "keydown",
+            function(event) {
+
+              if (event.key === "Enter") {
+
+                calculateCredit();
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+    }
+  );
+
+</script>
+
+</body>
+
+</html>
