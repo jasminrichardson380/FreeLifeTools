@@ -2,13 +2,8 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Free Job Search & Career Tools | FreeLifeTools</title>
 
@@ -17,15 +12,14 @@
     content="Free job search and career resources for resumes, interviews, remote jobs, job applications and paycheck planning."
   >
 
+  <meta name="robots" content="index,follow">
+
   <link
     rel="canonical"
     href="https://elaborate-maamoul-1fad9f.netlify.app/jobs.html"
   >
 
-  <meta
-    property="og:title"
-    content="Free Job Search & Career Tools | FreeLifeTools"
-  >
+  <meta property="og:title" content="Free Job Search & Career Tools | FreeLifeTools">
 
   <meta
     property="og:description"
@@ -36,6 +30,8 @@
     property="og:url"
     content="https://elaborate-maamoul-1fad9f.netlify.app/jobs.html"
   >
+
+  <meta property="og:type" content="website">
 
   <style>
 
@@ -60,11 +56,11 @@
       max-width: 1100px;
       margin: auto;
       padding: 18px 20px;
-
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .logo {
@@ -101,23 +97,21 @@
       padding: 55px 20px 75px;
     }
 
-    .back {
-      color: #666b72;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
     .hero {
       text-align: center;
       max-width: 780px;
-      margin: 35px auto 50px;
+      margin: 20px auto 50px;
     }
 
     .tag {
+      display: inline-block;
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 1.5px;
-      color: #73787e;
+      color: #3b70e8;
+      background: #eaf1ff;
+      padding: 7px 13px;
+      border-radius: 999px;
       margin-bottom: 14px;
     }
 
@@ -138,12 +132,10 @@
     .search-card {
       max-width: 900px;
       margin: auto;
-
       background: white;
       border: 1px solid #e1e3e6;
       border-radius: 18px;
       padding: 25px;
-
       box-shadow: 0 8px 30px rgba(0,0,0,.05);
     }
 
@@ -166,10 +158,8 @@
     input {
       width: 100%;
       padding: 14px;
-
       border: 1px solid #d4d7da;
       border-radius: 9px;
-
       font-size: 15px;
     }
 
@@ -180,15 +170,11 @@
     .button {
       border: none;
       border-radius: 9px;
-
       padding: 14px 22px;
-
       background: #17191c;
       color: white;
-
       font-weight: 700;
       cursor: pointer;
-
       text-decoration: none;
       display: inline-block;
       font-size: 15px;
@@ -201,14 +187,11 @@
     #searchMessage {
       display: none;
       margin-top: 15px;
+      padding: 15px;
+      background: #f5f7fa;
+      border-radius: 9px;
       color: #666b72;
       font-size: 14px;
-    }
-
-    .external-note {
-      margin-top: 13px;
-      font-size: 12px !important;
-      color: #7b8087 !important;
     }
 
     .section {
@@ -292,23 +275,27 @@
       text-decoration: none;
     }
 
-    .guide {
+    .guide,
+    .faq {
       background: white;
       border: 1px solid #e1e3e6;
       border-radius: 18px;
       padding: 32px;
     }
 
-    .guide h2 {
+    .guide h2,
+    .faq h2 {
       margin-top: 0;
     }
 
-    .guide h3 {
+    .guide h3,
+    .faq h3 {
       margin-top: 27px;
       margin-bottom: 7px;
     }
 
-    .guide p {
+    .guide p,
+    .faq p {
       color: #686e75;
       margin-top: 0;
     }
@@ -330,14 +317,11 @@
       width: 34px;
       height: 34px;
       border-radius: 50%;
-
       background: #17191c;
       color: white;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       font-weight: 800;
       margin-bottom: 12px;
     }
@@ -371,36 +355,12 @@
       margin-bottom: 9px;
     }
 
-    .faq {
-      background: white;
-      border: 1px solid #e1e3e6;
-      border-radius: 18px;
-      padding: 32px;
-    }
-
-    .faq h2 {
-      margin-top: 0;
-    }
-
-    .faq h3 {
-      margin-top: 24px;
-      margin-bottom: 6px;
-    }
-
-    .faq p {
-      color: #686e75;
-      margin-top: 0;
-    }
-
     .pro {
       margin-top: 70px;
-
       background: #17191c;
       color: white;
-
       border-radius: 20px;
       padding: 40px;
-
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
@@ -426,4 +386,608 @@
 
     footer {
       background: white;
-      border-top: 1px solid #e
+      border-top: 1px solid #e3e5e8;
+      text-align: center;
+      padding: 35px 20px;
+      color: #686e75;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #17191c;
+      text-decoration: none;
+      margin: 0 8px;
+      font-weight: 600;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    @media(max-width:850px) {
+
+      .job-categories {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .resources,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .search-row {
+        grid-template-columns: 1fr;
+      }
+
+      .pro {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media(max-width:600px) {
+
+      .nav {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      h1 {
+        font-size: 36px;
+        letter-spacing: -1px;
+      }
+
+      .job-categories {
+        grid-template-columns: 1fr;
+      }
+
+      .guide,
+      .faq,
+      .warning {
+        padding: 23px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="nav">
+
+    <a class="logo" href="index.html">
+      Free<span>Life</span>Tools
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="paycheck.html">Paycheck</a>
+      <a href="budget.html">Budget</a>
+      <a href="rent-calculator.html">Rent</a>
+      <a href="debt.html">Debt</a>
+      <a href="credit-builder.html">Credit</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="pro.html">Pro</a>
+      <a href="login.html">Log in</a>
+    </nav>
+
+  </div>
+
+</header>
+
+<main>
+
+  <section class="hero">
+
+    <div class="tag">
+      FREE JOB & CAREER RESOURCES
+    </div>
+
+    <h1>
+      Find Your Next Job With a Better Plan
+    </h1>
+
+    <p>
+      FreeLifeTools provides practical resources for searching for
+      jobs, preparing applications, improving resumes, practicing
+      interviews and understanding what a new paycheck may look like.
+    </p>
+
+  </section>
+
+  <section class="search-card">
+
+    <h2>Plan Your Job Search</h2>
+
+    <p>
+      Enter the type of job you want and your preferred location.
+      We'll create a simple search phrase you can use on reputable
+      job boards or employer career websites.
+    </p>
+
+    <div class="search-row">
+
+      <input
+        id="jobTitle"
+        type="text"
+        placeholder="Job title — e.g. Customer Service"
+      >
+
+      <input
+        id="location"
+        type="text"
+        placeholder="Location — e.g. Remote or Austin, TX"
+      >
+
+      <button class="button" type="button" onclick="buildSearch()">
+        Build Search
+      </button>
+
+    </div>
+
+    <div id="searchMessage"></div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="section-heading">
+
+      <h2>Popular Job Search Categories</h2>
+
+      <p>
+        Start by identifying the kind of work that fits your
+        experience, schedule and income goals.
+      </p>
+
+    </div>
+
+    <div class="job-categories">
+
+      <div class="category">
+
+        <div class="category-icon">💻</div>
+
+        <h3>Remote Jobs</h3>
+
+        <p>
+          Explore customer service, administrative, support,
+          sales and other positions that may offer remote work.
+        </p>
+
+      </div>
+
+      <div class="category">
+
+        <div class="category-icon">🎧</div>
+
+        <h3>Customer Service</h3>
+
+        <p>
+          Look for phone, chat, email and customer-support roles
+          based on your communication experience.
+        </p>
+
+      </div>
+
+      <div class="category">
+
+        <div class="category-icon">📦</div>
+
+        <h3>Warehouse Jobs</h3>
+
+        <p>
+          Search for fulfillment, warehouse, shipping, receiving,
+          inventory and distribution positions.
+        </p>
+
+      </div>
+
+      <div class="category">
+
+        <div class="category-icon">🏥</div>
+
+        <h3>Healthcare Support</h3>
+
+        <p>
+          Explore scheduling, billing, patient support and other
+          healthcare-related positions based on your qualifications.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="section-heading">
+
+      <h2>Free Job Search Resources</h2>
+
+      <p>
+        Use these FreeLifeTools resources to prepare before and
+        after applying for a position.
+      </p>
+
+    </div>
+
+    <div class="resources">
+
+      <div class="resource">
+
+        <h3>Paycheck Calculator</h3>
+
+        <p>
+          Estimate weekly, biweekly, semimonthly, monthly and
+          annual gross income from an hourly wage.
+        </p>
+
+        <a href="paycheck.html">
+          Calculate your pay →
+        </a>
+
+      </div>
+
+      <div class="resource">
+
+        <h3>Monthly Budget</h3>
+
+        <p>
+          Compare estimated take-home income with your monthly
+          expenses before accepting a new pay rate.
+        </p>
+
+        <a href="budget.html">
+          Build your budget →
+        </a>
+
+      </div>
+
+      <div class="resource">
+
+        <h3>Rent Affordability</h3>
+
+        <p>
+          Estimate a planning range for rent based on income and
+          other monthly expenses.
+        </p>
+
+        <a href="rent-calculator.html">
+          Estimate rent →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section guide">
+
+    <h2>How to Organize Your Job Search</h2>
+
+    <p>
+      A simple routine can make it easier to keep track of
+      applications and follow-ups.
+    </p>
+
+    <div class="steps">
+
+      <div class="step">
+
+        <div class="step-number">1</div>
+
+        <h3>Choose Your Target</h3>
+
+        <p>
+          Pick a few job titles that match your experience instead
+          of applying randomly to every available position.
+        </p>
+
+      </div>
+
+      <div class="step">
+
+        <div class="step-number">2</div>
+
+        <h3>Check Requirements</h3>
+
+        <p>
+          Read the job description and identify required experience,
+          schedules, equipment, licenses or other qualifications.
+        </p>
+
+      </div>
+
+      <div class="step">
+
+        <div class="step-number">3</div>
+
+        <h3>Track Applications</h3>
+
+        <p>
+          Record the employer, position, date applied and next step
+          so you know which applications may need follow-up.
+        </p>
+
+      </div>
+
+    </div>
+
+    <h3>Customize your resume</h3>
+
+    <p>
+      Review the job posting before submitting your resume. Focus
+      on truthful experience and skills that are relevant to the
+      position rather than sending exactly the same resume for
+      every role.
+    </p>
+
+    <h3>Prepare for interviews</h3>
+
+    <p>
+      Practice explaining your experience, why you are interested
+      in the position and how you handled real situations at
+      previous jobs.
+    </p>
+
+    <h3>Compare the complete offer</h3>
+
+    <p>
+      Hourly pay is only one part of a job offer. Consider the
+      schedule, expected hours, commute, benefits, equipment
+      requirements and other costs before making a decision.
+    </p>
+
+  </section>
+
+  <section class="section warning">
+
+    <h2>Watch for Job Scams</h2>
+
+    <p>
+      Remote-job searches can attract fake recruiters and
+      fraudulent job postings. Be cautious when an opportunity
+      seems unusual.
+    </p>
+
+    <ul>
+      <li>
+        Be cautious if someone asks you to pay money to receive
+        a job.
+      </li>
+
+      <li>
+        Verify the position through the employer's official
+        careers website when possible.
+      </li>
+
+      <li>
+        Be careful with unexpected text messages or messaging-app
+        interviews from people claiming to be recruiters.
+      </li>
+
+      <li>
+        Do not send gift cards, cryptocurrency or money to a
+        recruiter.
+      </li>
+
+      <li>
+        Be cautious if someone sends a check and tells you to buy
+        equipment or send part of the money elsewhere.
+      </li>
+
+      <li>
+        Protect sensitive information until you have verified who
+        you are dealing with and why the information is required.
+      </li>
+    </ul>
+
+  </section>
+
+  <section class="section faq">
+
+    <h2>Job Search FAQ</h2>
+
+    <h3>How many jobs should I apply for?</h3>
+
+    <p>
+      There is no single number that works for everyone. Focus on
+      positions you reasonably qualify for and keep track of your
+      applications so you can follow up when appropriate.
+    </p>
+
+    <h3>How do I find legitimate remote jobs?</h3>
+
+    <p>
+      Search established job boards and employer career pages.
+      When you find a position elsewhere, checking the employer's
+      official website can help confirm whether the opening is
+      actually listed.
+    </p>
+
+    <h3>Should I change my resume for every job?</h3>
+
+    <p>
+      You do not necessarily need to rewrite the entire resume.
+      However, adjusting the emphasis to match relevant skills and
+      experience in the job description can make the application
+      clearer.
+    </p>
+
+    <h3>Should I include every job I've ever had?</h3>
+
+    <p>
+      A resume generally works best when it focuses on experience
+      that helps explain your qualifications for the position.
+      What you include depends on your work history and the job.
+    </p>
+
+    <h3>Can FreeLifeTools guarantee I will get hired?</h3>
+
+    <p>
+      No. FreeLifeTools provides planning tools and educational
+      resources. Hiring decisions are made by individual employers.
+    </p>
+
+  </section>
+
+  <section class="pro">
+
+    <div>
+
+      <h2>Need More FreeLifeTools?</h2>
+
+      <p>
+        Explore additional money, AI and planning tools designed
+        to help with everyday decisions.
+      </p>
+
+    </div>
+
+    <a class="button" href="pro.html">
+      Explore Pro
+    </a>
+
+  </section>
+
+</main>
+
+<footer>
+
+  <p>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+  </p>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>
+    © 2026 FreeLifeTools
+  </p>
+
+</footer>
+
+<script>
+
+  function buildSearch() {
+
+    const jobTitle =
+      document.getElementById("jobTitle").value.trim();
+
+    const location =
+      document.getElementById("location").value.trim();
+
+    const message =
+      document.getElementById("searchMessage");
+
+
+    if (!jobTitle && !location) {
+
+      message.style.display = "block";
+
+      message.textContent =
+        "Enter a job title or location to build your search.";
+
+      return;
+
+    }
+
+
+    let searchText = "";
+
+
+    if (jobTitle && location) {
+
+      searchText =
+        '"' + jobTitle + '" jobs in ' + location;
+
+    } else if (jobTitle) {
+
+      searchText =
+        '"' + jobTitle + '" jobs';
+
+    } else {
+
+      searchText =
+        "jobs in " + location;
+
+    }
+
+
+    message.style.display = "block";
+
+    message.innerHTML =
+      "<strong>Try searching:</strong> " +
+      escapeHtml(searchText) +
+      "<br><br>Use this phrase on an established job board or an employer's official careers website.";
+
+  }
+
+
+  function escapeHtml(text) {
+
+    const div =
+      document.createElement("div");
+
+    div.textContent =
+      text;
+
+    return div.innerHTML;
+
+  }
+
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+      const inputs =
+        document.querySelectorAll(
+          "#jobTitle, #location"
+        );
+
+
+      inputs.forEach(
+        function(input) {
+
+          input.addEventListener(
+            "keydown",
+            function(event) {
+
+              if (event.key === "Enter") {
+
+                buildSearch();
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+    }
+  );
+
+</script>
+
+</body>
+
+</html>
