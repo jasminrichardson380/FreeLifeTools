@@ -9,7 +9,7 @@
 
   <meta
     name="description"
-    content="Use the free FreeLifeTools Resume Helper to create a professional summary and resume bullet-point starting points, plus practical resume writing guidance."
+    content="Use the free FreeLifeTools Resume Helper to create professional resume summary and experience bullet-point starting points, plus practical resume writing guidance."
   >
 
   <meta name="robots" content="index,follow">
@@ -34,10 +34,16 @@
     content="https://elaborate-maamoul-1fad9f.netlify.app/resume.html"
   >
 
+  <meta property="og:type" content="website">
+
   <style>
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -46,4 +52,1247 @@
       background: #f4f6f8;
       color: #17191c;
       line-height: 1.65;
-   
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e2e5e8;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      color: #17191c;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .logo span {
+      color: #3159d5;
+    }
+
+    nav {
+      display: flex;
+      gap: 17px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #60666d;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: #3159d5;
+    }
+
+    .hero {
+      background: linear-gradient(135deg,#0c1934,#3159d5);
+      color: white;
+      padding: 75px 20px;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .hero-label {
+      display: inline-block;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 17px;
+    }
+
+    .hero h1 {
+      margin: 0 0 17px;
+      font-size: 48px;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #e1e7f7;
+      font-size: 18px;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 55px 20px 80px;
+    }
+
+    .intro {
+      max-width: 820px;
+      margin: 0 auto 35px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-size: 31px;
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: #656c76;
+    }
+
+    .helper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e0e4e8;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.05);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 23px;
+    }
+
+    .card p {
+      color: #656c76;
+      font-size: 14px;
+    }
+
+    label {
+      display: block;
+      margin-top: 16px;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d1d6dc;
+      border-radius: 9px;
+      font-size: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: white;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: 3px solid rgba(49,89,213,.12);
+      border-color: #3159d5;
+    }
+
+    button {
+      border: none;
+      background: #3159d5;
+      color: white;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 13px 18px;
+      border-radius: 9px;
+      margin-top: 18px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: .9;
+    }
+
+    .output {
+      display: none;
+      margin-top: 18px;
+      padding: 17px;
+      background: #f1f4fb;
+      border: 1px solid #dde3f4;
+      border-radius: 10px;
+      white-space: pre-wrap;
+      color: #3e4757;
+    }
+
+    .copy-button {
+      display: none;
+      background: #17191c;
+      margin-top: 10px;
+    }
+
+    .section {
+      margin-top: 60px;
+    }
+
+    .section-heading {
+      margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 8px;
+      font-size: 31px;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: #656c76;
+      max-width: 800px;
+    }
+
+    .tips {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .tip {
+      background: white;
+      border: 1px solid #e0e4e8;
+      border-radius: 15px;
+      padding: 23px;
+    }
+
+    .tip h3 {
+      margin-top: 0;
+    }
+
+    .tip p {
+      color: #656c76;
+      font-size: 14px;
+    }
+
+    .guide {
+      background: white;
+      border: 1px solid #e0e4e8;
+      border-radius: 18px;
+      padding: 32px;
+    }
+
+    .guide h2 {
+      margin-top: 0;
+    }
+
+    .guide h3 {
+      margin-top: 27px;
+      margin-bottom: 7px;
+    }
+
+    .guide p {
+      color: #656c76;
+      margin-top: 0;
+    }
+
+    .example {
+      background: #eef2ff;
+      border-left: 4px solid #3159d5;
+      border-radius: 8px;
+      padding: 18px;
+      margin: 18px 0;
+      color: #46516b;
+    }
+
+    .warning {
+      background: #fff8e7;
+      border: 1px solid #ead9a8;
+      border-radius: 15px;
+      padding: 22px;
+      margin-top: 25px;
+    }
+
+    .warning strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .warning p {
+      color: #675b3c;
+      margin: 0;
+    }
+
+    .faq {
+      background: white;
+      border: 1px solid #e0e4e8;
+      border-radius: 18px;
+      padding: 32px;
+    }
+
+    .faq h2 {
+      margin-top: 0;
+    }
+
+    .faq-item {
+      padding: 18px 0;
+      border-bottom: 1px solid #e0e4e8;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: #656c76;
+    }
+
+    .related {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .related-card {
+      background: white;
+      border: 1px solid #e0e4e8;
+      border-radius: 15px;
+      padding: 22px;
+    }
+
+    .related-card h3 {
+      margin-top: 0;
+    }
+
+    .related-card p {
+      color: #656c76;
+      font-size: 14px;
+    }
+
+    .related-card a {
+      color: #3159d5;
+      font-weight: 800;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #e0e4e8;
+      text-align: center;
+      padding: 40px 20px;
+      color: #656c76;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #17191c;
+      margin: 0 7px;
+      font-weight: 700;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    @media(max-width:800px) {
+
+      .helper {
+        grid-template-columns: 1fr;
+      }
+
+      .tips,
+      .related {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media(max-width:600px) {
+
+      .nav {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .hero {
+        padding: 58px 20px;
+      }
+
+      .hero h1 {
+        font-size: 37px;
+      }
+
+      .card,
+      .guide,
+      .faq {
+        padding: 23px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="nav">
+
+    <a class="logo" href="index.html">
+      FreeLife<span>Tools</span>
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="paycheck.html">Paycheck</a>
+      <a href="budget.html">Budget</a>
+      <a href="rent-calculator.html">Rent</a>
+      <a href="debt.html">Debt</a>
+      <a href="credit-builder.html">Credit</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="pro.html">Pro</a>
+      <a href="login.html">Log in</a>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="hero-inner">
+
+    <div class="hero-label">
+      FREE RESUME TOOL
+    </div>
+
+    <h1>
+      Build Better Resume Starting Points
+    </h1>
+
+    <p>
+      Organize your real skills and work experience into clearer
+      professional summary and resume bullet-point starting points.
+    </p>
+
+  </div>
+
+</section>
+
+
+<main>
+
+  <section class="intro">
+
+    <h2>
+      Free Resume Helper
+    </h2>
+
+    <p>
+      Enter information about your actual experience below.
+      FreeLifeTools will organize it into wording you can review,
+      edit and personalize before adding it to your resume.
+    </p>
+
+  </section>
+
+
+  <section class="helper">
+
+    <div class="card">
+
+      <h2>
+        Professional Summary Helper
+      </h2>
+
+      <p>
+        Create a structured prompt for a professional resume
+        summary based on the information you provide.
+      </p>
+
+      <label for="summaryRole">
+        Target Job or Job Type
+      </label>
+
+      <input
+        id="summaryRole"
+        type="text"
+        placeholder="Example: Customer Service Representative"
+      >
+
+      <label for="summaryExperience">
+        Experience
+      </label>
+
+      <textarea
+        id="summaryExperience"
+        placeholder="Example: 3 years answering customer calls, resolving account issues and documenting customer information."
+      ></textarea>
+
+      <label for="summarySkills">
+        Skills
+      </label>
+
+      <textarea
+        id="summarySkills"
+        placeholder="Example: Customer service, data entry, communication, problem solving"
+      ></textarea>
+
+      <button
+        type="button"
+        onclick="buildSummary()"
+      >
+        Build Summary Prompt
+      </button>
+
+      <div
+        class="output"
+        id="summaryOutput"
+      ></div>
+
+      <button
+        class="copy-button"
+        id="summaryCopy"
+        type="button"
+        onclick="copyText('summaryOutput')"
+      >
+        Copy Result
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>
+        Resume Bullet Helper
+      </h2>
+
+      <p>
+        Turn your own job duties into a structured prompt for
+        professional resume bullet points.
+      </p>
+
+      <label for="jobTitle">
+        Job Title
+      </label>
+
+      <input
+        id="jobTitle"
+        type="text"
+        placeholder="Example: Warehouse Associate"
+      >
+
+      <label for="jobDuties">
+        What Did You Do?
+      </label>
+
+      <textarea
+        id="jobDuties"
+        placeholder="Example: Picked customer orders, packed items, scanned inventory and maintained a clean work area."
+      ></textarea>
+
+      <label for="bulletStyle">
+        Preferred Style
+      </label>
+
+      <select id="bulletStyle">
+        <option value="concise and professional">
+          Concise and Professional
+        </option>
+
+        <option value="achievement-focused">
+          Achievement Focused
+        </option>
+
+        <option value="simple and easy to read">
+          Simple and Easy to Read
+        </option>
+      </select>
+
+      <button
+        type="button"
+        onclick="buildBullets()"
+      >
+        Build Bullet Prompt
+      </button>
+
+      <div
+        class="output"
+        id="bulletOutput"
+      ></div>
+
+      <button
+        class="copy-button"
+        id="bulletCopy"
+        type="button"
+        onclick="copyText('bulletOutput')"
+      >
+        Copy Result
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <div class="warning">
+
+    <strong>
+      Keep your resume accurate.
+    </strong>
+
+    <p>
+      Only include experience, skills, education, certifications,
+      responsibilities and achievements that are true. Review any
+      generated wording before using it on an application.
+    </p>
+
+  </div>
+
+
+  <section class="section">
+
+    <div class="section-heading">
+
+      <h2>
+        Resume Writing Tips
+      </h2>
+
+      <p>
+        A strong resume makes your relevant experience easier for
+        an employer to understand quickly.
+      </p>
+
+    </div>
+
+
+    <div class="tips">
+
+      <div class="tip">
+
+        <h3>
+          Match the Job
+        </h3>
+
+        <p>
+          Read the job description and emphasize truthful skills
+          and experience that are relevant to that position.
+        </p>
+
+      </div>
+
+
+      <div class="tip">
+
+        <h3>
+          Use Clear Language
+        </h3>
+
+        <p>
+          Keep descriptions direct and easy to scan. Avoid adding
+          unnecessary wording that hides your actual experience.
+        </p>
+
+      </div>
+
+
+      <div class="tip">
+
+        <h3>
+          Show Results When Real
+        </h3>
+
+        <p>
+          If you have accurate numbers or measurable results,
+          consider including them. Never invent statistics just
+          to make a resume sound stronger.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section guide">
+
+    <h2>
+      How to Write a Resume
+    </h2>
+
+    <h3>
+      1. Add your contact information
+    </h3>
+
+    <p>
+      Include appropriate contact information so an employer can
+      reach you. Check your phone number and email address for
+      accuracy before submitting applications.
+    </p>
+
+
+    <h3>
+      2. Write a focused professional summary
+    </h3>
+
+    <p>
+      A professional summary can briefly explain your relevant
+      experience, strengths and the type of work you are prepared
+      to do.
+    </p>
+
+    <div class="example">
+
+      <strong>Example structure:</strong>
+
+      <p>
+        Customer service professional with experience assisting
+        customers, documenting account information and resolving
+        routine service concerns. Skilled in communication,
+        organization and working in fast-paced environments.
+      </p>
+
+    </div>
+
+
+    <h3>
+      3. Describe your work experience
+    </h3>
+
+    <p>
+      List relevant jobs and explain your responsibilities using
+      clear action-oriented language. Focus on what you actually
+      did rather than vague descriptions.
+    </p>
+
+
+    <h3>
+      4. Add relevant skills
+    </h3>
+
+    <p>
+      Include skills that accurately reflect your abilities and
+      are useful for the positions you are applying for.
+    </p>
+
+
+    <h3>
+      5. Add education and certifications
+    </h3>
+
+    <p>
+      Include relevant education, training, licenses or
+      certifications. Follow the employer's instructions when a
+      position requires specific credentials.
+    </p>
+
+
+    <h3>
+      6. Proofread before applying
+    </h3>
+
+    <p>
+      Check spelling, grammar, dates, job titles and contact
+      information. Make sure the final resume accurately reflects
+      your background.
+    </p>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="section-heading">
+
+      <h2>
+        Before You Submit Your Resume
+      </h2>
+
+      <p>
+        A short final review can help catch mistakes before an
+        employer receives your application.
+      </p>
+
+    </div>
+
+
+    <div class="tips">
+
+      <div class="tip">
+
+        <h3>
+          Check Contact Details
+        </h3>
+
+        <p>
+          Make sure your phone number and email address are current
+          and typed correctly.
+        </p>
+
+      </div>
+
+
+      <div class="tip">
+
+        <h3>
+          Review the Job Posting
+        </h3>
+
+        <p>
+          Confirm that your resume highlights the experience and
+          skills you actually have that relate to the position.
+        </p>
+
+      </div>
+
+
+      <div class="tip">
+
+        <h3>
+          Save a Clean Copy
+        </h3>
+
+        <p>
+          Keep a copy of the version you submitted so you know what
+          the employer received if you are contacted for an
+          interview.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section faq">
+
+    <h2>
+      Resume Helper FAQ
+    </h2>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Is the FreeLifeTools Resume Helper free?
+      </strong>
+
+      <p>
+        Yes. You can use the resume tools on this page without
+        purchasing a FreeLifeTools Pro subscription.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Does this tool automatically submit job applications?
+      </strong>
+
+      <p>
+        No. It helps organize resume wording and prompts. You remain
+        responsible for reviewing your resume and submitting your
+        applications.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Does this tool contact an AI service?
+      </strong>
+
+      <p>
+        No. The browser-based helper on this page organizes the
+        information you enter into structured prompts. It does not
+        independently send your information to an external AI
+        service.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Should I use the exact same resume for every job?
+      </strong>
+
+      <p>
+        You can keep a main resume, but it may help to adjust the
+        emphasis for different positions so the most relevant
+        truthful experience is easier to find.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Can I put skills on my resume that I am still learning?
+      </strong>
+
+      <p>
+        Make sure your wording accurately represents your current
+        level of experience. Avoid presenting a developing skill as
+        advanced expertise if that is not accurate.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="section-heading">
+
+      <h2>
+        Related FreeLifeTools
+      </h2>
+
+    </div>
+
+
+    <div class="related">
+
+      <div class="related-card">
+
+        <h3>
+          Job Search Tools
+        </h3>
+
+        <p>
+          Organize your job search and review practical application
+          guidance.
+        </p>
+
+        <a href="jobs.html">
+          Explore Jobs →
+        </a>
+
+      </div>
+
+
+      <div class="related-card">
+
+        <h3>
+          Interview Preparation
+        </h3>
+
+        <p>
+          Practice common interview questions and prepare examples
+          from your real experience.
+        </p>
+
+        <a href="interview.html">
+          Practice Interviews →
+        </a>
+
+      </div>
+
+
+      <div class="related-card">
+
+        <h3>
+          Paycheck Calculator
+        </h3>
+
+        <p>
+          Estimate gross earnings when comparing hourly pay rates.
+        </p>
+
+        <a href="paycheck.html">
+          Calculate Pay →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <p>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </p>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>
+    © 2026 FreeLifeTools
+  </p>
+
+</footer>
+
+
+<script>
+
+  function showResult(outputId, copyId, text) {
+
+    const output =
+      document.getElementById(outputId);
+
+    const copy =
+      document.getElementById(copyId);
+
+    output.textContent = text;
+
+    output.style.display =
+      "block";
+
+    copy.style.display =
+      "inline-block";
+
+  }
+
+
+  function buildSummary() {
+
+    const role =
+      document.getElementById("summaryRole")
+        .value
+        .trim();
+
+    const experience =
+      document.getElementById("summaryExperience")
+        .value
+        .trim();
+
+    const skills =
+      document.getElementById("summarySkills")
+        .value
+        .trim();
+
+
+    if (!experience && !skills) {
+
+      alert(
+        "Please enter your experience or skills."
+      );
+
+      return;
+
+    }
+
+
+    let result =
+      "Write a concise professional resume summary";
+
+
+    if (role) {
+
+      result +=
+        " for a " +
+        role +
+        " position";
+
+    }
+
+
+    result +=
+      ". Use only the information I provide below.\n\n";
+
+
+    if (experience) {
+
+      result +=
+        "Experience:\n" +
+        experience +
+        "\n\n";
+
+    }
+
+
+    if (skills) {
+
+      result +=
+        "Skills:\n" +
+        skills +
+        "\n\n";
+
+    }
+
+
+    result +=
+      "Keep the summary professional, clear and easy to scan. Do not invent experience, education, certifications, achievements, numbers or skills that I did not provide.";
+
+
+    showResult(
+      "summaryOutput",
+      "summaryCopy",
+      result
+    );
+
+  }
+
+
+  function buildBullets() {
+
+    const title =
+      document.getElementById("jobTitle")
+        .value
+        .trim();
+
+    const duties =
+      document.getElementById("jobDuties")
+        .value
+        .trim();
+
+    const style =
+      document.getElementById("bulletStyle")
+        .value;
+
+
+    if (!duties) {
+
+      alert(
+        "Please describe what you did at the job."
+      );
+
+      return;
+
+    }
+
+
+    let result =
+      "Create 4 professional resume bullet points";
+
+
+    if (title) {
+
+      result +=
+        " for my experience as " +
+        title;
+
+    }
+
+
+    result +=
+      ".\n\nMy actual responsibilities:\n" +
+      duties +
+      "\n\nMake the bullet points " +
+      style +
+      ". Begin each bullet with a strong action verb when appropriate. Do not invent responsibilities, numbers, achievements, equipment, certifications or skills that I did not provide.";
+
+
+    showResult(
+      "bulletOutput",
+      "bulletCopy",
+      result
+    );
+
+  }
+
+
+  function copyText(outputId) {
+
+    const text =
+      document.getElementById(outputId)
+        .textContent;
+
+
+    if (!text) {
+
+      return;
+
+    }
+
+
+    if (
+      navigator.clipboard &&
+      navigator.clipboard.writeText
+    ) {
+
+      navigator.clipboard
+        .writeText(text)
+        .then(function() {
+
+          alert("Copied.");
+
+        })
+        .catch(function() {
+
+          fallbackCopy(text);
+
+        });
+
+    } else {
+
+      fallbackCopy(text);
+
+    }
+
+  }
+
+
+  function fallbackCopy(text) {
+
+    const area =
+      document.createElement("textarea");
+
+    area.value =
+      text;
+
+    document.body.appendChild(area);
+
+    area.select();
+
+    document.execCommand("copy");
+
+    document.body.removeChild(area);
+
+    alert("Copied.");
+
+  }
+
+</script>
+
+</body>
+  </html>
