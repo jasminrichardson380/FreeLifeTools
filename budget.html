@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Free Monthly Budget Calculator & Planner | FreeLifeTools</title>
 
-  <meta name="description" content="Use this free monthly budget calculator to compare take-home income with expenses, see what is left each month and build a simple spending plan.">
+  <meta
+    name="description"
+    content="Use this free monthly budget calculator to compare take-home income with expenses, see what is left each month and build a simple spending plan."
+  >
 
-  <link rel="canonical" href="https://elaborate-maamoul-1fad9f.netlify.app/budget.html">
+  <meta name="robots" content="index,follow">
+
+  <link
+    rel="canonical"
+    href="https://elaborate-maamoul-1fad9f.netlify.app/budget.html"
+  >
 
   <meta property="og:title" content="Free Monthly Budget Calculator | FreeLifeTools">
-  <meta property="og:description" content="Build a simple monthly budget and compare your income with your regular expenses.">
-  <meta property="og:url" content="https://elaborate-maamoul-1fad9f.netlify.app/budget.html">
+
+  <meta
+    property="og:description"
+    content="Build a simple monthly budget and compare your income with your regular expenses."
+  >
+
+  <meta
+    property="og:url"
+    content="https://elaborate-maamoul-1fad9f.netlify.app/budget.html"
+  >
+
+  <meta property="og:type" content="website">
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -33,4 +53,994 @@
     }
 
     .nav {
-      max-width: 
+      max-width: 1050px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      color: #12241d;
+      text-decoration: none;
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+    nav {
+      display: flex;
+      gap: 17px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #56675f;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: #16845b;
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 50px 20px 75px;
+    }
+
+    .hero {
+      max-width: 760px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e3f5ed;
+      color: #137653;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 46px;
+      line-height: 1.08;
+    }
+
+    .hero p {
+      color: #63726b;
+      font-size: 18px;
+    }
+
+    .calculator,
+    .content-box {
+      background: #ffffff;
+      border: 1px solid #dfe9e4;
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 26px rgba(20, 60, 45, .05);
+    }
+
+    .calculator h2,
+    .content-box h2 {
+      margin-top: 0;
+    }
+
+    .content-box h3 {
+      margin-top: 24px;
+      margin-bottom: 7px;
+    }
+
+    .content-box p,
+    .content-box li {
+      color: #596861;
+    }
+
+    .section-title {
+      margin-top: 28px;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #dfe9e4;
+      font-size: 19px;
+    }
+
+    .fields {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 17px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 7px;
+      padding: 14px;
+      border: 1px solid #cad8d1;
+      border-radius: 10px;
+      background: white;
+      font-size: 15px;
+    }
+
+    input:focus {
+      outline: 3px solid rgba(22,132,91,.12);
+      border-color: #16845b;
+    }
+
+    .button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 25px;
+      background: #16845b;
+      color: white;
+      font-size: 16px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      opacity: .92;
+    }
+
+    #results {
+      display: none;
+      margin-top: 28px;
+      background: #eef8f3;
+      border-radius: 14px;
+      padding: 23px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 11px 0;
+      border-bottom: 1px solid #d5e9df;
+    }
+
+    .result-row:last-child {
+      border-bottom: none;
+    }
+
+    .big-result {
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    .status {
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    .positive {
+      background: #dcf7e9;
+      color: #126440;
+    }
+
+    .negative {
+      background: #fff0f0;
+      color: #a62b2b;
+    }
+
+    .balanced {
+      background: #fff8df;
+      color: #745d13;
+    }
+
+    .example {
+      margin: 20px 0;
+      padding: 18px;
+      background: #eef8f3;
+      border-left: 4px solid #16845b;
+      border-radius: 8px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .related-card {
+      border: 1px solid #dfe9e4;
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .related-card h3 {
+      margin-top: 0;
+    }
+
+    .related-card p {
+      font-size: 14px;
+    }
+
+    .related-card a {
+      color: #137653;
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .faq-item {
+      padding: 17px 0;
+      border-bottom: 1px solid #dfe9e4;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    footer {
+      background: #12241d;
+      color: #dce9e3;
+      text-align: center;
+      padding: 38px 20px;
+      font-size: 14px;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 7px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width: 700px) {
+
+      .nav {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .fields,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .result-row {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .calculator,
+      .content-box {
+        padding: 22px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="nav">
+
+    <a class="logo" href="index.html">
+      FreeLifeTools
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="paycheck.html">Paycheck</a>
+      <a href="budget.html">Budget</a>
+      <a href="rent-calculator.html">Rent</a>
+      <a href="debt.html">Debt</a>
+      <a href="credit-builder.html">Credit</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="pro.html">Pro</a>
+      <a data-auth-link href="login.html">Log in</a>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section class="hero">
+
+    <span class="tag">
+      FREE BUDGET TOOL
+    </span>
+
+    <h1>
+      Monthly Budget Calculator
+    </h1>
+
+    <p>
+      Enter your monthly take-home income and regular expenses to see
+      how much money may be left after your bills each month.
+    </p>
+
+  </section>
+
+
+  <section class="calculator">
+
+    <h2>Build Your Monthly Budget</h2>
+
+    <p>
+      Enter your estimated monthly take-home income and expenses.
+      Leave an expense at zero if it does not apply to you.
+    </p>
+
+
+    <h3 class="section-title">
+      Monthly Income
+    </h3>
+
+    <div class="fields">
+
+      <label>
+        Take-home income ($)
+        <input
+          type="number"
+          id="income"
+          placeholder="Example: 3200"
+          min="0"
+          step="0.01"
+          inputmode="decimal"
+        >
+      </label>
+
+      <label>
+        Other monthly income ($)
+        <input
+          type="number"
+          id="otherIncome"
+          placeholder="Example: 200"
+          min="0"
+          step="0.01"
+          inputmode="decimal"
+        >
+      </label>
+
+    </div>
+
+
+    <h3 class="section-title">
+      Housing & Bills
+    </h3>
+
+    <div class="fields">
+
+      <label>
+        Rent or mortgage ($)
+        <input type="number" id="housing" min="0" step="0.01" value="0">
+      </label>
+
+      <label>
+        Utilities ($)
+        <input type="number" id="utilities" min="0" step="0.01" value="0">
+      </label>
+
+      <label>
+        Phone & internet ($)
+        <input type="number" id="phone" min="0" step="0.01" value="0">
+      </label>
+
+      <label>
+        Insurance ($)
+        <input type="number" id="insurance" min="0" step="0.01" value="0">
+      </label>
+
+    </div>
+
+
+    <h3 class="section-title">
+      Everyday Expenses
+    </h3>
+
+    <div class="fields">
+
+      <label>
+        Groceries ($)
+        <input type="number" id="groceries" min="0" step="0.01" value="0">
+      </label>
+
+      <label>
+        Transportation ($)
+        <input type="number" id="transportation" min="0" step="0.01" value="0">
+      </label>
+
+      <label>
+        Childcare ($)
+        <input type="number" id="childcare" min="0" step="0.01" value="0">
+      </label>
+
+      <label>
+        Personal spending ($)
+        <input type="number" id="personal" min="0" step="0.01" value="0">
+      </label>
+
+    </div>
+
+
+    <h3 class="section-title">
+      Debt & Savings
+    </h3>
+
+    <div class="fields">
+
+      <label>
+        Debt payments ($)
+        <input type="number" id="debt" min="0" step="0.01" value="0">
+      </label>
+
+      <label>
+        Savings ($)
+        <input type="number" id="savings" min="0" step="0.01" value="0">
+      </label>
+
+      <label>
+        Subscriptions ($)
+        <input type="number" id="subscriptions" min="0" step="0.01" value="0">
+      </label>
+
+      <label>
+        Other expenses ($)
+        <input type="number" id="otherExpenses" min="0" step="0.01" value="0">
+      </label>
+
+    </div>
+
+
+    <button
+      class="button"
+      type="button"
+      onclick="calculateBudget()"
+    >
+      Calculate My Budget
+    </button>
+
+
+    <div id="results">
+
+      <h2>Your Monthly Budget</h2>
+
+      <div class="result-row">
+        <span>Total monthly income</span>
+        <strong id="totalIncome">$0.00</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Total monthly expenses</span>
+        <strong id="totalExpenses">$0.00</strong>
+      </div>
+
+      <div class="result-row big-result">
+        <span>Money left after expenses</span>
+        <strong id="moneyLeft">$0.00</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Expenses as % of income</span>
+        <strong id="expensePercent">0%</strong>
+      </div>
+
+      <div id="budgetStatus" class="status"></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>How to Use the Monthly Budget Calculator</h2>
+
+    <p>
+      Start with the amount of money you normally receive after payroll
+      deductions. Then enter your regular monthly expenses.
+    </p>
+
+    <p>
+      The calculator adds your expenses together and subtracts them from
+      your income so you can quickly see whether your current plan leaves
+      money available at the end of the month.
+    </p>
+
+    <div class="example">
+
+      <strong>Example monthly budget</strong>
+
+      <p>Take-home income: $3,200</p>
+      <p>Total expenses: $2,650</p>
+      <p>Money remaining: $550</p>
+
+      <p>
+        The remaining amount could be used for additional savings,
+        debt payments, irregular expenses or other financial goals.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>What Should You Include in a Monthly Budget?</h2>
+
+    <h3>Housing</h3>
+
+    <p>
+      Include rent or mortgage payments along with utilities and other
+      recurring housing expenses.
+    </p>
+
+    <h3>Food</h3>
+
+    <p>
+      Include groceries as well as any regular restaurant or takeout
+      spending you want to account for.
+    </p>
+
+    <h3>Transportation</h3>
+
+    <p>
+      Transportation may include a vehicle payment, gas, insurance,
+      public transportation, rideshare costs or other commuting expenses.
+    </p>
+
+    <h3>Debt payments</h3>
+
+    <p>
+      Include credit cards, personal loans and other regular debt
+      payments in your monthly plan.
+    </p>
+
+    <h3>Savings</h3>
+
+    <p>
+      Savings can be treated like another planned monthly expense.
+      Setting aside a specific amount can make it easier to work toward
+      emergency savings or other financial goals.
+    </p>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>What If Your Expenses Are Higher Than Your Income?</h2>
+
+    <p>
+      If the calculator shows a negative amount, your planned expenses
+      are higher than the income entered. That can be a useful signal
+      to review the numbers more closely.
+    </p>
+
+    <p>
+      Start by checking whether every amount is accurate. Then separate
+      expenses that are required from expenses that may be adjustable.
+      Even small changes across several categories can affect the final
+      monthly total.
+    </p>
+
+    <p>
+      If debt payments are taking up a large part of your budget, you
+      can also use the FreeLifeTools debt payoff calculator to explore
+      different payment amounts and timelines.
+    </p>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>Continue Planning Your Money</h2>
+
+    <div class="related-grid">
+
+      <div class="related-card">
+        <h3>Paycheck Calculator</h3>
+
+        <p>
+          Estimate weekly, biweekly and monthly gross income.
+        </p>
+
+        <a href="paycheck.html">
+          Calculate pay →
+        </a>
+      </div>
+
+
+      <div class="related-card">
+        <h3>Rent Calculator</h3>
+
+        <p>
+          Estimate a monthly rent amount using your income.
+        </p>
+
+        <a href="rent-calculator.html">
+          Estimate rent →
+        </a>
+      </div>
+
+
+      <div class="related-card">
+        <h3>Debt Payoff</h3>
+
+        <p>
+          Estimate how long it may take to pay down debt.
+        </p>
+
+        <a href="debt.html">
+          Plan debt payoff →
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>Monthly Budget FAQ</h2>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Is this budget calculator free?
+      </strong>
+
+      <p>
+        Yes. You can use this monthly budget calculator for free.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Should I enter gross income or take-home income?
+      </strong>
+
+      <p>
+        For a spending budget, take-home income is often more useful
+        because it represents the money available after payroll
+        deductions.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        What if my income changes each month?
+      </strong>
+
+      <p>
+        You can use a conservative estimate based on a lower-income
+        month or recalculate the budget whenever your expected income
+        changes.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Should savings be included as an expense?
+      </strong>
+
+      <p>
+        You can include planned savings as part of your monthly budget.
+        This helps show how much money remains after both expenses and
+        the amount you want to save.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Does FreeLifeTools save my budget information?
+      </strong>
+
+      <p>
+        This calculator performs the calculation in your browser.
+        Avoid entering sensitive account numbers, passwords or other
+        private financial information into online calculators.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>Important Information</h2>
+
+    <p>
+      FreeLifeTools provides educational calculators and general
+      planning information. Results are estimates and are not financial,
+      tax, legal or credit advice.
+    </p>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <p>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+  </p>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>
+    © 2026 FreeLifeTools
+  </p>
+
+</footer>
+
+
+<script>
+
+  function getNumber(id) {
+
+    const value =
+      parseFloat(document.getElementById(id).value);
+
+    if (isNaN(value) || value < 0) {
+      return 0;
+    }
+
+    return value;
+
+  }
+
+
+  function formatMoney(amount) {
+
+    return amount.toLocaleString(
+      "en-US",
+      {
+        style: "currency",
+        currency: "USD"
+      }
+    );
+
+  }
+
+
+  function calculateBudget() {
+
+    const income =
+      getNumber("income");
+
+    const otherIncome =
+      getNumber("otherIncome");
+
+    const totalIncome =
+      income + otherIncome;
+
+
+    const expenseIds = [
+      "housing",
+      "utilities",
+      "phone",
+      "insurance",
+      "groceries",
+      "transportation",
+      "childcare",
+      "personal",
+      "debt",
+      "savings",
+      "subscriptions",
+      "otherExpenses"
+    ];
+
+
+    let totalExpenses = 0;
+
+
+    expenseIds.forEach(function(id) {
+
+      totalExpenses += getNumber(id);
+
+    });
+
+
+    const remaining =
+      totalIncome - totalExpenses;
+
+
+    let expensePercent = 0;
+
+    if (totalIncome > 0) {
+
+      expensePercent =
+        (totalExpenses / totalIncome) * 100;
+
+    }
+
+
+    document.getElementById(
+      "totalIncome"
+    ).textContent =
+      formatMoney(totalIncome);
+
+
+    document.getElementById(
+      "totalExpenses"
+    ).textContent =
+      formatMoney(totalExpenses);
+
+
+    document.getElementById(
+      "moneyLeft"
+    ).textContent =
+      formatMoney(remaining);
+
+
+    document.getElementById(
+      "expensePercent"
+    ).textContent =
+      expensePercent.toFixed(1) + "%";
+
+
+    const status =
+      document.getElementById("budgetStatus");
+
+
+    status.className = "status";
+
+
+    if (totalIncome <= 0) {
+
+      status.textContent =
+        "Enter your monthly income to calculate your budget.";
+
+      status.classList.add("balanced");
+
+    }
+
+    else if (remaining > 0) {
+
+      status.textContent =
+        "Your entered income is higher than your planned expenses by " +
+        formatMoney(remaining) +
+        ".";
+
+      status.classList.add("positive");
+
+    }
+
+    else if (remaining < 0) {
+
+      status.textContent =
+        "Your entered expenses are higher than your income by " +
+        formatMoney(Math.abs(remaining)) +
+        ". Review your expense categories to see where adjustments may be possible.";
+
+      status.classList.add("negative");
+
+    }
+
+    else {
+
+      status.textContent =
+        "Your entered income and expenses are equal.";
+
+      status.classList.add("balanced");
+
+    }
+
+
+    document.getElementById(
+      "results"
+    ).style.display = "block";
+
+  }
+
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+      const inputs =
+        document.querySelectorAll("input");
+
+
+      inputs.forEach(function(input) {
+
+        input.addEventListener(
+          "keydown",
+          function(event) {
+
+            if (event.key === "Enter") {
+              calculateBudget();
+            }
+
+          }
+        );
+
+      });
+
+
+      const authLinks =
+        document.querySelectorAll(
+          "[data-auth-link]"
+        );
+
+
+      authLinks.forEach(function(link) {
+
+        link.setAttribute(
+          "href",
+          "login.html"
+        );
+
+      });
+
+    }
+  );
+
+</script>
+
+</body>
+
+  </html>
