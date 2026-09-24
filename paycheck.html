@@ -19,10 +19,7 @@
     href="https://elaborate-maamoul-1fad9f.netlify.app/paycheck.html"
   >
 
-  <meta
-    property="og:title"
-    content="Free Paycheck Calculator | FreeLifeTools"
-  >
+  <meta property="og:title" content="Free Paycheck Calculator | FreeLifeTools">
 
   <meta
     property="og:description"
@@ -33,6 +30,8 @@
     property="og:url"
     content="https://elaborate-maamoul-1fad9f.netlify.app/paycheck.html"
   >
+
+  <meta property="og:type" content="website">
 
   <style>
 
@@ -57,7 +56,6 @@
       max-width: 1050px;
       margin: auto;
       padding: 18px 20px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -143,7 +141,8 @@
       margin-bottom: 7px;
     }
 
-    .content-box p {
+    .content-box p,
+    .content-box li {
       color: #525d70;
     }
 
@@ -164,10 +163,8 @@
       width: 100%;
       margin-top: 8px;
       padding: 14px;
-
       border: 1px solid #cfd6e5;
       border-radius: 10px;
-
       font-size: 15px;
       background: white;
     }
@@ -182,13 +179,10 @@
       width: 100%;
       border: none;
       border-radius: 10px;
-
       padding: 16px;
       margin-top: 24px;
-
       background: #3159d5;
       color: white;
-
       font-size: 16px;
       font-weight: 800;
       cursor: pointer;
@@ -202,7 +196,6 @@
       display: none;
       margin-top: 28px;
       padding: 24px;
-
       background: #f4f7ff;
       border-radius: 14px;
     }
@@ -211,7 +204,6 @@
       display: flex;
       justify-content: space-between;
       gap: 15px;
-
       padding: 12px 0;
       border-bottom: 1px solid #dde4f2;
     }
@@ -227,11 +219,9 @@
     .note {
       margin-top: 18px;
       padding: 15px;
-
       background: #fff8e8;
       border: 1px solid #ead9a8;
       border-radius: 10px;
-
       color: #5d5134;
       font-size: 14px;
     }
@@ -288,10 +278,8 @@
     footer {
       background: white;
       border-top: 1px solid #e0e5ef;
-
       text-align: center;
       padding: 38px 20px;
-
       color: #647087;
       font-size: 14px;
     }
@@ -300,6 +288,10 @@
       color: #525d70;
       text-decoration: none;
       margin: 0 5px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
 
     @media(max-width:700px) {
@@ -337,6 +329,11 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="money.html">Money</a>
+      <a href="paycheck.html">Paycheck</a>
+      <a href="budget.html">Budget</a>
+      <a href="rent-calculator.html">Rent</a>
+      <a href="debt.html">Debt</a>
+      <a href="credit-builder.html">Credit</a>
       <a href="jobs.html">Jobs</a>
       <a href="ai.html">AI</a>
       <a href="life.html">Life</a>
@@ -347,7 +344,6 @@
   </div>
 
 </header>
-
 
 <main>
 
@@ -363,4 +359,446 @@
 
     <p>
       Enter your hourly wage and average weekly work hours to estimate
-      your gross weekly, biweekly, twice-monthly
+      your gross weekly, biweekly, twice-monthly, monthly and annual pay.
+    </p>
+
+  </section>
+
+
+  <section class="calculator">
+
+    <h2>Calculate Your Pay</h2>
+
+    <p>
+      Enter your hourly pay rate and the number of hours you normally
+      work each week.
+    </p>
+
+    <div class="fields">
+
+      <label>
+        Hourly wage ($)
+        <input
+          type="number"
+          id="hourlyRate"
+          placeholder="Example: 19"
+          min="0"
+          step="0.01"
+          inputmode="decimal"
+        >
+      </label>
+
+      <label>
+        Hours worked per week
+        <input
+          type="number"
+          id="hoursPerWeek"
+          placeholder="Example: 40"
+          min="0"
+          step="0.01"
+          inputmode="decimal"
+        >
+      </label>
+
+    </div>
+
+    <button class="button" type="button" onclick="calculatePay()">
+      Calculate Pay
+    </button>
+
+
+    <div id="results">
+
+      <h2>Your Estimated Gross Pay</h2>
+
+      <div class="result-row">
+        <span>Weekly</span>
+        <strong id="weeklyPay">$0.00</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Biweekly</span>
+        <strong id="biweeklyPay">$0.00</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Twice Monthly</span>
+        <strong id="semiMonthlyPay">$0.00</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Monthly Average</span>
+        <strong id="monthlyPay">$0.00</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Annual</span>
+        <strong id="annualPay">$0.00</strong>
+      </div>
+
+      <div class="note">
+        These estimates show gross pay before federal taxes, state taxes,
+        insurance, retirement contributions and other payroll deductions.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>How the Paycheck Calculator Works</h2>
+
+    <p>
+      The calculator starts with your hourly wage and the number of hours
+      you work during an average week. It multiplies those numbers to
+      estimate your weekly gross income.
+    </p>
+
+    <p>
+      That weekly amount is then used to estimate your biweekly,
+      twice-monthly, monthly and annual earnings.
+    </p>
+
+    <div class="example">
+
+      <strong>Example</strong>
+
+      <p>
+        If you earn $19 per hour and work 40 hours per week:
+      </p>
+
+      <p>
+        $19 × 40 hours = $760 gross pay per week.
+      </p>
+
+      <p>
+        A standard biweekly estimate would be $1,520 before taxes
+        and other deductions.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>Weekly vs. Biweekly vs. Twice-Monthly Pay</h2>
+
+    <h3>Weekly pay</h3>
+
+    <p>
+      Weekly employees are generally paid once each week. A full year
+      normally contains 52 weekly pay periods.
+    </p>
+
+    <h3>Biweekly pay</h3>
+
+    <p>
+      Biweekly employees are generally paid every two weeks. This usually
+      results in 26 paychecks during a full year.
+    </p>
+
+    <h3>Twice-monthly pay</h3>
+
+    <p>
+      Twice-monthly, or semimonthly, employees are normally paid two
+      times each month. That generally results in 24 paychecks per year.
+    </p>
+
+    <p>
+      Biweekly and twice-monthly pay schedules are not the same.
+      A biweekly schedule is based on 26 pay periods per year, while
+      a twice-monthly schedule generally has 24.
+    </p>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>Gross Pay vs. Take-Home Pay</h2>
+
+    <p>
+      Gross pay is the amount you earn before payroll deductions.
+      Take-home pay is the amount that remains after applicable taxes,
+      insurance premiums, retirement contributions and other deductions.
+    </p>
+
+    <p>
+      Because deductions vary from person to person, this calculator
+      estimates gross income rather than promising an exact take-home
+      paycheck amount.
+    </p>
+
+    <h3>Common paycheck deductions may include:</h3>
+
+    <ul>
+      <li>Federal income tax withholding</li>
+      <li>Social Security tax</li>
+      <li>Medicare tax</li>
+      <li>State or local income taxes where applicable</li>
+      <li>Health insurance premiums</li>
+      <li>Retirement plan contributions</li>
+      <li>Other voluntary or required deductions</li>
+    </ul>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>Use Your Pay Estimate to Build a Budget</h2>
+
+    <p>
+      Knowing approximately how much you earn can make it easier to plan
+      housing, transportation, groceries, debt payments and savings.
+    </p>
+
+    <p>
+      After calculating your income, use the other FreeLifeTools money
+      calculators to continue planning.
+    </p>
+
+    <div class="related-grid">
+
+      <div class="related-card">
+        <h3>Monthly Budget</h3>
+        <p>
+          Compare your monthly income with your regular expenses.
+        </p>
+        <a href="budget.html">Build a budget →</a>
+      </div>
+
+      <div class="related-card">
+        <h3>Rent Calculator</h3>
+        <p>
+          Estimate a rent amount based on your income and expenses.
+        </p>
+        <a href="rent-calculator.html">Estimate rent →</a>
+      </div>
+
+      <div class="related-card">
+        <h3>Debt Payoff</h3>
+        <p>
+          Estimate how long it may take to pay down a debt balance.
+        </p>
+        <a href="debt.html">Plan debt payoff →</a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>Paycheck Calculator FAQ</h2>
+
+    <div class="faq-item">
+
+      <strong>
+        Is this paycheck calculator free?
+      </strong>
+
+      <p>
+        Yes. You can use the FreeLifeTools paycheck calculator without
+        paying to calculate your estimated gross income.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Does this calculator include taxes?
+      </strong>
+
+      <p>
+        No. The calculator estimates gross pay before taxes and payroll
+        deductions.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        How many biweekly paychecks are there in a year?
+      </strong>
+
+      <p>
+        A standard biweekly pay schedule generally produces 26 paychecks
+        during a full year.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Why is monthly pay different from four weekly paychecks?
+      </strong>
+
+      <p>
+        A year has 52 weeks. Dividing 52 weeks by 12 months gives an
+        average of about 4.33 weeks per month, so an average monthly
+        estimate is usually higher than simply multiplying weekly pay
+        by four.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Are the results guaranteed to match my paycheck?
+      </strong>
+
+      <p>
+        No. The results are estimates for educational and planning
+        purposes. Your actual paycheck can vary because of overtime,
+        unpaid time, taxes, benefits and other payroll deductions.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>Important Information</h2>
+
+    <p>
+      FreeLifeTools provides educational calculators and general
+      planning information. Calculator results are estimates and are
+      not financial, tax, legal or employment advice.
+    </p>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <p>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+  </p>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>
+    © 2026 FreeLifeTools
+  </p>
+
+</footer>
+
+
+<script>
+
+  function formatMoney(amount) {
+    return amount.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD"
+    });
+  }
+
+
+  function calculatePay() {
+
+    const hourlyRate =
+      parseFloat(document.getElementById("hourlyRate").value);
+
+    const hoursPerWeek =
+      parseFloat(document.getElementById("hoursPerWeek").value);
+
+
+    if (
+      isNaN(hourlyRate) ||
+      isNaN(hoursPerWeek) ||
+      hourlyRate < 0 ||
+      hoursPerWeek < 0
+    ) {
+
+      alert("Please enter a valid hourly wage and weekly work hours.");
+      return;
+
+    }
+
+
+    const weekly = hourlyRate * hoursPerWeek;
+
+    const biweekly = weekly * 2;
+
+    const annual = weekly * 52;
+
+    const monthly = annual / 12;
+
+    const semiMonthly = annual / 24;
+
+
+    document.getElementById("weeklyPay").textContent =
+      formatMoney(weekly);
+
+    document.getElementById("biweeklyPay").textContent =
+      formatMoney(biweekly);
+
+    document.getElementById("semiMonthlyPay").textContent =
+      formatMoney(semiMonthly);
+
+    document.getElementById("monthlyPay").textContent =
+      formatMoney(monthly);
+
+    document.getElementById("annualPay").textContent =
+      formatMoney(annual);
+
+
+    document.getElementById("results").style.display = "block";
+
+  }
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const inputs = document.querySelectorAll(
+      "#hourlyRate, #hoursPerWeek"
+    );
+
+    inputs.forEach(function(input) {
+
+      input.addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+          calculatePay();
+        }
+
+      });
+
+    });
+
+
+    const authLinks =
+      document.querySelectorAll("[data-auth-link]");
+
+    authLinks.forEach(function(link) {
+      link.setAttribute("href", "login.html");
+    });
+
+  });
+
+</script>
+
+</body>
+</html>
