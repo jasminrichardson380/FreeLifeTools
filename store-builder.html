@@ -9,7 +9,7 @@
 
 <meta
   name="description"
-  content="Create a starter online store website with a store name, product cards, prices, about section and customizable design. Download or copy the generated HTML for free."
+  content="Create a starter online store website with a store name, products, prices, about section and customizable design. Preview, copy or download your generated HTML for free."
 >
 
 <meta name="robots" content="index,follow">
@@ -34,6 +34,8 @@
   content="https://elaborate-maamoul-1fad9f.netlify.app/store-builder.html"
 >
 
+<meta property="og:type" content="website">
+
 <style>
 
 *{
@@ -57,7 +59,6 @@ nav{
   max-width:1100px;
   margin:auto;
   padding:18px 20px;
-
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
@@ -70,6 +71,10 @@ nav{
   text-decoration:none;
   font-size:22px;
   font-weight:800;
+}
+
+.logo span{
+  color:#9baeff;
 }
 
 .nav-links{
@@ -116,7 +121,6 @@ nav{
   max-width:850px;
   margin:0 auto 30px;
   padding:18px;
-
   background:#eef1ff;
   border-radius:14px;
   color:#39445d;
@@ -133,6 +137,12 @@ nav{
   margin-top:0;
 }
 
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
 label{
   display:block;
   font-weight:700;
@@ -145,12 +155,11 @@ select,
 textarea{
   width:100%;
   padding:14px;
-
   border:1px solid #ccd3df;
   border-radius:10px;
-
   background:white;
   font-size:16px;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 textarea{
@@ -158,11 +167,17 @@ textarea{
   resize:vertical;
 }
 
+input:focus,
+select:focus,
+textarea:focus{
+  outline:3px solid rgba(91,56,232,.12);
+  border-color:#5b38e8;
+}
+
 button{
   border:0;
   border-radius:12px;
   padding:15px 20px;
-
   font-size:16px;
   font-weight:800;
   cursor:pointer;
@@ -177,6 +192,7 @@ button{
 
 .preview-area{
   display:none;
+  margin-top:35px;
 }
 
 .notice{
@@ -184,16 +200,6 @@ button{
   border-radius:14px;
   padding:18px;
   margin-bottom:20px;
-}
-
-.editor{
-  margin-bottom:25px;
-}
-
-.editor-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
 }
 
 .store{
@@ -205,12 +211,11 @@ button{
 
 .store-nav{
   padding:18px 22px;
-
   display:flex;
   justify-content:space-between;
   align-items:center;
-
   border-bottom:1px solid #eee;
+  gap:15px;
 }
 
 .store-name{
@@ -243,7 +248,6 @@ button{
   display:inline-block;
   margin-top:22px;
   padding:13px 25px;
-
   border-radius:30px;
   text-decoration:none;
   font-weight:800;
@@ -274,11 +278,9 @@ button{
 .product-image{
   height:150px;
   border-radius:12px;
-
   display:flex;
   justify-content:center;
   align-items:center;
-
   font-size:48px;
   margin-bottom:15px;
 }
@@ -296,12 +298,9 @@ button{
 .demo-btn{
   display:inline-block;
   padding:10px 18px;
-
   border-radius:25px;
   text-decoration:none;
   font-weight:700;
-
-  cursor:default;
 }
 
 .about{
@@ -324,26 +323,10 @@ button{
   text-align:center;
 }
 
-.faq{
-  max-width:750px;
-  margin:auto;
-}
-
-.faq-item{
-  padding:17px 0;
-  border-bottom:1px solid #ddd;
-}
-
-.faq-item strong{
-  display:block;
-  margin-bottom:7px;
-}
-
 .actions{
   margin-top:25px;
   background:white;
   padding:25px;
-
   border-radius:20px;
   box-shadow:0 10px 35px rgba(0,0,0,.08);
 }
@@ -362,3 +345,1556 @@ button{
   background:#167a4a;
   color:white;
 }
+
+.copy{
+  background:#172033;
+  color:white;
+}
+
+.reset{
+  width:100%;
+  margin-top:12px;
+  background:#e9edf5;
+  color:#172033;
+}
+
+.guide{
+  margin-top:55px;
+  background:white;
+  border:1px solid #e0e5ef;
+  border-radius:20px;
+  padding:32px;
+}
+
+.guide h2{
+  margin-top:0;
+}
+
+.guide h3{
+  margin-top:28px;
+  margin-bottom:7px;
+}
+
+.guide p{
+  color:#5f697c;
+  margin-top:0;
+}
+
+.faq{
+  margin-top:40px;
+  background:white;
+  border:1px solid #e0e5ef;
+  border-radius:20px;
+  padding:32px;
+}
+
+.faq h2{
+  margin-top:0;
+}
+
+.faq-item{
+  padding:17px 0;
+  border-bottom:1px solid #e0e5ef;
+}
+
+.faq-item:last-child{
+  border-bottom:none;
+}
+
+.faq-item strong{
+  display:block;
+  margin-bottom:6px;
+}
+
+.faq-item p{
+  margin:0;
+  color:#5f697c;
+}
+
+footer{
+  background:white;
+  border-top:1px solid #e0e5ef;
+  text-align:center;
+  padding:40px 20px;
+  color:#657087;
+  font-size:14px;
+}
+
+footer a{
+  color:#172033;
+  text-decoration:none;
+  margin:0 7px;
+  font-weight:700;
+}
+
+footer p{
+  margin:8px 0;
+}
+
+@media(max-width:800px){
+
+  .products,
+  .benefits{
+    grid-template-columns:1fr;
+  }
+
+  .form-grid,
+  .action-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:600px){
+
+  nav{
+    justify-content:center;
+  }
+
+  .logo{
+    width:100%;
+    text-align:center;
+  }
+
+  .nav-links{
+    justify-content:center;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+
+  .card{
+    padding:22px;
+  }
+
+  .store-nav{
+    flex-direction:column;
+    text-align:center;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+<a class="logo" href="index.html">
+FreeLife<span>Tools</span>
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">Home</a>
+<a href="money.html">Money</a>
+<a href="paycheck.html">Paycheck</a>
+<a href="budget.html">Budget</a>
+<a href="rent-calculator.html">Rent</a>
+<a href="debt.html">Debt</a>
+<a href="credit-builder.html">Credit</a>
+<a href="jobs.html">Jobs</a>
+<a href="ai.html">AI</a>
+<a href="life.html">Life</a>
+<a href="pro.html">Pro</a>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<h1>
+Free Online Store Website Builder
+</h1>
+
+<p>
+Create a simple starter storefront for your business idea.
+Add your store name, products and prices, preview the design,
+then copy or download the generated HTML.
+</p>
+
+</section>
+
+
+<main class="container">
+
+<div class="intro-note">
+
+<strong>Important:</strong>
+This builder creates starter website HTML. It does not automatically
+create product inventory, process payments, ship orders or publish
+the store online. You can customize the generated code and connect
+the services you need later.
+
+</div>
+
+
+<section class="card">
+
+<h2>
+Build Your Store
+</h2>
+
+<p>
+Enter your information below. You can use real products or create
+a sample storefront while planning your business.
+</p>
+
+
+<label for="storeName">
+Store Name
+</label>
+
+<input
+  id="storeName"
+  type="text"
+  placeholder="Example: Nexora Devices"
+>
+
+
+<label for="tagline">
+Store Tagline
+</label>
+
+<input
+  id="tagline"
+  type="text"
+  placeholder="Example: Smart technology for everyday life"
+>
+
+
+<label for="aboutText">
+About Your Store
+</label>
+
+<textarea
+  id="aboutText"
+  placeholder="Describe what your store sells and who it serves."
+></textarea>
+
+
+<label for="theme">
+Store Theme
+</label>
+
+<select id="theme">
+
+<option value="blue">
+Modern Blue
+</option>
+
+<option value="purple">
+Creative Purple
+</option>
+
+<option value="green">
+Fresh Green
+</option>
+
+<option value="dark">
+Dark Modern
+</option>
+
+</select>
+
+
+<h3>
+Product 1
+</h3>
+
+<div class="form-grid">
+
+<div>
+
+<label for="product1">
+Product Name
+</label>
+
+<input
+  id="product1"
+  type="text"
+  placeholder="Example: Wireless Headphones"
+>
+
+</div>
+
+<div>
+
+<label for="price1">
+Price
+</label>
+
+<input
+  id="price1"
+  type="text"
+  placeholder="Example: 49.99"
+>
+
+</div>
+
+</div>
+
+
+<h3>
+Product 2
+</h3>
+
+<div class="form-grid">
+
+<div>
+
+<label for="product2">
+Product Name
+</label>
+
+<input
+  id="product2"
+  type="text"
+  placeholder="Example: Laptop Stand"
+>
+
+</div>
+
+<div>
+
+<label for="price2">
+Price
+</label>
+
+<input
+  id="price2"
+  type="text"
+  placeholder="Example: 29.99"
+>
+
+</div>
+
+</div>
+
+
+<h3>
+Product 3
+</h3>
+
+<div class="form-grid">
+
+<div>
+
+<label for="product3">
+Product Name
+</label>
+
+<input
+  id="product3"
+  type="text"
+  placeholder="Example: Portable Charger"
+>
+
+</div>
+
+<div>
+
+<label for="price3">
+Price
+</label>
+
+<input
+  id="price3"
+  type="text"
+  placeholder="Example: 24.99"
+>
+
+</div>
+
+</div>
+
+
+<button
+  class="primary"
+  type="button"
+  onclick="buildStore()"
+>
+Create Store Preview
+</button>
+
+</section>
+
+
+<section
+  class="preview-area"
+  id="previewArea"
+>
+
+<div class="notice">
+
+<strong>Your storefront preview is ready.</strong>
+
+This is a starter design. The Buy buttons in the preview are
+demonstration buttons and do not process real payments.
+
+</div>
+
+
+<div
+  class="store"
+  id="storePreview"
+>
+
+<div class="store-nav">
+
+<div
+  class="store-name"
+  id="previewName"
+>
+My Store
+</div>
+
+<div class="store-links">
+Home &nbsp; Shop &nbsp; About
+</div>
+
+</div>
+
+
+<div
+  class="store-hero"
+  id="previewHero"
+>
+
+<h2 id="previewTitle">
+Welcome to My Store
+</h2>
+
+<p id="previewTagline">
+Quality products for everyday life.
+</p>
+
+<a
+  class="shop-btn"
+  id="previewShopButton"
+  href="#previewProducts"
+>
+Shop Now
+</a>
+
+</div>
+
+
+<section
+  class="section"
+  id="previewProducts"
+>
+
+<h2 class="section-title">
+Featured Products
+</h2>
+
+
+<div class="products">
+
+
+<div class="product">
+
+<div
+  class="product-image"
+  id="productImage1"
+>
+📦
+</div>
+
+<h3 id="previewProduct1">
+Product One
+</h3>
+
+<div
+  class="price"
+  id="previewPrice1"
+>
+$0.00
+</div>
+
+<span
+  class="demo-btn"
+  id="demoButton1"
+>
+Buy Now
+</span>
+
+</div>
+
+
+<div class="product">
+
+<div
+  class="product-image"
+  id="productImage2"
+>
+🛍️
+</div>
+
+<h3 id="previewProduct2">
+Product Two
+</h3>
+
+<div
+  class="price"
+  id="previewPrice2"
+>
+$0.00
+</div>
+
+<span
+  class="demo-btn"
+  id="demoButton2"
+>
+Buy Now
+</span>
+
+</div>
+
+
+<div class="product">
+
+<div
+  class="product-image"
+  id="productImage3"
+>
+✨
+</div>
+
+<h3 id="previewProduct3">
+Product Three
+</h3>
+
+<div
+  class="price"
+  id="previewPrice3"
+>
+$0.00
+</div>
+
+<span
+  class="demo-btn"
+  id="demoButton3"
+>
+Buy Now
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="about">
+
+<h2>
+About Us
+</h2>
+
+<p id="previewAbout">
+
+We're building a simple online store focused on useful products
+and a straightforward shopping experience.
+
+</p>
+
+</div>
+
+
+<div class="benefits">
+
+<div
+  class="benefit"
+  id="benefit1"
+>
+<strong>
+Simple Shopping
+</strong>
+
+<p>
+A clean storefront makes products easier to browse.
+</p>
+
+</div>
+
+
+<div
+  class="benefit"
+  id="benefit2"
+>
+<strong>
+Clear Pricing
+</strong>
+
+<p>
+Display product names and prices in one place.
+</p>
+
+</div>
+
+
+<div
+  class="benefit"
+  id="benefit3"
+>
+<strong>
+Easy to Customize
+</strong>
+
+<p>
+Edit the generated HTML to continue building your site.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<div class="actions">
+
+<h2>
+Use Your Store Code
+</h2>
+
+<p>
+Copy the HTML to edit it elsewhere or download it as an HTML file.
+</p>
+
+<div class="action-grid">
+
+<button
+  class="download"
+  type="button"
+  onclick="downloadStore()"
+>
+Download HTML
+</button>
+
+<button
+  class="copy"
+  type="button"
+  onclick="copyStore()"
+>
+Copy HTML
+</button>
+
+</div>
+
+<button
+  class="reset"
+  type="button"
+  onclick="resetBuilder()"
+>
+Start Over
+</button>
+
+</div>
+
+</section>
+
+
+<section class="guide">
+
+<h2>
+How to Use the Free Store Website Builder
+</h2>
+
+<h3>
+1. Choose a store name
+</h3>
+
+<p>
+Enter the name you want visitors to see at the top of your
+storefront. If you are still planning your business, you can
+use a temporary name and change it later.
+</p>
+
+
+<h3>
+2. Add your products
+</h3>
+
+<p>
+Enter up to three products and their prices. The builder places
+them into simple product cards so you can see how a basic
+storefront could look.
+</p>
+
+
+<h3>
+3. Preview your design
+</h3>
+
+<p>
+Choose a theme and create the preview. You can return to the
+form, change your information and generate the preview again.
+</p>
+
+
+<h3>
+4. Download or copy your HTML
+</h3>
+
+<p>
+When you like the starter design, download the HTML file or
+copy the generated code. You can then customize the file in a
+code editor or add it to your own website project.
+</p>
+
+
+<h3>
+5. Add real store features separately
+</h3>
+
+<p>
+A working ecommerce store normally needs additional services
+for payments, inventory, order management, shipping, taxes,
+security and other business requirements. This builder does
+not automatically provide those services.
+</p>
+
+</section>
+
+
+<section class="faq">
+
+<h2>
+Store Builder FAQ
+</h2>
+
+
+<div class="faq-item">
+
+<strong>
+Is the FreeLifeTools Store Builder free?
+</strong>
+
+<p>
+Yes. You can create a starter storefront preview and copy or
+download the generated HTML without paying for this tool.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<strong>
+Does this automatically publish my store?
+</strong>
+
+<p>
+No. The builder generates starter HTML. You still need a hosting
+service if you want to publish the generated website online.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<strong>
+Can customers actually buy products from the generated page?
+</strong>
+
+<p>
+Not by default. The starter Buy buttons are visual examples.
+You would need to connect an appropriate payment or ecommerce
+system before accepting real orders.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<strong>
+Can I change the generated code?
+</strong>
+
+<p>
+Yes. The generated HTML is designed to be a starting point that
+you can customize.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<strong>
+Do I need coding experience?
+</strong>
+
+<p>
+You do not need coding experience to create the preview.
+Customizing more advanced features may require additional
+technical knowledge or a website-building service.
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<p>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy</a>
+<a href="terms.html">Terms</a>
+</p>
+
+<p>
+Free tools for money, jobs, AI and everyday life.
+</p>
+
+<p>
+© 2026 FreeLifeTools
+</p>
+
+</footer>
+
+
+<script>
+
+let generatedHTML = "";
+
+
+const themes = {
+
+  blue:{
+    primary:"#2458d3",
+    secondary:"#eaf0ff",
+    text:"#172033"
+  },
+
+  purple:{
+    primary:"#6b3ce6",
+    secondary:"#f1ebff",
+    text:"#21172f"
+  },
+
+  green:{
+    primary:"#16845b",
+    secondary:"#e9f7f1",
+    text:"#173128"
+  },
+
+  dark:{
+    primary:"#151821",
+    secondary:"#eceef2",
+    text:"#151821"
+  }
+
+};
+
+
+function cleanText(value, fallback){
+
+  const text =
+    String(value || "").trim();
+
+  return text || fallback;
+
+}
+
+
+function formatPrice(value){
+
+  let price =
+    String(value || "")
+      .trim()
+      .replace("$","");
+
+  const number =
+    Number(price);
+
+  if(
+    price !== "" &&
+    Number.isFinite(number)
+  ){
+
+    return "$" + number.toFixed(2);
+
+  }
+
+  return "$0.00";
+
+}
+
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function buildStore(){
+
+  const name =
+    cleanText(
+      document.getElementById("storeName").value,
+      "My Store"
+    );
+
+  const tagline =
+    cleanText(
+      document.getElementById("tagline").value,
+      "Quality products for everyday life."
+    );
+
+  const about =
+    cleanText(
+      document.getElementById("aboutText").value,
+      "We're building a simple online store focused on useful products and a straightforward shopping experience."
+    );
+
+  const themeName =
+    document.getElementById("theme").value;
+
+  const theme =
+    themes[themeName] || themes.blue;
+
+
+  const product1 =
+    cleanText(
+      document.getElementById("product1").value,
+      "Product One"
+    );
+
+  const product2 =
+    cleanText(
+      document.getElementById("product2").value,
+      "Product Two"
+    );
+
+  const product3 =
+    cleanText(
+      document.getElementById("product3").value,
+      "Product Three"
+    );
+
+
+  const price1 =
+    formatPrice(
+      document.getElementById("price1").value
+    );
+
+  const price2 =
+    formatPrice(
+      document.getElementById("price2").value
+    );
+
+  const price3 =
+    formatPrice(
+      document.getElementById("price3").value
+    );
+
+
+  document.getElementById("previewName").textContent =
+    name;
+
+  document.getElementById("previewTitle").textContent =
+    "Welcome to " + name;
+
+  document.getElementById("previewTagline").textContent =
+    tagline;
+
+  document.getElementById("previewAbout").textContent =
+    about;
+
+  document.getElementById("previewProduct1").textContent =
+    product1;
+
+  document.getElementById("previewProduct2").textContent =
+    product2;
+
+  document.getElementById("previewProduct3").textContent =
+    product3;
+
+  document.getElementById("previewPrice1").textContent =
+    price1;
+
+  document.getElementById("previewPrice2").textContent =
+    price2;
+
+  document.getElementById("previewPrice3").textContent =
+    price3;
+
+
+  const hero =
+    document.getElementById("previewHero");
+
+  hero.style.background =
+    theme.secondary;
+
+  hero.style.color =
+    theme.text;
+
+
+  const shopButton =
+    document.getElementById("previewShopButton");
+
+  shopButton.style.background =
+    theme.primary;
+
+  shopButton.style.color =
+    "white";
+
+
+  [
+    "demoButton1",
+    "demoButton2",
+    "demoButton3"
+  ].forEach(function(id){
+
+    const button =
+      document.getElementById(id);
+
+    button.style.background =
+      theme.primary;
+
+    button.style.color =
+      "white";
+
+  });
+
+
+  [
+    "productImage1",
+    "productImage2",
+    "productImage3",
+    "benefit1",
+    "benefit2",
+    "benefit3"
+  ].forEach(function(id){
+
+    document.getElementById(id).style.background =
+      theme.secondary;
+
+  });
+
+
+  generatedHTML =
+    createDownloadHTML(
+      name,
+      tagline,
+      about,
+      product1,
+      price1,
+      product2,
+      price2,
+      product3,
+      price3,
+      theme
+    );
+
+
+  document.getElementById("previewArea").style.display =
+    "block";
+
+
+  document.getElementById("previewArea")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+function createDownloadHTML(
+  name,
+  tagline,
+  about,
+  product1,
+  price1,
+  product2,
+  price2,
+  product3,
+  price3,
+  theme
+){
+
+  const safeName =
+    escapeHTML(name);
+
+  const safeTagline =
+    escapeHTML(tagline);
+
+  const safeAbout =
+    escapeHTML(about);
+
+  const safeProduct1 =
+    escapeHTML(product1);
+
+  const safeProduct2 =
+    escapeHTML(product2);
+
+  const safeProduct3 =
+    escapeHTML(product3);
+
+  const safePrice1 =
+    escapeHTML(price1);
+
+  const safePrice2 =
+    escapeHTML(price2);
+
+  const safePrice3 =
+    escapeHTML(price3);
+
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>${safeName}</title>
+
+<meta
+  name="description"
+  content="${safeTagline}"
+>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:${theme.text};
+  background:#ffffff;
+  line-height:1.6;
+}
+
+header{
+  padding:20px;
+  border-bottom:1px solid #eeeeee;
+}
+
+nav{
+  max-width:1050px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:900;
+}
+
+.hero{
+  background:${theme.secondary};
+  padding:75px 20px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:45px;
+  margin:0 0 15px;
+}
+
+.hero p{
+  max-width:650px;
+  margin:auto;
+}
+
+.button{
+  display:inline-block;
+  margin-top:22px;
+  padding:13px 24px;
+  border-radius:30px;
+  background:${theme.primary};
+  color:white;
+  text-decoration:none;
+  font-weight:800;
+}
+
+section{
+  max-width:1050px;
+  margin:auto;
+  padding:55px 20px;
+}
+
+h2{
+  text-align:center;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.product{
+  border:1px solid #e1e5ee;
+  border-radius:15px;
+  padding:22px;
+  text-align:center;
+}
+
+.image{
+  height:150px;
+  background:${theme.secondary};
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:45px;
+}
+
+.price{
+  font-size:22px;
+  font-weight:900;
+}
+
+.about{
+  max-width:750px;
+  margin:auto;
+  text-align:center;
+}
+
+footer{
+  text-align:center;
+  padding:35px 20px;
+  background:${theme.secondary};
+}
+
+@media(max-width:700px){
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  nav{
+    flex-direction:column;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">
+${safeName}
+</div>
+
+<div>
+Home &nbsp; Shop &nbsp; About
+</div>
+
+</nav>
+
+</header>
+
+
+<div class="hero">
+
+<h1>
+Welcome to ${safeName}
+</h1>
+
+<p>
+${safeTagline}
+</p>
+
+<a class="button" href="#products">
+Shop Now
+</a>
+
+</div>
+
+
+<section id="products">
+
+<h2>
+Featured Products
+</h2>
+
+<div class="products">
+
+<div class="product">
+
+<div class="image">
+📦
+</div>
+
+<h3>
+${safeProduct1}
+</h3>
+
+<div class="price">
+${safePrice1}
+</div>
+
+<p>
+Add your product description here.
+</p>
+
+</div>
+
+
+<div class="product">
+
+<div class="image">
+🛍️
+</div>
+
+<h3>
+${safeProduct2}
+</h3>
+
+<div class="price">
+${safePrice2}
+</div>
+
+<p>
+Add your product description here.
+</p>
+
+</div>
+
+
+<div class="product">
+
+<div class="image">
+✨
+</div>
+
+<h3>
+${safeProduct3}
+</h3>
+
+<div class="price">
+${safePrice3}
+</div>
+
+<p>
+Add your product description here.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="about">
+
+<h2>
+About Us
+</h2>
+
+<p>
+${safeAbout}
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+© ${new Date().getFullYear()} ${safeName}
+</footer>
+
+</body>
+</html>`;
+
+}
+
+
+function copyStore(){
+
+  if(!generatedHTML){
+
+    alert(
+      "Create your store preview first."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    navigator.clipboard &&
+    navigator.clipboard.writeText
+  ){
+
+    navigator.clipboard
+      .writeText(generatedHTML)
+      .then(function(){
+
+        alert(
+          "Store HTML copied."
+        );
+
+      })
+      .catch(function(){
+
+        fallbackCopy();
+
+      });
+
+  }else{
+
+    fallbackCopy();
+
+  }
+
+}
+
+
+function fallbackCopy(){
+
+  const area =
+    document.createElement("textarea");
+
+  area.value =
+    generatedHTML;
+
+  document.body.appendChild(area);
+
+  area.select();
+
+  document.execCommand("copy");
+
+  document.body.removeChild(area);
+
+  alert(
+    "Store HTML copied."
+  );
+
+}
+
+
+function downloadStore(){
+
+  if(!generatedHTML){
+
+    alert(
+      "Create your store preview first."
+    );
+
+    return;
+
+  }
+
+
+  const blob =
+    new Blob(
+      [generatedHTML],
+      {
+        type:"text/html"
+      }
+    );
+
+
+  const url =
+    URL.createObjectURL(blob);
+
+
+  const link =
+    document.createElement("a");
+
+  link.href =
+    url;
+
+  link.download =
+    "my-store.html";
+
+  document.body.appendChild(link);
+
+  link.click();
+
+  document.body.removeChild(link);
+
+  URL.revokeObjectURL(url);
+
+}
+
+
+function resetBuilder(){
+
+  document.getElementById("storeName").value = "";
+  document.getElementById("tagline").value = "";
+  document.getElementById("aboutText").value = "";
+
+  document.getElementById("product1").value = "";
+  document.getElementById("price1").value = "";
+
+  document.getElementById("product2").value = "";
+  document.getElementById("price2").value = "";
+
+  document.getElementById("product3").value = "";
+  document.getElementById("price3").value = "";
+
+  document.getElementById("theme").value =
+    "blue";
+
+  document.getElementById("previewArea").style.display =
+    "none";
+
+  generatedHTML = "";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+</script>
+
+</body>
+  </html>
