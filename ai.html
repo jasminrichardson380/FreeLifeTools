@@ -12,6 +12,8 @@
     content="Use free browser-based writing and productivity helpers for AI prompts, professional messages, resume wording and business ideas."
   >
 
+  <meta name="robots" content="index,follow">
+
   <link
     rel="canonical"
     href="https://elaborate-maamoul-1fad9f.netlify.app/ai.html"
@@ -31,6 +33,8 @@
     property="og:url"
     content="https://elaborate-maamoul-1fad9f.netlify.app/ai.html"
   >
+
+  <meta property="og:type" content="website">
 
   <style>
     * {
@@ -69,6 +73,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 22px;
+      flex-wrap: wrap;
     }
 
     .logo {
@@ -246,7 +251,8 @@
     }
 
     textarea,
-    input {
+    input,
+    select {
       width: 100%;
       margin-top: 12px;
       padding: 13px;
@@ -254,11 +260,19 @@
       border-radius: 9px;
       font-size: 15px;
       font-family: Arial, sans-serif;
+      background: white;
     }
 
     textarea {
       min-height: 110px;
       resize: vertical;
+    }
+
+    textarea:focus,
+    input:focus,
+    select:focus {
+      outline: 3px solid rgba(108,59,209,.12);
+      border-color: #6c3bd1;
     }
 
     .button {
@@ -325,4 +339,875 @@
 
     .example {
       margin-top: 20px;
-      background
+      background: #f3effb;
+      border-left: 4px solid #6c3bd1;
+      border-radius: 8px;
+      padding: 18px;
+      color: #51495d;
+    }
+
+    .tips {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .tip {
+      background: white;
+      border: 1px solid #e3dfea;
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .tip h3 {
+      margin-top: 0;
+    }
+
+    .tip p {
+      color: #6c6872;
+      font-size: 14px;
+    }
+
+    .faq {
+      background: white;
+      border: 1px solid #e3dfea;
+      border-radius: 20px;
+      padding: 35px;
+    }
+
+    .faq h2 {
+      margin-top: 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e5e2ea;
+      padding: 18px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: #67626f;
+    }
+
+    .pro {
+      margin-top: 70px;
+      background: #19171f;
+      color: white;
+      border-radius: 20px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .pro h2 {
+      margin: 0 0 10px;
+      font-size: 30px;
+    }
+
+    .pro p {
+      color: #d3ceda;
+      max-width: 650px;
+      margin: 0;
+    }
+
+    .pro .button {
+      background: white;
+      color: #19171f;
+      white-space: nowrap;
+      margin: 0;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #e5e2ea;
+      padding: 38px 20px;
+      text-align: center;
+      color: #67626f;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #19171f;
+      margin: 0 8px;
+      font-weight: 700;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    @media(max-width:850px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-grid,
+      .tips {
+        grid-template-columns: 1fr;
+      }
+
+      .pro {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:650px) {
+      .nav-wrap {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .hero h1 {
+        font-size: 39px;
+        letter-spacing: -1.5px;
+      }
+
+      .guide,
+      .faq {
+        padding: 24px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+<header>
+  <div class="nav-wrap">
+
+    <a class="logo" href="index.html">
+      Free<span>Life</span>Tools
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="paycheck.html">Paycheck</a>
+      <a href="budget.html">Budget</a>
+      <a href="rent-calculator.html">Rent</a>
+      <a href="debt.html">Debt</a>
+      <a href="credit-builder.html">Credit</a>
+      <a href="jobs.html">Jobs</a>
+      <a class="active" href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a class="pro-link" href="pro.html">Pro</a>
+      <a href="login.html">Log in</a>
+    </nav>
+
+  </div>
+</header>
+
+<section class="hero">
+
+  <div class="hero-inner">
+
+    <div>
+
+      <span class="eyebrow">
+        FREE AI PRODUCTIVITY TOOLS
+      </span>
+
+      <h1>
+        Turn Your Ideas Into Better Prompts & Writing
+      </h1>
+
+      <p>
+        Use simple browser-based tools to organize AI prompts,
+        professional messages, resume wording and business ideas.
+        No account is required for the tools on this page.
+      </p>
+
+      <a class="hero-button" href="#tools">
+        Try the Free Tools
+      </a>
+
+    </div>
+
+    <div class="hero-card">
+
+      <h3>What can these tools help with?</h3>
+
+      <p>
+        Create structured prompts, organize professional messages,
+        describe work experience more clearly and turn a rough
+        business idea into a useful planning prompt.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<main>
+
+  <section class="section" id="tools">
+
+    <div class="section-heading">
+
+      <span>FREE TOOLS</span>
+
+      <h2>AI Writing & Productivity Helpers</h2>
+
+      <p>
+        These tools organize the information you enter into clearer
+        drafts or prompts that you can review and customize.
+      </p>
+
+    </div>
+
+    <div class="tool-grid">
+
+      <div class="tool-card">
+
+        <div class="icon">✨</div>
+
+        <h3>AI Prompt Builder</h3>
+
+        <p>
+          Turn a basic goal into a more detailed prompt you can use
+          with an AI assistant.
+        </p>
+
+        <input
+          id="promptGoal"
+          type="text"
+          placeholder="What do you want AI to help you do?"
+        >
+
+        <textarea
+          id="promptDetails"
+          placeholder="Add important details, requirements or context..."
+        ></textarea>
+
+        <select id="promptTone">
+          <option value="clear and practical">Clear and practical</option>
+          <option value="professional">Professional</option>
+          <option value="friendly">Friendly</option>
+          <option value="simple and easy to understand">Simple</option>
+          <option value="detailed">Detailed</option>
+        </select>
+
+        <button class="button" type="button" onclick="buildPrompt()">
+          Build Prompt
+        </button>
+
+        <div class="output" id="promptOutput"></div>
+
+        <button
+          class="copy-button"
+          id="promptCopy"
+          type="button"
+          onclick="copyOutput('promptOutput')"
+        >
+          Copy Result
+        </button>
+
+      </div>
+
+      <div class="tool-card">
+
+        <div class="icon">💬</div>
+
+        <h3>Professional Message Helper</h3>
+
+        <p>
+          Organize the main points of a work message into a clear
+          professional draft.
+        </p>
+
+        <input
+          id="messagePerson"
+          type="text"
+          placeholder="Who is the message for? Example: manager"
+        >
+
+        <textarea
+          id="messageDetails"
+          placeholder="What do you need to say?"
+        ></textarea>
+
+        <select id="messageTone">
+          <option value="professional and polite">Professional</option>
+          <option value="friendly and professional">Friendly</option>
+          <option value="brief and direct">Brief and direct</option>
+        </select>
+
+        <button class="button" type="button" onclick="buildMessage()">
+          Build Message
+        </button>
+
+        <div class="output" id="messageOutput"></div>
+
+        <button
+          class="copy-button"
+          id="messageCopy"
+          type="button"
+          onclick="copyOutput('messageOutput')"
+        >
+          Copy Result
+        </button>
+
+      </div>
+
+      <div class="tool-card">
+
+        <div class="icon">📄</div>
+
+        <h3>Resume Wording Helper</h3>
+
+        <p>
+          Turn a basic description of your work into a clearer
+          resume-style statement.
+        </p>
+
+        <input
+          id="jobRole"
+          type="text"
+          placeholder="Job title or role"
+        >
+
+        <textarea
+          id="jobDuties"
+          placeholder="Describe what you did at the job..."
+        ></textarea>
+
+        <button class="button" type="button" onclick="buildResume()">
+          Build Resume Wording
+        </button>
+
+        <div class="output" id="resumeOutput"></div>
+
+        <button
+          class="copy-button"
+          id="resumeCopy"
+          type="button"
+          onclick="copyOutput('resumeOutput')"
+        >
+          Copy Result
+        </button>
+
+      </div>
+
+      <div class="tool-card">
+
+        <div class="icon">💡</div>
+
+        <h3>Business Idea Organizer</h3>
+
+        <p>
+          Turn a rough business idea into a structured planning
+          prompt covering customers, value, marketing and revenue.
+        </p>
+
+        <input
+          id="businessIdea"
+          type="text"
+          placeholder="Describe your business idea"
+        >
+
+        <textarea
+          id="businessCustomer"
+          placeholder="Who would use or buy it?"
+        ></textarea>
+
+        <button class="button" type="button" onclick="buildBusiness()">
+          Organize Idea
+        </button>
+
+        <div class="output" id="businessOutput"></div>
+
+        <button
+          class="copy-button"
+          id="businessCopy"
+          type="button"
+          onclick="copyOutput('businessOutput')"
+        >
+          Copy Result
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section guide">
+
+    <h2>How to Write a Better AI Prompt</h2>
+
+    <p>
+      AI tools generally work better when the request includes
+      enough information to understand the task, desired result
+      and important restrictions.
+    </p>
+
+    <h3>1. Start with the goal</h3>
+
+    <p>
+      State what you want the AI tool to produce. For example,
+      instead of writing only “resume,” explain that you want help
+      turning customer-service experience into resume bullet points.
+    </p>
+
+    <h3>2. Add useful context</h3>
+
+    <p>
+      Include information that affects the answer, such as the
+      intended audience, job type, desired length or specific
+      details that must be included.
+    </p>
+
+    <h3>3. Describe the output you want</h3>
+
+    <p>
+      Tell the AI whether you want a short message, step-by-step
+      instructions, a list of ideas, a professional draft or
+      another specific format.
+    </p>
+
+    <div class="example">
+
+      <strong>Example prompt:</strong>
+
+      <p>
+        Help me write three resume bullet points for a customer
+        service representative position. My duties included
+        answering customer calls, documenting account information
+        and resolving billing questions. Keep each bullet concise
+        and professional, and do not add experience I did not
+        provide.
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="section-heading">
+
+      <span>SMARTER USE</span>
+
+      <h2>Tips for Using AI Tools</h2>
+
+      <p>
+        AI-generated content should be reviewed before you use,
+        submit or publish it.
+      </p>
+
+    </div>
+
+    <div class="tips">
+
+      <div class="tip">
+
+        <h3>Check the Facts</h3>
+
+        <p>
+          AI tools can make mistakes. Verify important dates,
+          requirements, prices, laws, company policies and other
+          factual information using reliable sources.
+        </p>
+
+      </div>
+
+      <div class="tip">
+
+        <h3>Protect Private Information</h3>
+
+        <p>
+          Avoid entering passwords, Social Security numbers,
+          financial account credentials or other unnecessary
+          sensitive information into online tools.
+        </p>
+
+      </div>
+
+      <div class="tip">
+
+        <h3>Make It Your Own</h3>
+
+        <p>
+          Review generated writing and adjust it so it accurately
+          reflects your experience, goals and natural communication
+          style.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section faq">
+
+    <h2>AI Tools FAQ</h2>
+
+    <div class="faq-item">
+
+      <strong>Are these FreeLifeTools AI helpers free?</strong>
+
+      <p>
+        Yes. The tools on this page can be used without paying for
+        a FreeLifeTools Pro subscription.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <strong>Do these tools actually contact an AI service?</strong>
+
+      <p>
+        The tools on this page organize the information you enter
+        directly in your browser. They create structured drafts and
+        prompts but do not independently send your information to
+        an external AI service.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <strong>Can I use the prompt in another AI assistant?</strong>
+
+      <p>
+        Yes. You can copy the generated prompt, review it and use it
+        with an AI service of your choice.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <strong>Can AI write my entire resume for me?</strong>
+
+      <p>
+        AI can help organize and improve wording, but you should
+        review everything carefully and make sure your resume
+        accurately represents your real experience and skills.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <strong>Are AI-generated answers always accurate?</strong>
+
+      <p>
+        No. Important information should be independently verified
+        before you rely on it.
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="pro">
+
+    <div>
+
+      <h2>Explore FreeLifeTools Pro</h2>
+
+      <p>
+        FreeLifeTools Pro includes additional tools designed to
+        help with money planning, productivity and online business
+        ideas.
+      </p>
+
+    </div>
+
+    <a class="button" href="pro.html">
+      View Pro Tools
+    </a>
+
+  </section>
+
+</main>
+
+<footer>
+
+  <p>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+  </p>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>
+    © 2026 FreeLifeTools
+  </p>
+
+</footer>
+
+<script>
+
+  function showOutput(outputId, copyId, text) {
+
+    const output =
+      document.getElementById(outputId);
+
+    const copy =
+      document.getElementById(copyId);
+
+    output.textContent = text;
+    output.style.display = "block";
+    copy.style.display = "inline-block";
+
+  }
+
+
+  function buildPrompt() {
+
+    const goal =
+      document.getElementById("promptGoal").value.trim();
+
+    const details =
+      document.getElementById("promptDetails").value.trim();
+
+    const tone =
+      document.getElementById("promptTone").value;
+
+
+    if (!goal) {
+
+      alert("Please enter what you want help with.");
+      return;
+
+    }
+
+
+    let result =
+      "Help me " + goal + ".\n\n";
+
+
+    if (details) {
+
+      result +=
+        "Important context:\n" +
+        details +
+        "\n\n";
+
+    }
+
+
+    result +=
+      "Please make the response " +
+      tone +
+      ". Provide a useful, accurate response and clearly identify anything that should be verified.";
+
+
+    showOutput(
+      "promptOutput",
+      "promptCopy",
+      result
+    );
+
+  }
+
+
+  function buildMessage() {
+
+    const person =
+      document.getElementById("messagePerson").value.trim();
+
+    const details =
+      document.getElementById("messageDetails").value.trim();
+
+    const tone =
+      document.getElementById("messageTone").value;
+
+
+    if (!details) {
+
+      alert("Please enter what you need to say.");
+      return;
+
+    }
+
+
+    const greeting =
+      person
+        ? "Hello " + person + ","
+        : "Hello,";
+
+
+    const result =
+      greeting +
+      "\n\n" +
+      details +
+      "\n\nPlease rewrite this message so it is " +
+      tone +
+      ", clear, grammatically correct and easy to understand. Keep the meaning accurate and do not add facts that were not provided.";
+
+
+    showOutput(
+      "messageOutput",
+      "messageCopy",
+      result
+    );
+
+  }
+
+
+  function buildResume() {
+
+    const role =
+      document.getElementById("jobRole").value.trim();
+
+    const duties =
+      document.getElementById("jobDuties").value.trim();
+
+
+    if (!duties) {
+
+      alert("Please describe your job duties.");
+      return;
+
+    }
+
+
+    const result =
+      "Create concise professional resume bullet points" +
+      (role ? " for my role as " + role : "") +
+      " using only the experience below:\n\n" +
+      duties +
+      "\n\nUse strong action verbs, keep the wording clear, and do not invent responsibilities, numbers, achievements or skills that I did not provide.";
+
+
+    showOutput(
+      "resumeOutput",
+      "resumeCopy",
+      result
+    );
+
+  }
+
+
+  function buildBusiness() {
+
+    const idea =
+      document.getElementById("businessIdea").value.trim();
+
+    const customer =
+      document.getElementById("businessCustomer").value.trim();
+
+
+    if (!idea) {
+
+      alert("Please enter your business idea.");
+      return;
+
+    }
+
+
+    let result =
+      "Help me evaluate and organize this business idea:\n\n" +
+      idea +
+      "\n\n";
+
+
+    if (customer) {
+
+      result +=
+        "Potential customer:\n" +
+        customer +
+        "\n\n";
+
+    }
+
+
+    result +=
+      "Organize the response into: customer problem, proposed solution, target customer, possible revenue model, startup requirements, low-cost validation steps, marketing ideas, major risks and the next three actions to test the idea. Clearly separate assumptions from facts.";
+
+
+    showOutput(
+      "businessOutput",
+      "businessCopy",
+      result
+    );
+
+  }
+
+
+  function copyOutput(outputId) {
+
+    const text =
+      document.getElementById(outputId).textContent;
+
+
+    if (!text) {
+      return;
+    }
+
+
+    if (
+      navigator.clipboard &&
+      navigator.clipboard.writeText
+    ) {
+
+      navigator.clipboard.writeText(text)
+        .then(function() {
+          alert("Copied.");
+        })
+        .catch(function() {
+          fallbackCopy(text);
+        });
+
+    } else {
+
+      fallbackCopy(text);
+
+    }
+
+  }
+
+
+  function fallbackCopy(text) {
+
+    const area =
+      document.createElement("textarea");
+
+    area.value = text;
+
+    document.body.appendChild(area);
+
+    area.select();
+
+    document.execCommand("copy");
+
+    document.body.removeChild(area);
+
+    alert("Copied.");
+
+  }
+
+</script>
+
+</body>
+
+  </html>
