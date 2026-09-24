@@ -3,44 +3,1063 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rent Affordability Calculator | How Much Rent Can I Afford? | FreeLifeTools</title>
 
   <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    name="description"
+    content="Use the free FreeLifeTools rent affordability calculator to estimate how much monthly rent may fit your income and budget."
   >
 
-  <title>Rent Affordability Calculator | FreeLifeTools</title>
-
-  <meta
-    name="robots"
-    content="noindex,follow"
-  >
+  <meta name="robots" content="index,follow">
 
   <link
     rel="canonical"
     href="https://elaborate-maamoul-1fad9f.netlify.app/rent-calculator.html"
   >
 
+  <meta property="og:title" content="Rent Affordability Calculator | FreeLifeTools">
+
   <meta
-    http-equiv="refresh"
-    content="0; url=rent-calculator.html"
+    property="og:description"
+    content="Estimate how much monthly rent may fit your income and budget with this free rent affordability calculator."
   >
+
+  <meta
+    property="og:url"
+    content="https://elaborate-maamoul-1fad9f.netlify.app/rent-calculator.html"
+  >
+
+  <meta property="og:type" content="website">
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f6fb;
+      color: #1e1c2d;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e4e1ed;
+    }
+
+    .nav {
+      max-width: 1050px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      color: #1e1c2d;
+      text-decoration: none;
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+    nav {
+      display: flex;
+      gap: 17px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #656174;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: #6554c0;
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 50px 20px 75px;
+    }
+
+    .hero {
+      max-width: 760px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #eeeafd;
+      color: #6554c0;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 46px;
+      line-height: 1.08;
+    }
+
+    .hero p {
+      color: #6b6878;
+      font-size: 18px;
+    }
+
+    .calculator,
+    .content-box {
+      background: #ffffff;
+      border: 1px solid #e4e1ed;
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 26px rgba(40, 30, 80, .05);
+    }
+
+    .calculator h2,
+    .content-box h2 {
+      margin-top: 0;
+    }
+
+    .content-box h3 {
+      margin-top: 24px;
+      margin-bottom: 7px;
+    }
+
+    .content-box p,
+    .content-box li {
+      color: #5f5b6d;
+    }
+
+    .fields {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px;
+      border: 1px solid #d3cfdf;
+      border-radius: 10px;
+      background: #ffffff;
+      font-size: 15px;
+    }
+
+    input:focus {
+      outline: 3px solid rgba(101,84,192,.12);
+      border-color: #6554c0;
+    }
+
+    .button {
+      width: 100%;
+      margin-top: 24px;
+      padding: 16px;
+      border: none;
+      border-radius: 10px;
+      background: #6554c0;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      opacity: .92;
+    }
+
+    #results {
+      display: none;
+      margin-top: 28px;
+      padding: 24px;
+      background: #f2efff;
+      border-radius: 14px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 12px 0;
+      border-bottom: 1px solid #ded8f5;
+    }
+
+    .result-row:last-child {
+      border-bottom: none;
+    }
+
+    .main-result {
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 15px;
+      background: #fff8e8;
+      border: 1px solid #ead9a8;
+      border-radius: 10px;
+      color: #5d5134;
+      font-size: 14px;
+    }
+
+    .example {
+      background: #f2efff;
+      border-left: 4px solid #6554c0;
+      padding: 18px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .related-card {
+      border: 1px solid #e4e1ed;
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .related-card h3 {
+      margin-top: 0;
+    }
+
+    .related-card p {
+      font-size: 14px;
+    }
+
+    .related-card a {
+      color: #6554c0;
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .faq-item {
+      padding: 17px 0;
+      border-bottom: 1px solid #e4e1ed;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    footer {
+      background: #1e1c2d;
+      color: #e6e3ee;
+      text-align: center;
+      padding: 38px 20px;
+      font-size: 14px;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 7px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width: 700px) {
+
+      .nav {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .fields,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .result-row {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .calculator,
+      .content-box {
+        padding: 22px;
+      }
+
+    }
+
+  </style>
 
 </head>
 
 <body>
 
-  <p>
-    This calculator has moved to our updated
-    <a href="rent-calculator.html">
+<header>
+
+  <div class="nav">
+
+    <a class="logo" href="index.html">
+      FreeLifeTools
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="money.html">Money</a>
+      <a href="paycheck.html">Paycheck</a>
+      <a href="budget.html">Budget</a>
+      <a href="rent-calculator.html">Rent</a>
+      <a href="debt.html">Debt</a>
+      <a href="credit-builder.html">Credit</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="pro.html">Pro</a>
+      <a data-auth-link href="login.html">Log in</a>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section class="hero">
+
+    <span class="tag">
+      FREE RENT TOOL
+    </span>
+
+    <h1>
       Rent Affordability Calculator
-    </a>.
+    </h1>
+
+    <p>
+      Enter your monthly income and regular non-housing expenses to
+      estimate how much rent may fit into your monthly budget.
+    </p>
+
+  </section>
+
+
+  <section class="calculator">
+
+    <h2>
+      How Much Rent Can I Afford?
+    </h2>
+
+    <p>
+      Enter your monthly take-home income and regular expenses.
+      This calculator provides two estimates so you can compare
+      a simple income guideline with your actual monthly budget.
+    </p>
+
+
+    <div class="fields">
+
+      <label>
+        Monthly take-home income ($)
+        <input
+          type="number"
+          id="income"
+          placeholder="Example: 3200"
+          min="0"
+          step="0.01"
+          inputmode="decimal"
+        >
+      </label>
+
+
+      <label>
+        Monthly debt payments ($)
+        <input
+          type="number"
+          id="debt"
+          placeholder="Example: 250"
+          min="0"
+          step="0.01"
+          value="0"
+          inputmode="decimal"
+        >
+      </label>
+
+
+      <label>
+        Transportation ($)
+        <input
+          type="number"
+          id="transportation"
+          placeholder="Example: 400"
+          min="0"
+          step="0.01"
+          value="0"
+          inputmode="decimal"
+        >
+      </label>
+
+
+      <label>
+        Groceries ($)
+        <input
+          type="number"
+          id="groceries"
+          placeholder="Example: 450"
+          min="0"
+          step="0.01"
+          value="0"
+          inputmode="decimal"
+        >
+      </label>
+
+
+      <label>
+        Phone & internet ($)
+        <input
+          type="number"
+          id="phone"
+          placeholder="Example: 150"
+          min="0"
+          step="0.01"
+          value="0"
+          inputmode="decimal"
+        >
+      </label>
+
+
+      <label>
+        Insurance ($)
+        <input
+          type="number"
+          id="insurance"
+          placeholder="Example: 200"
+          min="0"
+          step="0.01"
+          value="0"
+          inputmode="decimal"
+        >
+      </label>
+
+
+      <label>
+        Childcare ($)
+        <input
+          type="number"
+          id="childcare"
+          placeholder="Example: 0"
+          min="0"
+          step="0.01"
+          value="0"
+          inputmode="decimal"
+        >
+      </label>
+
+
+      <label>
+        Other monthly expenses ($)
+        <input
+          type="number"
+          id="other"
+          placeholder="Example: 200"
+          min="0"
+          step="0.01"
+          value="0"
+          inputmode="decimal"
+        >
+      </label>
+
+    </div>
+
+
+    <button
+      class="button"
+      type="button"
+      onclick="calculateRent()"
+    >
+      Calculate Rent Affordability
+    </button>
+
+
+    <div id="results">
+
+      <h2>Your Rent Estimates</h2>
+
+
+      <div class="result-row">
+        <span>
+          30% income guideline
+        </span>
+
+        <strong id="guidelineRent">
+          $0.00
+        </strong>
+      </div>
+
+
+      <div class="result-row">
+        <span>
+          Money remaining before rent
+        </span>
+
+        <strong id="availableBeforeRent">
+          $0.00
+        </strong>
+      </div>
+
+
+      <div class="result-row main-result">
+        <span>
+          Planning estimate
+        </span>
+
+        <strong id="suggestedRent">
+          $0.00
+        </strong>
+      </div>
+
+
+      <div class="result-row">
+        <span>
+          Money remaining after estimated rent
+        </span>
+
+        <strong id="remainingAfterRent">
+          $0.00
+        </strong>
+      </div>
+
+
+      <div class="note">
+
+        This result is a planning estimate, not a landlord
+        qualification decision. Property managers may use gross
+        income requirements, credit checks, rental history and
+        other criteria.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>
+      How the Rent Affordability Calculator Works
+    </h2>
+
+    <p>
+      The calculator first looks at your monthly take-home income.
+      It then compares a 30% income guideline with the amount of
+      money remaining after the non-housing expenses you entered.
+    </p>
+
+    <p>
+      The planning estimate uses the lower of the two amounts.
+      This is intended to give you a starting point for comparing
+      rental prices with your overall monthly budget.
+    </p>
+
+
+    <div class="example">
+
+      <strong>Example</strong>
+
+      <p>
+        Monthly take-home income: $3,200
+      </p>
+
+      <p>
+        30% of monthly income: $960
+      </p>
+
+      <p>
+        If regular non-housing expenses total $1,500, you would
+        have $1,700 remaining before rent.
+      </p>
+
+      <p>
+        In this example, the calculator would use $960 as the
+        more conservative planning estimate.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>
+      What Is the 30% Rent Guideline?
+    </h2>
+
+    <p>
+      A commonly referenced housing guideline uses about 30% of
+      income for housing costs. It can be useful as a quick starting
+      point, but it does not determine what every household can
+      comfortably afford.
+    </p>
+
+    <p>
+      Two people with the same income can have very different
+      budgets. Debt payments, transportation, childcare, insurance,
+      groceries and savings goals can all affect how much money is
+      realistically available for housing.
+    </p>
+
+    <h3>
+      Take-home income vs. gross income
+    </h3>
+
+    <p>
+      This FreeLifeTools calculator uses the take-home income you
+      enter because it is designed as a personal budgeting tool.
+      A landlord may instead evaluate your gross income before
+      taxes and deductions.
+    </p>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>
+      Expenses to Consider Before Renting
+    </h2>
+
+    <p>
+      Rent is only one part of the cost of living in a home or
+      apartment. When comparing properties, consider other costs
+      that may affect your monthly budget.
+    </p>
+
+    <ul>
+      <li>Electricity</li>
+      <li>Water and sewer</li>
+      <li>Internet</li>
+      <li>Renter's insurance</li>
+      <li>Parking fees</li>
+      <li>Pet fees</li>
+      <li>Transportation costs</li>
+      <li>Application fees</li>
+      <li>Security deposits</li>
+      <li>Moving expenses</li>
+    </ul>
+
+    <p>
+      Some rental properties include certain utilities while others
+      require tenants to pay them separately, so it can help to ask
+      about these costs before signing a lease.
+    </p>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>
+      Continue Planning Your Money
+    </h2>
+
+
+    <div class="related-grid">
+
+      <div class="related-card">
+
+        <h3>
+          Paycheck Calculator
+        </h3>
+
+        <p>
+          Estimate your weekly, biweekly and monthly gross income.
+        </p>
+
+        <a href="paycheck.html">
+          Calculate pay →
+        </a>
+
+      </div>
+
+
+      <div class="related-card">
+
+        <h3>
+          Monthly Budget
+        </h3>
+
+        <p>
+          Compare your take-home income with regular monthly expenses.
+        </p>
+
+        <a href="budget.html">
+          Build a budget →
+        </a>
+
+      </div>
+
+
+      <div class="related-card">
+
+        <h3>
+          Debt Payoff
+        </h3>
+
+        <p>
+          Estimate how long it may take to pay down a debt balance.
+        </p>
+
+        <a href="debt.html">
+          Plan debt payoff →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>
+      Rent Affordability FAQ
+    </h2>
+
+
+    <div class="faq-item">
+
+      <strong>
+        How much rent can I afford?
+      </strong>
+
+      <p>
+        There is no single amount that works for everyone.
+        Your income, debt, transportation costs, childcare,
+        utilities, savings and other expenses can all affect
+        how much rent fits your budget.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Does a landlord use take-home income?
+      </strong>
+
+      <p>
+        Rental qualification rules vary. Some landlords and
+        property managers use gross income rather than take-home
+        pay when reviewing an application.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Does the calculator guarantee that I will qualify for an apartment?
+      </strong>
+
+      <p>
+        No. The calculator is a budgeting tool only. Rental
+        qualification requirements are determined by the landlord
+        or property manager.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Should utilities be included in my rent budget?
+      </strong>
+
+      <p>
+        Yes, it can be helpful to consider utilities and other
+        housing-related costs when deciding whether a rental fits
+        your overall monthly budget.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        Is this rent calculator free?
+      </strong>
+
+      <p>
+        Yes. The FreeLifeTools Rent Affordability Calculator can
+        be used for free.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="content-box">
+
+    <h2>
+      Important Information
+    </h2>
+
+    <p>
+      FreeLifeTools provides educational calculators and general
+      planning information. Results are estimates and are not
+      financial, housing, legal, tax or credit advice.
+    </p>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <p>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
   </p>
 
-  <script>
-    window.location.replace("rent-calculator.html");
-  </script>
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>
+    © 2026 FreeLifeTools
+  </p>
+
+</footer>
+
+
+<script>
+
+  function getNumber(id) {
+
+    const value =
+      parseFloat(document.getElementById(id).value);
+
+    if (isNaN(value) || value < 0) {
+      return 0;
+    }
+
+    return value;
+
+  }
+
+
+  function formatMoney(amount) {
+
+    return amount.toLocaleString(
+      "en-US",
+      {
+        style: "currency",
+        currency: "USD"
+      }
+    );
+
+  }
+
+
+  function calculateRent() {
+
+    const income =
+      getNumber("income");
+
+
+    if (income <= 0) {
+
+      alert(
+        "Please enter your monthly take-home income."
+      );
+
+      return;
+
+    }
+
+
+    const debt =
+      getNumber("debt");
+
+    const transportation =
+      getNumber("transportation");
+
+    const groceries =
+      getNumber("groceries");
+
+    const phone =
+      getNumber("phone");
+
+    const insurance =
+      getNumber("insurance");
+
+    const childcare =
+      getNumber("childcare");
+
+    const other =
+      getNumber("other");
+
+
+    const nonHousingExpenses =
+      debt +
+      transportation +
+      groceries +
+      phone +
+      insurance +
+      childcare +
+      other;
+
+
+    const guidelineRent =
+      income * 0.30;
+
+
+    const availableBeforeRent =
+      Math.max(
+        income - nonHousingExpenses,
+        0
+      );
+
+
+    const suggestedRent =
+      Math.max(
+        Math.min(
+          guidelineRent,
+          availableBeforeRent
+        ),
+        0
+      );
+
+
+    const remainingAfterRent =
+      income -
+      nonHousingExpenses -
+      suggestedRent;
+
+
+    document.getElementById(
+      "guidelineRent"
+    ).textContent =
+      formatMoney(guidelineRent);
+
+
+    document.getElementById(
+      "availableBeforeRent"
+    ).textContent =
+      formatMoney(availableBeforeRent);
+
+
+    document.getElementById(
+      "suggestedRent"
+    ).textContent =
+      formatMoney(suggestedRent);
+
+
+    document.getElementById(
+      "remainingAfterRent"
+    ).textContent =
+      formatMoney(remainingAfterRent);
+
+
+    document.getElementById(
+      "results"
+    ).style.display = "block";
+
+  }
+
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+      const inputs =
+        document.querySelectorAll("input");
+
+
+      inputs.forEach(function(input) {
+
+        input.addEventListener(
+          "keydown",
+          function(event) {
+
+            if (event.key === "Enter") {
+              calculateRent();
+            }
+
+          }
+        );
+
+      });
+
+
+      const authLinks =
+        document.querySelectorAll(
+          "[data-auth-link]"
+        );
+
+
+      authLinks.forEach(function(link) {
+
+        link.setAttribute(
+          "href",
+          "login.html"
+        );
+
+      });
+
+    }
+  );
+
+</script>
 
 </body>
 
-</html>
+  </html>
