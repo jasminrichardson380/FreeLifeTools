@@ -6,13 +6,20 @@
 
   <title>Free Money Calculators & Budget Tools | FreeLifeTools</title>
 
-  <meta name="description" content="Use free money calculators from FreeLifeTools to estimate paychecks, build a monthly budget, plan rent, explore debt payoff and understand credit utilization.">
+  <meta
+    name="description"
+    content="Use free money calculators from FreeLifeTools to estimate paychecks, build a monthly budget, plan rent, explore debt payoff and understand credit utilization."
+  >
 
-  <link rel="canonical" href="https://elaborate-maamoul-1fad9f.netlify.app/money.html">
+  <link
+    rel="canonical"
+    href="https://elaborate-maamoul-1fad9f.netlify.app/money.html"
+  >
 
   <meta property="og:title" content="Free Money Calculators & Budget Tools | FreeLifeTools">
   <meta property="og:description" content="Simple free calculators for paychecks, budgeting, rent, debt and credit planning.">
   <meta property="og:url" content="https://elaborate-maamoul-1fad9f.netlify.app/money.html">
+  <meta property="og:type" content="website">
 
   <style>
     * {
@@ -28,7 +35,7 @@
     }
 
     header {
-      background: white;
+      background: #ffffff;
       border-bottom: 1px solid #e2e6ef;
     }
 
@@ -47,12 +54,14 @@
       text-decoration: none;
       font-size: 23px;
       font-weight: 900;
+      white-space: nowrap;
     }
 
     nav {
       display: flex;
       gap: 17px;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     nav a {
@@ -98,6 +107,8 @@
     .hero p {
       color: #687184;
       font-size: 18px;
+      margin: 0 auto;
+      max-width: 700px;
     }
 
     .tools {
@@ -108,19 +119,19 @@
     }
 
     .tool-card {
-      background: white;
+      background: #ffffff;
       border: 1px solid #e2e6ef;
       border-radius: 18px;
       padding: 25px;
       text-decoration: none;
       color: #172033;
-      box-shadow: 0 8px 24px rgba(20,30,60,.05);
+      box-shadow: 0 8px 24px rgba(20, 30, 60, .05);
       transition: transform .15s ease, box-shadow .15s ease;
     }
 
     .tool-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(20,30,60,.09);
+      box-shadow: 0 12px 30px rgba(20, 30, 60, .09);
     }
 
     .icon {
@@ -153,21 +164,23 @@
     }
 
     .content-box {
-      background: white;
+      background: #ffffff;
       border: 1px solid #e2e6ef;
       border-radius: 18px;
       padding: 28px;
       margin-bottom: 25px;
-      box-shadow: 0 8px 24px rgba(20,30,60,.05);
+      box-shadow: 0 8px 24px rgba(20, 30, 60, .05);
     }
 
     .content-box h2 {
       margin-top: 0;
+      color: #172033;
     }
 
     .content-box h3 {
       margin-top: 24px;
       margin-bottom: 7px;
+      color: #172033;
     }
 
     .content-box p,
@@ -200,9 +213,14 @@
       padding: 15px 0;
     }
 
+    details:last-child {
+      border-bottom: none;
+    }
+
     summary {
       cursor: pointer;
       font-weight: 800;
+      color: #172033;
     }
 
     footer {
@@ -213,15 +231,27 @@
       font-size: 14px;
     }
 
+    footer p {
+      margin: 8px 0;
+    }
+
     footer a {
-      color: white;
+      color: #ffffff;
       text-decoration: none;
       margin: 0 7px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 700px) {
       .nav {
         flex-direction: column;
+      }
+
+      nav {
+        gap: 12px;
       }
 
       .tools {
@@ -267,5 +297,277 @@
 <main>
 
   <section class="hero">
+    <span class="tag">FREE MONEY TOOLS</span>
 
-    <
+    <h1>Simple Money Calculators for Everyday Life</h1>
+
+    <p>
+      Estimate your paycheck, create a monthly budget, check rent
+      affordability, plan debt payoff and understand credit utilization
+      with simple free tools.
+    </p>
+  </section>
+
+  <section class="tools" aria-label="Money calculators">
+
+    <a class="tool-card" href="paycheck.html">
+      <div class="icon">💵</div>
+      <h2>Paycheck Calculator</h2>
+      <p>
+        Estimate your gross pay based on your hourly wage,
+        hours worked and pay schedule.
+      </p>
+      <span class="tool-link">Calculate paycheck →</span>
+    </a>
+
+    <a class="tool-card" href="budget.html">
+      <div class="icon">📊</div>
+      <h2>Monthly Budget Planner</h2>
+      <p>
+        Compare monthly income and expenses to see how much
+        money you may have left after your bills.
+      </p>
+      <span class="tool-link">Build a budget →</span>
+    </a>
+
+    <a class="tool-card" href="rent-calculator.html">
+      <div class="icon">🏠</div>
+      <h2>Rent Affordability Calculator</h2>
+      <p>
+        Estimate a reasonable monthly rent amount based on
+        your income and other expenses.
+      </p>
+      <span class="tool-link">Estimate rent →</span>
+    </a>
+
+    <a class="tool-card" href="debt.html">
+      <div class="icon">💳</div>
+      <h2>Debt Payoff Calculator</h2>
+      <p>
+        See how long it may take to pay off debt based on
+        your balance and planned payments.
+      </p>
+      <span class="tool-link">Plan debt payoff →</span>
+    </a>
+
+    <a class="tool-card" href="credit-builder.html">
+      <div class="icon">📈</div>
+      <h2>Credit Utilization Planner</h2>
+      <p>
+        Calculate credit card utilization and explore how
+        different payments may change your utilization ratio.
+      </p>
+      <span class="tool-link">Check utilization →</span>
+    </a>
+
+    <a class="tool-card" href="pro.html">
+      <div class="icon">⭐</div>
+      <h2>FreeLifeTools Pro</h2>
+      <p>
+        Explore additional planning tools and features available
+        through FreeLifeTools Pro.
+      </p>
+      <span class="tool-link">Explore Pro →</span>
+    </a>
+
+  </section>
+
+  <section class="content-box">
+    <h2>How to Use These Money Tools</h2>
+
+    <p>
+      FreeLifeTools is designed to make common money calculations easier
+      to understand. You can use each calculator separately depending on
+      the financial question you are trying to answer.
+    </p>
+
+    <ol class="steps">
+      <li>
+        Start with the paycheck calculator to estimate how much you earn
+        during a typical pay period.
+      </li>
+
+      <li>
+        Use the monthly budget planner to compare your income with bills,
+        groceries, transportation and other expenses.
+      </li>
+
+      <li>
+        Check the rent calculator before comparing apartments or planning
+        a move.
+      </li>
+
+      <li>
+        Use the debt payoff calculator to estimate how different payment
+        amounts may affect your payoff timeline.
+      </li>
+
+      <li>
+        Use the credit utilization planner to understand how your credit
+        card balances compare with your available credit limits.
+      </li>
+    </ol>
+  </section>
+
+  <section class="content-box">
+    <h2>Why a Monthly Money Plan Matters</h2>
+
+    <p>
+      A money plan can help you understand where your income is going
+      before you make spending decisions. Looking at income, housing,
+      transportation, food, debt and savings together can provide a
+      clearer picture than looking at each expense separately.
+    </p>
+
+    <h3>Start with income</h3>
+
+    <p>
+      Write down the money you expect to receive during the month.
+      If your hours or income change from week to week, consider using
+      a conservative estimate rather than assuming every paycheck will
+      be your highest possible amount.
+    </p>
+
+    <h3>List essential expenses</h3>
+
+    <p>
+      Include expenses such as rent, utilities, groceries, transportation,
+      insurance, minimum debt payments and other recurring obligations.
+      Then compare the total with your expected income.
+    </p>
+
+    <h3>Plan for savings and unexpected costs</h3>
+
+    <p>
+      If money remains after regular expenses, you can decide how much
+      to direct toward savings, additional debt payments or other goals.
+      Even small amounts can be easier to manage when they are included
+      in the plan ahead of time.
+    </p>
+
+    <div class="example">
+      <strong>Example:</strong>
+
+      <p>Monthly take-home income: $3,000</p>
+      <p>Monthly expenses: $2,400</p>
+      <p>Amount remaining: $600</p>
+
+      <p>
+        That remaining amount could then be divided among savings,
+        additional debt payments and other planned expenses.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-box">
+    <h2>Understanding Credit Utilization</h2>
+
+    <p>
+      Credit utilization compares your revolving credit card balances
+      with your total available credit limits. It is usually expressed
+      as a percentage.
+    </p>
+
+    <div class="example">
+      <strong>Example:</strong>
+
+      <p>Credit card limit: $1,000</p>
+      <p>Reported balance: $300</p>
+      <p>Utilization: 30%</p>
+    </div>
+
+    <p>
+      Paying down a credit card balance can lower utilization, but credit
+      scores depend on multiple factors. A calculator can help you
+      understand the numbers, but it cannot guarantee a particular
+      credit score increase.
+    </p>
+
+    <p>
+      Visit the
+      <a href="credit-builder.html">Credit Utilization Planner</a>
+      to calculate your current utilization and explore different
+      payment amounts.
+    </p>
+  </section>
+
+  <section class="content-box">
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>Are the FreeLifeTools money calculators free?</summary>
+      <p>
+        Yes. The calculators linked from this page can be used to help
+        estimate common personal finance numbers. Some separate Pro
+        features may require a membership.
+      </p>
+    </details>
+
+    <details>
+      <summary>Can the paycheck calculator tell me my exact take-home pay?</summary>
+      <p>
+        No calculator can guarantee an exact paycheck because taxes,
+        deductions, benefits, overtime and withholding can vary.
+        The calculator is intended to provide an estimate.
+      </p>
+    </details>
+
+    <details>
+      <summary>How much rent can I afford?</summary>
+      <p>
+        The amount depends on your income, debt, transportation costs,
+        utilities, savings goals and other expenses. The rent calculator
+        can help you create an estimate based on your own numbers.
+      </p>
+    </details>
+
+    <details>
+      <summary>Does paying down a credit card automatically raise my credit score?</summary>
+      <p>
+        Not necessarily. Lower balances may reduce credit utilization,
+        but credit scores are affected by several factors. FreeLifeTools
+        does not guarantee credit score changes.
+      </p>
+    </details>
+
+    <details>
+      <summary>Is FreeLifeTools financial advice?</summary>
+      <p>
+        No. FreeLifeTools provides educational calculators and planning
+        information. Results are estimates and are not financial, legal,
+        tax or credit advice.
+      </p>
+    </details>
+
+  </section>
+
+</main>
+
+<footer>
+
+  <p>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+  </p>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+
+  <p>© 2026 FreeLifeTools</p>
+
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const authLinks = document.querySelectorAll("[data-auth-link]");
+
+    authLinks.forEach(function (link) {
+      link.setAttribute("href", "login.html");
+    });
+  });
+</script>
+
+</body>
+</html>
