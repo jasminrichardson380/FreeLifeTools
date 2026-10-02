@@ -1,44 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <title>About FreeLifeTools | Free Money, Job, AI & Life Tools</title>
 
-  <title>About FreeLifeTools | Free Calculators & Practical Tools</title>
+  <meta name="description"
+    content="Learn about FreeLifeTools and our mission to provide simple, useful tools for money, jobs, AI and everyday life.">
 
-  <meta
-    name="description"
-    content="Learn about FreeLifeTools, a collection of free calculators and practical resources for money, jobs, AI and everyday life."
-  >
-
-  <link
-    rel="canonical"
-    href="https://elaborate-maamoul-1fad9f.netlify.app/about.html"
-  >
-
-  <meta
-    property="og:title"
-    content="About FreeLifeTools"
-  >
-
-  <meta
-    property="og:description"
-    content="Learn why FreeLifeTools was created and how our free calculators and practical resources are designed to help with everyday questions."
-  >
-
-  <meta
-    property="og:url"
-    content="https://elaborate-maamoul-1fad9f.netlify.app/about.html"
-  >
+  <link rel="canonical"
+    href="https://elaborate-maamoul-1fad9f.netlify.app/about.html">
 
   <style>
-
     * {
       box-sizing: border-box;
     }
@@ -46,132 +20,307 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f6f8fc;
-      color: #172033;
+      background: #f6f8fb;
+      color: #1f2937;
       line-height: 1.7;
     }
 
     header {
-      background: #07172f;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
     }
 
-    .nav {
-      max-width: 1050px;
+    .nav-container {
+      max-width: 1100px;
       margin: auto;
-      padding: 18px 20px;
-
+      padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .logo {
-      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      color: #2563eb;
       text-decoration: none;
-      font-size: 23px;
-      font-weight: 900;
-    }
-
-    .logo span {
-      color: #3887ff;
     }
 
     nav {
       display: flex;
+      gap: 15px;
       flex-wrap: wrap;
-      gap: 17px;
     }
 
     nav a {
-      color: white;
+      color: #374151;
       text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     nav a:hover {
-      color: #5da0ff;
+      color: #2563eb;
     }
 
     .hero {
-      background:
-        radial-gradient(
-          circle at 90% 20%,
-          rgba(163,52,255,.5),
-          transparent 35%
-        ),
-        linear-gradient(
-          120deg,
-          #062864,
-          #17105d,
-          #54157a
-        );
-
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
       color: white;
       text-align: center;
-      padding: 75px 20px;
+      padding: 70px 20px;
     }
 
-    .hero-inner {
-      max-width: 760px;
-      margin: auto;
-    }
-
-    .tag {
-      display: inline-block;
-      background: rgba(70,145,255,.3);
-      border: 1px solid rgba(255,255,255,.15);
-      padding: 7px 14px;
-      border-radius: 999px;
-
-      font-size: 12px;
-      font-weight: 900;
-
-      margin-bottom: 17px;
-    }
-
-    h1 {
-      font-size: 48px;
-      line-height: 1.1;
-      margin: 0 0 18px;
+    .hero h1 {
+      font-size: 42px;
+      margin: 0 0 15px;
     }
 
     .hero p {
-      font-size: 18px;
-      color: #e8efff;
-      margin: 0;
+      max-width: 700px;
+      margin: auto;
+      font-size: 19px;
     }
 
     main {
       max-width: 900px;
       margin: auto;
-      padding: 55px 20px 75px;
+      padding: 50px 20px;
     }
 
-    .content-box {
+    .card {
       background: white;
-      border: 1px solid #e2e6ef;
-      border-radius: 18px;
       padding: 30px;
+      border-radius: 14px;
       margin-bottom: 25px;
-
-      box-shadow: 0 8px 25px rgba(20,30,60,.05);
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     }
 
-    .content-box h2 {
+    h2 {
+      color: #111827;
       margin-top: 0;
-      font-size: 27px;
     }
 
-    .content-box h3 {
-      margin-top: 25px;
-      margin-bottom: 7px;
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
     }
 
-    .content-box p,
-    .content-box li {
-      color: #5f687a;
+    .tool {
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
     }
 
-   
+    .tool h3 {
+      margin-top: 0;
+    }
+
+    .button {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .button:hover {
+      background: #1d4ed8;
+    }
+
+    footer {
+      background: #111827;
+      color: #d1d5db;
+      text-align: center;
+      padding: 35px 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 700px) {
+      .nav-container {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-container">
+
+    <a class="logo" href="index.html">FreeLifeTools</a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="paycheck.html">Paycheck</a>
+      <a href="money.html">Money</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="ai.html">AI</a>
+      <a href="life.html">Life</a>
+      <a href="credit-builder.html">Credit Builder</a>
+      <a href="pro.html">Pro</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<section class="hero">
+  <h1>About FreeLifeTools</h1>
+
+  <p>
+    Free tools for money, jobs, AI and everyday life.
+  </p>
+</section>
+
+
+<main>
+
+  <section class="card">
+
+    <h2>Why FreeLifeTools Exists</h2>
+
+    <p>
+      FreeLifeTools was created to make useful everyday tools easier to
+      access. Managing money, looking for work and organizing everyday
+      responsibilities can be complicated. Our goal is to make those tasks
+      simpler with practical tools that are easy to understand and use.
+    </p>
+
+    <p>
+      Instead of requiring complicated spreadsheets or expensive software,
+      FreeLifeTools brings helpful calculators, planners and resources
+      together in one place.
+    </p>
+
+  </section>
+
+
+  <section class="card">
+
+    <h2>What You Can Find Here</h2>
+
+    <div class="tools">
+
+      <div class="tool">
+        <h3>💵 Money Tools</h3>
+        <p>
+          Estimate paychecks, build a budget, plan debt payments and check
+          rent affordability.
+        </p>
+      </div>
+
+      <div class="tool">
+        <h3>💼 Job Tools</h3>
+        <p>
+          Get help preparing resumes, interviews and other parts of your
+          job search.
+        </p>
+      </div>
+
+      <div class="tool">
+        <h3>🤖 AI Tools</h3>
+        <p>
+          Use simple AI resources to help with writing, ideas and everyday
+          tasks.
+        </p>
+      </div>
+
+      <div class="tool">
+        <h3>🏠 Life Tools</h3>
+        <p>
+          Find resources for groceries, household planning, credit and
+          other everyday needs.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="card">
+
+    <h2>Our Goal</h2>
+
+    <p>
+      Our goal is to continue building useful tools that solve real
+      everyday problems. We focus on keeping the website simple,
+      mobile-friendly and easy to navigate.
+    </p>
+
+    <p>
+      FreeLifeTools provides general informational and educational
+      resources. Information on this website should not be considered
+      professional financial, legal, tax or credit advice.
+    </p>
+
+    <a class="button" href="index.html">
+      Explore Free Tools
+    </a>
+
+  </section>
+
+
+  <section class="card">
+
+    <h2>Questions or Feedback?</h2>
+
+    <p>
+      If you have a question, notice a problem with one of our tools or
+      have an idea for a resource you would like to see, visit our contact
+      page.
+    </p>
+
+    <a class="button" href="contact.html">
+      Contact FreeLifeTools
+    </a>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+
+  <p>Free tools for money, jobs, AI and everyday life.</p>
+
+  <p>© 2026 FreeLifeTools. All rights reserved.</p>
+
+</footer>
+
+</body>
+</html>
